@@ -1,0 +1,60 @@
+@import "./utils.scss";
+
+$duration: 60s;
+$duration-touch: 20s;
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  will-change: transform;
+
+  .marqueeGroup {
+    min-width: 100vw;
+
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    animation-name: scroll;
+    animation-duration: $duration;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+    animation-direction: normal;
+
+    @include devicesMax(mobile) {
+      animation-duration: $duration-touch;
+    }
+
+    &.animate {
+      animation-play-state: running;
+    }
+
+    &.reversed {
+      animation-direction: reverse;
+    }
+
+    .mInner {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeGroup {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-100%));
+  }
+}

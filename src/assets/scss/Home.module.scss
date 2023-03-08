@@ -1,0 +1,133 @@
+@import "./utils.scss";
+
+.home {
+  .hero {
+    @include dims(100%, 100vh);
+    overflow: hidden;
+    position: relative;
+
+    background-image: url(../img/banner.png);
+    background-position: bottom;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+    @include devicesMax(tablet) {
+      background-image: url(../img/banner-touch.png);
+    }
+
+    @include devicesMax(mobile) {
+      background-size: 120%;
+      background-position: bottom right;
+    }
+    .logoWrapper {
+      @include dims(10vw, auto);
+      margin: 2vw 3vw;
+
+      @include devicesMax(tablet) {
+        @include dims(20vw, auto);
+        margin: 4vw;
+      }
+
+      @include devicesMax(mobile) {
+        @include dims(30vw, auto);
+      }
+
+      .logo {
+        @include dims(100%);
+        object-fit: contain;
+      }
+    }
+
+    .marqueeWrapper {
+      @include position(absolute, auto, 0, 0, 0);
+      background: linear-gradient(0deg, #000, rgb(255, 255, 255, 0));
+    }
+
+    .textWrapper {
+      margin: 10vw 0 0 3vw;
+      width: 35vw;
+
+      @include devicesMax(tablet) {
+        margin: 12vw 0 0 4vw;
+      }
+
+      .text {
+        color: #c1c1c1;
+        font-size: 2vw;
+        font-family: Lychee;
+        font-weight: 400;
+        margin-bottom: 5vw;
+
+        @include devicesMax(tablet) {
+          margin-bottom: 7vw;
+          font-size: 4vw;
+          width: 60vw;
+        }
+
+        @include devicesMax(mobile) {
+          font-size: 6.5vw;
+          margin-bottom: 12vw;
+          width: 75vw;
+        }
+
+        .inner {
+          color: #ce1953;
+          font-family: LaicaBItalic;
+        }
+      }
+
+      .contactBtn {
+        @include dims(24vw, 4vw);
+        color: #c1c1c1;
+        font-family: LS-VG5000;
+        font-size: 1.75vw;
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include devicesMax(tablet) {
+          @include dims(44vw, 8vw);
+          font-size: 3.25vw;
+        }
+
+        @include devicesMax(mobile) {
+          @include dims(50vw, 10vw);
+          font-size: 5vw;
+        }
+
+        &::after {
+          content: "";
+          @include position(absolute, 100%, auto, auto, 0);
+          @include dims(50%, 2px);
+          background: #ce1953;
+        }
+
+        &::before {
+          content: "";
+          @include position(absolute, 105%, 0, auto, auto);
+          @include dims(50%, 2px);
+          background: #ce1953;
+          transition: 0.2s all ease;
+        }
+
+        @include devicesMin(aboveTablet) {
+          &:hover {
+            &::before {
+              @include position(absolute, 100%, 0, auto, auto);
+            }
+          }
+        }
+
+        .iconWrapper {
+          @include dims(1.25rem, auto);
+
+          @include devicesMax(mobile) {
+            @include dims(0.75rem, auto);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,202 @@
+@mixin dims($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// @mixin font-size($font-size, $line-height: normal, $letter-spacing: normal) {
+//   font-size: $font-size * 1px;
+//   // font-size: $font-size * 0.1rem;
+//   // example using rem values and 62.5% font-size so 1rem = 10px
+
+//   @if $line-height==normal {
+//     line-height: normal;
+//   } @else {
+//     line-height: $line-height / $font-size;
+//   }
+
+//   @if $letter-spacing==normal {
+//     letter-spacing: normal;
+//   } @else {
+//     letter-spacing: #{$letter-spacing / $font-size}em;
+//   }
+// }
+
+@mixin position($position, $top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin devicesMax($breakpoint) {
+  @if $breakpoint == desktop {
+    @media only screen and (max-width: 1440px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == widescreen {
+    @media only screen and (max-width: 1680px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: 1024px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tabletMini {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 640px) {
+      @content;
+    }
+  }
+}
+
+@mixin devicesMin($breakpoint) {
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 1680px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == aboveTablet {
+    @media only screen and (min-width: 1025px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet {
+    @media only screen and (min-width: 1024px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (min-width: 640px) {
+      @content;
+    }
+  }
+}
+
+// z-index
+$z-indexes: (
+  "preloader-green",
+  "preloader",
+  "modalClose",
+  "modalContent",
+  "modalBackdrop",
+  "modal",
+  "cookiePopup",
+  "hamburger",
+  "menu",
+  "menuDummy",
+  "stickyEl",
+  "logo",
+  "main",
+  "footerOverlay",
+  "footer"
+);
+
+@function z-index($name) {
+  @if index($z-indexes, $name) {
+    @return ((length($z-indexes) - index($z-indexes, $name)) * 1000) + 100;
+  } @else {
+    @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+    @return null;
+  }
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.cursorPointer {
+  cursor: pointer;
+
+  * {
+    cursor: pointer;
+  }
+}
+
+.absoluteCenter {
+  @include position(absolute, 50%, auto, auto, 50%);
+  transform: translate(-50%, -50%);
+}
+
+.absoluteStretch {
+  @include position(absolute, 0, 0, 0, 0);
+  @include dims(100%);
+}
+
+.flexCenterX {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flexStart {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.flexStartX {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flexEndX {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.flexCenterY {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.flexStartY {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.flexEndY {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.flexBetweenX {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flexBetweenY {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
