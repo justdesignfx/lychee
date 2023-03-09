@@ -1,0 +1,22 @@
+@import "./utils.scss";
+
+@mixin outline($color) {
+  $width: 2px;
+  outline: $width dashed $color;
+  outline-offset: -$width;
+}
+
+.horizontalScroll {
+  @include dims(100vw, 100vh);
+  overflow: hidden;
+
+  display: flex;
+  flex-wrap: nowrap;
+
+  @include devicesMax(tablet) {
+    @include dims(100vw, auto);
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+}

@@ -1,0 +1,97 @@
+// LS_VG_5000
+@font-face {
+  font-family: "LS-VG5000";
+  src: url("./fontfiles/LS-VG5000-Bold.woff2") format("woff2"), url("./fontfiles/LS-VG5000-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LS-VG5000";
+  src: url("./fontfiles/LS-VG5000-Regular.woff2") format("woff2"),
+    url("./fontfiles/LS-VG5000-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LS-VG5000";
+  src: url("./fontfiles/LS-VG5000-Light.woff2") format("woff2"), url("./fontfiles/LS-VG5000-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+// LS_VG_5000 Shifted
+@font-face {
+  font-family: "LS-VG5000-Shifted";
+  src: url("./fontfiles/LS-VG5000-BoldShifted.woff2") format("woff2"),
+    url("./fontfiles/LS-VG5000-BoldShifted.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LS-VG5000-Shifted";
+  src: url("./fontfiles/LS-VG5000-RegularShifted.woff2") format("woff2"),
+    url("./fontfiles/LS-VG5000-RegularShifted.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LS-VG5000-Shifted";
+  src: url("./fontfiles/LS-VG5000-LightShifted.woff2") format("woff2"),
+    url("./fontfiles/LS-VG5000-LightShifted.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Lychee Italic
+@font-face {
+  font-family: "LycheeItalic";
+  src: url("./fontfiles/LycheeItalic.woff2") format("woff2"), url("./fontfiles/LycheeItalic.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LycheeItalic";
+  src: url("./fontfiles/LycheeBoldItalic.woff2") format("woff2"),
+    url("./fontfiles/LycheeBoldItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+//Lychees
+@font-face {
+  font-family: "Lychee";
+  src: url("./fontfiles/LS-VG5000-Regular.woff") format("woff2"), url("./fontfiles/LycheeRegular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lychee";
+  src: url("./fontfiles/LycheeBold.woff2") format("woff2"), url("./fontfiles/LycheeBold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Laica B
+@font-face {
+  font-family: "LaicaBItalic";
+  src: url("./fontfiles/LaicaB-Italic.woff2") format("woff2"), url("./fontfiles/LaicaB-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

@@ -11,12 +11,15 @@
   "dependencies": {
     "@types/node": "^18.14.6",
     "classnames": "^2.3.2",
+    "gsap": "^3.11.4",
     "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^1.3.0",
+    "react-resize-detector": "^8.0.4",
     "react-router": "^6.8.2",
     "react-router-dom": "^6.8.2",
+    "smooth-scrollbar": "^8.8.1",
     "vite-tsconfig-paths": "^4.0.5"
   },
   "devDependencies": {
