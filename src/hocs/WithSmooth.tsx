@@ -7,7 +7,8 @@ import { useWindowSize } from "~/hooks"
 import { useResizeDetector } from "react-resize-detector"
 
 import { breakpoints } from "~/variables"
-import { slidingPanels } from "~/anims/slidingPanels"
+import { slidingPanels } from "~/animations/slidingPanels"
+import Menu from "~/components/Menu"
 
 export const SmoothContext = React.createContext<any>(null)
 
@@ -459,6 +460,7 @@ const WithSmooth = ({ children, location }: Props) => {
       <div ref={scrollerRef}>
         <div ref={contentRef}>{children}</div>
       </div>
+      <Menu />
     </SmoothContext.Provider>
   )
 }

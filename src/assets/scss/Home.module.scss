@@ -188,23 +188,43 @@
   }
 
   .marqueeC {
-    @include dims(auto, 40vw);
     overflow-x: hidden;
 
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
 
     .transformC {
       transform: rotate(8deg);
       padding: 5vw 0;
+      z-index: 10;
+
+      &:nth-child(2) {
+        margin-top: -20vw;
+        z-index: 5;
+
+        .mText {
+          color: #131317;
+        }
+      }
 
       .mText {
         flex-shrink: 0;
-        font-family: "Lychee";
-        font-weight: 400;
-        font-size: 5vw;
+        font-family: Lychee;
+        font-weight: 700;
+        font-size: 10vw;
         color: #c1c1c1;
+
+        display: flex;
+        align-items: center;
+
+        .seperator {
+          @include dims(200px, 10px);
+          background: #c1c1c1;
+          display: inline-block;
+          margin: 2vw 3vw 0 3vw;
+        }
       }
     }
   }
@@ -219,11 +239,23 @@
       text-align: center;
 
       .title {
-        font-size: 4vw;
+        color: #c1c1c1;
+        font-family: Lychee;
+        font-size: 4.75vw;
+        line-height: 130%;
+        margin-bottom: 2.5vw;
+
+        .italic {
+          color: #ce1953;
+          font-family: LaicaBItalic;
+        }
       }
 
       .text {
+        color: #c1c1c1;
+        font-family: Lychee;
         font-size: 2vw;
+        line-height: 150%;
       }
     }
 
@@ -232,7 +264,7 @@
       grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
       grid-gap: 2.5rem;
 
-      padding: 0 4vw;
+      padding: 10vw 4vw 0 4vw;
 
       .gridItemC {
         padding: 1rem;
@@ -266,8 +298,19 @@
     }
 
     .lookUp {
-      text-align: center;
       color: #c1c1c1;
+      margin: 5vw 0;
+      text-align: center;
+
+      font-family: Lychee;
+      font-size: 1.25vw;
+      line-height: 150%;
+
+      .link {
+        color: #ce1953;
+        font-family: LS-VG5000;
+        text-decoration: underline;
+      }
     }
   }
 
@@ -288,6 +331,7 @@
 
       .titleC {
         font-size: 2vw;
+        color: #fff;
       }
 
       .imgC {

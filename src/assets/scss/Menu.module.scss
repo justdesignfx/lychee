@@ -1,0 +1,37 @@
+@import "./utils.scss";
+
+.menu {
+  @include position(fixed, 2vw, 2vw, auto, auto);
+
+  .hamburger {
+    @include dims(7vw, 3vw);
+    background: #d11a54;
+    border-radius: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .lineC {
+      @include dims(20%, 4px);
+      margin-bottom: 10px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .line {
+        @include dims(100%);
+        background: #fff;
+        display: block;
+      }
+
+      &:nth-child(2) {
+        .line {
+          transform: translateY(100%);
+        }
+      }
+    }
+  }
+}

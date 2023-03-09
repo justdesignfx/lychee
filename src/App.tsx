@@ -1,6 +1,7 @@
 import gsap from "gsap"
 import { useEffect, useState } from "react"
 import { Route, Routes, useLocation } from "react-router"
+import Footer from "./components/Footer"
 import Header from "./components/Header"
 import { WithSmooth } from "./hocs/WithSmooth"
 import { useWindowSize } from "./hooks"
@@ -43,6 +44,7 @@ function App() {
         <Routes>
           <Route index element={<Home />}></Route>
         </Routes>
+        <Footer></Footer>
       </div>
     </WithSmooth>
   )
