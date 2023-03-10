@@ -1,6 +1,7 @@
 import s from "~/assets/scss/Home.module.scss"
 
 import cx from "classnames"
+import { Link } from "react-router-dom"
 
 import instax from "~/assets/img/instax.png"
 import portal from "~/assets/img/portal.svg"
@@ -19,7 +20,6 @@ import logoNike from "~/assets/img/logo-nike.svg"
 import logoPhilips from "~/assets/img/logo-philips.svg"
 import logoStarbucks from "~/assets/img/logo-starbucks.svg"
 
-import { Link } from "react-router-dom"
 import MarqueeSimple from "~/components/MarqueeSimple"
 
 const Home = () => {
@@ -153,7 +153,9 @@ const Home = () => {
       <section className={s.stats} data-sliding-panels>
         <div className={s.topC}>
           <div className={s.titleC}>
-            <h3 className={s.title}>Biraz rakamlardan bahsedelim.</h3>
+            <h3 className={s.title}>
+              Biraz <span className={s.italic}>rakamlardan</span> <br /> bahsedelim.
+            </h3>
             <h4 className={s.text}>Sürekli hareket halindeki dijital dünya için, kreatif sonuçlar elde ediyoruz.</h4>
           </div>
           <div className={s.imgC}>
@@ -162,17 +164,33 @@ const Home = () => {
         </div>
         <div className={cx(s.oWrapper, s.blue)} data-sliding-panel>
           <div className={cx(s.screen, s.blue)}>
-            <h1 className={s.stat}>LOL</h1>
+            <div className={cx(s.statC, s.blue)}>
+              <h1 className={s.statText}>
+                60 <span className={s.million}>milyon</span> <span className={s.asterisk}>*</span>
+              </h1>
+              <p className={s.desc}>Organik görüntülenme sağlandı.</p>
+            </div>
           </div>
         </div>
         <div className={cx(s.oWrapper, s.pink)} data-sliding-panel>
           <div className={cx(s.screen, s.pink)}>
-            <h1 className={s.stat}>LOL</h1>
+            <div className={cx(s.statC, s.pink)}>
+              <h1 className={s.statText}>
+                7000<span className={s.asterisk}>*</span>
+              </h1>
+              <p className={s.desc}>Özgün içerik üretildi.</p>
+            </div>
           </div>
         </div>
         <div className={cx(s.oWrapper, s.black)} data-sliding-panel>
           <div className={cx(s.screen, s.black)}>
-            <h1 className={s.stat}>LOL</h1>
+            <div className={cx(s.statC, s.black)}>
+              <h1 className={s.statText}>
+                20,25<span className={s.percent}>%</span>
+                <span className={s.asterisk}>*</span>
+              </h1>
+              <p className={s.desc}>Ortalama görüntüleme başına takipçi sayısı artışı.</p>
+            </div>
           </div>
         </div>
       </section>

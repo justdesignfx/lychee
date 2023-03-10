@@ -401,11 +401,29 @@
       justify-content: space-between;
       z-index: 200;
 
-      padding: 10vw 5vw;
+      padding: 8vw 10vw 0 6vw;
 
       .titleC {
-        font-size: 2vw;
-        color: #fff;
+        color: #f2e6cc;
+
+        .title {
+          font-family: Lychee;
+          font-size: 3.75vw;
+          line-height: 120%;
+          margin-bottom: 2vw;
+
+          .italic {
+            font-family: LaicaB;
+            font-style: italic;
+          }
+        }
+
+        .text {
+          @include dims(25vw, auto);
+          font-family: Lychee;
+          font-size: 1.25vw;
+          line-height: 140%;
+        }
       }
 
       .imgC {
@@ -441,34 +459,70 @@
       .screen {
         @include dims(100vw, 100vh);
 
-        // &.blue {
-        //   background: #2d00f5;
-        //   z-index: 110;
-        // }
-
-        // &.pink {
-        //   background: #ce1953;
-        //   z-index: 105;
-        // }
-
-        // &.black {
-        //   background: #16161c;
-        //   z-index: 100;
-        // }
-
         display: flex;
         align-items: center;
         justify-content: center;
 
-        .stat {
-          font-size: 10vw;
-          color: #fff;
+        .statC {
+          margin-top: 20vw;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          justify-content: center;
+
+          &.blue {
+            margin-right: 10vw;
+          }
+
+          &.pink {
+            background: #ce1953;
+            z-index: 105;
+          }
+
+          &.black {
+            background: #16161c;
+            z-index: 100;
+          }
+
+          .statText {
+            color: #fff;
+            font-family: LS-VG5000-Shifted;
+            font-size: 12vw;
+            margin-bottom: 2vw;
+            position: relative;
+
+            .asterisk {
+              @include position(absolute, 0, 0, auto, auto);
+              display: inline-block;
+              font-size: 4.5vw;
+              transform: translate(100%, 0);
+            }
+
+            .million {
+              font-size: 8vw;
+            }
+
+            .percent {
+              font-family: Lychee;
+              font-size: 5vw;
+              transform: translate(100%, 0);
+            }
+          }
+
+          .desc {
+            @include dims(30vw, auto);
+            font-size: 2.5vw;
+            color: #fff;
+            font-family: Lychee;
+            text-align: right;
+          }
         }
       }
     }
   }
 
   .references {
+    margin-top: 10vw;
     .titleC {
       margin: 0 auto 10vw auto;
       text-align: center;
