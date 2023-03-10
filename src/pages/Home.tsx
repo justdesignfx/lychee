@@ -1,25 +1,25 @@
-import React from "react"
 import s from "~/assets/scss/Home.module.scss"
 
 import cx from "classnames"
 
-import reels from "~/assets/img/reels.png"
-import smartPhone from "~/assets/img/smartphone.svg"
+import instax from "~/assets/img/instax.png"
 import portal from "~/assets/img/portal.svg"
+import reels from "~/assets/img/reels.png"
+import digitalTalentAgency from "~/assets/img/digital-talent-agency.png"
+import smartPhone from "~/assets/img/smartphone.svg"
 
-import logoDisney from "~/assets/img/logo-disney.svg"
-import logoEsteeLauder from "~/assets/img/logo-estee-lauder.svg"
-import logoPhilips from "~/assets/img/logo-philips.svg"
-import logoDyson from "~/assets/img/logo-dyson.svg"
-import logoStarbucks from "~/assets/img/logo-starbucks.svg"
 import logoAdidas from "~/assets/img/logo-adidas.svg"
+import logoDisney from "~/assets/img/logo-disney.svg"
+import logoDyson from "~/assets/img/logo-dyson.svg"
+import logoEsteeLauder from "~/assets/img/logo-estee-lauder.svg"
 import logoLoreal from "~/assets/img/logo-loreal.svg"
-import logoNike from "~/assets/img/logo-nike.svg"
 import logoNestle from "~/assets/img/logo-nestle.svg"
+import logoNike from "~/assets/img/logo-nike.svg"
+import logoPhilips from "~/assets/img/logo-philips.svg"
+import logoStarbucks from "~/assets/img/logo-starbucks.svg"
 
-import MarqueeSimple from "~/components/MarqueeSimple"
-import HorizontalScroll from "~/components/HorizontalScroll"
 import { Link } from "react-router-dom"
+import MarqueeSimple from "~/components/MarqueeSimple"
 
 const Home = () => {
   const hScrollText = "Yeni medya platformlarında kreatif içerikler üretiyoruz."
@@ -70,6 +70,15 @@ const Home = () => {
             )
           })}
           <div className={s.reels}>
+            <Link to="/contact" className={s.button}>
+              Kampanyanı Oluştur
+            </Link>
+            <div className={s.instaxC}>
+              <img className={s.img} src={instax} alt="Influencer Reels" />
+            </div>
+            <div className={s.agencyC}>
+              <img className={s.img} src={digitalTalentAgency} alt="Influencer Reels" />
+            </div>
             <div className={s.imgC}>
               <img className={s.img} src={reels} alt="Influencer Reels" />
             </div>
@@ -153,33 +162,39 @@ const Home = () => {
             Yeni çağ üretici endüstrisini şekillendiren, <br /> global markalar ve firmalarla çalışıyoruz.
           </p>
         </div>
-        <div className={s.logoGrid}>
-          <div className={s.logoC}>
-            <img className={s.img} src={logoDisney} alt="Company Logo" />
-          </div>
-          <div className={s.logoC}>
-            <img className={s.img} src={logoAdidas} alt="Company Logo" />
-          </div>
-          <div className={s.logoC}>
-            <img className={s.img} src={logoDyson} alt="Company Logo" />
-          </div>
-          <div className={s.logoC}>
-            <img className={s.img} src={logoEsteeLauder} alt="Company Logo" />
-          </div>
-          <div className={s.logoC}>
-            <img className={s.img} src={logoLoreal} alt="Company Logo" />
-          </div>
-          <div className={s.logoC}>
-            <img className={s.img} src={logoNestle} alt="Company Logo" />
-          </div>
-          <div className={s.logoC}>
-            <img className={s.img} src={logoNike} alt="Company Logo" />
-          </div>
-          <div className={s.logoC}>
-            <img className={s.img} src={logoPhilips} alt="Company Logo" />
-          </div>
-          <div className={s.logoC}>
-            <img className={s.img} src={logoStarbucks} alt="Company Logo" />
+        <div className={s.oHiddenC}>
+          <div className={s.logoGrid}>
+            <div className={s.row}>
+              <div className={cx(s.logoC, s.logoDisney)}>
+                <img className={s.img} src={logoDisney} alt="Company Logo" />
+              </div>
+              <div className={cx(s.logoC, s.logoAdidas)}>
+                <img className={s.img} src={logoAdidas} alt="Company Logo" />
+              </div>
+              <div className={cx(s.logoC, s.logoPhilips)}>
+                <img className={s.img} src={logoPhilips} alt="Company Logo" />
+              </div>
+              <div className={cx(s.logoC, s.logoNike)}>
+                <img className={s.img} src={logoNike} alt="Company Logo" />
+              </div>
+              <div className={cx(s.logoC, s.logoNestle)}>
+                <img className={s.img} src={logoNestle} alt="Company Logo" />
+              </div>
+              <div className={cx(s.logoC, s.logoEsteeLauder)}>
+                <img className={s.img} src={logoEsteeLauder} alt="Company Logo" />
+              </div>
+            </div>
+            <div className={s.row}>
+              <div className={cx(s.logoC, s.logoLoreal)}>
+                <img className={s.img} src={logoLoreal} alt="Company Logo" />
+              </div>
+              <div className={cx(s.logoC, s.logoDyson)}>
+                <img className={s.img} src={logoDyson} alt="Company Logo" />
+              </div>
+              <div className={cx(s.logoC, s.logoStarbucks)}>
+                <img className={s.img} src={logoStarbucks} alt="Company Logo" />
+              </div>
+            </div>
           </div>
         </div>
       </section>

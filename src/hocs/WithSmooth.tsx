@@ -242,7 +242,9 @@ const WithSmooth = ({ children, location }: Props) => {
           horizontalScroll(gsap, q)
         }
 
-        slidingPanels(gsap, q)
+        if (q("[data-sliding-panels]").length > 0) {
+          slidingPanels(gsap, q)
+        }
 
         // REVEAL WRAPPER
         // if (q("[data-reveal]").length > 0 && windowSize.width > breakpoints.tablet) {

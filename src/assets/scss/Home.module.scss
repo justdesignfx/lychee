@@ -8,8 +8,8 @@
     overflow: hidden;
     position: relative;
 
-    outline: 2px solid blue;
-    outline-offset: -2px;
+    // outline: 2px solid blue;
+    // outline-offset: -2px;
 
     background-image: url(../img/banner.jpg);
     background-position: center;
@@ -163,11 +163,53 @@
 
     .reels {
       @include dims(auto, 100vh);
-      padding: 0 10vw;
+      margin: 0 15vw 0 25vw;
+      position: relative;
 
       display: flex;
       align-items: center;
       justify-content: center;
+
+      .button {
+        @include position(absolute, 30vw, auto, auto, -15vw);
+        @include dims(20vw, 4vw);
+        background: #131317;
+        border: 2px solid #ce1953;
+        border-radius: 32px;
+        color: #c1c1c1;
+        display: block;
+        font-family: LS-VG5000;
+        font-size: 1.5vw;
+        line-height: 80%;
+        margin-bottom: 2.5vw;
+
+        display: grid;
+        place-items: center;
+      }
+
+      .instaxC {
+        @include position(absolute, 15vw, auto, auto, -10vw);
+        @include dims(7vw, auto);
+        transform: rotate(-14deg);
+
+        .img {
+          @include dims(100%);
+          display: block;
+          object-fit: contain;
+        }
+      }
+
+      .agencyC {
+        @include position(absolute, 35vw, auto, auto, 15vw);
+        @include dims(20vw, auto);
+        transform: rotate(-18deg);
+
+        .img {
+          @include dims(100%);
+          display: block;
+          object-fit: contain;
+        }
+      }
 
       .imgC {
         @include dims(25vw, auto);
@@ -176,7 +218,6 @@
           @include dims(100%);
           display: block;
           object-fit: contain;
-          transform: rotateY(-16deg) rotateX(24deg);
         }
       }
     }
@@ -427,13 +468,27 @@
     }
 
     .logoGrid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(14vw, 1fr));
-      grid-gap: 2.5rem;
+      overflow: hidden;
+      padding: 5vw 0;
+
+      .row {
+        margin-bottom: 2vw;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2vw;
+
+        &:last-child() {
+          margin-bottom: 0;
+        }
+      }
 
       .logoC {
+        @include dims(15vw);
         border: 1px solid #ce1953;
         border-radius: 50%;
+        flex-shrink: 0;
 
         padding: 1rem;
         position: relative;
@@ -443,6 +498,42 @@
           content: "";
           display: block;
           padding-bottom: 100%;
+        }
+
+        &.logoDisney {
+          transform: translate(-2vw, 0);
+        }
+
+        &.logoAdidas {
+          transform: translate(-2vw, -5vw);
+        }
+
+        &.logoPhilips {
+          transform: translate(0, -2vw);
+        }
+
+        &.logoNike {
+          transform: translate(3vw, 0);
+        }
+
+        &.logoNestle {
+          transform: translate(4vw, 5vw);
+        }
+
+        &.logoEsteeLauder {
+          transform: translate(2vw, -5vw);
+        }
+
+        &.logoLoreal {
+          transform: translate(-3vw, -6vw);
+        }
+
+        &.logoDyson {
+          transform: translate(0, -4vw);
+        }
+
+        &.logoStarbucks {
+          transform: translate(0, 0);
         }
 
         .img {
@@ -490,19 +581,16 @@
         color: #c1c1c1;
         font-family: Lychee;
         font-size: 4vw;
-        line-height: 50%;
+        line-height: 60%;
         margin-bottom: 2.5vw;
 
         .italic {
           font-family: LaicaBItalic;
         }
-      }
 
-      .text {
-        color: #c1c1c1;
-        font-family: Lychee;
-        font-size: 2vw;
-        line-height: 150%;
+        &:nth-child(1) {
+          font-size: 4.5vw;
+        }
       }
     }
 
@@ -513,8 +601,8 @@
 
       .button {
         @include dims(20vw, 4vw);
-        border: 1px solid #ce1953;
-        border-radius: 32px;
+        border: 2px solid #ce1953;
+        border-radius: 36px;
         color: #c1c1c1;
         display: block;
         font-family: LS-VG5000;
