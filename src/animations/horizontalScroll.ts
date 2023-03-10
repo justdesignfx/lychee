@@ -4,6 +4,8 @@ export function horizontalScroll(gsap: any, q: any) {
   // HORIZONTAL SCROLL
   console.log("HORIZONTAL SCROLL INITIALIZED")
 
+  const scrollLength = 5000
+
   const container = q("[data-h-scroll]")[0]
 
   const horizontalScroll = gsap.to(q("[data-h-scroll-section]"), {
@@ -15,7 +17,7 @@ export function horizontalScroll(gsap: any, q: any) {
       pin: true,
       scrub: true,
       start: "center center",
-      end: "bottom top",
+      end: `bottom+=${scrollLength}px top`,
       // markers: true,
     },
   })
@@ -24,7 +26,7 @@ export function horizontalScroll(gsap: any, q: any) {
 
   letters.forEach((letter: any, i: number) => {
     gsap.set(letter, {
-      y: () => `${20 + 20 * i}px`,
+      y: () => `${7 * i}px`,
       rotation: i * 0.25,
       opacity: 1 - i * 0.1,
     })
@@ -37,7 +39,7 @@ export function horizontalScroll(gsap: any, q: any) {
       y: 0,
       rotation: 0,
       opacity: 1,
-      delay: -0.4,
+      delay: -0.45,
     })
 
     // tl.to(letter, {
@@ -51,5 +53,6 @@ export function horizontalScroll(gsap: any, q: any) {
     markers: true,
     scrub: true,
     start: "top top",
+    end: `bottom+=${scrollLength - 500}px top`,
   })
 }
