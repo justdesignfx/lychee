@@ -9,6 +9,7 @@ import { useResizeDetector } from "react-resize-detector"
 import { breakpoints } from "~/variables"
 import { slidingPanels } from "~/animations/slidingPanels"
 import Menu from "~/components/Menu"
+import { horizontalScroll } from "~/animations/horizontalScroll"
 
 export const SmoothContext = React.createContext<any>(null)
 
@@ -144,25 +145,25 @@ const WithSmooth = ({ children, location }: Props) => {
     const initAnimations = (smoothInstance?: Scrollbar | null) => {
       ctx1 = gsap.context(() => {
         // PARALLAX ITEMS
-        if (q("[data-parallax]").length > 0) {
-          console.log("PARALLAX ITEMS INITIALIZED")
+        // if (q("[data-parallax]").length > 0) {
+        //   console.log("PARALLAX ITEMS INITIALIZED")
 
-          if (windowSize.width >= breakpoints.tablet) {
-            const parallaxItems = q("[data-parallax]")
+        //   if (windowSize.width >= breakpoints.tablet) {
+        //     const parallaxItems = q("[data-parallax]")
 
-            parallaxItems.forEach((item: any) => {
-              gsap.to(item, {
-                yPercent: () => 100 * parseFloat(item.dataset.speedY) * parseFloat(item.dataset.directionY),
-                xPercent: () => 100 * parseFloat(item.dataset.speedX) * parseFloat(item.dataset.directionX),
-                scrollTrigger: {
-                  trigger: item,
-                  scrub: 1,
-                  // markers: true,
-                },
-              })
-            })
-          }
-        }
+        //     parallaxItems.forEach((item: any) => {
+        //       gsap.to(item, {
+        //         yPercent: () => 100 * parseFloat(item.dataset.speedY) * parseFloat(item.dataset.directionY),
+        //         xPercent: () => 100 * parseFloat(item.dataset.speedX) * parseFloat(item.dataset.directionX),
+        //         scrollTrigger: {
+        //           trigger: item,
+        //           scrub: 1,
+        //           // markers: true,
+        //         },
+        //       })
+        //     })
+        //   }
+        // }
 
         // MARQUEE
         if (q("[data-marquee]").length > 0) {
@@ -237,130 +238,97 @@ const WithSmooth = ({ children, location }: Props) => {
         //   })
         // }
 
-        // HORIZONTAL SCROLL
         if (q("[data-h-scroll]").length > 0 && windowSize.width > breakpoints.tablet) {
-          console.log("HORIZONTAL SCROLL INITIALIZED")
-
-          const container = q("[data-h-scroll]")[0]
-
-          const horizontalScroll = gsap.to(q("[data-h-scroll-section]"), {
-            x: window.innerWidth,
-            xPercent: -100,
-            ease: "none", // <-- IMPORTANT!
-            scrollTrigger: {
-              trigger: container,
-              pin: true,
-              scrub: true,
-              //snap: directionalSnap(1 / (sections.length - 1)),
-              markers: true,
-            },
-          })
-
-          // const letters = q("[data-letter]")
-
-          // letters.forEach((letter, i) => {
-          //   gsap.to(letter, {
-          //     yPercent: 100 * (i + 1),
-          //   })
-          // })
-
-          // letters.forEach((letter, i) => {
-          //   gsap.to(letter, {
-          //     yPercent: 0,
-          //     scrollTrigger: {
-          //       trigger: container,
-          //     },
-          //   })
-          // })
+          horizontalScroll(gsap, q)
         }
 
         slidingPanels(gsap, q)
 
         // REVEAL WRAPPER
-        if (q("[data-reveal]").length > 0 && windowSize.width > breakpoints.tablet) {
-          console.log("DATA REVEAL INITIALIZED")
+        // if (q("[data-reveal]").length > 0 && windowSize.width > breakpoints.tablet) {
+        //   console.log("DATA REVEAL INITIALIZED")
 
-          const height = document.querySelector("[data-reveal]")?.clientHeight
+        //   const height = document.querySelector("[data-reveal]")?.clientHeight
 
-          gsap.set(q("[data-reveal]"), {
-            yPercent: -50,
-          })
+        //   gsap.set(q("[data-reveal]"), {
+        //     yPercent: -50,
+        //   })
 
-          gsap.set(q("[data-overlay]"), {
-            opacity: 1,
-          })
+        //   gsap.set(q("[data-overlay]"), {
+        //     opacity: 1,
+        //   })
 
-          gsap.to(q("[data-reveal]"), {
-            // translateZ: -100,
-            yPercent: 0,
-            ease: "none",
-            scrollTrigger: {
-              trigger: q("[data-reveal]"),
-              start: "center bottom",
-              end: () => `center bottom-=${height}`,
-              scrub: true,
-              // markers: true,
-            },
-          })
+        //   gsap.to(q("[data-reveal]"), {
+        //     // translateZ: -100,
+        //     yPercent: 0,
+        //     ease: "none",
+        //     scrollTrigger: {
+        //       trigger: q("[data-reveal]"),
+        //       start: "center bottom",
+        //       end: () => `center bottom-=${height}`,
+        //       scrub: true,
+        //       // markers: true,
+        //     },
+        //   })
 
-          gsap.to(q("[data-overlay]"), {
-            // translateZ: -100,
-            opacity: 0,
-            ease: "none",
-            scrollTrigger: {
-              trigger: q("[data-reveal]"),
-              start: "center bottom",
-              end: () => `center bottom-=${height}`,
-              scrub: true,
-              // onEnter: () => {
-              //   gsap.to(q("[data-overlay]"), {
-              //     pointerEvents: "auto",
-              //   })
-              // },
-              // onLeave: () => {
-              //   gsap.to(q("[data-overlay]"), {
-              //     pointerEvents: "none",
-              //   })
-              // },
-              // onEnterBack: () => {
-              //   gsap.to(q("[data-overlay]"), {
-              //     pointerEvents: "auto",
-              //   })
-              // },
-              // onLeaveBack: () => {
-              //   gsap.to(q("[data-overlay]"), {
-              //     pointerEvents: "none",
-              //   })
-              // }, // markers: true,
-            },
-          })
-        }
+        //   gsap.to(q("[data-overlay]"), {
+        //     // translateZ: -100,
+        //     opacity: 0,
+        //     ease: "none",
+        //     scrollTrigger: {
+        //       trigger: q("[data-reveal]"),
+        //       start: "center bottom",
+        //       end: () => `center bottom-=${height}`,
+        //       scrub: true,
+        //       // onEnter: () => {
+        //       //   gsap.to(q("[data-overlay]"), {
+        //       //     pointerEvents: "auto",
+        //       //   })
+        //       // },
+        //       // onLeave: () => {
+        //       //   gsap.to(q("[data-overlay]"), {
+        //       //     pointerEvents: "none",
+        //       //   })
+        //       // },
+        //       // onEnterBack: () => {
+        //       //   gsap.to(q("[data-overlay]"), {
+        //       //     pointerEvents: "auto",
+        //       //   })
+        //       // },
+        //       // onLeaveBack: () => {
+        //       //   gsap.to(q("[data-overlay]"), {
+        //       //     pointerEvents: "none",
+        //       //   })
+        //       // }, // markers: true,
+        //     },
+        //   })
+        // }
 
         // FLIPPING ITEM
-        if (q("[data-flip]").length > 0) {
-          console.log("DATA FLIP INITIALIZED")
+        // if (q("[data-flip]").length > 0) {
+        //   console.log("DATA FLIP INITIALIZED")
 
-          gsap.to(q("[data-flip]"), {
-            scrollTrigger: {
-              trigger: q("[data-flip]")[0],
-              start: "center center",
-              end: "center center",
-              // markers: true,
-              onEnter: () => {
-                gsap.to(q("[data-flip]"), {
-                  rotateX: -180,
-                  duration: 0,
-                })
-              },
-              onEnterBack: () => {
-                gsap.to(q("[data-flip]"), {
-                  rotateX: 0,
-                  duration: 0,
-                })
-              },
-            },
-          })
-        }
+        //   gsap.to(q("[data-flip]"), {
+        //     scrollTrigger: {
+        //       trigger: q("[data-flip]")[0],
+        //       start: "center center",
+        //       end: "center center",
+        //       // markers: true,
+        //       onEnter: () => {
+        //         gsap.to(q("[data-flip]"), {
+        //           rotateX: -180,
+        //           duration: 0,
+        //         })
+        //       },
+        //       onEnterBack: () => {
+        //         gsap.to(q("[data-flip]"), {
+        //           rotateX: 0,
+        //           duration: 0,
+        //         })
+        //       },
+        //     },
+        //   })
+        // }
 
         // HAMBURGER HIDE/SHOW
         const hamburger = document.querySelector("[data-hamburger-menu]")
@@ -385,43 +353,43 @@ const WithSmooth = ({ children, location }: Props) => {
         }
 
         // STICKY ELEMENT HIDE SHOW
-        const stickyOtherWorks = document.querySelector("[data-sticky-other-works]")
+        // const stickyOtherWorks = document.querySelector("[data-sticky-other-works]")
 
-        if (stickyOtherWorks) {
-          gsap.set(stickyOtherWorks, {
-            autoAlpha: 0,
-          })
+        // if (stickyOtherWorks) {
+        //   gsap.set(stickyOtherWorks, {
+        //     autoAlpha: 0,
+        //   })
 
-          ScrollTrigger.create({
-            start: `top+=${windowSize.height * 2}px bottom`,
-            end: `max-=${windowSize.height}px bottom`,
-            onEnter: () => {
-              gsap.to(stickyOtherWorks, {
-                autoAlpha: 1,
-                duration: 0.2,
-              })
-            },
-            onEnterBack: () => {
-              gsap.to(stickyOtherWorks, {
-                autoAlpha: 1,
-                duration: 0.2,
-              })
-            },
-            onLeave: () => {
-              gsap.to(stickyOtherWorks, {
-                autoAlpha: 0,
-                duration: 0.2,
-              })
-            },
-            onLeaveBack: () => {
-              gsap.to(stickyOtherWorks, {
-                autoAlpha: 0,
-                duration: 0.2,
-              })
-            },
-            // markers: true,
-          })
-        }
+        //   ScrollTrigger.create({
+        //     start: `top+=${windowSize.height * 2}px bottom`,
+        //     end: `max-=${windowSize.height}px bottom`,
+        //     onEnter: () => {
+        //       gsap.to(stickyOtherWorks, {
+        //         autoAlpha: 1,
+        //         duration: 0.2,
+        //       })
+        //     },
+        //     onEnterBack: () => {
+        //       gsap.to(stickyOtherWorks, {
+        //         autoAlpha: 1,
+        //         duration: 0.2,
+        //       })
+        //     },
+        //     onLeave: () => {
+        //       gsap.to(stickyOtherWorks, {
+        //         autoAlpha: 0,
+        //         duration: 0.2,
+        //       })
+        //     },
+        //     onLeaveBack: () => {
+        //       gsap.to(stickyOtherWorks, {
+        //         autoAlpha: 0,
+        //         duration: 0.2,
+        //       })
+        //     },
+        //     // markers: true,
+        //   })
+        // }
       })
     }
 

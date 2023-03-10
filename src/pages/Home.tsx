@@ -33,15 +33,22 @@ const Home = () => {
             hazırız.
           </h1>
 
-          <a className={s.contactBtn} href="mailto:hello@lycheedigital.co">
-            İletişime geçin
-            <span className={s.iconWrapper}>{/* <IconArrowSquare fill="#ce1953"></IconArrowSquare> */}</span>
-          </a>
+          <div className={s.buttons}>
+            <Link to="/contact" className={s.button}>
+              Markam Var
+            </Link>
+
+            <Link to="/contact" className={s.button}>
+              İçerik Üreticisiyim
+            </Link>
+          </div>
         </div>
 
-        <div className={s.marqueeWrapper}>
-          <MarqueeSimple>
-            <h2 className={s.mText}>Neler yapıyoruz?</h2>
+        <div className={s.marqueeC}>
+          <MarqueeSimple direction={-1}>
+            <h2 className={s.mText}>
+              Digital talent agency. <span className={s.seperator}></span>
+            </h2>
           </MarqueeSimple>
         </div>
       </section>
@@ -140,10 +147,10 @@ const Home = () => {
             <img className={s.img} src={portal} alt="Smartphone Doodle" />
           </div>
           <h2 className={s.title}>
-            Partneri olduğumuz <span className={s.italic}>global</span> markalar.
+            Partneri olduğumuz <br /> <span className={s.italic}>global</span> markalar.
           </h2>
           <p className={s.text}>
-            Yeni çağ üretici endüstrisini şekillendiren, global markalar ve firmalarla çalışıyoruz.
+            Yeni çağ üretici endüstrisini şekillendiren, <br /> global markalar ve firmalarla çalışıyoruz.
           </p>
         </div>
         <div className={s.logoGrid}>
@@ -151,42 +158,46 @@ const Home = () => {
             <img className={s.img} src={logoDisney} alt="Company Logo" />
           </div>
           <div className={s.logoC}>
-            <img className={s.img} src={logoDisney} alt="Company Logo" />
+            <img className={s.img} src={logoAdidas} alt="Company Logo" />
           </div>
           <div className={s.logoC}>
-            <img className={s.img} src={logoDisney} alt="Company Logo" />
+            <img className={s.img} src={logoDyson} alt="Company Logo" />
           </div>
           <div className={s.logoC}>
-            <img className={s.img} src={logoDisney} alt="Company Logo" />
+            <img className={s.img} src={logoEsteeLauder} alt="Company Logo" />
           </div>
           <div className={s.logoC}>
-            <img className={s.img} src={logoDisney} alt="Company Logo" />
+            <img className={s.img} src={logoLoreal} alt="Company Logo" />
           </div>
           <div className={s.logoC}>
-            <img className={s.img} src={logoDisney} alt="Company Logo" />
+            <img className={s.img} src={logoNestle} alt="Company Logo" />
           </div>
           <div className={s.logoC}>
-            <img className={s.img} src={logoDisney} alt="Company Logo" />
+            <img className={s.img} src={logoNike} alt="Company Logo" />
           </div>
           <div className={s.logoC}>
-            <img className={s.img} src={logoDisney} alt="Company Logo" />
+            <img className={s.img} src={logoPhilips} alt="Company Logo" />
           </div>
           <div className={s.logoC}>
-            <img className={s.img} src={logoDisney} alt="Company Logo" />
+            <img className={s.img} src={logoStarbucks} alt="Company Logo" />
           </div>
         </div>
       </section>
       <section className={s.moveOn}>
         <div className={s.titleC}>
           <h2 className={s.title}>
-            <span>İncelemeye</span> devam etmek
+            <span className={s.italic}>İncelemeye</span> devam etmek
           </h2>
           <h2 className={s.title}>ister misiniz?</h2>
         </div>
 
         <div className={s.buttons}>
-          <Link to="/partners">Partnerlerimiz</Link>
-          <Link to="/services">Hizmetlerimiz</Link>
+          <Link className={s.button} to="/partners">
+            Partnerlerimiz
+          </Link>
+          <Link className={s.button} to="/services">
+            Hizmetlerimiz
+          </Link>
         </div>
       </section>
     </main>

@@ -1,35 +1,133 @@
 @import "./utils.scss";
 
-.menu {
-  @include position(fixed, 2vw, 2vw, auto, auto);
+.menuC {
+  @include position(fixed, 0, 0, 0, 0);
+  pointer-events: none;
 
-  .hamburger {
-    @include dims(7vw, 3vw);
-    background: #d11a54;
-    border-radius: 32px;
+  &.open {
+    .overlay {
+      opacity: 0.7;
+      visibility: visible;
+      pointer-events: auto;
+    }
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    .menu {
+      .hamburger {
+        background: #000;
+      }
 
-    .lineC {
-      @include dims(20%, 4px);
-      margin-bottom: 10px;
+      .menuC {
+        transform: scale(1);
+
+        .menuItems {
+          .menuItem {
+            .link {
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .overlay {
+    @include position(absolute, 0, 0, 0, 0);
+    background: #000000;
+    visibility: hidden;
+    opacity: 0;
+    transition: 1s all ease;
+    pointer-events: none;
+  }
+
+  .menu {
+    @include position(absolute, 2vw, 2vw, auto, auto);
+
+    .menuC {
+      @include position(absolute, -6px, -6px, auto, auto);
+      @include dims(32vw, 90vh);
+      background: #d11a54;
+      border-radius: 28px;
+      padding: 10vw 2vw;
+      transform: scale(0);
+      transition: 0.8s all ease-in-out;
+      transform-origin: 99% 1%;
+      z-index: 5;
+
+      .menuItems {
+        .menuItem {
+          margin-bottom: 0.5vw;
+          overflow: hidden;
+
+          &:hover {
+            .link {
+              transform: translateX(0);
+
+              .text {
+                transform: skew(-10deg);
+              }
+            }
+          }
+
+          .link {
+            transform: translateX(-1.5vw) skew(0) translateY(100%);
+            transition: 0.4s all ease;
+
+            display: flex;
+            align-items: center;
+            column-gap: 1vw;
+
+            .imgC {
+              @include dims(1vw, auto);
+
+              .img {
+                @include dims(100%);
+                object-fit: contain;
+                display: block;
+              }
+            }
+
+            .text {
+              color: #fff;
+              font-family: Lychee;
+              font-size: 4vw;
+              transform: skew(0);
+              transition: 0.4s all ease;
+            }
+          }
+        }
+      }
+    }
+
+    .hamburger {
+      @include dims(7vw, 3vw);
+      background: #d11a54;
+      border-radius: 25px;
+      position: relative;
+      z-index: 10;
 
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
 
-      .line {
-        @include dims(100%);
-        background: #fff;
-        display: block;
-      }
+      .lineC {
+        @include dims(20%, 4px);
+        margin-bottom: 10px;
 
-      &:nth-child(2) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         .line {
-          transform: translateY(100%);
+          @include dims(100%);
+          background: #fff;
+          display: block;
+        }
+
+        &:nth-child(2) {
+          .line {
+            transform: translateY(100%);
+          }
         }
       }
     }
