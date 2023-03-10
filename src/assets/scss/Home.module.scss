@@ -46,7 +46,7 @@
 
     .marqueeC {
       @include position(absolute, auto, 0, 0, 0);
-      background: linear-gradient(0deg, #000, rgb(255, 255, 255, 0));
+      background: linear-gradient(0deg, #16161c, rgb(255, 255, 255, 0));
       padding: 0 0 5vw 0;
 
       .mText {
@@ -119,6 +119,44 @@
 
           display: grid;
           place-items: center;
+        }
+      }
+    }
+  }
+
+  .greeting {
+    .textC {
+      margin: 15vw auto 0 auto;
+      position: relative;
+
+      .imgC {
+        @include position(absolute, 5vw, auto, auto, 30vw);
+      }
+
+      .line {
+        margin: 0 auto;
+
+        display: flex;
+        align-items: center;
+
+        .text {
+          margin: 0 auto;
+
+          color: #c1c1c1;
+          font-family: Lychee;
+          font-size: 4vw;
+          line-height: 60%;
+          margin-bottom: 2.5vw;
+          text-align: center;
+
+          .italic {
+            color: #ce1953;
+            font-family: LaicaBItalic;
+          }
+
+          &.brands {
+            margin-right: 10vw;
+          }
         }
       }
     }

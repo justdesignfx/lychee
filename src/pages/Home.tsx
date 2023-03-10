@@ -7,6 +7,7 @@ import portal from "~/assets/img/portal.svg"
 import reels from "~/assets/img/reels.png"
 import digitalTalentAgency from "~/assets/img/digital-talent-agency.png"
 import smartPhone from "~/assets/img/smartphone.svg"
+import skaterTube from "~/assets/img/skater-tube.svg"
 
 import logoAdidas from "~/assets/img/logo-adidas.svg"
 import logoDisney from "~/assets/img/logo-disney.svg"
@@ -50,6 +51,31 @@ const Home = () => {
               Digital talent agency. <span className={s.seperator}></span>
             </h2>
           </MarqueeSimple>
+        </div>
+      </section>
+      <section className={s.greeting}>
+        <div className={s.textC}>
+          <div className={s.imgC}>
+            <img src={skaterTube} alt="Skating Tube Tv" className={s.img} />
+          </div>
+          <div className={s.line}>
+            <h1 className={s.text}>
+              Lychee <span className={s.italic}>global ölçekte</span> ikonik
+            </h1>
+          </div>
+          <div className={s.line}>
+            <h1 className={cx(s.text, s.brands)}>markaların</h1>
+            <h1 className={s.text}>çözüm ortağı olan</h1>
+          </div>
+          <div className={s.line}>
+            <h1 className={s.text}>dijital</h1>
+            <h1 className={s.text}>
+              <span className={s.italic}>influencer</span> marketing
+            </h1>
+          </div>
+          <div className={s.line}>
+            <h1 className={s.text}>ajansıdır.</h1>
+          </div>
         </div>
       </section>
       <section className={s.horizontalScroll} data-h-scroll>
