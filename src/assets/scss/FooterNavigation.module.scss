@@ -1,0 +1,78 @@
+@import "./utils.scss";
+
+.footerNavigation {
+  display: flex;
+  flex-direction: column;
+  color: #16161c;
+
+  .navigation {
+    @include dims(100%, auto);
+    border-bottom: 1px solid #16161c;
+    border-top: 1px solid #16161c;
+    padding-top: 7vw;
+    display: flex;
+
+    .col {
+      margin-bottom: 2vw;
+      margin-top: auto;
+
+      &.address {
+        @include dims(30vw, auto);
+        margin-right: auto;
+
+        .label {
+          color: #ce1953;
+          font-family: LS-VG5000;
+          font-size: 18px;
+        }
+
+        .text {
+          font-family: Lychee;
+          font-size: 1.75vw;
+          line-height: 140%;
+        }
+      }
+
+      &.links {
+        margin-left: 10vw;
+
+        .link {
+          display: block;
+          font-family: Lychee;
+          font-size: 1.75vw;
+          margin-bottom: 1.5vw;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .copyright {
+    padding: 1.75vw 0 3vw 0;
+
+    display: flex;
+
+    .item {
+      font-family: Lychee;
+      font-size: 18px;
+      font-weight: 700;
+
+      &.privacy {
+        margin-left: 5vw;
+      }
+
+      &.signature {
+        font-size: 15px;
+        font-weight: 400;
+        margin-left: auto;
+
+        .jdfx {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

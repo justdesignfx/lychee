@@ -1,14 +1,15 @@
+import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-export function horizontalScroll(gsap: any, q: any) {
+export function textReveal(selector: any) {
   // HORIZONTAL SCROLL
   console.log("HORIZONTAL SCROLL INITIALIZED")
 
   const scrollLength = 5000
 
-  const container = q("[data-h-scroll]")[0]
+  const container = selector("[data-h-scroll]")[0]
 
-  const horizontalScroll = gsap.to(q("[data-h-scroll-section]"), {
+  const horizontalScroll = gsap.to(selector("[data-h-scroll-section]"), {
     x: window.innerWidth,
     xPercent: -100,
     ease: "none", // <-- IMPORTANT!
@@ -22,11 +23,11 @@ export function horizontalScroll(gsap: any, q: any) {
     },
   })
 
-  const letters = q("[data-letter]")
+  const letters = selector("[data-letter]")
 
   letters.forEach((letter: any, i: number) => {
     gsap.set(letter, {
-      y: () => `${7 * i}px`,
+      y: () => `${10 * i}px`,
       rotation: i * 0.25,
       opacity: 1 - i * 0.1,
     })

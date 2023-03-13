@@ -21,9 +21,19 @@ import logoPhilips from "~/assets/img/logo-philips.svg"
 import logoStarbucks from "~/assets/img/logo-starbucks.svg"
 
 import MarqueeSimple from "~/components/MarqueeSimple"
+import { useContext, useEffect, useRef } from "react"
+import { SmoothContext } from "~/hocs/WithSmooth"
+import { ScrollStatus } from "smooth-scrollbar/interfaces"
 
 const Home = () => {
   const hScrollText = "Yeni medya platformlarında kreatif içerikler üretiyoruz."
+
+  const smoothCtx = useContext(SmoothContext)
+  useEffect(() => {
+    smoothCtx?.smooth.current.addListener((status: ScrollStatus) => {
+      console.log(status.offset.y)
+    })
+  }, [])
 
   return (
     <main className={s.home}>

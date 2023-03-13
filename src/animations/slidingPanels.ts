@@ -1,6 +1,7 @@
+import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-export function slidingPanels(gsap: any, selector: any) {
+export function slidingPanels(selector: any) {
   console.log("SLIDING PANELS INITIALIZED")
 
   const container = selector("[data-sliding-panels]")[0]

@@ -1,17 +1,18 @@
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
-import React, { ReactElement, useCallback, useLayoutEffect, useRef, useState } from "react"
+import React, { ReactElement, useLayoutEffect, useRef } from "react"
 import Scrollbar, { ScrollbarPlugin } from "smooth-scrollbar"
 
-import { useWindowSize } from "~/hooks"
 import { useResizeDetector } from "react-resize-detector"
+import { useWindowSize } from "~/hooks"
 
-import { breakpoints } from "~/variables"
-import { slidingPanels } from "~/animations/slidingPanels"
+import { textReveal, slidingPanels } from "~/animations"
 import Menu from "~/components/Menu"
-import { horizontalScroll } from "~/animations/horizontalScroll"
+import { breakpoints } from "~/variables"
 
 export const SmoothContext = React.createContext<any>(null)
+
+gsap.registerPlugin(ScrollTrigger)
 
 interface Props {
   children: ReactElement
@@ -21,13 +22,12 @@ interface Props {
 const WithSmooth = ({ children, location }: Props) => {
   const scrollerRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
-
   const smooth = useRef<Scrollbar | null>(null)
   const q = gsap.utils.selector(scrollerRef)
 
   const windowSize = useWindowSize()
 
-  const clearAnims = () => {
+  const clearScrollTriggers = () => {
     ScrollTrigger.getAll().forEach((instance) => {
       instance.kill()
     })
@@ -67,10 +67,9 @@ const WithSmooth = ({ children, location }: Props) => {
   useResizeDetector({ targetRef: contentRef, onResize })
 
   useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-
     let ctx: any
     let ctx1: any
+
     if (smooth.current) {
       smooth.current.destroy()
       console.log("Smooth Destroyed")
@@ -144,27 +143,6 @@ const WithSmooth = ({ children, location }: Props) => {
 
     const initAnimations = (smoothInstance?: Scrollbar | null) => {
       ctx1 = gsap.context(() => {
-        // PARALLAX ITEMS
-        // if (q("[data-parallax]").length > 0) {
-        //   console.log("PARALLAX ITEMS INITIALIZED")
-
-        //   if (windowSize.width >= breakpoints.tablet) {
-        //     const parallaxItems = q("[data-parallax]")
-
-        //     parallaxItems.forEach((item: any) => {
-        //       gsap.to(item, {
-        //         yPercent: () => 100 * parseFloat(item.dataset.speedY) * parseFloat(item.dataset.directionY),
-        //         xPercent: () => 100 * parseFloat(item.dataset.speedX) * parseFloat(item.dataset.directionX),
-        //         scrollTrigger: {
-        //           trigger: item,
-        //           scrub: 1,
-        //           // markers: true,
-        //         },
-        //       })
-        //     })
-        //   }
-        // }
-
         // MARQUEE
         if (q("[data-marquee]").length > 0) {
           console.log("MARQUEE INITIALIZED")
@@ -239,11 +217,11 @@ const WithSmooth = ({ children, location }: Props) => {
         // }
 
         if (q("[data-h-scroll]").length > 0 && windowSize.width > breakpoints.tablet) {
-          horizontalScroll(gsap, q)
+          textReveal(q)
         }
 
         if (q("[data-sliding-panels]").length > 0) {
-          slidingPanels(gsap, q)
+          slidingPanels(q)
         }
 
         // REVEAL WRAPPER
@@ -402,7 +380,7 @@ const WithSmooth = ({ children, location }: Props) => {
     }
 
     return () => {
-      clearAnims()
+      clearScrollTriggers()
       ctx && ctx.revert()
       ctx1 && ctx1.revert()
     }
@@ -426,7 +404,7 @@ const WithSmooth = ({ children, location }: Props) => {
   // }, [scrollLockStore.locked])
 
   return (
-    <SmoothContext.Provider value={{ scrollToTop, lockScrollbar, unlockScrollbar }}>
+    <SmoothContext.Provider value={{ scrollToTop, lockScrollbar, unlockScrollbar, smooth }}>
       <div ref={scrollerRef}>
         <div ref={contentRef}>{children}</div>
       </div>
