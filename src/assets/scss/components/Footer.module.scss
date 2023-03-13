@@ -1,4 +1,4 @@
-@import "./utils.scss";
+@import "../utils.scss";
 
 .footer {
   background: #f4f2f2;
@@ -14,7 +14,9 @@
     margin: 10vw 0 0 0;
 
     .img {
+      @include dims(100%);
       display: block;
+      object-fit: contain;
     }
   }
 }

@@ -1,4 +1,4 @@
-import s from "~/assets/scss/Home.module.scss"
+import s from "~/assets/scss/pages/Home.module.scss"
 
 import cx from "classnames"
 import { Link } from "react-router-dom"

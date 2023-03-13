@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import s from "~/assets/scss/Menu.module.scss"
+import { useState } from "react"
+import s from "~/assets/scss/components/Menu.module.scss"
 
 import cx from "classnames"
 import { Link } from "react-router-dom"

@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import s from "~/assets/scss/FooterNavigation.module.scss"
+import s from "~/assets/scss/components/FooterNavigation.module.scss"
 
 import cx from "classnames"
 

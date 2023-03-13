@@ -1,9 +1,9 @@
-import s from "../assets/scss/MarqueeSimple.module.scss"
-import React, { ReactElement, useEffect, useRef, useState } from "react"
+import { ReactElement, useState } from "react"
+import s from "~/assets/scss/components/MarqueeSimple.module.scss"
 
 import cx from "classnames"
-import { breakpoints } from "~/variables"
 import { useWindowSize } from "~/hooks"
+import { breakpoints } from "~/variables"
 
 type Props = {
   children: ReactElement

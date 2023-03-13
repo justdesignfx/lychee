@@ -9,6 +9,7 @@ import { useWindowSize } from "~/hooks"
 import { textReveal, slidingPanels } from "~/animations"
 import Menu from "~/components/Menu"
 import { breakpoints } from "~/variables"
+import MagnetCursor from "~/components/MagnetCursor"
 
 export const SmoothContext = React.createContext<any>(null)
 
@@ -409,6 +410,7 @@ const WithSmooth = ({ children, location }: Props) => {
         <div ref={contentRef}>{children}</div>
       </div>
       <Menu />
+      <MagnetCursor />
     </SmoothContext.Provider>
   )
 }
