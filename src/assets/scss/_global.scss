@@ -3,6 +3,10 @@
   height: $height;
 }
 
+$headerHeight: 100px;
+$headerHeightTablet: 150px;
+$headerHeightMobile: 100px;
+
 // @mixin font-size($font-size, $line-height: normal, $letter-spacing: normal) {
 //   font-size: $font-size * 1px;
 //   // font-size: $font-size * 0.1rem;

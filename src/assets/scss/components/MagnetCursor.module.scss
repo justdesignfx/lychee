@@ -1,4 +1,4 @@
-@import "../utils.scss";
+@import "../_global.scss";
 
 .magnetCursor {
   @include position(fixed, 0, auto, auto, 0);

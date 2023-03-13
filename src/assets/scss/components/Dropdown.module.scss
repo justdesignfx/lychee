@@ -1,0 +1,89 @@
+@import "../global";
+
+.selectInput {
+  $fontSize: 2vw;
+  $paddingLeft: 1rem;
+  @include dims(100%);
+  border: 1px solid #282828;
+  border-radius: 64px;
+  position: relative;
+  @extend .cursorPointer;
+
+  .label {
+    @include position(absolute, 0, 0, 0, 0);
+    @extend .flexStartY;
+    color: #282828;
+    font-family: VisbyCF-Medium;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 120%;
+    opacity: 1;
+    padding-left: $paddingLeft;
+    transition: 0.4s all ease;
+    pointer-events: none;
+
+    &.hidden {
+      transition: 0s;
+      @extend .hide;
+    }
+
+    @include devicesMax(mobile) {
+      font-size: 1rem;
+    }
+  }
+
+  .iconW {
+    @include position(absolute, 50%, $paddingLeft, auto, auto);
+    @include dims(1.25vw, auto);
+    transform: translateY(-50%);
+
+    @include devicesMax(mobile) {
+      @include dims(5vw, auto);
+    }
+  }
+
+  .options {
+    @include position(absolute, 120%, 0, auto, 0);
+    @include dims(100%, auto);
+    transition: 0.4s all ease;
+    background: #000000e6;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 0.25rem;
+    z-index: 100;
+    transform: translateZ(10px);
+
+    .option {
+      border-radius: 4px;
+      color: #f2f2f2;
+      font-family: VisbyCF-Regular;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 120%;
+      opacity: 1;
+      padding: 0.75rem $paddingLeft;
+      position: relative;
+      transition: 0.2s all ease;
+
+      @include devicesMax(mobile) {
+        font-size: 1rem;
+      }
+
+      &:hover {
+        color: #000000e6;
+        background: #f6f6f6;
+      }
+
+      // &:not(:last-child) {
+      //   &::after {
+      //     content: "";
+      //     @include position(absolute, auto, 0, 0, 50%);
+      //     @include dims(95vw, 1px);
+      //     background: #adadad42;
+      //     transform: translateX(-50%);
+      //     z-index: -1;
+      //   }
+      // }
+    }
+  }
+}

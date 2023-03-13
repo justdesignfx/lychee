@@ -1,10 +1,12 @@
-import gsap from "gsap"
+import gsap, { Power1 } from "gsap"
 import { useEffect, useState } from "react"
 import { Route, Routes, useLocation } from "react-router"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import { WithSmooth } from "./hocs/WithSmooth"
 import { useWindowSize } from "./hooks"
+import Contact from "./pages/Contact"
+import ContactBrand from "./pages/ContactBrand"
 import Home from "./pages/Home"
 
 function App() {
@@ -43,8 +45,9 @@ function App() {
         <Header />
         <Routes>
           <Route index element={<Home />}></Route>
+          <Route path="contact" element={<Contact />}></Route>
+          <Route path="/contact/brand" element={<ContactBrand />}></Route>
         </Routes>
-        <Footer></Footer>
       </div>
     </WithSmooth>
   )

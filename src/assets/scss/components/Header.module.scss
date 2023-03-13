@@ -1,7 +1,10 @@
-@import "../utils.scss";
+@import "../_global.scss";
 
 .header {
-  padding: 1vw 0 1vw 3vw;
+  @include dims(100%, $headerHeight);
+  display: flex;
+  align-items: center;
+  padding: 0 2vw;
 
   .imgC {
     @include dims(10vw, auto);
