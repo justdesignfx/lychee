@@ -3,12 +3,12 @@ import s from "~/assets/scss/pages/Home.module.scss"
 import cx from "classnames"
 import { Link } from "react-router-dom"
 
+import digitalTalentAgency from "~/assets/img/digital-talent-agency.png"
 import instax from "~/assets/img/instax.png"
 import portal from "~/assets/img/portal.svg"
 import reels from "~/assets/img/reels.png"
-import digitalTalentAgency from "~/assets/img/digital-talent-agency.png"
-import smartPhone from "~/assets/img/smartphone.svg"
 import skaterTube from "~/assets/img/skater-tube.svg"
+import smartPhone from "~/assets/img/smartphone.svg"
 
 import logoAdidas from "~/assets/img/logo-adidas.svg"
 import logoDisney from "~/assets/img/logo-disney.svg"
@@ -20,14 +20,20 @@ import logoNike from "~/assets/img/logo-nike.svg"
 import logoPhilips from "~/assets/img/logo-philips.svg"
 import logoStarbucks from "~/assets/img/logo-starbucks.svg"
 
-import MarqueeSimple from "~/components/MarqueeSimple"
-import { useContext, useEffect, useRef } from "react"
-import { SmoothContext } from "~/hocs/WithSmooth"
+import influencer1 from "~/assets/img/influencer-1.jpg"
+import influencer2 from "~/assets/img/influencer-2.jpg"
+import influencer3 from "~/assets/img/influencer-3.jpg"
+
+import { useContext, useEffect } from "react"
 import { ScrollStatus } from "smooth-scrollbar/interfaces"
 import Footer from "~/components/Footer"
+import MarqueeSimple from "~/components/MarqueeSimple"
+import { SmoothContext } from "~/hocs/WithSmooth"
 
 const Home = () => {
   const hScrollText = "Yeni medya platformlarında kreatif içerikler üretiyoruz."
+
+  const influencers = [{ pic: influencer1 }, { pic: influencer2 }, { pic: influencer3 }]
 
   const smoothCtx = useContext(SmoothContext)
   useEffect(() => {
@@ -38,7 +44,6 @@ const Home = () => {
 
   return (
     <>
-      {" "}
       <main className={s.home}>
         <section className={s.hero}>
           <div className={s.textWrapper}>
@@ -148,10 +153,22 @@ const Home = () => {
             </p>
           </div>
           <div className={s.worksGrid}>
-            {Array.from(Array(9).keys()).map((item, i) => {
+            {influencers.map((item, i) => {
               return (
                 <div className={s.gridItemC} key={i}>
-                  <img className={s.img} src="" alt="" />
+                  <div className={s.infoC}>
+                    <div className={s.info}>
+                      <small className={s.label}>Marka</small>
+                      <div className={s.imgC}>
+                        <img src="" alt="" className={s.img} />
+                      </div>
+                    </div>
+                    <div className={s.info}>
+                      <small className={s.label}>Talent</small>
+                      <p className={s.text}>Dilara Aydın</p>
+                    </div>
+                  </div>
+                  <img className={s.img} src={item.pic} alt="" />
                 </div>
               )
             })}

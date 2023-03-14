@@ -341,10 +341,8 @@
       padding: 10vw 4vw 0 4vw;
 
       .gridItemC {
-        padding: 1rem;
+        overflow: hidden;
         position: relative;
-
-        background: red;
 
         &::before {
           // for apsect ratio
@@ -353,20 +351,71 @@
           padding-bottom: 100%;
         }
 
+        &:hover {
+          .infoC {
+            opacity: 1;
+          }
+
+          .img {
+            filter: blur(32px) brightness(1.5);
+          }
+        }
+
+        .infoC {
+          @include position(absolute, 0, 0, 0, 0);
+          @include dims(100%);
+          background: rgba(255, 255, 255, 0.3);
+          padding: 2vw;
+          z-index: 100;
+          opacity: 0;
+          transition: 0.4s all ease;
+
+          .info {
+            display: flex;
+            flex-direction: column;
+
+            .label {
+              color: #131317;
+              font-family: Lychee;
+              font-size: 1rem;
+              line-height: 100%;
+              margin-bottom: 1rem;
+            }
+
+            .text {
+              color: #131317;
+              font-family: Lychee;
+              font-weight: 700;
+              font-size: 1.5rem;
+              line-height: 100%;
+            }
+
+            .imgC {
+              .img {
+                @include dims(100%);
+                display: block;
+                object-fit: contain;
+              }
+            }
+          }
+        }
+
         .img {
-          position: absolute;
+          @include position(absolute, 0, 0, 0, 0);
+          @include dims(100%);
           max-width: 100%;
+          transition: 0.4s all ease-in-out;
+
+          display: block;
+          object-fit: cover;
 
           // Alternate Version
-          // top: 0;
-          // bottom: 0;
-          // right: 0;
-          // left: 0;
-          // margin: auto;
 
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
+          margin: auto;
+
+          // top: 50%;
+          // left: 50%;
+          // transform: translate(-50%, -50%);
         }
       }
     }
