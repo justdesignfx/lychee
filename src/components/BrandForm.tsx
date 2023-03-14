@@ -1,37 +1,71 @@
-import React, { FormEvent, useEffect, useRef, useState } from "react"
+import { FormEvent, useRef, useState } from "react"
 import s from "~/assets/scss/components/BrandForm.module.scss"
 
 import cx from "classnames"
 import gsap from "gsap"
 import Dropdown from "./Dropdown"
+import PrivacyPolicyText from "./PrivacyPolicyText"
+import { Formik, useFormik } from "formik"
+import { Form } from "react-router-dom"
+import * as yup from "yup"
+
+// interface Values {
+//   name: string
+//   email: string
+//   company: string
+//   websiteUrl: string
+//   role: string
+//   message: string
+//   socialPlatforms: string[]
+//   range: string
+// }
+
+const BrandFormSchema = yup.object().shape({
+  name: yup.string().required("REQUIRED"),
+  email: yup.string().email("INVALID_EMAIL").required("REQUIRED"),
+  company: yup.string().required("REQUIRED"),
+  websiteUrl: yup.string().required("REQUIRED"),
+  role: yup.string().required("REQUIRED"),
+  message: yup.string().required("REQUIRED"),
+  socialPlatforms: yup.array().of(yup.string()).required("REQUIRED"),
+  privacyConfirmation: yup.boolean().required("REQUIRED"),
+})
 
 const BrandForm = () => {
   const formRef = useRef<HTMLFormElement>(null)
   const [currentStep, setCurrentStep] = useState(0)
+  const brandFormRef = useRef<HTMLDivElement>(null)
 
-  const [name, setName] = useState<string | null>(null)
-  const [email, setEmail] = useState<string | null>(null)
-  const [message, setMessage] = useState<string | null>(null)
-  const [company, setCompany] = useState<string | null>(null)
-  const [website, setWebsite] = useState<string | null>(null)
-  const [role, setRole] = useState<string | null>(null)
-  const [socialPlatforms, setSocialPlatforms] = useState<string[]>([])
+  const [started, setStarted] = useState(false)
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      company: "",
+      websiteUrl: "",
+      role: "",
+      message: "",
+      socialPlatforms: [""],
+      range: "",
+      privacyConfirmation: false,
+    },
+    validationSchema: BrandFormSchema,
+    onSubmit: (values) => {
+      console.log(values)
+    },
+  })
+
+  function handleValidation(field: string) {
+    // @ts-ignore
+    return formik.errors[field] === "REQUIRED" && formik.touched[field]
+  }
 
   const budgetRanges = [
-    { id: "1", title: "1" },
-    { id: "2", title: "2" },
-    { id: "3", title: "3" },
+    { id: "1", title: "0-10" },
+    { id: "2", title: "10-20" },
+    { id: "3", title: "20-30" },
   ]
-
-  const handleFocus = (e: FormEvent | any) => {
-    e.preventDefault()
-
-    if (e.type === "focus" && e) {
-      e.target.labels[0].style.opacity = "0"
-    } else if (e.type === "blur" && e) {
-      e.target.labels[0].style.opacity = "1"
-    }
-  }
 
   const social = [
     { ui: "Twitter", type: "TWITTER" },
@@ -47,10 +81,10 @@ const BrandForm = () => {
       question: "Öncelikle sizi tanımak istiyoruz. Aşağıdaki bilgileri doldurabilir misiniz?",
       ui: (
         <>
-          <div className={s.inputC}>
+          <div className={cx(s.inputC, { [s.required]: formik.errors.name === "REQUIRED" && formik.touched.name })}>
             <label
               className={cx(s.label, {
-                [s.hidden]: name,
+                [s.hidden]: formik.values.name,
               })}
               htmlFor="name"
             >
@@ -62,16 +96,15 @@ const BrandForm = () => {
               type="text"
               onFocus={handleFocus}
               onBlur={handleFocus}
-              onChange={(e) => {
-                setName(e.currentTarget.value)
-              }}
+              onChange={formik.handleChange}
+              value={formik.values.name}
               required
             />
           </div>
-          <div className={s.inputC}>
+          <div className={cx(s.inputC, { [s.required]: formik.errors.email === "REQUIRED" && formik.touched.email })}>
             <label
               className={cx(s.label, {
-                [s.hidden]: email,
+                [s.hidden]: formik.values.email,
               })}
               htmlFor="email"
             >
@@ -83,9 +116,8 @@ const BrandForm = () => {
               type="text"
               onFocus={handleFocus}
               onBlur={handleFocus}
-              onChange={(e) => {
-                setEmail(e.currentTarget.value)
-              }}
+              onChange={formik.handleChange}
+              value={formik.values.email}
               required
             />
           </div>
@@ -96,10 +128,12 @@ const BrandForm = () => {
       question: "Şirketiniz / markanız hakkında bilgi verebilir misiniz?",
       ui: (
         <>
-          <div className={s.inputC}>
+          <div
+            className={cx(s.inputC, { [s.required]: formik.errors.company === "REQUIRED" && formik.touched.company })}
+          >
             <label
               className={cx(s.label, {
-                [s.hidden]: company,
+                [s.hidden]: formik.values.company,
               })}
               htmlFor="company"
             >
@@ -111,41 +145,43 @@ const BrandForm = () => {
               type="text"
               onFocus={handleFocus}
               onBlur={handleFocus}
-              onChange={(e) => {
-                setCompany(e.currentTarget.value)
-              }}
+              onChange={formik.handleChange}
+              value={formik.values.company}
               required
             />
           </div>
-          <div className={s.inputC}>
+          <div
+            className={cx(s.inputC, {
+              [s.required]: formik.errors.websiteUrl === "REQUIRED" && formik.touched.websiteUrl,
+            })}
+          >
             <label
               className={cx(s.label, {
-                [s.hidden]: website,
+                [s.hidden]: formik.values.websiteUrl,
               })}
-              htmlFor="website"
+              htmlFor="websiteUrl"
             >
-              Eposta Adresi
+              Website Linki
             </label>
             <input
               className={s.input}
-              id="website"
+              id="websiteUrl"
               type="text"
               onFocus={handleFocus}
               onBlur={handleFocus}
-              onChange={(e) => {
-                setWebsite(e.currentTarget.value)
-              }}
+              onChange={formik.handleChange}
+              value={formik.values.websiteUrl}
               required
             />
           </div>
-          <div className={s.inputC}>
+          <div className={cx(s.inputC, { [s.required]: formik.errors.role === "REQUIRED" && formik.touched.role })}>
             <label
               className={cx(s.label, {
-                [s.hidden]: role,
+                [s.hidden]: formik.values.role,
               })}
               htmlFor="role"
             >
-              Role
+              Pozisyon
             </label>
             <input
               className={s.input}
@@ -153,9 +189,8 @@ const BrandForm = () => {
               type="text"
               onFocus={handleFocus}
               onBlur={handleFocus}
-              onChange={(e) => {
-                setRole(e.currentTarget.value)
-              }}
+              onChange={formik.handleChange}
+              value={formik.values.role}
               required
             />
           </div>
@@ -166,16 +201,19 @@ const BrandForm = () => {
       question: "Şirketiniz / markanız için oluşturmak istediğiniz kampanyayı kısaca anlatınız.",
       ui: (
         <>
-          <div className={s.textareaC}>
+          <div
+            className={cx(s.textareaC, {
+              [s.required]: formik.errors.message === "REQUIRED" && formik.touched.message,
+            })}
+          >
             <label className={s.label} htmlFor="message">
               Message
             </label>
             <textarea
               className={s.textarea}
               id="message"
-              onChange={(e) => {
-                setMessage(e.currentTarget.value)
-              }}
+              onChange={formik.handleChange}
+              value={formik.values.message}
               required
             />
           </div>
@@ -191,11 +229,12 @@ const BrandForm = () => {
               Birden fazla seçebilirsiniz
             </label>
             <div className={s.radioC}>
-              {social.map((platform) => {
+              {social.map((platform, i) => {
                 return (
                   <div
-                    className={cx(s.radio, { [s.active]: socialPlatforms.includes(platform.type) })}
+                    className={cx(s.radio, { [s.active]: formik.values.socialPlatforms.includes(platform.type) })}
                     onClick={() => handleSocial(platform.type)}
+                    key={i}
                   >
                     <div className={s.text}>{platform.ui}</div>
                     <div className={s.check}></div>
@@ -211,36 +250,57 @@ const BrandForm = () => {
       question: "Son olarak kampanyanız için planladığınız bütçenizi belirtiniz.",
       ui: (
         <>
-          <div className={s.inputC}>
-            {/* <label
+          <div className={cx(s.inputC, s.dropdownC)}>
+            <label
               className={cx(s.label, {
-                [s.hidden]: company,
+                [s.hidden]: formik.values.range,
               })}
-              htmlFor="company"
+              htmlFor="budgetRange"
             >
-              Şirket
-            </label> */}
+              Aralık Seçiniz
+            </label>
 
             <Dropdown
               defaultValue={budgetRanges[0]}
               options={budgetRanges}
-              onChange={handleRange}
-              selectedOption={budgetRanges[0]}
+              onChange={formik.handleChange}
+              selectedOption={formik.values.range}
             />
+          </div>
+          <div className={s.confirmation}>
+            <div className={s.checkbox} onClick={handleConfirmation}>
+              <div className={cx(s.inner, { [s.enabled]: formik.values.privacyConfirmation })}></div>
+            </div>
+            <PrivacyPolicyText setConfirmation={handleConfirmation} />
           </div>
         </>
       ),
     },
   ]
 
-  const handleSocial = (type: string) => {
-    setSocialPlatforms((prev) => [...prev, type])
+  function handleFocus(e: FormEvent | any) {
+    e.preventDefault()
+
+    if (e.type === "focus" && e) {
+      e.target.labels[0].style.opacity = "0"
+    } else if (e.type === "blur" && e) {
+      e.target.labels[0].style.opacity = "1"
+    }
   }
 
-  const handleQuestions = (direction: "NEXT" | "PREV") => {
+  function handleConfirmation() {
+    formik.setFieldValue("privacyConfirmation", !formik.values.privacyConfirmation, true)
+  }
+
+  function handleSocial(type: string) {
+    // setSocialPlatforms((prev) => [...prev, type])
+    formik.setFieldValue("socialPlatforms", [...formik.values.socialPlatforms, type], true)
+  }
+
+  function handleNavigation(direction: "NEXT" | "PREV") {
     gsap.to(formRef.current, {
       autoAlpha: 0,
-      duration: 0.4,
+      duration: 0.2,
       onComplete: () => {
         switch (direction) {
           case "NEXT":
@@ -259,8 +319,8 @@ const BrandForm = () => {
 
         gsap.to(formRef.current, {
           autoAlpha: 1,
-          duration: 0.4,
-          delay: 0.8,
+          duration: 0.6,
+          delay: 0.4,
         })
       },
     })
@@ -270,32 +330,77 @@ const BrandForm = () => {
     console.log("lol")
   }
 
+  function handleFormStart() {
+    gsap.to(brandFormRef.current, {
+      autoAlpha: 0,
+      duration: 0.4,
+      onComplete: () => {
+        setStarted((prev) => !prev)
+        gsap.to(brandFormRef.current, {
+          autoAlpha: 1,
+          duration: 0.4,
+          delay: 0.8,
+        })
+      },
+    })
+  }
+
   return (
-    <div className={s.brandForm}>
-      <h2 className={s.title}>MARKA BAŞVURU FORMU</h2>
+    <div className={s.brandForm} ref={brandFormRef}>
+      {!started ? (
+        <div className={s.formIntro}>
+          <h1 className={s.title}>Dijital reklamcılığın geleceğine hoş geldiniz.</h1>
+          <p className={s.text}>Şimdi marka vizyonunuzu, kampanyanızı ve hayallerinizi öğrenme zamanı.</p>
+          <div className={s.buttons}>
+            <button className={cx(s.button, s.next)} onClick={handleFormStart}>
+              Şimdi Başlayın
+            </button>
+          </div>
+        </div>
+      ) : (
+        <>
+          <h2 className={s.title}>MARKA BAŞVURU FORMU</h2>
 
-      <div className={s.formC}>
-        <form className={s.form} ref={formRef}>
-          <p className={s.question}>
-            {currentStep + 1}. {steps[currentStep].question}
-          </p>
-          <>{steps[currentStep].ui}</>
-        </form>
-      </div>
+          <div className={s.formC}>
+            <form id="brandForm" className={s.form} ref={formRef} onSubmit={formik.handleSubmit}>
+              {steps[currentStep].question && (
+                <p className={s.question}>
+                  {currentStep + 1}. {steps[currentStep].question}
+                </p>
+              )}
+              <>{steps[currentStep].ui}</>
+            </form>
+          </div>
 
-      <div className={s.buttons}>
-        <button className={cx(s.button, s.next)} onClick={() => handleQuestions("NEXT")}>
-          Sonraki adım
-        </button>
+          <>
+            <div className={s.buttons}>
+              {currentStep === steps.length - 1 ? (
+                <button className={cx(s.button, s.next)} type="submit" form="brandForm">
+                  Formu Gönder
+                </button>
+              ) : (
+                <button type="button" className={cx(s.button, s.next)} onClick={() => handleNavigation("NEXT")}>
+                  Sonraki adım
+                </button>
+              )}
 
-        <button className={cx(s.button, s.prev)} onClick={() => handleQuestions("PREV")}>
-          Önceki Adım
-        </button>
-      </div>
-
-      <div className={s.progressBar}>
-        <div className={s.progress} style={{ transform: `scaleX(${(1 / steps.length) * (currentStep + 1)})` }}></div>
-      </div>
+              <button
+                type="button"
+                className={cx(s.button, s.prev, { [s.show]: currentStep > 0 })}
+                onClick={() => handleNavigation("PREV")}
+              >
+                Önceki Adım
+              </button>
+            </div>
+            <div className={s.progressBar}>
+              <div
+                className={s.progress}
+                style={{ transform: `scaleX(${(1 / steps.length) * (currentStep + 1)})` }}
+              ></div>
+            </div>
+          </>
+        </>
+      )}
     </div>
   )
 }

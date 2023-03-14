@@ -12,6 +12,41 @@
   flex-direction: column;
   align-items: center;
 
+  .buttons {
+    .button {
+      @include dims(20vw, 4vw);
+      font-family: LS-VG5000;
+      margin-bottom: 0.5vw;
+
+      display: grid;
+      place-items: center;
+
+      &.next {
+        border: 1px solid #ce1953;
+        border-radius: 36px;
+        color: #ce1953;
+        font-size: 1.5vw;
+      }
+
+      &.prev {
+        color: #6c6c79;
+        opacity: 0.3;
+        text-decoration: underline;
+        transition: 0.4s all ease;
+
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+
+        &.show {
+          opacity: 1;
+          pointer-events: auto;
+          visibility: visible;
+        }
+      }
+    }
+  }
+
   .title {
     color: #ce1953;
     font-family: Lychee;
@@ -27,12 +62,42 @@
     font-size: $fontSize;
     font-weight: 400;
     line-height: 160%;
-    margin-bottom: auto;
+    margin-bottom: 2vw;
     text-align: center;
   }
 
+  .formIntro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .title {
+      @include dims(35vw, auto);
+
+      color: #c8c8c8;
+      font-family: Lychee;
+      font-size: 3vw;
+      font-weight: 400;
+      line-height: 120%;
+      text-align: center;
+    }
+
+    .text {
+      @include dims(40vw, auto);
+
+      color: #c8c8c8;
+      font-family: Lychee;
+      font-size: 1.25vw;
+      font-weight: 400;
+      line-height: 160%;
+      margin-bottom: 3vw;
+      text-align: center;
+    }
+  }
+
   .formC {
-    @include dims(30vw, 22vw);
+    @include dims(37vw, 22vw);
     position: relative;
   }
 
@@ -157,6 +222,14 @@
         @include dims(2vw, auto);
         transform: translateY(-50%);
       }
+
+      &.dropdownC {
+        width: 20vw;
+      }
+
+      &.required {
+        border: 1px solid #ce1953;
+      }
     }
 
     .textareaC {
@@ -231,7 +304,7 @@
 
       .checkbox {
         @include dims($boxDims);
-        border: 1px solid #282828;
+        border: 1px solid #cfcfcf;
         border-radius: 4px;
         flex-shrink: 0;
         margin-top: 0.25vw;
@@ -240,7 +313,7 @@
         .inner {
           @extend .absoluteCenter;
           @include dims(calc($boxDims - 6px));
-          background: #282828;
+          background: #cfcfcf;
           border-radius: 2px;
           transition: 0.3s all ease;
           @extend .hide;
@@ -249,32 +322,6 @@
             @extend .show;
           }
         }
-      }
-    }
-  }
-
-  .buttons {
-    margin: 2vw;
-
-    .button {
-      @include dims(20vw, 4vw);
-      font-family: LS-VG5000;
-      margin-bottom: 0.5vw;
-
-      display: grid;
-      place-items: center;
-
-      &.next {
-        border: 1px solid #ce1953;
-        border-radius: 36px;
-        color: #ce1953;
-        font-size: 1.5vw;
-      }
-
-      &.prev {
-        color: #6c6c79;
-        opacity: 0.3;
-        text-decoration: underline;
       }
     }
   }
@@ -358,6 +405,38 @@
           background: #6c6c7a;
           border-radius: 50%;
           transition: 0.4s all ease;
+        }
+      }
+    }
+  }
+
+  .confirmation {
+    $boxDims: 20px;
+    @extend .cursorPointer;
+    margin-top: auto;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    .checkbox {
+      @include dims($boxDims);
+      border: 1px solid #282828;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 0.25vw;
+      position: relative;
+
+      .inner {
+        @extend .absoluteCenter;
+        @include dims(calc($boxDims - 6px));
+        background: #282828;
+        border-radius: 2px;
+        transition: 0.3s all ease;
+        @extend .hide;
+
+        &.enabled {
+          @extend .show;
         }
       }
     }

@@ -11,6 +11,7 @@
   "dependencies": {
     "@types/node": "^18.14.6",
     "classnames": "^2.3.2",
+    "formik": "^2.2.9",
     "gsap": "^3.11.4",
     "path": "^0.12.7",
     "react": "^18.2.0",
@@ -21,6 +22,7 @@
     "react-router-dom": "^6.8.2",
     "smooth-scrollbar": "^8.8.1",
     "vite-tsconfig-paths": "^4.0.5",
+    "yup": "^1.0.2",
     "zustand": "^4.3.6"
   },
   "devDependencies": {

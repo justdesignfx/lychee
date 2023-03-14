@@ -1,0 +1,53 @@
+@import "../_global.scss";
+
+.textC {
+  margin: 0 auto 3vw auto;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title {
+    color: #c1c1c1;
+    font-family: Lychee;
+    font-size: 4.75vw;
+    line-height: 130%;
+    margin-bottom: 2vw;
+
+    .italic {
+      color: #2d00f5;
+      font-family: LaicaBItalic;
+    }
+  }
+
+  .text {
+    @include dims(45vw, auto);
+    color: #c1c1c1;
+    font-family: Lychee;
+    font-size: 1.5vw;
+    line-height: 150%;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 2vw;
+
+  .button {
+    @include dims(20vw, 4vw);
+    border: 2px solid #ce1953;
+    border-radius: 36px;
+    color: #c1c1c1;
+    display: block;
+    font-family: LS-VG5000;
+    font-size: 1.5vw;
+    line-height: 80%;
+    margin-bottom: 2.5vw;
+
+    display: grid;
+    place-items: center;
+  }
+}

@@ -93,13 +93,13 @@ const Home = () => {
         </section>
         <section className={s.horizontalScroll} data-h-scroll>
           <div className={s.hSection} data-h-scroll-section>
-            {hScrollText.split(" ").map((word: any, i: number) => {
+            {hScrollText.split(" ").map((word: any, i) => {
               return (
                 <h2 className={s.text} key={i}>
                   <p className={s.word}>
-                    {word.split("").map((letter: any) => {
+                    {word.split("").map((letter: any, iInner: number) => {
                       return (
-                        <span className={s.letter} data-letter>
+                        <span key={iInner} className={s.letter} data-letter>
                           {letter}
                         </span>
                       )
@@ -148,9 +148,9 @@ const Home = () => {
             </p>
           </div>
           <div className={s.worksGrid}>
-            {Array.from(Array(9).keys()).map((item) => {
+            {Array.from(Array(9).keys()).map((item, i) => {
               return (
-                <div className={s.gridItemC}>
+                <div className={s.gridItemC} key={i}>
                   <img className={s.img} src="" alt="" />
                 </div>
               )

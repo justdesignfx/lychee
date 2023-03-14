@@ -1,26 +1,21 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import s from "~/assets/scss/pages/Contact.module.scss"
+
+import cx from "classnames"
+
+import floating from "~/assets/img/contact/floating.png"
 
 const Contact = () => {
   return (
     <main className={s.contact}>
-      <div className={s.textC}>
-        <h1 className={s.title}>
-          <span className={s.italic}>Dijital dünyanızı</span> devralalım.
-        </h1>
-        <p className={s.text}>
-          Kendinizi veya markanızı öne çıkarmak için en iyi ekiple çalışmaya hazır mısınız? Size uygun alana tıklayarak
-          bilgilerinizi bırakın, en hızlı şekilde sizinle iletişime geçelim.
-        </p>
+      <Outlet></Outlet>
+
+      <div className={cx(s.imgC, s.left)}>
+        <img src={floating} alt="Brand Visual" className={s.img} />
       </div>
-      <div className={s.buttons}>
-        <Link className={s.button} to="brand">
-          Markam Var
-        </Link>
-        <Link className={s.button} to="content-creator">
-          İçerik Üreticisiyim
-        </Link>
+
+      <div className={cx(s.imgC, s.right)}>
+        <img src={floating} alt="Brand Visual" className={s.img} />
       </div>
     </main>
   )

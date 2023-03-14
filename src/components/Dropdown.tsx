@@ -16,7 +16,7 @@ interface Props {
   defaultValue: Option
   onChange: any
   label?: string
-  selectedOption?: Option | null
+  selectedOption?: any
 }
 
 const Dropdown = ({ options, onChange, label, defaultValue, selectedOption = defaultValue }: Props) => {

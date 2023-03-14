@@ -37,9 +37,9 @@ const Menu = () => {
         </div>
         <div className={s.menuC}>
           <ul className={s.menuItems}>
-            {menuItems.map((item) => {
+            {menuItems.map((item, i) => {
               return (
-                <li className={s.menuItem}>
+                <li className={s.menuItem} key={i}>
                   <Link to={item.path} className={s.link}>
                     <div className={s.imgC}>
                       <img className={s.img} src={arrow} alt="Arrow" />

@@ -1,6 +1,7 @@
 import gsap, { Power1 } from "gsap"
 import { useEffect, useState } from "react"
 import { Route, Routes, useLocation } from "react-router"
+import ContactIntro from "./components/ContactIntro"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import { WithSmooth } from "./hocs/WithSmooth"
@@ -40,13 +41,15 @@ function App() {
   }, [location, displayLocation, windowSize.width])
 
   return (
-    <WithSmooth location={displayLocation}>
-      <div>
+    <WithSmooth>
+      <div data-route-transition>
         <Header />
-        <Routes>
+        <Routes location={displayLocation}>
           <Route index element={<Home />}></Route>
-          <Route path="contact" element={<Contact />}></Route>
-          <Route path="/contact/brand" element={<ContactBrand />}></Route>
+          <Route path="contact" element={<Contact />}>
+            <Route index element={<ContactIntro />}></Route>
+            <Route path="brand" element={<ContactBrand />}></Route>
+          </Route>
         </Routes>
       </div>
     </WithSmooth>
