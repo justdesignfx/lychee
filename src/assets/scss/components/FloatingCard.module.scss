@@ -1,0 +1,45 @@
+@import "../_global.scss";
+
+.floatingCard {
+  @include dims(25vw, auto);
+  border-radius: 16px;
+  padding: 1rem;
+
+  .title {
+    font-size: 3vw;
+    margin-bottom: 2vw;
+
+    .normal {
+      display: block;
+      font-family: Lychee;
+    }
+
+    .italic {
+      display: block;
+      font-family: LaicaBItalic;
+    }
+  }
+
+  .text {
+    font-family: Lychee;
+    font-size: 1.25vw;
+    line-height: 160%;
+    margin-bottom: 4vw;
+  }
+
+  &.blue {
+    background: #3300f6;
+    color: #cfcfcf;
+  }
+
+  &.white {
+    background: #f0f0f0;
+    color: #16161e;
+  }
+
+  &.transparent {
+    background: rgba(115, 115, 115, 0.3);
+    backdrop-filter: blur(24px);
+    color: #f4f2f2;
+  }
+}

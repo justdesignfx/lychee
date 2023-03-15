@@ -8,6 +8,7 @@ import sample from "~/assets/img/sample.png"
 import doodleLaying from "~/assets/img/doodle-laying.png"
 import List from "~/assets/scss/components/List"
 import Footer from "~/components/Footer"
+import FloatingCard from "~/components/FloatingCard"
 
 type Props = {}
 
@@ -28,6 +29,35 @@ const Services = (props: Props) => {
     {
       title: "Verileri seviyoruz.",
       text: "İşimizin en sevdiğimiz kısmı burada başlıyor. Sosyal dinleme, erişim raporu ve yönlendirme metriklerini detaylıca inceliyor, üzerine bol bol konuşuyoruz. Bu sayede dijital içerik üreticilerimizle ve markalarımızla çok daha sağlıklı, uzun soluklu ilişkiler yürütebiliyoruz.",
+    },
+  ]
+
+  const cards = [
+    {
+      title: { p1: "Creative", p2: "Copyright" },
+      text: "Sıra dışı ve yenilikçi içerikleri seviyoruz. Bu doğrultuda sınırların dışına çıkarak markanız için dinamik, özgün ve yaratıcı metinler yazıyoruz.",
+      type: "blue",
+    },
+    {
+      title: { p1: "Creative", p2: "Illustration" },
+      text: "Yaratıcı ruhunuzdan ilham alarak sizlere eşsiz dijital bir dünya yaratıyoruz.",
+      type: "transparent",
+    },
+    {
+      title: { p1: "C360o", p2: "Production" },
+      text: "Son teknoloji ekipmanlarımız ve donanımlı ekibimiz ile hayalinizdeki projeyi gerçekleştiriyoruz.",
+      type: "white",
+    },
+    {
+      title: { p1: "Event Planning", p2: "Management" },
+      text: "İhtiyaçlarınızı belirlenen içerikler doğrultusunda tüm hatlarıyla tasarlayarak süreci baştan sona yönetiyoruz.",
+      type: "white",
+    },
+
+    {
+      title: { p1: "Digital Design", p2: "Services" },
+      text: "Tüm partnerlerimize iyi bir deneyim sunabilmek için alışılmışın dışına çıkarak yeni bir dijital dünya tasarlıyoruz.",
+      type: "blue",
     },
   ]
 
@@ -77,6 +107,22 @@ const Services = (props: Props) => {
               çalışıyoruz.
             </p>
           </div>
+          <div className={s.cards}>
+            {cards.map((card) => {
+              return (
+                <div className={s.cardC}>
+                  <FloatingCard {...card} />
+                </div>
+              )
+            })}
+          </div>
+        </section>
+        <section className={s.singleTitleC}>
+          <h1 className={s.title}>
+            Dünya bizim
+            <span className={s.italic}> dijital </span>
+            oyun alanımız.
+          </h1>
         </section>
       </main>
       <Footer />

@@ -76,7 +76,7 @@
   .sideServices {
     .sideServicesTitleC {
       @include dims(40vw, auto);
-      margin: 10vw auto 0 auto;
+      margin: 10vw auto 2vw auto;
 
       display: flex;
       flex-direction: column;
@@ -101,6 +101,52 @@
           color: #ce1953;
           font-family: LaicaBItalic;
         }
+      }
+    }
+
+    .cards {
+      padding: 0 4vw;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 5vw;
+
+      .cardC {
+        &:nth-child(2) {
+          transform: translate(-55%, 75%);
+        }
+
+        &:nth-child(3) {
+          transform: translate(-25%, 25%);
+        }
+
+        &:nth-child(4) {
+          transform: translate(25%, 25%);
+        }
+
+        &:nth-child(5) {
+          transform: translate(-55%, 60%);
+        }
+      }
+    }
+  }
+
+  .singleTitleC {
+    margin: 25vw auto 10vw auto;
+
+    .title {
+      @include dims(60vw, auto);
+      color: #c1c1c1;
+      font-family: Lychee;
+      font-size: 5vw;
+      line-height: 120%;
+      margin: auto;
+      text-align: center;
+
+      .italic {
+        color: #ce1953;
+        font-family: LaicaBItalic;
       }
     }
   }
