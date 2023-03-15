@@ -8,7 +8,9 @@ import { WithSmooth } from "./hocs/WithSmooth"
 import { useWindowSize } from "./hooks"
 import Contact from "./pages/Contact"
 import ContactBrand from "./pages/ContactBrand"
+import ContactContentCreator from "./pages/ContactContentCreator"
 import Home from "./pages/Home"
+import Services from "./pages/Services"
 
 function App() {
   const windowSize = useWindowSize()
@@ -49,7 +51,9 @@ function App() {
           <Route path="contact" element={<Contact />}>
             <Route index element={<ContactIntro />}></Route>
             <Route path="brand" element={<ContactBrand />}></Route>
+            <Route path="content-creator" element={<ContactContentCreator />}></Route>
           </Route>
+          <Route path="services" element={<Services />}></Route>
         </Routes>
       </div>
     </WithSmooth>

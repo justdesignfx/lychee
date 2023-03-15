@@ -1,0 +1,316 @@
+@import "../_global.scss";
+
+.contactContentCreator {
+  $fontSize: 1.25rem;
+  $fontSizeMobile: 1rem;
+  $paddingLeft: 1.25rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5vw 0;
+
+  .title {
+    color: #ce1953;
+    font-family: Lychee;
+    font-size: $fontSize;
+    font-weight: 400;
+    line-height: 100%;
+    margin-bottom: 5vw;
+    text-align: center;
+  }
+
+  .formC {
+    @include dims(37vw, auto);
+
+    @include devicesMax(tablet) {
+      @include dims(45vw, auto);
+      margin: 5vw 3vw 7vw 2vw;
+    }
+
+    @include devicesMax(mobile) {
+      @include dims(100%, auto);
+      margin: 0;
+      order: 2;
+      padding-bottom: 20vw;
+    }
+
+    .multipleInputC {
+      margin-bottom: 5vw;
+      position: relative;
+
+      .addButton {
+        font-family: Lychee;
+        margin-bottom: 0.5vw;
+        color: #c8c8c8;
+        font-size: 1vw;
+        padding-left: 1.5rem;
+
+        display: flex;
+        align-items: center;
+
+        .plusC {
+          @include dims(2.5vw);
+          background: #1d1d28;
+          border-radius: 50%;
+          margin-right: 0.75vw;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+
+    .error {
+      @include position(absolute, 100%, auto, auto, auto);
+      color: #3b3b3b;
+      font-family: Moderat;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 160%;
+      margin: 2vw 0;
+    }
+
+    .smallTop {
+      @include position(absolute, -30px, auto, auto, auto);
+      color: #c8c8c8;
+      font-family: Lychee;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 120%;
+      white-space: nowrap;
+
+      @include devicesMax(mobile) {
+        @include position(absolute, auto, auto, 110%, 50%);
+        font-size: 12px;
+        margin-bottom: 2vw;
+        padding-left: 0;
+        transform: translateX(-50%);
+      }
+    }
+
+    .inputC {
+      @include dims(100%, 4vw);
+      background: #1b1b24;
+      border-radius: 32px;
+
+      position: relative;
+      margin-bottom: 1.25vw;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @include devicesMax(tablet) {
+        @include dims(100%, 5.5vw);
+      }
+
+      @include devicesMax(mobile) {
+        @include dims(100%, 14vw);
+        margin-bottom: 4vw;
+      }
+
+      .label {
+        @include position(absolute, 0, 0, 0, 0);
+        color: #6c6c79;
+        font-family: Lychee;
+        font-size: $fontSize;
+        font-weight: 400;
+        line-height: 120%;
+        opacity: 1;
+        padding-left: $paddingLeft;
+        transition: 0.4s all ease;
+
+        display: flex;
+        align-items: center;
+
+        &.hidden {
+          transition: 0s;
+          @extend .hide;
+        }
+      }
+
+      .input {
+        @include position(absolute, 0, 0, 0, 0);
+        display: flex;
+        border-radius: 32px;
+        color: #6c6c79;
+        font-family: Lychee;
+        font-size: $fontSize;
+        font-weight: 400;
+        line-height: 120%;
+        margin: 0;
+        padding: 0;
+        padding-left: $paddingLeft;
+        background: none;
+        border: none;
+        outline: none;
+      }
+
+      .iconW {
+        @include position(absolute, 50%, 0, auto, auto);
+        @include dims(2vw, auto);
+        transform: translateY(-50%);
+      }
+
+      &.email {
+        margin-bottom: 5vw;
+      }
+
+      &.dropdownC {
+        width: 20vw;
+      }
+
+      &.required {
+        border: 1px solid #ce1953;
+      }
+    }
+
+    .textareaC {
+      @include dims(100%, 15vw);
+      background: #1b1b24;
+      border-radius: 32px;
+      margin-bottom: 2vw;
+      padding: 1vw 1.5vw;
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      @include devicesMax(tablet) {
+        @include dims(100%, 14vw);
+        margin-bottom: 3vw;
+      }
+
+      @include devicesMax(mobile) {
+        @include dims(100%, 35vw);
+        margin-bottom: 6vw;
+        margin-top: 5vw;
+      }
+
+      .label {
+        @include dims(100%, auto);
+        display: flex;
+        color: #3b3b3b;
+        font-family: Lychee;
+        font-size: $fontSize;
+        font-weight: 400;
+        line-height: 100%;
+        margin-top: 1vw;
+        padding-left: $paddingLeft;
+
+        @include devicesMax(mobile) {
+          font-size: $fontSizeMobile;
+          margin-bottom: 2vw;
+        }
+      }
+
+      .textarea {
+        @include dims(100%, 5vw);
+        color: #3b3b3b;
+        font-family: Lychee;
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 120%;
+        margin: 0;
+        padding: 0;
+        background: none;
+        border: none;
+        outline: none;
+        resize: none;
+
+        @include devicesMax(tablet) {
+          @include dims(100%, 10vw);
+        }
+
+        @include devicesMax(mobile) {
+          @include dims(100%, 30vw);
+        }
+      }
+    }
+
+    .confirmation {
+      $boxDims: 20px;
+      @extend .cursorPointer;
+      margin-bottom: 5vw;
+
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      .checkbox {
+        @include dims($boxDims);
+        border: 1px solid #cfcfcf;
+        border-radius: 4px;
+        flex-shrink: 0;
+        margin-top: 0.25vw;
+        position: relative;
+
+        .inner {
+          @extend .absoluteCenter;
+          @include dims(calc($boxDims - 6px));
+          background: #cfcfcf;
+          border-radius: 2px;
+          transition: 0.3s all ease;
+          @extend .hide;
+
+          &.enabled {
+            @extend .show;
+          }
+        }
+      }
+    }
+  }
+
+  .button {
+    @include dims(18vw, 3.5vw);
+    font-family: LS-VG5000;
+    margin-bottom: 0.5vw;
+    border: 1px solid #ce1953;
+    border-radius: 36px;
+    color: #ce1953;
+    font-size: 1.5vw;
+
+    display: grid;
+    place-items: center;
+  }
+
+  .imgC {
+    z-index: 100;
+
+    .img {
+      @include dims(100%);
+      display: block;
+      object-fit: contain;
+    }
+
+    &.left {
+      @include position(absolute, 10vw, auto, auto, 5vw);
+      @include dims(18vw, auto);
+      transform: rotate(18deg);
+    }
+
+    &.right {
+      @include position(absolute, 30vw, auto, auto, 80vw);
+      @include dims(12vw, auto);
+      transform: rotate(-9deg);
+    }
+  }
+
+  .linkC {
+    @include position(fixed, auto, auto, 2vw, 2vw);
+    color: #c8c8c8;
+    font-family: Lychee;
+    font-size: 1.25rem;
+    line-height: 150%;
+
+    .link {
+      color: #ce1953;
+      text-decoration: underline;
+    }
+  }
+}

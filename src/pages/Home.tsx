@@ -19,6 +19,9 @@ import logoNestle from "~/assets/img/logo-nestle.svg"
 import logoNike from "~/assets/img/logo-nike.svg"
 import logoPhilips from "~/assets/img/logo-philips.svg"
 import logoStarbucks from "~/assets/img/logo-starbucks.svg"
+import logoDysonBlack from "~/assets/img/logo-dyson-black.svg"
+import logoAbdiBlack from "~/assets/img/logo-abdiibrahim-black.svg"
+import logoObsessoBlack from "~/assets/img/logo-obsesso-black.svg"
 
 import influencer1 from "~/assets/img/influencer-1.jpg"
 import influencer2 from "~/assets/img/influencer-2.jpg"
@@ -33,14 +36,19 @@ import { SmoothContext } from "~/hocs/WithSmooth"
 const Home = () => {
   const hScrollText = "Yeni medya platformlarında kreatif içerikler üretiyoruz."
 
-  const influencers = [{ pic: influencer1 }, { pic: influencer2 }, { pic: influencer3 }]
+  const influencers = [
+    { pic: influencer1, brandLogo: logoDysonBlack },
+    { pic: influencer2, brandLogo: logoAbdiBlack },
+    { pic: influencer3, brandLogo: logoObsessoBlack },
+  ]
 
-  const smoothCtx = useContext(SmoothContext)
-  useEffect(() => {
-    smoothCtx?.smooth.current.addListener((status: ScrollStatus) => {
-      console.log(status.offset.y)
-    })
-  }, [])
+  // const smoothCtx = useContext(SmoothContext)
+
+  // useEffect(() => {
+  //   smoothCtx?.smooth.current.addListener((status: ScrollStatus) => {
+  //     console.log(status.offset.y)
+  //   })
+  // }, [])
 
   return (
     <>
@@ -53,11 +61,11 @@ const Home = () => {
             </h1>
 
             <div className={s.buttons}>
-              <Link to="/contact" className={s.button}>
+              <Link to="/contact/brand" className={s.button}>
                 Markam Var
               </Link>
 
-              <Link to="/contact" className={s.button}>
+              <Link to="/contact/content-creator" className={s.button}>
                 İçerik Üreticisiyim
               </Link>
             </div>
@@ -159,8 +167,8 @@ const Home = () => {
                   <div className={s.infoC}>
                     <div className={s.info}>
                       <small className={s.label}>Marka</small>
-                      <div className={s.imgC}>
-                        <img src="" alt="" className={s.img} />
+                      <div className={s.logoC}>
+                        <img src={item.brandLogo} alt="Brand Logo" className={s.logo} />
                       </div>
                     </div>
                     <div className={s.info}>
@@ -168,7 +176,7 @@ const Home = () => {
                       <p className={s.text}>Dilara Aydın</p>
                     </div>
                   </div>
-                  <img className={s.img} src={item.pic} alt="" />
+                  <img className={s.img} src={item.pic} alt="Influencer" />
                 </div>
               )
             })}

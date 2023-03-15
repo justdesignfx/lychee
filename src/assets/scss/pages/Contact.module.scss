@@ -1,13 +1,7 @@
 @import "../_global.scss";
 
 .contact {
-  @include dims(100vw, calc(100vh - $headerHeight));
   position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 
   // .textC {
   //   margin: 0 auto 3vw auto;
@@ -60,40 +54,4 @@
   //     place-items: center;
   //   }
   // }+
-
-  .imgC {
-    @include dims(13vw, 20vw);
-    z-index: 10;
-    filter: blur(8px);
-
-    .img {
-      @include dims(100%);
-      display: block;
-      object-fit: cover;
-      z-index: -1;
-      -webkit-border-radius: 32px;
-      -khtml-border-radius: 32px;
-      -moz-border-radius: 32px;
-      border-radius: 32px;
-    }
-
-    &::after {
-      content: "";
-      @include position(absolute, 0, 0, 0, 0);
-      @include dims(100%);
-      background: #000;
-      opacity: 0.3;
-      z-index: 5;
-    }
-
-    &.left {
-      @include position(absolute, 10vw, auto, auto, 5vw);
-      transform: rotate(-23deg);
-    }
-
-    &.right {
-      @include position(absolute, 20vw, auto, auto, 80vw);
-      transform: rotate(21deg);
-    }
-  }
 }

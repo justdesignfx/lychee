@@ -1,10 +1,14 @@
 import React from "react"
 import { Link } from "react-router-dom"
+
+import cx from "classnames"
 import s from "~/assets/scss/components/ContactIntro.module.scss"
+
+import floating from "~/assets/img/contact/floating.png"
 
 const ContactIntro = () => {
   return (
-    <>
+    <div className={s.contactIntro}>
       <div className={s.textC}>
         <h1 className={s.title}>
           <span className={s.italic}>Dijital dünyanızı</span> devralalım.
@@ -22,7 +26,15 @@ const ContactIntro = () => {
           İçerik Üreticisiyim
         </Link>
       </div>
-    </>
+
+      <div className={cx(s.imgC, s.left)}>
+        <img src={floating} alt="Brand Visual" className={s.img} />
+      </div>
+
+      <div className={cx(s.imgC, s.right)}>
+        <img src={floating} alt="Brand Visual" className={s.img} />
+      </div>
+    </div>
   )
 }
 

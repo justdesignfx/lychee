@@ -1,0 +1,107 @@
+@import "../_global.scss";
+
+.services {
+  .titleC {
+    @include dims(100%, 80vh);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .marginR {
+      margin-right: 20vw;
+    }
+
+    .title {
+      color: #c1c1c1;
+      font-family: Lychee;
+      font-size: 5vw;
+      line-height: 110%;
+      margin: 0 auto;
+      margin-bottom: 2.5vw;
+      text-align: center;
+      z-index: 10;
+
+      .line {
+        display: block;
+
+        &:last-child {
+          margin-right: 52vw;
+        }
+      }
+
+      .italic {
+        font-family: LaicaBItalic;
+      }
+
+      .small {
+        font-size: 3vw;
+      }
+    }
+
+    .bgImgC {
+      @include dims(25vw, 45vw);
+      @include position(absolute, 50%, auto, auto, 50%);
+      border-radius: 32px;
+      transform: translate(-50%, -150%);
+    }
+  }
+
+  .misc {
+    display: flex;
+    justify-content: space-around;
+
+    .imgC {
+      border-radius: 32px;
+
+      &:nth-child(1) {
+        @include dims(10vw, 18vw);
+        transform: translate(0, -50%);
+      }
+
+      &:nth-child(2) {
+        @include dims(32vw);
+      }
+
+      &:nth-child(3) {
+        @include dims(10vw, 18vw);
+      }
+    }
+  }
+
+  .theWay {
+    padding: 0 4vw;
+  }
+
+  .sideServices {
+    .sideServicesTitleC {
+      @include dims(40vw, auto);
+      margin: 10vw auto 0 auto;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      .title {
+        color: #ce1953;
+        font-family: LS-VG5000;
+        font-size: 1.25vw;
+        line-height: 100%;
+        margin-bottom: 1vw;
+      }
+
+      .text {
+        color: #c1c1c1;
+        font-family: Lychee;
+        font-size: 3vw;
+        line-height: 120%;
+
+        .italic {
+          color: #ce1953;
+          font-family: LaicaBItalic;
+        }
+      }
+    }
+  }
+}
