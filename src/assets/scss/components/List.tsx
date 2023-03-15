@@ -6,8 +6,6 @@ type Props = {
 }
 
 const List = (props: Props) => {
-  console.log(s)
-
   return (
     <div className={s.listC}>
       <div className={s.stickyC} data-sticky-title-c>

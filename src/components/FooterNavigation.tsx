@@ -24,13 +24,13 @@ const FooterNavigation = () => {
           </Link>
         </div>
         <div className={cx(s.col, s.links)}>
-          <Link className={s.link} to="/brands">
+          <Link className={s.link} to="/services">
             Hizmetler
           </Link>
-          <Link className={s.link} to="/brands">
+          <Link className={s.link} to="/about-us">
             Hakkımızda
           </Link>
-          <Link className={s.link} to="/brands">
+          <Link className={s.link} to="/contact">
             İletişim
           </Link>
         </div>

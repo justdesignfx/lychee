@@ -43,7 +43,7 @@ function App() {
   }, [location, displayLocation, windowSize.width])
 
   return (
-    <WithSmooth>
+    <WithSmooth location={displayLocation}>
       <div data-route-transition>
         <Header />
         <Routes location={displayLocation}>

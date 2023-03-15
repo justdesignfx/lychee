@@ -108,9 +108,9 @@ const Services = (props: Props) => {
             </p>
           </div>
           <div className={s.cards}>
-            {cards.map((card) => {
+            {cards.map((card, i) => {
               return (
-                <div className={s.cardC}>
+                <div className={s.cardC} key={i}>
                   <FloatingCard {...card} />
                 </div>
               )
