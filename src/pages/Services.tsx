@@ -119,7 +119,14 @@ const Services = () => {
         </section>
 
         <section className={s.theWay}>
-          <List items={theWay} />
+          <List
+            title={
+              <h2 className={s.stickyText}>
+                Çalışma <span className={s.italic}>şeklimiz.</span>
+              </h2>
+            }
+            items={theWay}
+          />
         </section>
 
         <section className={s.sideServices}>
@@ -150,7 +157,14 @@ const Services = () => {
         </section>
 
         <section className={s.pros}>
-          <List items={pros} />
+          <List
+            title={
+              <h2 className={s.stickyText}>
+                Bizi diğerlerinden <span className={s.italic}>ayıran</span> özellikler.
+              </h2>
+            }
+            items={pros}
+          />
         </section>
 
         <section className={s.dare}>

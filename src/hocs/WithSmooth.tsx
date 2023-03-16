@@ -216,7 +216,8 @@ const WithSmooth = ({ children, location }: Props) => {
         //     })
         //   })
         // }
-        parallaxItems(q)
+        parallaxItems()
+        stickyTitle()
 
         if (q("[data-h-scroll]").length > 0 && windowSize.width > breakpoints.tablet) {
           textReveal(q)

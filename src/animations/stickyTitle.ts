@@ -1,23 +1,26 @@
-import { qSingle } from "~/utils"
 import gsap from "gsap"
+import { qAll } from "./../utils/index"
 
 export function stickyTitle() {
-  console.log("STICKY TITLE INITIALIZED")
+  const stickyContainers: HTMLElement[] = qAll("[data-sticky-title-c]")
+  const stickies: HTMLElement[] = qAll("[data-sticky-title]")
 
-  const container = document.querySelector("[data-sticky-title-container]")
+  if (stickies.length <= 0 || stickyContainers.length <= 0) return
 
-  const stickyC = qSingle("[data-sticky-title-c]")
-  const sticky = qSingle("[data-sticky-title]")
-
-  gsap.to(sticky, {
-    yPercent: 900,
-    ease: "none",
-    scrollTrigger: {
-      trigger: stickyC,
-      scrub: true,
-      markers: true,
-      start: "top top",
-      end: `bottom top`,
-    },
+  stickies.forEach((sticky, i) => {
+    gsap.to(sticky, {
+      scrollTrigger: {
+        trigger: sticky,
+        scrub: false,
+        start: "top+=25% top+=25%",
+        end: `+=${stickyContainers[i].offsetHeight - sticky.offsetHeight}px`,
+        pin: true,
+        id: `sticky_${i}`,
+        pinSpacing: false,
+        // markers: true,
+      },
+    })
   })
+
+  console.log("STICKY TITLE INITIALIZED")
 }

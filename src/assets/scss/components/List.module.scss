@@ -9,21 +9,7 @@
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-
-  .stickyC {
-    .stickyText {
-      color: #16161e;
-      display: inline-block;
-      font-family: Lychee;
-      font-size: 5vw;
-      line-height: 110%;
-
-      .italic {
-        color: #d41a5e;
-        font-family: LaicaBItalic;
-      }
-    }
-  }
+  column-gap: 5vw;
 
   .list {
     .listItem {
@@ -32,6 +18,7 @@
 
       &:last-child {
         border-bottom: none;
+        padding-bottom: 0;
       }
 
       .itemTitleC {

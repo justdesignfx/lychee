@@ -1,7 +1,8 @@
-import React from "react"
+import React, { ReactElement } from "react"
 import s from "~/assets/scss/components/List.module.scss"
 
 type Props = {
+  title: ReactElement
   items: { title: string; text: string }[]
 }
 
@@ -9,9 +10,9 @@ const List = (props: Props) => {
   return (
     <div className={s.listC}>
       <div className={s.stickyC} data-sticky-title-c>
-        <h2 className={s.stickyText} data-sticky-title>
-          Çalışma <span className={s.italic}>şeklimiz.</span>
-        </h2>
+        <div className={s.stickyTextC} data-sticky-title>
+          {props.title}
+        </div>
       </div>
 
       <ul className={s.list}>

@@ -3,10 +3,11 @@
 .services {
   .titleC {
     @include dims(100%, 100vh);
+    padding-top: 10vw;
     position: relative;
 
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 
     .marginR {
@@ -57,7 +58,7 @@
       @include dims(25vw, 45vw);
       @include position(absolute, 50%, auto, auto, 50%);
       border-radius: 32px;
-      transform: translate(-50%, -40%);
+      transform: translate(-50%, -50%);
     }
   }
 
@@ -113,6 +114,19 @@
 
   .theWay {
     padding: 0 4vw;
+
+    .stickyText {
+      color: #16161e;
+      display: inline-block;
+      font-family: Lychee;
+      font-size: 5vw;
+      line-height: 110%;
+
+      .italic {
+        color: #d41a5e;
+        font-family: LaicaBItalic;
+      }
+    }
   }
 
   .sideServices {
@@ -188,6 +202,23 @@
 
       .italic {
         color: #ce1953;
+        font-family: LaicaBItalic;
+      }
+    }
+  }
+
+  .pros {
+    padding: 0 4vw;
+
+    .stickyText {
+      color: #16161e;
+      display: inline-block;
+      font-family: Lychee;
+      font-size: 5vw;
+      line-height: 110%;
+
+      .italic {
+        color: #d41a5e;
         font-family: LaicaBItalic;
       }
     }

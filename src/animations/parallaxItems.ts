@@ -1,12 +1,10 @@
 import gsap from "gsap"
+import { qAll } from "~/utils"
 
-export function parallaxItems(selector: any) {
-  const items = selector("[data-parallax]")
-  console.log(items, items.length)
+export function parallaxItems() {
+  const items = qAll("[data-parallax]")
 
   if (items.length <= 0) return
-
-  console.log(items)
 
   items.forEach((item: HTMLElement) => {
     const speedY = item.dataset.speedY || "0"
@@ -21,7 +19,7 @@ export function parallaxItems(selector: any) {
       scrollTrigger: {
         trigger: item,
         scrub: 1,
-        markers: true,
+        // markers: true,
       },
     })
   })
