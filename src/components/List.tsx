@@ -19,7 +19,7 @@ const List = (props: Props) => {
           return (
             <li className={s.listItem} key={i}>
               <h3 className={s.itemTitleC}>
-                <span className={s.index}>01</span>
+                <span className={s.index}>0{i + 1}</span>
                 <span className={s.title}>{item.title}</span>
               </h3>
               <p className={s.text}>{item.text}</p>

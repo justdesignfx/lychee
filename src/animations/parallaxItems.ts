@@ -1,18 +1,27 @@
 import gsap from "gsap"
 
 export function parallaxItems(selector: any) {
-  const parallaxItems = selector("[data-parallax]")
+  const items = selector("[data-parallax]")
+  console.log(items, items.length)
 
-  if (parallaxItems.length > 0) return
+  if (items.length <= 0) return
 
-  parallaxItems.forEach((item: any) => {
+  console.log(items)
+
+  items.forEach((item: HTMLElement) => {
+    const speedY = item.dataset.speedY || "0"
+    const dirY = item.dataset.directionY || "0"
+
+    const speedX = item.dataset.speedX || "0"
+    const dirX = item.dataset.directionX || "0"
+
     gsap.to(item, {
-      yPercent: () => 100 * parseFloat(item.dataset.speedY) * parseFloat(item.dataset.directionY),
-      xPercent: () => 100 * parseFloat(item.dataset.speedX) * parseFloat(item.dataset.directionX),
+      yPercent: () => 100 * parseFloat(speedY) * parseFloat(dirY),
+      xPercent: () => 100 * parseFloat(speedX) * parseFloat(dirX),
       scrollTrigger: {
         trigger: item,
         scrub: 1,
-        // markers: true,
+        markers: true,
       },
     })
   })

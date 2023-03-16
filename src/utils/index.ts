@@ -15,3 +15,13 @@ export const truncateString = (str: string, num: number) => {
 
   return str.slice(0, num) + "..."
 }
+
+export const qSingle = function (selector: string, scope?: any) {
+  scope = scope ? scope : document
+  return scope.querySelector(selector)
+}
+
+export const qAll = function (selector: string, scope?: any) {
+  scope = scope ? scope : document
+  return scope.querySelectorAll(selector)
+}

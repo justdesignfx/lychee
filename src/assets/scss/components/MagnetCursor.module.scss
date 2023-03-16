@@ -12,6 +12,10 @@
     opacity: 1;
   }
 
+  &.lamped {
+    mix-blend-mode: darken;
+  }
+
   @include devicesMax(tablet) {
     display: none;
   }
@@ -19,7 +23,7 @@
   .cursor {
     @include position(absolute, 50%, auto, auto, 50%);
     transform: translate(-50%, -50%);
-    transition: 0.4s all ease;
+    transition: 0.2s all cubic-bezier(0.215, 0.61, 0.355, 1);
     border-radius: 50%;
 
     &.default {

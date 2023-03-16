@@ -46,6 +46,7 @@ const MagnetCursor = () => {
     <div
       className={cx(s.magnetCursor, {
         [s.visible]: cursorStore.visible,
+        [s.lamped]: cursorStore.lamped,
       })}
       ref={magnetCursorRef}
     >

@@ -6,7 +6,7 @@ import Scrollbar, { ScrollbarPlugin } from "smooth-scrollbar"
 import { useResizeDetector } from "react-resize-detector"
 import { useWindowSize } from "~/hooks"
 
-import { textReveal, slidingPanels, stickyTitle } from "~/animations"
+import { textReveal, slidingPanels, stickyTitle, parallaxItems } from "~/animations"
 import Menu from "~/components/Menu"
 import { breakpoints } from "~/variables"
 import MagnetCursor from "~/components/MagnetCursor"
@@ -216,6 +216,7 @@ const WithSmooth = ({ children, location }: Props) => {
         //     })
         //   })
         // }
+        parallaxItems(q)
 
         if (q("[data-h-scroll]").length > 0 && windowSize.width > breakpoints.tablet) {
           textReveal(q)
@@ -225,7 +226,7 @@ const WithSmooth = ({ children, location }: Props) => {
           slidingPanels(q)
         }
 
-        stickyTitle(q)
+        // stickyTitle()
 
         // REVEAL WRAPPER
         // if (q("[data-reveal]").length > 0 && windowSize.width > breakpoints.tablet) {

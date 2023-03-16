@@ -1,19 +1,19 @@
-import React from "react"
 import s from "~/assets/scss/pages/Services.module.scss"
 import Img from "~/components/Img"
 
 import cx from "classnames"
 
-import sample from "~/assets/img/sample.png"
+import { Link } from "react-router-dom"
 import doodleLaying from "~/assets/img/doodle-laying.png"
-import List from "~/assets/scss/components/List"
-import Footer from "~/components/Footer"
+import sample from "~/assets/img/sample.png"
 import FloatingCard from "~/components/FloatingCard"
+import Footer from "~/components/Footer"
+import IconArrowSquare from "~/components/Icons/IconArrowSquare"
+import List from "~/components/List"
+import MarqueeSimple from "~/components/MarqueeSimple"
 
-type Props = {}
-
-const Services = (props: Props) => {
-  const listContent = [
+const Services = () => {
+  const theWay = [
     {
       title: "Mükemmel yönetim için adım adım ilerliyoruz.",
       text: "Markalarımız ve dijital yeteneklerimiz için bütün süreçleri eksiksiz bir şekilde planlıyor, çizginin dışında benzersiz işlere imza atmak için tutkulu ekibimizle birlikte çalışıyoruz.",
@@ -29,6 +29,25 @@ const Services = (props: Props) => {
     {
       title: "Verileri seviyoruz.",
       text: "İşimizin en sevdiğimiz kısmı burada başlıyor. Sosyal dinleme, erişim raporu ve yönlendirme metriklerini detaylıca inceliyor, üzerine bol bol konuşuyoruz. Bu sayede dijital içerik üreticilerimizle ve markalarımızla çok daha sağlıklı, uzun soluklu ilişkiler yürütebiliyoruz.",
+    },
+  ]
+
+  const pros = [
+    {
+      title: "A’dan Z’ye yönetim.",
+      text: "A’dan Z’ye yönetilen, yenilikçi, iletişimi güçlü ve etkileyici marketing kampanyaları sunmak için markalarla partnerlik yapıyoruz.",
+    },
+    {
+      title: "Toplulukları yönetiyoruz.",
+      text: "Dijital yeteneklerimizin topluluklarıyla olan iletişimine dikkat ediyor, marka iş birliklerini bu iletişimin ve hikayenin bir uzantısı olarak ele alıyoruz.",
+    },
+    {
+      title: "Lychee çekirdekleri gibi..",
+      text: "Dijital trendleri yaratıcı ekibimizle yeniden yorumlamaya bayılıyoruz! Bu nedenle projelerimizi oluştururken bir topluluk olarak hareket ediyor ve eğlenmeyi ihmal etmiyoruz.",
+    },
+    {
+      title: "Yetenek yönetiminin diğer yöntemi.",
+      text: "Dijital yeteneklerimizi en doğru şekilde yönlendirmek için çalışan bir ekibiz. Bu nedenle dijital yeteneklerimizin, topluluklarını, marka iş birlikleri dışındaki süreçlerini ve projelerini de çok ciddiye alıyoruz.",
     },
   ]
 
@@ -78,6 +97,10 @@ const Services = (props: Props) => {
             <span className={s.line}>karşılıyoruz.</span>
           </h1>
 
+          <p className={s.floatingText}>
+            Sürekli hareket eden görüntüler dünyasında bir dizi temel dijital çözümler sunuyoruz.
+          </p>
+
           <div className={s.bgImgC}>
             <Img src={sample} objectFit="cover" />
           </div>
@@ -87,7 +110,7 @@ const Services = (props: Props) => {
           <div className={s.imgC}>
             <Img src={sample} objectFit="cover" />
           </div>
-          <div className={s.imgC}>
+          <div className={s.imgC} data-parallax data-speed-y="0.5" data-direction-y="1">
             <Img src={doodleLaying} objectFit="contain" />
           </div>
           <div className={s.imgC}>
@@ -96,7 +119,7 @@ const Services = (props: Props) => {
         </section>
 
         <section className={s.theWay}>
-          <List items={listContent} />
+          <List items={theWay} />
         </section>
 
         <section className={s.sideServices}>
@@ -117,12 +140,39 @@ const Services = (props: Props) => {
             })}
           </div>
         </section>
+
         <section className={s.singleTitleC}>
           <h1 className={s.title}>
             Dünya bizim
             <span className={s.italic}> dijital </span>
             oyun alanımız.
           </h1>
+        </section>
+
+        <section className={s.pros}>
+          <List items={pros} />
+        </section>
+
+        <section className={s.dare}>
+          <div className={s.marqueeC}>
+            <MarqueeSimple direction={-1}>
+              <h2 className={s.mText}>
+                Hazırsan başlayalım. <span className={s.seperator}></span>
+              </h2>
+            </MarqueeSimple>
+          </div>
+          <h1 className={s.text}>Markanız için en etkili influencer marketing kampanyalarını yürütmeye hazırız.</h1>
+          <Link to="/contact" className={s.contactBtn}>
+            Kampanya oluşturun
+            <span className={s.iconC}>
+              <div className={s.oWrapper}>
+                <IconArrowSquare fill="#ce1953"></IconArrowSquare>
+                <div className={s.tuple}>
+                  <IconArrowSquare fill="#ce1953"></IconArrowSquare>
+                </div>
+              </div>
+            </span>
+          </Link>
         </section>
       </main>
       <Footer />

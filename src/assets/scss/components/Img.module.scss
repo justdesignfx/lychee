@@ -4,7 +4,7 @@
   @include dims(100%);
   position: relative;
   display: block;
-  z-index: z-index("img");
+  z-index: -1;
   @extend .hide;
 
   &.visible {
