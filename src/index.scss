@@ -1,9 +1,14 @@
 @import "/src/assets/scss/normalize.scss";
 @import "/src/assets/scss/reset.scss";
 @import "/src/assets/fonts/fonts.scss";
+@import "/src/assets/scss/global.scss";
+
+html {
+  font-size: 16px;
+}
 
 body {
-  background: #16161c;
+  background: $eigengrau;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

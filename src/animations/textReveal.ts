@@ -42,10 +42,6 @@ export function textReveal(selector: any) {
       opacity: 1,
       delay: -0.45,
     })
-
-    // tl.to(letter, {
-    //   yPercent: 10,
-    // })
   })
 
   ScrollTrigger.create({

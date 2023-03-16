@@ -1,12 +1,12 @@
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
-import React, { ReactElement, useLayoutEffect, useRef } from "react"
+import React, { ReactElement, useCallback, useLayoutEffect, useRef } from "react"
 import Scrollbar, { ScrollbarPlugin } from "smooth-scrollbar"
 
 import { useResizeDetector } from "react-resize-detector"
 import { useWindowSize } from "~/hooks"
 
-import { textReveal, slidingPanels, stickyTitle, parallaxItems } from "~/animations"
+import { textReveal, slidingPanels, stickyTitle, parallaxItems, floatingItems } from "~/animations"
 import Menu from "~/components/Menu"
 import { breakpoints } from "~/variables"
 import MagnetCursor from "~/components/MagnetCursor"
@@ -60,10 +60,10 @@ const WithSmooth = ({ children, location }: Props) => {
     console.log("SCROLLBAR UNLOCKED")
   }
 
-  const onResize = () => {
+  const onResize = useCallback(() => {
     ScrollTrigger.refresh()
     console.log("SCROLLTRIGGER REFRESHED")
-  }
+  }, [])
 
   useResizeDetector({ targetRef: contentRef, onResize })
 
@@ -218,6 +218,7 @@ const WithSmooth = ({ children, location }: Props) => {
         // }
         parallaxItems()
         stickyTitle()
+        floatingItems()
 
         if (q("[data-h-scroll]").length > 0 && windowSize.width > breakpoints.tablet) {
           textReveal(q)

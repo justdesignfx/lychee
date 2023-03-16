@@ -9,6 +9,7 @@ import { useWindowSize } from "./hooks"
 import Contact from "./pages/Contact"
 import ContactBrand from "./pages/ContactBrand"
 import ContactContentCreator from "./pages/ContactContentCreator"
+import Creators from "./pages/Creators"
 import Home from "./pages/Home"
 import Services from "./pages/Services"
 
@@ -54,6 +55,7 @@ function App() {
             <Route path="content-creator" element={<ContactContentCreator />}></Route>
           </Route>
           <Route path="services" element={<Services />}></Route>
+          <Route path="creators" element={<Creators />}></Route>
         </Routes>
       </div>
     </WithSmooth>

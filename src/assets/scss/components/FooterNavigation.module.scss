@@ -3,12 +3,12 @@
 .footerNavigation {
   display: flex;
   flex-direction: column;
-  color: #16161c;
+  color: $eigengrau;
 
   .navigation {
     @include dims(100%, auto);
-    border-bottom: 1px solid #16161c;
-    border-top: 1px solid #16161c;
+    border-bottom: 1px solid $eigengrau;
+    border-top: 1px solid $eigengrau;
     padding-top: 7vw;
     display: flex;
 

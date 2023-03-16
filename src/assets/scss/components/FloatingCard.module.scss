@@ -3,7 +3,8 @@
 .floatingCard {
   @include dims(25vw, auto);
   border-radius: 16px;
-  padding: 1rem;
+  min-height: 18vw;
+  padding: 1.5rem;
 
   .title {
     font-size: 3vw;
@@ -24,7 +25,7 @@
     font-family: Lychee;
     font-size: 1.25vw;
     line-height: 160%;
-    margin-bottom: 4vw;
+    margin-bottom: 3vw;
   }
 
   &.blue {
@@ -39,7 +40,8 @@
 
   &.transparent {
     background: rgba(115, 115, 115, 0.3);
-    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(44px);
+    backdrop-filter: blur(44px);
     color: #f4f2f2;
   }
 }

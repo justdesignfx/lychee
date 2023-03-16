@@ -1,0 +1,111 @@
+@import "../global.scss";
+
+.creators {
+  .intro {
+    display: flex;
+
+    .textC {
+      @include dims(37vw, auto);
+      margin: 8vw 10vw 0 4vw;
+
+      .small {
+        @include typo(LS-VG5000, 18px, null, null, null);
+        color: $californiaSunset;
+        margin-bottom: 2vw;
+      }
+
+      .title {
+        @include typo(Lychee, 60px, null, null, null);
+        color: $stonewallGrey;
+        margin-bottom: 2vw;
+      }
+
+      .subtitle {
+        @include typo(Lychee, 20px, null, 1.4, null);
+        color: $stonewallGrey;
+        margin-bottom: 2vw;
+      }
+    }
+
+    .statsC {
+      position: relative;
+
+      .imgC {
+        @include dims(35vw, auto);
+        border-radius: 32px;
+        overflow: hidden;
+
+        display: grid;
+        place-items: center;
+      }
+
+      .statC {
+        @include position(absolute, 5%, auto, auto, 95%);
+        background: rgb(22, 22, 30, 0.3);
+        border-radius: 32px;
+        padding: 2rem;
+        backdrop-filter: blur(16px);
+
+        display: flex;
+        flex-direction: column;
+
+        .stat {
+          flex-shrink: 0;
+          margin-bottom: 2vw;
+
+          &:last-child {
+            .data {
+              color: $boogerBuster;
+              margin-bottom: 0;
+            }
+          }
+
+          .label {
+            @include typo(Lychee, 18px, null, null, italic);
+            font-style: italic;
+            color: $californiaSunset;
+            margin-bottom: 4vw;
+          }
+
+          .data {
+            @include typo(LS-VG5000, 43px, null, null, null);
+            color: $stonewallGrey;
+          }
+
+          .iconC {
+            @include dims(20px);
+            display: grid;
+            place-items: center;
+          }
+        }
+      }
+    }
+  }
+
+  .why {
+    padding-bottom: 10vw;
+    min-height: 100vh;
+    position: relative;
+
+    display: flex;
+    align-items: flex-end;
+    overflow-x: hidden;
+
+    .title {
+      @include position(absolute, 5vw, auto, auto, 5vw);
+      @include typo(Lychee, 80px, null, null, null);
+      color: $stonewallGrey;
+      margin-bottom: 2vw;
+    }
+
+    .hSection {
+      padding-left: 10vw;
+      padding-right: 30vw;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+  }
+}

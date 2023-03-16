@@ -1,7 +1,7 @@
 @import "../_global.scss";
 
 .home {
-  background: #16161c;
+  background: $eigengrau;
 
   .hero {
     @include dims(100%, 100vh);
@@ -505,7 +505,7 @@
       }
 
       &.black {
-        background: #16161c;
+        background: $eigengrau;
         z-index: 100;
       }
 
@@ -533,7 +533,7 @@
           }
 
           &.black {
-            background: #16161c;
+            background: $eigengrau;
             z-index: 100;
           }
 
