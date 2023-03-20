@@ -1,37 +1,43 @@
 @import "../global.scss";
 
 .creators {
+  .textC {
+    @include dims(37vw, auto);
+    margin: 8vw 10vw 0 4vw;
+
+    .small {
+      @include typo(LS-VG5000, 18px, null, null, null);
+      color: $californiaSunset;
+      margin-bottom: 2vw;
+    }
+
+    .title {
+      @include typo(Lychee, 60px, null, null, null);
+      color: $stonewallGrey;
+      margin-bottom: 2vw;
+    }
+
+    .subtitle {
+      @include typo(Lychee, 20px, null, 1.4, null);
+      color: $stonewallGrey;
+      margin-bottom: 2vw;
+    }
+
+    .btnC {
+      @include dims(15vw, 2.5vw);
+      display: block;
+      margin-right: auto;
+    }
+  }
+
   .intro {
     display: flex;
-
-    .textC {
-      @include dims(37vw, auto);
-      margin: 8vw 10vw 0 4vw;
-
-      .small {
-        @include typo(LS-VG5000, 18px, null, null, null);
-        color: $californiaSunset;
-        margin-bottom: 2vw;
-      }
-
-      .title {
-        @include typo(Lychee, 60px, null, null, null);
-        color: $stonewallGrey;
-        margin-bottom: 2vw;
-      }
-
-      .subtitle {
-        @include typo(Lychee, 20px, null, 1.4, null);
-        color: $stonewallGrey;
-        margin-bottom: 2vw;
-      }
-    }
 
     .statsC {
       position: relative;
 
       .imgC {
-        @include dims(35vw, auto);
+        @include dims(31vw, auto);
         border-radius: 32px;
         overflow: hidden;
 
@@ -79,6 +85,143 @@
           }
         }
       }
+
+      .credentials {
+        @include position(absolute, 55%, auto, auto, -35%);
+        background: rgb(22, 22, 30, 0.3);
+        border-radius: 16px;
+        padding: 2rem;
+        backdrop-filter: blur(16px);
+
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        row-gap: 1vw;
+
+        .info {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          .label {
+            @include typo(Lychee, 18px, null, null, italic);
+            color: $californiaSunset;
+          }
+
+          .data {
+            @include typo(Lychee, 18px, null, null, italic);
+            color: $stonewallGrey;
+          }
+        }
+      }
+    }
+  }
+
+  .foundations {
+    position: relative;
+
+    .title {
+      @include typo(Lychee, 90px, null, 1.1, null);
+      color: $stonewallGrey;
+      margin: 10vw 4vw;
+      text-shadow: 12px 7px 21px rgba(0, 0, 0, 0.6);
+
+      .italic {
+        @include typo(LaicaBItalic, 90px, null, null, null);
+      }
+    }
+
+    .small {
+      @include dims(27vw, auto);
+      @include typo(Lychee, 20px, null, 1.4, null);
+      color: $stonewallGrey;
+      display: block;
+      margin-left: 40vw;
+      margin-top: 10vw;
+    }
+
+    .imgC {
+      border-radius: 20px;
+      overflow: hidden;
+      z-index: -1;
+
+      &.left {
+        @include position(absolute, 25%, auto, auto, 5%);
+        @include dims(12vw, auto);
+      }
+
+      &.mid {
+        @include position(absolute, 5%, auto, auto, 25%);
+        @include dims(14vw, auto);
+      }
+
+      &.right {
+        @include position(absolute, 55%, auto, auto, 55%);
+        @include dims(20vw, auto);
+      }
+    }
+  }
+
+  .conclusion {
+    position: relative;
+    margin-top: 10vw;
+
+    .marqueeC {
+      margin: 7vw 0;
+
+      .mText {
+        @include typo(LS-VG5000, 152px, null, null, null);
+        color: $californiaSunset;
+        padding: 2.5vw;
+      }
+    }
+
+    .text {
+      @include dims(60vw, auto);
+      @include typo(Lychee, 35px, null, 1.4, null);
+      color: $stonewallGrey;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .imgC {
+      @include position(absolute, 75%, 0, auto, auto);
+      @include dims(15vw, auto);
+    }
+  }
+
+  .singleTitleC {
+    margin: 10vw auto;
+
+    .title {
+      @include dims(65vw, auto);
+      @include typo(Lychee, 80px, null, 1.4, null);
+
+      color: #c1c1c1;
+      margin: 0 auto;
+      text-align: center;
+
+      .italic {
+        color: #ce1953;
+        font-family: LaicaBItalic;
+      }
+    }
+  }
+
+  .featuredProjects {
+    .lookUp {
+      color: #c1c1c1;
+      display: block;
+      margin: 4vw auto;
+      text-align: center;
+
+      font-family: Lychee;
+      font-size: 1.25vw;
+      line-height: 150%;
+
+      .link {
+        color: #ce1953;
+        font-family: LS-VG5000;
+        text-decoration: underline;
+      }
     }
   }
 
@@ -106,6 +249,25 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+    }
+  }
+
+  .waitingForYou {
+    .mText {
+      @include typo(Lychee, 160px, 700, null, null);
+      color: $stonewallGrey;
+      padding: 2.5vw 0;
+
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+
+      .seperator {
+        @include dims(200px, 10px);
+        background: #fff;
+        display: inline-block;
+        margin: 2vw 3vw 0 3vw;
+      }
     }
   }
 }

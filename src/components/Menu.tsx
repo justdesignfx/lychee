@@ -1,16 +1,15 @@
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import s from "~/assets/scss/components/Menu.module.scss"
 
 import cx from "classnames"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import arrow from "~/assets/img/arrow-right.svg"
+import { SmoothContext } from "~/hocs/WithSmooth"
 
 const Menu = () => {
   const [open, setOpen] = useState(false)
 
-  function handleMenu() {
-    setOpen((prev) => !prev)
-  }
+  const smoothContext = useContext(SmoothContext)
 
   const menuItems = [
     { ui: "Creators", path: "/creators" },
@@ -21,36 +20,47 @@ const Menu = () => {
     { ui: "Contact", path: "/contact" },
   ]
 
+  function handleMenu() {
+    setOpen((prev) => !prev)
+  }
+
+  useEffect(() => {
+    // TODO: lock below desktop
+    if (open) {
+      smoothContext.lockScrollbar()
+    } else {
+      smoothContext.unlockScrollbar()
+    }
+  }, [open])
+
   return (
-    <div className={cx(s.menuC, { [s.open]: open })}>
+    <div className={cx(s.menuC, { [s.open]: open })} data-hamburger-menu>
       <div className={s.overlay} onClick={handleMenu}></div>
-      <div className={s.menu} data-hamburger-menu>
-        <div className={s.hamburger} onClick={handleMenu}>
-          <div className={s.lineC}>
-            <span className={s.line}></span>
-            <span className={s.line}></span>
-          </div>
-          <div className={s.lineC}>
-            <span className={s.line}></span>
-            <span className={s.line}></span>
-          </div>
+      <div className={s.hamburger} onClick={handleMenu}>
+        <div className={s.lineC}>
+          <span className={s.line}></span>
+          <span className={s.line}></span>
         </div>
-        <div className={s.menuC}>
-          <ul className={s.menuItems}>
-            {menuItems.map((item, i) => {
-              return (
-                <li className={s.menuItem} key={i}>
-                  <Link to={item.path} className={s.link}>
-                    <div className={s.imgC}>
-                      <img className={s.img} src={arrow} alt="Arrow" />
-                    </div>
-                    <span className={s.text}>{item.ui}</span>
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
+        <div className={s.lineC}>
+          <span className={s.line}></span>
+          <span className={s.line}></span>
         </div>
+      </div>
+      <div className={s.menu}>
+        <ul className={s.menuItems}>
+          {menuItems.map((item, i) => {
+            return (
+              <li className={s.menuItem} key={i}>
+                <Link to={item.path} className={s.link} onClick={handleMenu}>
+                  <div className={s.imgC}>
+                    <img className={s.img} src={arrow} alt="Arrow" />
+                  </div>
+                  <span className={s.text}>{item.ui}</span>
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
       </div>
     </div>
   )

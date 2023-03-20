@@ -1,0 +1,127 @@
+@import "../global.scss";
+
+.slider {
+  margin: 4vw;
+  position: relative;
+
+  .slide {
+    border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+      content: "";
+      @include position(absolute, 0, 0, auto, 0);
+      @include dims(auto, 30%);
+      background: linear-gradient(180deg, $eigengrau, rgb(255, 255, 255, 0));
+      z-index: 10;
+    }
+
+    .account {
+      @include position(absolute, 2rem, auto, auto, 2rem);
+      z-index: 20;
+
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .imgC {
+        @include dims(4vw);
+      }
+
+      .small {
+        @include typo(Lychee, 20px, null, 1.4, null);
+        color: $stonewallGrey;
+      }
+    }
+  }
+
+  //   .btnWrapper {
+  //     cursor: none;
+  //     display: flex;
+  //     height: fit-content;
+  //     transition: 0.3s all ease;
+  //     width: 120px;
+  //     z-index: 10;
+
+  //     position: absolute;
+  //     top: 50%;
+  //     transform: translateY(-50%);
+  //     @extend .show;
+
+  //     @include devicesMax(mobile) {
+  //       top: 50%;
+  //     }
+
+  //     &.disabled {
+  //       @extend .hide;
+  //     }
+
+  //     &.btnPrev {
+  //       justify-content: flex-start;
+  //       left: 5vw;
+
+  //       @include devicesMax(tabletMini) {
+  //         left: 4vw;
+  //       }
+
+  //       @include devicesMax(mobile) {
+  //         left: 7vw;
+  //       }
+  //     }
+
+  //     &.btnNext {
+  //       justify-content: flex-end;
+  //       right: 5vw;
+
+  //       @include devicesMax(mobile) {
+  //         right: 7vw;
+  //       }
+  //     }
+
+  //     .btnInner {
+  //       @include dims(90px, 50px);
+  //       background: #f2f2f2;
+  //       border: 0.5px solid #000000;
+  //       border-radius: 32px;
+  //       cursor: none;
+  //       position: relative;
+  //       transition: 0.3s all ease;
+  //       @extend .flexCenterX;
+
+  //       @include devicesMax(tablet) {
+  //         @include dims(50px);
+  //         border-radius: 50%;
+  //       }
+
+  //       @include devicesMax(mobile) {
+  //         @include dims(40px);
+  //         background: #d9ff51;
+  //       }
+
+  //       .btnArrow {
+  //         cursor: none;
+  //         pointer-events: none;
+
+  //         &.next {
+  //           transform: rotate(45deg);
+  //         }
+
+  //         &.prev {
+  //           transform: rotate(-135deg);
+  //         }
+  //       }
+  //     }
+
+  //     @include devicesMin(aboveTablet) {
+  //       &:hover {
+  //         .btnInner {
+  //           @include dims(50px);
+  //           background: #d9ff51;
+  //           border: 1px solid #d9ff51;
+  //           cursor: none;
+  //         }
+  //       }
+  //     }
+  //   }
+}
