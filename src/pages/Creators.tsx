@@ -14,6 +14,9 @@ import ButtonGlitch from "~/components/ButtonGlitch"
 import { Link } from "react-router-dom"
 import MarqueeSimple from "~/components/MarqueeSimple"
 import ProjectsSlider from "~/components/ProjectsSlider"
+import Footer from "~/components/Footer"
+import FooterNavigation from "~/components/FooterNavigation"
+import FooterBasic from "~/components/FooterBasic"
 
 const Creators = () => {
   const cards = [
@@ -58,139 +61,149 @@ const Creators = () => {
   ]
 
   return (
-    <main className={s.creators}>
-      <section className={s.intro}>
-        <div className={s.textC}>
-          <small className={s.small}>DIGITAL TALENT AGENCY</small>
-          <h1 className={s.title}>Lychee’nin kreatif içerik üreticileri ekibine katılın.</h1>
-          <h2 className={s.subtitle}>Influencer’ları en iyi eşleşeceği global markalarla buluşturuyoruz.</h2>
-          <Link className={s.btnC} to="/contact">
-            <ButtonGlitch size="sm" text="Üretmeye başlayın" />
-          </Link>
-        </div>
-        <div className={s.statsC}>
-          <div className={s.imgC}>
-            <Img src={bag} objectFit="cover" />
+    <>
+      <main className={s.creators}>
+        <section className={s.intro}>
+          <div className={s.textC}>
+            <small className={s.small}>DIGITAL TALENT AGENCY</small>
+            <h1 className={s.title}>Lychee’nin kreatif içerik üreticileri ekibine katılın.</h1>
+            <h2 className={s.subtitle}>Influencer’ları en iyi eşleşeceği global markalarla buluşturuyoruz.</h2>
+            <Link className={s.btnC} to="/contact">
+              <ButtonGlitch size="sm" text="Üretmeye başlayın" />
+            </Link>
           </div>
-          <ul className={s.statC}>
-            <li className={s.stat}>
-              <small className={s.label}>Beğeni</small>
-              <p className={s.data}>7,254</p>
-            </li>
-            <li className={s.stat}>
-              <small className={s.label}>Özgün Etkileşim</small>
-              <p className={s.data}>110k</p>
-            </li>
-            <li className={s.stat}>
-              <small className={s.label}>Satış Artışı</small>
-              <p className={s.data}>
-                +11.7{" "}
-                <span className={s.iconC}>
-                  <IconArrowSquare fill="#00ff6c"></IconArrowSquare>
-                </span>
-              </p>
-            </li>
-          </ul>
-          <ul className={s.credentials}>
-            <li className={s.info}>
-              <small className={s.label}>Influencer:</small>
-              <p className={s.data}>@ogedaygirisken</p>
-            </li>
-            <li className={s.info}>
-              <small className={s.label}>Marka:</small>
-              <p className={s.data}>@dyson</p>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section className={s.foundations}>
-        <h2 className={s.title}>
-          Lychee,
-          <span className={s.italic}>üreticilerin,</span> <br /> <span className={s.italic}>influencerların</span> ve
-          <span className={s.italic}>sanatçıların</span> <br /> olağanüstü yaratıcılığının peşinden gitme tutkusuyla
-          kuruldu.
-        </h2>
-        <small className={s.small}>
-          Talent ekibimizle global marka ve kuruluşlarla partnerlik yapan bir influencer ağı oluşturduk. Talentlarımızı
-          içeriklerine en uygun global markalarla buluşturuyoruz.
-        </small>
-
-        <div className={cx(s.imgC, s.left)} data-parallax data-speed-y="0.05" data-direction-y="-1">
-          <Img src={sample} />
-        </div>
-
-        <div className={cx(s.imgC, s.mid)} data-parallax data-speed-y="0.1" data-direction-y="-1">
-          <Img src={sample} />
-        </div>
-
-        <div className={cx(s.imgC, s.right)} data-parallax data-speed-y="0.2" data-direction-y="-1">
-          <Img src={sample} />
-        </div>
-      </section>
-      <section className={s.conclusion}>
-        <div className={s.marqueeC}>
-          <MarqueeSimple direction={-1}>
-            <h2 className={s.mText}>
-              Peki ya sonuç.. ? <span className={s.seperator}></span>
-            </h2>
-          </MarqueeSimple>
-        </div>
-        <h5 className={s.text}>
-          Efektif, yaratıcı ve yenilikçi influencer marketing kampanyaları yürütüyoruz. Global influencer topluluğundaki
-          en yaratıcı yetenekleri Lychee Digital topluluğu arasında bulundurmaktan gurur duyuyoruz.
-        </h5>
-        <div className={s.imgC}>
-          <Img src={visitor} />
-        </div>
-      </section>
-      <section className={s.featuredProjects}>
-        <div className={s.textC}>
-          <small className={s.small}>ÖNE ÇIKAN PROJELERİMİZ</small>
-          <h1 className={s.title}>Global trend belirleyicilerle çalışmaya başlayın.</h1>
-          <h2 className={s.subtitle}>
-            Lychee içerik oluşturucu topluluğu, markanıza özel marketing ihtiyaçlarını karşılayacak micro ve macro
-            influencerlardan oluşur.
+          <div className={s.statsC}>
+            <div className={s.imgC}>
+              <Img src={bag} objectFit="cover" />
+            </div>
+            <ul className={s.statC}>
+              <li className={s.stat}>
+                <small className={s.label}>Beğeni</small>
+                <p className={s.data}>7,254</p>
+              </li>
+              <li className={s.stat}>
+                <small className={s.label}>Özgün Etkileşim</small>
+                <p className={s.data}>110k</p>
+              </li>
+              <li className={s.stat}>
+                <small className={s.label}>Satış Artışı</small>
+                <p className={s.data}>
+                  +11.7{" "}
+                  <span className={s.iconC}>
+                    <IconArrowSquare fill="#00ff6c"></IconArrowSquare>
+                  </span>
+                </p>
+              </li>
+            </ul>
+            <ul className={s.credentials}>
+              <li className={s.info}>
+                <small className={s.label}>Influencer:</small>
+                <p className={s.data}>@ogedaygirisken</p>
+              </li>
+              <li className={s.info}>
+                <small className={s.label}>Marka:</small>
+                <p className={s.data}>@dyson</p>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section className={s.foundations}>
+          <h2 className={s.title}>
+            Lychee,
+            <span className={s.italic}>üreticilerin,</span> <br /> <span className={s.italic}>influencerların</span> ve
+            <span className={s.italic}>sanatçıların</span> <br /> olağanüstü yaratıcılığının peşinden gitme tutkusuyla
+            kuruldu.
           </h2>
-        </div>
-        <ProjectsSlider items={sliderItems} />
-        <small className={s.lookUp}>
-          Daha fazlasını incelemek için{" "}
-          <Link to="/works" className={s.link}>
-            işlerimize göz atın
-          </Link>
-        </small>
-      </section>
-      <section className={s.singleTitleC}>
-        <h1 className={s.title}>
-          Markanızın gelecekteki
-          <span className={s.italic}> potansiyel yüzlerini </span>
-          inceleyin...
-        </h1>
-      </section>
-      <section className={s.why} data-floating-items-c>
-        <h2 className={s.title}>
-          Neden <span className={s.italic}>Lychee</span> ile çalışmalısınız.
-        </h2>
-        <div className={s.hSection} data-floating-items>
-          {cards.map((card) => {
-            return (
-              <div data-floating-item>
-                <FloatingCard {...card} />
-              </div>
-            )
-          })}
-        </div>
-      </section>
-      <section className={s.waitingForYou}>
-        <div className={s.marqueeC}>
-          <MarqueeSimple direction={-1}>
-            <h2 className={s.mText}>
-              Digital talent agency. <span className={s.seperator}></span>
+          <small className={s.small}>
+            Talent ekibimizle global marka ve kuruluşlarla partnerlik yapan bir influencer ağı oluşturduk.
+            Talentlarımızı içeriklerine en uygun global markalarla buluşturuyoruz.
+          </small>
+
+          <div className={cx(s.imgC, s.left)} data-parallax data-speed-y="0.05" data-direction-y="-1">
+            <Img src={sample} />
+          </div>
+
+          <div className={cx(s.imgC, s.mid)} data-parallax data-speed-y="0.1" data-direction-y="-1">
+            <Img src={sample} />
+          </div>
+
+          <div className={cx(s.imgC, s.right)} data-parallax data-speed-y="0.2" data-direction-y="-1">
+            <Img src={sample} />
+          </div>
+        </section>
+        <section className={s.conclusion}>
+          <div className={s.marqueeC}>
+            <MarqueeSimple direction={-1}>
+              <h2 className={s.mText}>
+                Peki ya sonuç.. ? <span className={s.seperator}></span>
+              </h2>
+            </MarqueeSimple>
+          </div>
+          <h5 className={s.text}>
+            Efektif, yaratıcı ve yenilikçi influencer marketing kampanyaları yürütüyoruz. Global influencer
+            topluluğundaki en yaratıcı yetenekleri Lychee Digital topluluğu arasında bulundurmaktan gurur duyuyoruz.
+          </h5>
+          <div className={s.imgC}>
+            <Img src={visitor} />
+          </div>
+        </section>
+        <section className={s.featuredProjects}>
+          <div className={s.textC}>
+            <small className={s.small}>ÖNE ÇIKAN PROJELERİMİZ</small>
+            <h1 className={s.title}>Global trend belirleyicilerle çalışmaya başlayın.</h1>
+            <h2 className={s.subtitle}>
+              Lychee içerik oluşturucu topluluğu, markanıza özel marketing ihtiyaçlarını karşılayacak micro ve macro
+              influencerlardan oluşur.
             </h2>
-          </MarqueeSimple>
-        </div>
-      </section>
-    </main>
+          </div>
+          <ProjectsSlider items={sliderItems} />
+          <small className={s.lookUp}>
+            Daha fazlasını incelemek için{" "}
+            <Link to="/works" className={s.link}>
+              işlerimize göz atın
+            </Link>
+          </small>
+        </section>
+        <section className={s.singleTitleC}>
+          <h1 className={s.title}>
+            Markanızın gelecekteki
+            <span className={s.italic}> potansiyel yüzlerini </span>
+            inceleyin...
+          </h1>
+        </section>
+        <section className={s.why} data-floating-items-c>
+          <h2 className={s.title}>
+            Neden <span className={s.italic}>Lychee</span> ile çalışmalısınız.
+          </h2>
+          <div className={s.hSection} data-floating-items>
+            {cards.map((card) => {
+              return (
+                <div data-floating-item>
+                  <FloatingCard {...card} />
+                </div>
+              )
+            })}
+          </div>
+        </section>
+        <section className={s.waitingForYou}>
+          <div className={s.marqueeC}>
+            <MarqueeSimple direction={-1}>
+              <h2 className={s.mText}>
+                Sizi bekliyoruz. <span className={s.seperator}></span>
+              </h2>
+            </MarqueeSimple>
+          </div>
+          <small className={s.join}>
+            Lychee'nin seçkin ekosistemine{" "}
+            <Link to="/works" className={s.link}>
+              katılın
+            </Link>
+          </small>
+        </section>
+      </main>
+
+      <FooterBasic />
+    </>
   )
 }
 

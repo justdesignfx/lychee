@@ -235,15 +235,21 @@
     overflow-x: hidden;
 
     .title {
+      @include dims(35vw, auto);
       @include position(absolute, 5vw, auto, auto, 5vw);
-      @include typo(Lychee, 80px, null, null, null);
+      @include typo(Lychee, 70px, null, 1.1, null);
       color: $stonewallGrey;
       margin-bottom: 2vw;
+
+      .italic {
+        color: #ce1953;
+        font-family: LaicaBItalic;
+      }
     }
 
     .hSection {
-      padding-left: 10vw;
-      padding-right: 30vw;
+      padding-left: 30vw;
+      padding-right: 20vw;
 
       display: flex;
       align-items: center;
@@ -253,6 +259,12 @@
   }
 
   .waitingForYou {
+    @include dims(100%, 90vh);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     .mText {
       @include typo(Lychee, 160px, 700, null, null);
       color: $stonewallGrey;
@@ -263,10 +275,24 @@
       flex-shrink: 0;
 
       .seperator {
-        @include dims(200px, 10px);
-        background: #fff;
+        @include dims(250px, 10px);
+        background: $stonewallGrey;
         display: inline-block;
         margin: 2vw 3vw 0 3vw;
+      }
+    }
+
+    .join {
+      @include typo(Lychee, 40px, null, null, null);
+      color: #c1c1c1;
+      display: block;
+      margin: 2vw auto;
+      text-align: center;
+
+      .link {
+        color: #ce1953;
+        font-family: LS-VG5000;
+        text-decoration: underline;
       }
     }
   }
