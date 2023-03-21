@@ -297,7 +297,7 @@ const Creators = () => {
           <small className={s.join}>
             Lychee'nin seçkin ekosistemine{" "}
             <Link to="/works" className={s.link}>
-              katılın
+              katılın.
             </Link>
           </small>
         </section>
