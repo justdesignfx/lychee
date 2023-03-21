@@ -10,6 +10,7 @@ import { textReveal, slidingPanels, stickyTitle, parallaxItems, floatingItems } 
 import Menu from "~/components/Menu"
 import { breakpoints } from "~/variables"
 import MagnetCursor from "~/components/MagnetCursor"
+import { framedParallax } from "~/animations/framedParallax"
 
 export const SmoothContext = React.createContext<any>(null)
 
@@ -219,6 +220,7 @@ const WithSmooth = ({ children, location }: Props) => {
         parallaxItems()
         stickyTitle()
         floatingItems()
+        framedParallax()
 
         if (q("[data-h-scroll]").length > 0 && windowSize.width > breakpoints.tablet) {
           textReveal(q)

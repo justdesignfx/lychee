@@ -11,8 +11,8 @@
 
     &::before {
       content: "";
-      @include position(absolute, 0, 0, auto, 0);
-      @include dims(auto, 30%);
+      @include position(absolute, -10px, -10px, auto, -10px);
+      @include dims(auto, 40%);
       background: linear-gradient(180deg, $eigengrau, rgb(255, 255, 255, 0));
       z-index: 10;
     }

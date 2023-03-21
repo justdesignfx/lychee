@@ -1,22 +1,41 @@
-import React from "react"
 import s from "~/assets/scss/pages/Creators.module.scss"
 import Img from "~/components/Img"
 
 import cx from "classnames"
+import { Link } from "react-router-dom"
 
 import sample from "~/assets/img/sample.png"
 import visitor from "~/assets/img/smartphone-portal.svg"
-
 import bag from "~/assets/img/bag.jpg"
-import IconArrowSquare from "~/components/Icons/IconArrowSquare"
-import FloatingCard from "~/components/FloatingCard"
+
+import creator1 from "~/assets/img/creator-1.jpg"
+import creator2 from "~/assets/img/creator-2.jpg"
+import creator3 from "~/assets/img/creator-3.jpg"
+
+import logoDysonBlack from "~/assets/img/logo-dyson-black.svg"
+import logoAbdiBlack from "~/assets/img/logo-abdiibrahim-black.svg"
+import logoObsessoBlack from "~/assets/img/logo-obsesso-black.svg"
+
+import influencer1 from "~/assets/img/influencer-1.jpg"
+import influencer2 from "~/assets/img/influencer-2.jpg"
+import influencer3 from "~/assets/img/influencer-3.jpg"
+
+import gridInf1 from "~/assets/img/grid-inf-1.jpg"
+import gridInf2 from "~/assets/img/grid-inf-2.jpg"
+import gridInf3 from "~/assets/img/grid-inf-3.jpg"
+import gridInf4 from "~/assets/img/grid-inf-4.jpg"
+import gridInf5 from "~/assets/img/grid-inf-5.jpg"
+import gridInf6 from "~/assets/img/grid-inf-6.jpg"
+import gridInf7 from "~/assets/img/grid-inf-7.jpg"
+import gridInf8 from "~/assets/img/grid-inf-8.jpg"
+
 import ButtonGlitch from "~/components/ButtonGlitch"
-import { Link } from "react-router-dom"
+import FloatingCard from "~/components/FloatingCard"
+import FooterBasic from "~/components/FooterBasic"
+import IconArrowSquare from "~/components/Icons/IconArrowSquare"
 import MarqueeSimple from "~/components/MarqueeSimple"
 import ProjectsSlider from "~/components/ProjectsSlider"
-import Footer from "~/components/Footer"
-import FooterNavigation from "~/components/FooterNavigation"
-import FooterBasic from "~/components/FooterBasic"
+import SquareGrid from "~/components/SquareGrid"
 
 const Creators = () => {
   const cards = [
@@ -60,13 +79,82 @@ const Creators = () => {
     },
   ]
 
+  const influencers = [
+    {
+      pic: gridInf1,
+      name: "Ogeday Girişken",
+      social: {
+        tiktok: "tiktok",
+        instagram: "instagram",
+      },
+    },
+    {
+      pic: gridInf2,
+      name: "Dilara Aydın",
+      social: {
+        tiktok: "tiktok",
+        instagram: "instagram",
+      },
+    },
+    {
+      pic: gridInf3,
+      name: "Melisa Aslı Pamuk",
+      social: {
+        tiktok: "tiktok",
+        instagram: "instagram",
+      },
+    },
+    {
+      pic: gridInf4,
+      name: "Buçe Buse Kahraman",
+      social: {
+        tiktok: "tiktok",
+        instagram: "instagram",
+      },
+    },
+    {
+      pic: gridInf5,
+      name: "Zeynep Aleyna Şen",
+      social: {
+        tiktok: "tiktok",
+        instagram: "instagram",
+      },
+    },
+    {
+      pic: gridInf6,
+      name: "Aylin Engör",
+      social: {
+        tiktok: "tiktok",
+        instagram: "instagram",
+      },
+    },
+    {
+      pic: gridInf7,
+      name: "Elif Baldan",
+      social: {
+        tiktok: "tiktok",
+        instagram: "instagram",
+      },
+    },
+    {
+      pic: gridInf8,
+      name: "Esra Koçhan",
+      social: {
+        tiktok: "tiktok",
+        instagram: "instagram",
+      },
+    },
+  ]
+
   return (
     <>
       <main className={s.creators}>
         <section className={s.intro}>
           <div className={s.textC}>
             <small className={s.small}>DIGITAL TALENT AGENCY</small>
-            <h1 className={s.title}>Lychee’nin kreatif içerik üreticileri ekibine katılın.</h1>
+            <h1 className={s.title}>
+              Lychee’nin kreatif <br /> içerik üreticileri ekibine <br /> katılın.
+            </h1>
             <h2 className={s.subtitle}>Influencer’ları en iyi eşleşeceği global markalarla buluşturuyoruz.</h2>
             <Link className={s.btnC} to="/contact">
               <ButtonGlitch size="sm" text="Üretmeye başlayın" />
@@ -119,16 +207,22 @@ const Creators = () => {
             Talentlarımızı içeriklerine en uygun global markalarla buluşturuyoruz.
           </small>
 
-          <div className={cx(s.imgC, s.left)} data-parallax data-speed-y="0.05" data-direction-y="-1">
-            <Img src={sample} />
+          <div className={cx(s.imgC, s.left)}>
+            <div className={s.sliding} data-framed-parallax data-speed-y="0.05" data-direction-y="-1">
+              <Img src={creator2} />
+            </div>
           </div>
 
-          <div className={cx(s.imgC, s.mid)} data-parallax data-speed-y="0.1" data-direction-y="-1">
-            <Img src={sample} />
+          <div className={cx(s.imgC, s.mid)}>
+            <div className={s.sliding} data-framed-parallax data-speed-y="0.05" data-direction-y="-1">
+              <Img src={creator3} />
+            </div>
           </div>
 
-          <div className={cx(s.imgC, s.right)} data-parallax data-speed-y="0.2" data-direction-y="-1">
-            <Img src={sample} />
+          <div className={cx(s.imgC, s.right)}>
+            <div className={s.sliding} data-framed-parallax data-speed-y="0.05" data-direction-y="-1">
+              <Img src={creator1} />
+            </div>
           </div>
         </section>
         <section className={s.conclusion}>
@@ -150,10 +244,12 @@ const Creators = () => {
         <section className={s.featuredProjects}>
           <div className={s.textC}>
             <small className={s.small}>ÖNE ÇIKAN PROJELERİMİZ</small>
-            <h1 className={s.title}>Global trend belirleyicilerle çalışmaya başlayın.</h1>
+            <h1 className={s.title}>
+              Global trend belirleyicilerle <br /> çalışmaya başlayın.
+            </h1>
             <h2 className={s.subtitle}>
-              Lychee içerik oluşturucu topluluğu, markanıza özel marketing ihtiyaçlarını karşılayacak micro ve macro
-              influencerlardan oluşur.
+              Lychee içerik oluşturucu topluluğu, markanıza özel marketing <br /> ihtiyaçlarını karşılayacak micro ve
+              macro influencerlardan oluşur.
             </h2>
           </div>
           <ProjectsSlider items={sliderItems} />
@@ -164,12 +260,17 @@ const Creators = () => {
             </Link>
           </small>
         </section>
-        <section className={s.singleTitleC}>
-          <h1 className={s.title}>
-            Markanızın gelecekteki
-            <span className={s.italic}> potansiyel yüzlerini </span>
-            inceleyin...
-          </h1>
+        <section className={s.faces}>
+          <div className={s.singleTitleC}>
+            <h1 className={s.title}>
+              Markanızın gelecekteki
+              <span className={s.italic}> potansiyel yüzlerini </span>
+              inceleyin...
+            </h1>
+          </div>
+          <div className={s.gridC}>
+            <SquareGrid items={influencers} />
+          </div>
         </section>
         <section className={s.why} data-floating-items-c>
           <h2 className={s.title}>

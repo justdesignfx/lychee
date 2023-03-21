@@ -1,0 +1,60 @@
+@import "../_global.scss";
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 2.5rem;
+
+  .gridItemC {
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+      // for apsect ratio
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    .infoC {
+      @include position(absolute, 0, 0, 0, 0);
+      @include dims(100%);
+      padding: 2.5vw;
+      z-index: 100;
+
+      .text {
+        @include typo(Lychee, 30px, null, 1.4, null);
+        color: $bleachedSilk;
+      }
+
+      .logoC {
+        @include dims(auto, 2vw);
+        margin-bottom: 1.5vw;
+        margin-right: auto;
+
+        .logo {
+          @include dims(100%);
+          display: block;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .img {
+      @include position(absolute, 0, 0, 0, 0);
+      @include dims(100%);
+      max-width: 100%;
+
+      display: block;
+      object-fit: cover;
+
+      // Alternate Version
+
+      margin: auto;
+
+      // top: 50%;
+      // left: 50%;
+      // transform: translate(-50%, -50%);
+    }
+  }
+}
