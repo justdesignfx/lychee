@@ -27,7 +27,7 @@ const FooterNavigation = () => {
           <Link className={s.link} to="/services">
             Hizmetler
           </Link>
-          <Link className={s.link} to="/about-us">
+          <Link className={s.link} to="/about">
             Hakkımızda
           </Link>
           <Link className={s.link} to="/contact">

@@ -17,6 +17,7 @@ export function parallaxItems() {
       yPercent: () => 100 * parseFloat(speedY) * parseFloat(dirY),
       xPercent: () => 100 * parseFloat(speedX) * parseFloat(dirX),
       scrollTrigger: {
+        id: "parallaxItems",
         trigger: item,
         scrub: 1,
         // markers: true,

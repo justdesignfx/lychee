@@ -16,7 +16,7 @@ const Menu = () => {
     { ui: "Brands", path: "/brands" },
     { ui: "Services", path: "/services" },
     { ui: "Clients", path: "/clients" },
-    { ui: "About Us", path: "/about-us" },
+    { ui: "About Us", path: "/about" },
     { ui: "Contact", path: "/contact" },
   ]
 

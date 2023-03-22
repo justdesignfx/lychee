@@ -48,6 +48,18 @@
     }
   }
 
+  &.lg {
+    font-size: 26px;
+
+    .iconC {
+      @include dims(18px);
+
+      .tuple {
+        @include dims(18px);
+      }
+    }
+  }
+
   @include devicesMin(aboveTablet) {
     &:hover {
       &::before {

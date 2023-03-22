@@ -217,14 +217,13 @@ const WithSmooth = ({ children, location }: Props) => {
         //     })
         //   })
         // }
+        if (q("[data-h-scroll]").length > 0 && windowSize.width > breakpoints.tablet) {
+          textReveal(q)
+        }
         parallaxItems()
         stickyTitle()
         floatingItems()
         framedParallax()
-
-        if (q("[data-h-scroll]").length > 0 && windowSize.width > breakpoints.tablet) {
-          textReveal(q)
-        }
 
         if (q("[data-sliding-panels]").length > 0) {
           slidingPanels(q)

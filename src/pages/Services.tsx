@@ -180,9 +180,9 @@ const Services = () => {
             Kampanya oluşturun
             <span className={s.iconC}>
               <div className={s.oWrapper}>
-                <IconArrowSquare fill="#ce1953"></IconArrowSquare>
+                <IconArrowSquare fill="#ce1953" />
                 <div className={s.tuple}>
-                  <IconArrowSquare fill="#ce1953"></IconArrowSquare>
+                  <IconArrowSquare fill="#ce1953" />
                 </div>
               </div>
             </span>

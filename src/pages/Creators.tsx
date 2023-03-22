@@ -208,19 +208,19 @@ const Creators = () => {
           </small>
 
           <div className={cx(s.imgC, s.left)}>
-            <div className={s.sliding} data-framed-parallax data-speed-y="0.05" data-direction-y="-1">
+            <div data-framed-parallax data-speed-y="0.05" data-direction-y="-1">
               <Img src={creator2} />
             </div>
           </div>
 
           <div className={cx(s.imgC, s.mid)}>
-            <div className={s.sliding} data-framed-parallax data-speed-y="0.05" data-direction-y="-1">
+            <div data-framed-parallax data-speed-y="0.05" data-direction-y="-1">
               <Img src={creator3} />
             </div>
           </div>
 
           <div className={cx(s.imgC, s.right)}>
-            <div className={s.sliding} data-framed-parallax data-speed-y="0.05" data-direction-y="-1">
+            <div data-framed-parallax data-speed-y="0.05" data-direction-y="-1">
               <Img src={creator1} />
             </div>
           </div>

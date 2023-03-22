@@ -1,0 +1,382 @@
+@import "../_global.scss";
+@import "../ContiniousRotate.scss";
+
+.about {
+  .imgC {
+    overflow: hidden;
+  }
+
+  .intro {
+    @include dims(100vw, 100vh);
+    padding: 10vw 4vw;
+
+    .title {
+      @include typo(Lychee, 90px, null, 1.2, null);
+      color: $stonewallGrey;
+      display: inline-block;
+      position: relative;
+
+      .playBtn {
+        @include position(absolute, 105%, 5%, 0, auto);
+        @include dims(6vw);
+        background: $anthracite;
+        border-radius: 50%;
+        overflow: hidden;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .iconTri {
+          @include dims(15%);
+          @include position(absolute, 50%, auto, auto, 50%);
+          transform: translate(-50%, -50%);
+        }
+
+        .text {
+          @include dims(100%);
+          @include position(absolute, 0, 0, 0, 0);
+          transform-origin: center;
+          padding: 8px;
+
+          @include rotating();
+        }
+      }
+
+      .italic {
+        color: $californiaSunset;
+        font-family: LaicaBItalic;
+      }
+    }
+  }
+
+  .horizontalScroll {
+    min-height: 100vh;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+
+    .hSection {
+      padding: 0 20vw 0 10vw;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .text {
+      color: #c1c1c1;
+      font-family: Lychee;
+      font-size: 20vw;
+      font-weight: 400;
+      display: block;
+      flex-shrink: 0;
+
+      .word {
+        margin-right: 5vw;
+        flex-shrink: 0;
+
+        display: inline-block;
+
+        .letter {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .team {
+    margin: 0 8vw;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    .partTeam {
+      .text {
+        @include typo(Lychee, 35px, null, 1.4, null);
+        color: $stonewallGrey;
+      }
+
+      &:nth-child(1) {
+        margin-left: auto;
+
+        .text {
+          @include dims(24vw, auto);
+          margin-bottom: 25vw;
+          margin-left: auto;
+          margin-right: -8vw;
+        }
+
+        .imgC {
+          @include dims(45vw, 27vw);
+        }
+      }
+
+      &:nth-child(2) {
+        margin-left: auto;
+
+        .text {
+          @include dims(25vw, auto);
+        }
+
+        .imgC {
+          @include dims(27vw, 40vw);
+          margin-bottom: 3vw;
+          margin-top: 10vw;
+        }
+      }
+    }
+  }
+
+  .fruit {
+    @include dims(100vw, 100vh);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .lychee {
+      @include dims(40vw);
+      margin-top: 10vw;
+      position: relative;
+
+      display: flex;
+
+      .imgC {
+        &.fruit {
+          @include position(absolute, 12vw, auto, auto, 2vw);
+          @include dims(17vw, auto);
+          transform: rotate(-28deg);
+          z-index: 10;
+
+          &.small {
+            @include position(absolute, 5vw, auto, auto, 20vw);
+            @include dims(8vw, auto);
+            transform: rotate(84deg);
+          }
+        }
+
+        &.peel {
+          @include dims(100%, auto);
+          margin-top: auto;
+          transform: rotate(-9deg);
+        }
+      }
+    }
+  }
+
+  .growth {
+    margin: 5vw 0;
+
+    .title {
+      @include dims(55vw, auto);
+      @include typo(Lychee, 60px, null, 1.2, null);
+      color: $stonewallGrey;
+      margin: 0 auto 3vw auto;
+      text-align: center;
+    }
+
+    .text {
+      @include dims(50vw, auto);
+      @include typo(Lychee, 25px, null, 1.4, null);
+      color: $stonewallGrey;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+
+  .advertisement {
+    margin: 15vw 8vw 20vw 8vw;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    .partAdvertisement {
+      &:nth-child(1) {
+        margin-left: auto;
+
+        .title {
+          @include typo(Lychee, 60px, null, 1.1, null);
+          color: $stonewallGrey;
+          margin-bottom: 4vw;
+          margin-top: 8vw;
+        }
+
+        .text {
+          @include dims(23vw, auto);
+          @include typo(Lychee, 20px, null, 1.4, null);
+          color: $stonewallGrey;
+        }
+      }
+
+      &:nth-child(2) {
+        margin-left: auto;
+        position: relative;
+
+        .imgC {
+          &:nth-child(1) {
+            @include dims(32vw, 50vw);
+          }
+
+          &:nth-child(2) {
+            @include position(absolute, auto, 50%, -25%, auto);
+            @include dims(32vw, 22vw);
+            margin-bottom: 3vw;
+          }
+        }
+      }
+    }
+  }
+
+  .everyTime {
+    .title {
+      @include dims(55vw, auto);
+      @include typo(Lychee, 60px, null, 1.2, null);
+      color: $stonewallGrey;
+      margin: 0 auto 3vw auto;
+      text-align: center;
+    }
+  }
+
+  .partners {
+    .title {
+      @include dims(55vw, auto);
+      @include typo(Lychee, 80px, null, 1.2, null);
+      color: $stonewallGrey;
+      margin: 0 auto 3vw auto;
+      text-align: center;
+    }
+
+    .text {
+      @include dims(50vw, auto);
+      @include typo(Lychee, 35px, null, 1.4, null);
+      color: $stonewallGrey;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .lookUp {
+      color: #c1c1c1;
+      display: block;
+      margin: 4vw auto;
+      text-align: center;
+
+      font-family: Lychee;
+      font-size: 1.25vw;
+      line-height: 150%;
+
+      .link {
+        color: #ce1953;
+        font-family: LS-VG5000;
+        text-decoration: underline;
+      }
+    }
+
+    .logoGrid {
+      overflow: hidden;
+      padding: 5vw 0;
+
+      .row {
+        margin-bottom: 2vw;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2vw;
+
+        &:last-child() {
+          margin-bottom: 0;
+        }
+      }
+
+      .logoC {
+        @include dims(15vw);
+        border: 1px solid #ce1953;
+        border-radius: 50%;
+        flex-shrink: 0;
+
+        padding: 1rem;
+        position: relative;
+
+        &::before {
+          // for apsect ratio
+          content: "";
+          display: block;
+          padding-bottom: 100%;
+        }
+
+        &.logoDisney {
+          transform: translate(-2vw, 0);
+        }
+
+        &.logoAdidas {
+          transform: translate(-2vw, -5vw);
+        }
+
+        &.logoPhilips {
+          transform: translate(0, -2vw);
+        }
+
+        &.logoNike {
+          transform: translate(3vw, 0);
+        }
+
+        &.logoNestle {
+          transform: translate(4vw, 5vw);
+        }
+
+        &.logoEsteeLauder {
+          transform: translate(2vw, -5vw);
+        }
+
+        &.logoLoreal {
+          transform: translate(-3vw, -6vw);
+        }
+
+        &.logoDyson {
+          transform: translate(0, -4vw);
+        }
+
+        &.logoStarbucks {
+          transform: translate(0, 0);
+        }
+
+        .img {
+          position: absolute;
+          max-width: 100%;
+
+          // Alternate Version
+          // top: 0;
+          // bottom: 0;
+          // right: 0;
+          // left: 0;
+          // margin: auto;
+
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+
+  .dare {
+    padding: 5vw 0 10vw 0;
+
+    .text {
+      @include dims(65vw, auto);
+      @include typo(Lychee, 80px, null, 1.1, null);
+      color: $stonewallGrey;
+      margin: 0 auto 4vw auto;
+      text-align: center;
+    }
+
+    .btnC {
+      @include dims(20vw, 3vw);
+      margin: 0 auto;
+    }
+  }
+}
