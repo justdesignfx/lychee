@@ -61,15 +61,15 @@ const About = () => {
               Lychee, içerik üreticilerden ve stratejistlerden oluşan kreatif bir ekibe sahip global bir influencer
               marketing ajansıdır.
             </p>
-            <div className={s.imgC}>
-              <div data-framed-parallax data-speed-y="0.05" data-direction-y="-1">
+            <div className={s.imgC} data-framed-parallax-frame>
+              <div data-framed-parallax-sliding data-speed-y="0.05" data-direction-y="-1">
                 <Img src={sample} />
               </div>
             </div>
           </div>
           <div className={s.partTeam}>
-            <div className={s.imgC}>
-              <div data-framed-parallax data-speed-y="0.05" data-direction-y="-1">
+            <div className={s.imgC} data-framed-parallax-frame>
+              <div data-framed-parallax-sliding data-speed-y="0.05" data-direction-y="-1">
                 <Img src={sample} />
               </div>
             </div>
@@ -109,13 +109,13 @@ const About = () => {
             </p>
           </div>
           <div className={s.partAdvertisement}>
-            <div className={s.imgC}>
-              <div data-framed-parallax data-speed-y="0.05" data-direction-y="-1">
+            <div className={s.imgC} data-framed-parallax-frame>
+              <div data-framed-parallax-sliding data-speed-y="0.05" data-direction-y="-1">
                 <Img src={sample} />
               </div>
             </div>
-            <div className={s.imgC}>
-              <div data-framed-parallax data-speed-y="0.05" data-direction-y="-1">
+            <div className={s.imgC} data-framed-parallax-frame>
+              <div data-framed-parallax-sliding data-speed-y="0.05" data-direction-y="-1">
                 <Img src={sample} />
               </div>
             </div>

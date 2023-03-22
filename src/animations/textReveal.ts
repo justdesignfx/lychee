@@ -14,14 +14,14 @@ export function textReveal(selector: any) {
     xPercent: -100,
     ease: "none", // <-- IMPORTANT!
     scrollTrigger: {
-      id: "horizontalScroll",
+      id: "horizontal-scroll",
       trigger: container,
       pin: true,
       scrub: true,
       start: "center center",
       end: `bottom+=${scrollLength}px top`,
       pinSpacing: true,
-      // markers: true,
+      markers: true,
     },
   })
 
@@ -47,7 +47,7 @@ export function textReveal(selector: any) {
   })
 
   ScrollTrigger.create({
-    id: "textReveal",
+    id: "text-reveal",
     animation: tl,
     trigger: container,
     markers: true,

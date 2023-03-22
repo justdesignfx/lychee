@@ -207,20 +207,20 @@ const Creators = () => {
             Talentlarımızı içeriklerine en uygun global markalarla buluşturuyoruz.
           </small>
 
-          <div className={cx(s.imgC, s.left)}>
-            <div data-framed-parallax data-speed-y="0.05" data-direction-y="-1">
+          <div className={cx(s.imgC, s.left)} data-framed-parallax-frame>
+            <div data-framed-parallax-sliding data-speed-y="0.05" data-direction-y="-1">
               <Img src={creator2} />
             </div>
           </div>
 
-          <div className={cx(s.imgC, s.mid)}>
-            <div data-framed-parallax data-speed-y="0.05" data-direction-y="-1">
+          <div className={cx(s.imgC, s.mid)} data-framed-parallax-frame>
+            <div data-framed-parallax-sliding data-speed-y="0.05" data-direction-y="-1">
               <Img src={creator3} />
             </div>
           </div>
 
-          <div className={cx(s.imgC, s.right)}>
-            <div data-framed-parallax data-speed-y="0.05" data-direction-y="-1">
+          <div className={cx(s.imgC, s.right)} data-framed-parallax-frame>
+            <div data-framed-parallax-sliding data-speed-y="0.05" data-direction-y="-1">
               <Img src={creator1} />
             </div>
           </div>

@@ -54,6 +54,7 @@ export function floatingItems() {
   })
 
   ScrollTrigger.create({
+    id: "floating-items",
     animation: tl,
     trigger: container,
     markers: true,

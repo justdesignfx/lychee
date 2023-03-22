@@ -15,9 +15,9 @@ export function stickyTitle() {
         start: "top+=25% top+=25%",
         end: `+=${stickyContainers[i].offsetHeight - sticky.offsetHeight}px`,
         pin: true,
-        id: `sticky_${i}`,
+        id: `sticky-title-${i}`,
         pinSpacing: false,
-        // markers: true,
+        markers: true,
       },
     })
   })

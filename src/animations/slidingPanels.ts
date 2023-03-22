@@ -23,6 +23,7 @@ export function slidingPanels(selector: any) {
     })
 
   ScrollTrigger.create({
+    id: "sliding-panels",
     animation: tl,
     trigger: container,
     pin: true,

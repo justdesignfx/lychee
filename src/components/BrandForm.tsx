@@ -8,6 +8,8 @@ import PrivacyPolicyText from "./PrivacyPolicyText"
 import { Formik, useFormik } from "formik"
 import { Form } from "react-router-dom"
 import * as yup from "yup"
+import axios from "axios"
+import api from "~/api"
 
 // interface Values {
 //   name: string
@@ -38,6 +40,31 @@ const BrandForm = () => {
 
   const [started, setStarted] = useState(false)
 
+  const submitForm = async (values: any) => {
+    try {
+      // 👇️ const data: CreateUserResponse
+      const { data } = await api.post<any>("brandsForm", values, {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      })
+
+      // feedbackStore.toggleFeedback()
+      // feedbackStore.setText(data.message)
+      return data
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.log("error message: ", error.message)
+        // 👇️ error: AxiosError<any, any>
+        return error.message
+      } else {
+        console.log("unexpected error: ", error)
+        return "An unexpected error occurred"
+      }
+    }
+  }
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -53,6 +80,10 @@ const BrandForm = () => {
     validationSchema: BrandFormSchema,
     onSubmit: (values) => {
       console.log(values)
+      submitForm(values).then((res: { mesage: string; success: boolean }) => {
+        if (res.success) {
+        }
+      })
     },
   })
 
@@ -298,6 +329,13 @@ const BrandForm = () => {
   }
 
   function handleNavigation(direction: "NEXT" | "PREV") {
+    // if (currentStep === 0) {
+    //   if (formik.values.name === "" || formik.values.email === "") {
+    //     alert("first")
+    //     return
+    //   }
+    // }
+
     gsap.to(formRef.current, {
       autoAlpha: 0,
       duration: 0.2,
@@ -307,6 +345,7 @@ const BrandForm = () => {
             if (currentStep < steps.length) {
               setCurrentStep((prev) => prev + 1)
             }
+
             break
           case "PREV":
             if (currentStep > 0) {
@@ -360,7 +399,6 @@ const BrandForm = () => {
       ) : (
         <>
           <h2 className={s.title}>MARKA BAŞVURU FORMU</h2>
-
           <div className={s.formC}>
             <form id="brandForm" className={s.form} ref={formRef} onSubmit={formik.handleSubmit}>
               {steps[currentStep].question && (
