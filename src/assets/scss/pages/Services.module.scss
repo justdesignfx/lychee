@@ -92,6 +92,7 @@
         @include position(absolute, -100%, auto, auto, 30%);
         @include dims(30vw);
         mix-blend-mode: difference;
+        z-index: 10;
       }
 
       &:nth-child(3) {

@@ -22,6 +22,7 @@
         background: $anthracite;
         border-radius: 50%;
         overflow: hidden;
+        @extend .cursorPointer;
 
         display: flex;
         align-items: center;

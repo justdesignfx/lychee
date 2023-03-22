@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import s from "~/assets/scss/pages/About.module.scss"
 import Img from "~/components/Img"
 
@@ -27,9 +27,16 @@ import logoObsessoBlack from "~/assets/img/logo-obsesso-black.svg"
 import FooterBasic from "~/components/FooterBasic"
 import IconArrowSquare from "~/components/Icons/IconArrowSquare"
 import ButtonGlitch from "~/components/ButtonGlitch"
+import { useModalStore } from "~/store/modalStore"
 
 const About = () => {
   const hScrollText = "Her zaman daha iyisini hedefliyoruz."
+
+  const modalStore = useModalStore()
+
+  useEffect(() => {
+    console.log(modalStore.open)
+  }, [modalStore.open])
 
   return (
     <>
@@ -38,7 +45,7 @@ const About = () => {
           <h1 className={s.title}>
             Yaratıcı ve stratejik yetenekleri <br /> bünyesinde barındıran <br />
             <span className={s.italic}>dijital marketing </span> ajansıyız.
-            <button className={s.playBtn}>
+            <button className={s.playBtn} onClick={modalStore.toggle}>
               <div className={s.iconTri}>
                 <Img src={playBtnTri} objectFit="contain" />
               </div>

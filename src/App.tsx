@@ -2,7 +2,6 @@ import gsap, { Power1 } from "gsap"
 import { useEffect, useState } from "react"
 import { Route, Routes, useLocation } from "react-router"
 import ContactIntro from "./components/ContactIntro"
-import Footer from "./components/Footer"
 import Header from "./components/Header"
 import { WithSmooth } from "./hocs/WithSmooth"
 import { useWindowSize } from "./hooks"
@@ -15,7 +14,6 @@ import Home from "./pages/Home"
 import Services from "./pages/Services"
 
 function App() {
-  const windowSize = useWindowSize()
   const location = useLocation()
   const [displayLocation, setDisplayLocation] = useState(location)
   const size = useWindowSize()
@@ -42,7 +40,7 @@ function App() {
         },
       })
     }
-  }, [location, displayLocation, windowSize.width])
+  }, [location, displayLocation, size.width])
 
   return (
     <WithSmooth location={displayLocation}>

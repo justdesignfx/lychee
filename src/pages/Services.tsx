@@ -1,16 +1,17 @@
 import s from "~/assets/scss/pages/Services.module.scss"
-import Img from "~/components/Img"
 
 import cx from "classnames"
-
 import { Link } from "react-router-dom"
+
 import doodleLaying from "~/assets/img/doodle-laying.png"
 import sample from "~/assets/img/sample.png"
+
 import FloatingCard from "~/components/FloatingCard"
-import Footer from "~/components/Footer"
+import FooterBasic from "~/components/FooterBasic"
 import IconArrowSquare from "~/components/Icons/IconArrowSquare"
 import List from "~/components/List"
 import MarqueeSimple from "~/components/MarqueeSimple"
+import Img from "~/components/Img"
 
 const Services = () => {
   const theWay = [
@@ -189,7 +190,7 @@ const Services = () => {
           </Link>
         </section>
       </main>
-      <Footer />
+      <FooterBasic />
     </>
   )
 }

@@ -1,0 +1,60 @@
+@import "../global.scss";
+
+.modal {
+  @include position(fixed, 0, 0, 0, 0);
+  @include dims(100vw, 100%);
+  overflow: scroll;
+  z-index: z-index("modal");
+  transition: 0.4s all ease;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .close {
+    @include position(fixed, 2vw, 2vw, auto, auto);
+    @include dims(4vw);
+    background: #fff;
+    border-radius: 50%;
+    padding: 1.25rem;
+    z-index: z-index("modalClose");
+    @extend .cursorPointer;
+
+    @include devicesMax(tablet) {
+      @include position(fixed, 4vw, 4vw, auto, auto);
+      @include dims(5vw);
+      padding: 14px;
+    }
+
+    @include devicesMax(mobile) {
+      @include position(fixed, 5vw, 4vw, auto, auto);
+      @include dims(10vw);
+      padding: 10px;
+    }
+  }
+
+  .content {
+    z-index: z-index("modalContent");
+    position: relative;
+  }
+
+  .backdrop {
+    @include position(fixed, 0, 0, 0, 0);
+    @include dims(100%);
+    z-index: z-index("modalBackdrop");
+
+    background: rgba(0, 0, 0, 0.75);
+    // backdrop-filter: blur(18px);
+    // -webkit-backdrop-filter: blur(18px);
+  }
+}

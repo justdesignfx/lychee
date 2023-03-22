@@ -1,16 +1,17 @@
-import gsap from "gsap"
-import ScrollTrigger from "gsap/ScrollTrigger"
 import React, { ReactElement, useCallback, useLayoutEffect, useRef } from "react"
 import Scrollbar, { ScrollbarPlugin } from "smooth-scrollbar"
-
+import gsap from "gsap"
+import ScrollTrigger from "gsap/ScrollTrigger"
 import { useResizeDetector } from "react-resize-detector"
+
+import { floatingItems, parallaxItems, slidingPanels, stickyTitle, textReveal, framedParallax } from "~/animations"
+
+import { breakpoints } from "~/variables"
 import { useWindowSize } from "~/hooks"
 
-import { textReveal, slidingPanels, stickyTitle, parallaxItems, floatingItems } from "~/animations"
-import Menu from "~/components/Menu"
-import { breakpoints } from "~/variables"
 import MagnetCursor from "~/components/MagnetCursor"
-import { framedParallax } from "~/animations/framedParallax"
+import Menu from "~/components/Menu"
+import Modal from "~/components/Modal"
 
 export const SmoothContext = React.createContext<any>(null)
 
@@ -417,6 +418,7 @@ const WithSmooth = ({ children, location }: Props) => {
       </div>
       <Menu />
       <MagnetCursor />
+      <Modal />
     </SmoothContext.Provider>
   )
 }
