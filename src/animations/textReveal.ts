@@ -28,8 +28,10 @@ export function textReveal(selector: any) {
   letters.forEach((letter: any, i: number) => {
     gsap.set(letter, {
       y: () => `${10 * i}px`,
+      x: () => `${50 * i}px`,
       rotation: i * 0.25,
       opacity: 1 - i * 0.1,
+      scale: 0.4,
     })
   })
 
@@ -38,8 +40,10 @@ export function textReveal(selector: any) {
   letters.forEach((letter: any) => {
     tl.to(letter, {
       y: 0,
+      x: 0,
       rotation: 0,
       opacity: 1,
+      scale: 1,
       delay: -0.45,
     })
   })

@@ -271,6 +271,12 @@ const Creators = () => {
           <div className={s.gridC}>
             <SquareGrid items={influencers} />
           </div>
+          <small className={s.smallText}>
+            Tüm içerik üreticilerimizi görmek için{" "}
+            <Link to="/contact" className={s.link}>
+              bizimle iletişime geçin.
+            </Link>
+          </small>
         </section>
         <section className={s.why} data-floating-items-c>
           <h2 className={s.title}>
