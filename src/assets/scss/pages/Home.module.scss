@@ -186,6 +186,14 @@
       flex-shrink: 0;
     }
 
+    .lamp {
+      @include position(absolute, auto, auto, -80%, 30%);
+      @include dims(50vw);
+      background: rgb(206, 25, 83);
+      background: radial-gradient(circle, rgba(206, 25, 83, 1) 0%, rgba(206, 25, 83, 0) 100%);
+      filter: blur(100px);
+    }
+
     .reels {
       @include dims(auto, 100vh);
       margin: 0 15vw 0 25vw;

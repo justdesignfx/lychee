@@ -137,6 +137,8 @@ const Home = () => {
           </div>
         </section>
         <section className={s.horizontalScroll} data-h-scroll>
+          <div className={s.lamp} data-lamp></div>
+
           <div className={s.hSection} data-h-scroll-section>
             <SplitText content={textRevealContent} />
             <div className={s.reels}>
