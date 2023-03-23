@@ -6,6 +6,7 @@ import Header from "./components/Header"
 import { WithSmooth } from "./hocs/WithSmooth"
 import { useWindowSize } from "./hooks"
 import About from "./pages/About"
+import Brands from "./pages/Brands"
 import Contact from "./pages/Contact"
 import ContactBrand from "./pages/ContactBrand"
 import ContactContentCreator from "./pages/ContactContentCreator"
@@ -56,6 +57,7 @@ function App() {
           <Route path="services" element={<Services />}></Route>
           <Route path="creators" element={<Creators />}></Route>
           <Route path="about" element={<About />}></Route>
+          <Route path="brands" element={<Brands />}></Route>
         </Routes>
       </div>
     </WithSmooth>

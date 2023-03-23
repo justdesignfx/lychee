@@ -16,3 +16,17 @@ body {
 * {
   cursor: default;
 }
+
+.scrollbar-thumb {
+  background: $californiaSunset !important;
+  opacity: 0.9;
+}
+
+.scrollbar-track {
+  background: transparent !important;
+}
+
+::selection {
+  color: $californiaSunset;
+  background: $eigengrau;
+}

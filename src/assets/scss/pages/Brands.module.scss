@@ -1,0 +1,349 @@
+@import "../global.scss";
+
+.brands {
+  .textC {
+    margin: 8vw 10vw 0 4vw;
+
+    .small {
+      @include typo(LS-VG5000, 18px, null, null, null);
+      color: $californiaSunset;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .title {
+      @include typo(Lychee, 60px, null, null, null);
+      color: $stonewallGrey;
+      margin-bottom: 2vw;
+    }
+
+    .subtitle {
+      @include typo(Lychee, 20px, null, 1.4, null);
+      color: $stonewallGrey;
+      margin-bottom: 2vw;
+    }
+
+    .par {
+      @include dims(37vw, auto);
+      @include typo(Lychee, 20px, null, 1.4, null);
+      color: $greyShingle;
+      margin-bottom: 2vw;
+    }
+
+    .btnC {
+      @include dims(15vw, 2.5vw);
+      display: block;
+      margin-right: auto;
+    }
+  }
+
+  .intro {
+    @include dims(100vw, 100vh);
+  }
+
+  .misc {
+    padding: 0 10vw;
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+
+    .imgC {
+      overflow: hidden;
+
+      &:nth-child(1) {
+        @include dims(22.5vw, 35vw);
+      }
+
+      &:nth-child(2) {
+        @include dims(35vw, 25vw);
+        transform: translate(10vw, 15vw);
+      }
+
+      &:nth-child(3) {
+        @include dims(20vw, 25vw);
+        transform: translateY(35vw);
+        z-index: 10;
+      }
+    }
+  }
+
+  .kpi {
+    padding: 17vw 0 0 10vw;
+
+    .text {
+      @include dims(51vw, auto);
+      @include typo(Lychee, 50px, null, 1.3, null);
+      color: $stonewallGrey;
+
+      .small {
+        @include typo(Lychee, 30px, null, 1.4, italic);
+        color: $californiaSunset;
+      }
+    }
+  }
+
+  .methods {
+    .methodsIntro {
+      padding: 10vw 15vw 5vw 8vw;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .text {
+        @include dims(37vw, auto);
+        @include typo(Lychee, 50px, null, 1.1, null);
+        color: $stonewallGrey;
+      }
+
+      .imgC {
+        @include dims(27vw, auto);
+        transform: translateY(-10vw) rotate(-25deg);
+      }
+    }
+
+    .methodsList {
+      display: flex;
+      align-items: stretch;
+
+      .scrollbar {
+        $scrollBarWidth: 9vw;
+
+        @include dims($scrollBarWidth, auto);
+        border: 1px solid $californiaSunset;
+        border-radius: 72px;
+        margin: 0 0 0 8vw;
+        overflow: hidden;
+        position: relative;
+
+        .thumb {
+          @include position(absolute, 0, 0, auto, 0);
+          @include dims($scrollBarWidth);
+          background: rgb(206, 25, 83);
+          background: radial-gradient(circle, rgba(206, 25, 83, 1) 0%, rgba(206, 25, 83, 0) 100%);
+          border-radius: 50%;
+          filter: blur(20px);
+        }
+      }
+
+      .list {
+        margin: 0 6vw;
+        flex: 1;
+
+        .listItem {
+          border-top: 1px solid $greyShingle;
+          padding-bottom: 8vw;
+          padding-top: 2vw;
+
+          display: flex;
+          align-items: flex-start;
+
+          .index {
+            @include typo(LS-VG5000-Shifted, 32px, null, 1.2, null);
+            color: $stonewallGrey;
+            margin-right: 1.5rem;
+          }
+
+          .title {
+            @include dims(20vw, auto);
+            @include typo(Lychee, 35px, null, 1.2, null);
+            color: $stonewallGrey;
+          }
+
+          .text {
+            @include dims(37vw, auto);
+            @include typo(Lychee, 20px, null, 1.5, null);
+            color: $greyShingle;
+            margin-left: auto;
+          }
+        }
+      }
+    }
+  }
+
+  .platforms {
+    display: flex;
+    justify-content: flex-end;
+
+    .stickerC {
+      margin-right: 10vw;
+      margin-top: 5vw;
+
+      .imgC {
+        &:nth-child(1) {
+          @include dims(20vw, auto);
+          transform: rotate(8deg);
+        }
+
+        &:nth-child(2) {
+          @include dims(14vw, auto);
+          margin-left: 18vw;
+          margin-top: -5vw;
+          transform: rotate(5deg);
+        }
+      }
+    }
+
+    .platformsTextC {
+      margin-right: 5vw;
+
+      .title {
+        @include dims(35vw, auto);
+        @include typo(Lychee, 60px, null, 1.2, null);
+        color: $stonewallGrey;
+        margin-bottom: 2vw;
+        margin-top: 5vw;
+      }
+
+      .text {
+        @include dims(35vw, auto);
+        @include typo(Lychee, 20px, null, 1.4, null);
+        color: $stonewallGrey;
+      }
+    }
+  }
+
+  .social {
+    margin: 10vw 0 5vw 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      column-gap: 2vw;
+
+      .button {
+        @include dims(19vw, 4.25vw);
+        border: 1px solid $greyShingle;
+        border-radius: 36px;
+
+        @include typo(LS-VG5000, 30px, null, 1, null);
+        color: $stonewallGrey;
+
+        display: grid;
+        place-items: center;
+      }
+    }
+  }
+
+  .dare {
+    padding: 5vw 0 10vw 0;
+
+    .marqueeC {
+      margin: 0 auto 4vw auto;
+      overflow-x: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      .mText {
+        flex-shrink: 0;
+        font-family: Lychee;
+        font-weight: 700;
+        font-size: 10vw;
+        color: #c1c1c1;
+
+        display: flex;
+        align-items: center;
+
+        .seperator {
+          @include dims(200px, 10px);
+          background: #c1c1c1;
+          display: inline-block;
+          margin: 2vw 3vw 0 3vw;
+        }
+      }
+    }
+
+    .text {
+      @include dims(60vw, auto);
+      color: #c1c1c1;
+      font-family: Lychee;
+      font-size: 2.5vw;
+      line-height: 120%;
+      margin: 0 auto 3vw auto;
+      text-align: center;
+    }
+
+    .contactBtn {
+      @include dims(24vw, 4vw);
+      color: #c1c1c1;
+      font-family: LS-VG5000;
+      font-size: 1.75vw;
+      margin: 0 auto;
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @include devicesMax(tablet) {
+        @include dims(44vw, 8vw);
+        font-size: 3.25vw;
+      }
+
+      @include devicesMax(mobile) {
+        @include dims(50vw, 10vw);
+        font-size: 5vw;
+      }
+
+      &::after {
+        content: "";
+        @include position(absolute, 100%, auto, auto, 0);
+        @include dims(50%, 2px);
+        background: #ce1953;
+      }
+
+      &::before {
+        content: "";
+        @include position(absolute, 105%, 0, auto, auto);
+        @include dims(50%, 2px);
+        background: #ce1953;
+        transition: 0.2s all ease;
+      }
+
+      @include devicesMin(aboveTablet) {
+        &:hover {
+          &::before {
+            @include position(absolute, 100%, 0, auto, auto);
+          }
+
+          .iconC {
+            .oWrapper {
+              transform: translate(100%, -100%);
+            }
+          }
+        }
+      }
+
+      .iconC {
+        @include dims(20px);
+        overflow: hidden;
+        position: relative;
+
+        @include devicesMax(mobile) {
+          @include dims(0.75rem, auto);
+        }
+
+        .oWrapper {
+          position: relative;
+          display: flex;
+          transition: 0.2s all ease;
+        }
+
+        .tuple {
+          @include position(absolute, 100%, 100%, auto, auto);
+          @include dims(20px);
+
+          display: flex;
+        }
+      }
+    }
+  }
+}
