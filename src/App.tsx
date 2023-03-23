@@ -46,7 +46,6 @@ function App() {
   return (
     <WithSmooth location={displayLocation}>
       <div data-route-transition>
-        <Header />
         <Routes location={displayLocation}>
           <Route index element={<Home />}></Route>
           <Route path="contact" element={<Contact />}>

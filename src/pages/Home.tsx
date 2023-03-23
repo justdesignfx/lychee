@@ -32,9 +32,35 @@ import { ScrollStatus } from "smooth-scrollbar/interfaces"
 import Footer from "~/components/Footer"
 import MarqueeSimple from "~/components/MarqueeSimple"
 import { SmoothContext } from "~/hocs/WithSmooth"
+import SplitText from "~/components/SplitText"
 
 const Home = () => {
-  const hScrollText = "Yeni medya platformlarında kreatif içerikler üretiyoruz."
+  const textRevealContent = [
+    {
+      word: "Yeni",
+      font: "normal",
+    },
+    {
+      word: "medya",
+      font: "normal",
+    },
+    {
+      word: "platformlarında",
+      font: "normal",
+    },
+    {
+      word: "kreatif",
+      font: "italic",
+    },
+    {
+      word: "içerikler",
+      font: "italic",
+    },
+    {
+      word: "üretiyoruz.",
+      font: "normal",
+    },
+  ]
 
   const influencers = [
     { pic: influencer1, brandLogo: logoDysonBlack },
@@ -54,6 +80,12 @@ const Home = () => {
     <>
       <main className={s.home}>
         <section className={s.hero}>
+          <div className={s.bgVideoC}>
+            <video className={s.video} loop autoPlay muted playsInline>
+              <source src="../src/assets/video/sample-video.mov" type="video/mp4" />
+            </video>
+          </div>
+
           <div className={s.textWrapper}>
             <h1 className={s.text}>
               Markanız için en etkili <span className={s.inner}>influencer marketing</span> kampanyalarını yürütmeye
@@ -106,21 +138,7 @@ const Home = () => {
         </section>
         <section className={s.horizontalScroll} data-h-scroll>
           <div className={s.hSection} data-h-scroll-section>
-            {hScrollText.split(" ").map((word: any, i) => {
-              return (
-                <h2 className={s.text} key={i}>
-                  <p className={s.word}>
-                    {word.split("").map((letter: any, iInner: number) => {
-                      return (
-                        <span key={iInner} className={s.letter} data-letter>
-                          {letter}
-                        </span>
-                      )
-                    })}
-                  </p>
-                </h2>
-              )
-            })}
+            <SplitText content={textRevealContent} />
             <div className={s.reels}>
               <Link to="/contact" className={s.button}>
                 Kampanyanı Oluştur

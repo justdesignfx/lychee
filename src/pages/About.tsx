@@ -28,9 +28,32 @@ import FooterBasic from "~/components/FooterBasic"
 import IconArrowSquare from "~/components/Icons/IconArrowSquare"
 import ButtonGlitch from "~/components/ButtonGlitch"
 import { useModalStore } from "~/store/modalStore"
+import SplitText from "~/components/SplitText"
 
 const About = () => {
   const hScrollText = "Her zaman daha iyisini hedefliyoruz."
+  const textRevealContent = [
+    {
+      word: "Her",
+      font: "normal",
+    },
+    {
+      word: "zaman",
+      font: "normal",
+    },
+    {
+      word: "daha",
+      font: "italic",
+    },
+    {
+      word: "iyisini",
+      font: "italic",
+    },
+    {
+      word: "hedefliyoruz.",
+      font: "normal",
+    },
+  ]
 
   const modalStore = useModalStore()
 
@@ -129,21 +152,7 @@ const About = () => {
         </section>
         <section className={s.horizontalScroll} data-h-scroll>
           <div className={s.hSection} data-h-scroll-section>
-            {hScrollText.split(" ").map((word: any, i) => {
-              return (
-                <h2 className={s.text} key={i}>
-                  <p className={s.word}>
-                    {word.split("").map((letter: any, iInner: number) => {
-                      return (
-                        <span key={iInner} className={s.letter} data-letter>
-                          {letter}
-                        </span>
-                      )
-                    })}
-                  </p>
-                </h2>
-              )
-            })}
+            <SplitText content={textRevealContent} />
           </div>
         </section>
         <section className={s.partners}>

@@ -1,15 +1,15 @@
+import { qSingle } from "./../utils/index"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 export function textReveal(selector: any) {
-  // HORIZONTAL SCROLL
-  console.log("HORIZONTAL SCROLL INITIALIZED")
+  const container = qSingle("[data-h-scroll]")
+
+  if (!container) return
 
   const scrollLength = 5000
 
-  const container = selector("[data-h-scroll]")[0]
-
-  const horizontalScroll = gsap.to(selector("[data-h-scroll-section]"), {
+  gsap.to(selector("[data-h-scroll-section]"), {
     x: window.innerWidth,
     xPercent: -100,
     ease: "none", // <-- IMPORTANT!
@@ -53,6 +53,8 @@ export function textReveal(selector: any) {
     markers: true,
     scrub: true,
     start: "top top",
-    end: `bottom+=${scrollLength - 500}px top`,
+    end: `bottom+=${scrollLength - 550}px top`,
   })
+
+  console.log("HORIZONTAL SCROLL INITIALIZED")
 }

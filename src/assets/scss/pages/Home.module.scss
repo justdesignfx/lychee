@@ -8,13 +8,8 @@
     overflow: hidden;
     position: relative;
 
-    // outline: 2px solid blue;
-    // outline-offset: -2px;
-
-    background-image: url(../img/banner.jpg);
-    background-position: center;
-    background-size: 100%;
-    background-repeat: no-repeat;
+    outline: 2px solid blue;
+    outline-offset: -2px;
 
     @include devicesMax(tablet) {
       background-image: url(../img/banner-touch.png);
@@ -23,6 +18,18 @@
     @include devicesMax(mobile) {
       background-size: 120%;
       background-position: bottom right;
+    }
+
+    .bgVideoC {
+      @include position(absolute, 0, 0, 0, 0);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .video {
+        @include dims(100%);
+      }
     }
 
     .logoWrapper {
@@ -177,26 +184,6 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-    }
-
-    .text {
-      color: #c1c1c1;
-      font-family: Lychee;
-      font-size: 20vw;
-      font-weight: 700;
-      display: block;
-      flex-shrink: 0;
-
-      .word {
-        margin-right: 5vw;
-        flex-shrink: 0;
-
-        display: inline-block;
-
-        .letter {
-          display: inline-block;
-        }
-      }
     }
 
     .reels {
@@ -489,10 +476,10 @@
     .oWrapper {
       overflow: hidden;
       position: relative;
-      transform-origin: center left;
+      will-change: transform;
 
-      @include dims(100vw, 100vh);
-      @include position(absolute, auto, auto, auto, auto);
+      @include dims(125vw, 100vh);
+      @include position(absolute, auto, -12.5vw, auto, auto);
 
       &.blue {
         background: #2d00f5;
@@ -510,6 +497,7 @@
       }
 
       .screen {
+        @include position(absolute, 0, 0, auto, auto);
         @include dims(100vw, 100vh);
 
         display: flex;
@@ -518,14 +506,12 @@
 
         .statC {
           margin-top: 20vw;
+          margin-right: 40vw;
+
           display: flex;
           flex-direction: column;
           align-items: flex-end;
           justify-content: center;
-
-          &.blue {
-            margin-right: 10vw;
-          }
 
           &.pink {
             background: #ce1953;

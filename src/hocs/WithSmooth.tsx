@@ -12,6 +12,7 @@ import { useWindowSize } from "~/hooks"
 import MagnetCursor from "~/components/MagnetCursor"
 import Menu from "~/components/Menu"
 import Modal from "~/components/Modal"
+import Header from "~/components/Header"
 
 export const SmoothContext = React.createContext<any>(null)
 
@@ -413,6 +414,7 @@ const WithSmooth = ({ children, location }: Props) => {
 
   return (
     <SmoothContext.Provider value={{ scrollToTop, lockScrollbar, unlockScrollbar, smooth }}>
+      <Header />
       <div ref={scrollerRef}>
         <div ref={contentRef}>{children}</div>
       </div>

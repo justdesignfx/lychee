@@ -1,0 +1,30 @@
+@import "../_global.scss";
+
+.text {
+  color: #c1c1c1;
+  font-size: 20vw;
+  font-weight: 400;
+  display: block;
+  flex-shrink: 0;
+
+  .word {
+    margin-right: 5vw;
+    flex-shrink: 0;
+
+    display: inline-block;
+
+    &.normal {
+      font-family: Lychee;
+    }
+
+    &.italic {
+      color: $californiaSunset;
+      font-family: LaicaB;
+      font-style: italic;
+    }
+
+    .letter {
+      display: inline-block;
+    }
+  }
+}
