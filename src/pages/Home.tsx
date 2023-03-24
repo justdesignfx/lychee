@@ -33,6 +33,7 @@ import Footer from "~/components/Footer"
 import MarqueeSimple from "~/components/MarqueeSimple"
 import { SmoothContext } from "~/hocs/WithSmooth"
 import SplitText from "~/components/SplitText"
+import Img from "~/components/Img"
 
 const Home = () => {
   const textRevealContent = [
@@ -82,7 +83,10 @@ const Home = () => {
         <section className={s.hero}>
           <div className={s.bgVideoC}>
             <video className={s.video} loop autoPlay muted playsInline>
-              <source src="../src/assets/video/sample-video.mov" type="video/mp4" />
+              <source
+                src="https://player.vimeo.com/progressive_redirect/playback/811194868/rendition/1080p/file.mp4?loc=external&signature=7dc29827ae3db3dfd80474b36b296892ecc96340075b64bbb83f266d886ff389"
+                type="video/mp4"
+              />
             </video>
           </div>
 
@@ -106,7 +110,7 @@ const Home = () => {
           <div className={s.marqueeC}>
             <MarqueeSimple direction={-1}>
               <h2 className={s.mText}>
-                Digital talent agency. <span className={s.seperator}></span>
+                <span className={s.italic}>Digital&nbsp;</span> talent agency.<span className={s.seperator}></span>
               </h2>
             </MarqueeSimple>
           </div>
@@ -114,26 +118,19 @@ const Home = () => {
         <section className={s.greeting}>
           <div className={s.textC}>
             <div className={s.imgC}>
-              <img src={skaterTube} alt="Skating Tube Tv" className={s.img} />
+              <Img src={skaterTube} alt="Skating Tube Tv" objectFit="contain" />
             </div>
-            <div className={s.line}>
-              <h1 className={s.text}>
-                Lychee <span className={s.italic}>global ölçekte</span> ikonik
-              </h1>
-            </div>
-            <div className={s.line}>
-              <h1 className={cx(s.text, s.brands)}>markaların</h1>
-              <h1 className={s.text}>çözüm ortağı olan</h1>
-            </div>
-            <div className={s.line}>
-              <h1 className={s.text}>dijital</h1>
-              <h1 className={s.text}>
-                <span className={s.italic}>influencer</span> marketing
-              </h1>
-            </div>
-            <div className={s.line}>
-              <h1 className={s.text}>ajansıdır.</h1>
-            </div>
+
+            <h1 className={s.textC}>
+              Lychee <span className={s.italic}>global ölçekte</span> ikonik <br />
+              <span className={cx(s.text, s.brands, s.margin1)}>markaların</span>
+              <span className={s.text}>çözüm ortağı olan</span> <br />
+              <span className={cx(s.text, s.margin2, s.margin4)}>dijital</span>
+              <span className={s.text}>
+                <span className={s.italic}>influencer</span> marketing <br />
+              </span>
+              <span className={cx(s.text, s.margin5)}> ajansıdır.</span>
+            </h1>
           </div>
         </section>
         <section className={s.horizontalScroll} data-h-scroll>
@@ -256,7 +253,7 @@ const Home = () => {
               <img className={s.img} src={portal} alt="Smartphone Doodle" />
             </div>
             <h2 className={s.title}>
-              Partneri olduğumuz <br /> <span className={s.italic}>global</span> markalar.
+              Partneri olduğumuz <span className={s.italic}>global</span> markalar.
             </h2>
             <p className={s.text}>
               Yeni çağ üretici endüstrisini şekillendiren, <br /> global markalar ve firmalarla çalışıyoruz.

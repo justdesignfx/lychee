@@ -26,14 +26,6 @@ const ContactIntro = () => {
           İçerik Üreticisiyim
         </Link>
       </div>
-
-      <div className={cx(s.imgC, s.left)}>
-        <img src={floating} alt="Brand Visual" className={s.img} />
-      </div>
-
-      <div className={cx(s.imgC, s.right)}>
-        <img src={floating} alt="Brand Visual" className={s.img} />
-      </div>
     </div>
   )
 }

@@ -51,8 +51,9 @@ function App() {
           <Route path="contact" element={<Contact />}>
             <Route index element={<ContactIntro />}></Route>
             <Route path="brand" element={<ContactBrand />}></Route>
-            <Route path="content-creator" element={<ContactContentCreator />}></Route>
           </Route>
+          <Route path="contact/content-creator" element={<ContactContentCreator />}></Route>
+
           <Route path="services" element={<Services />}></Route>
           <Route path="creators" element={<Creators />}></Route>
           <Route path="about" element={<About />}></Route>

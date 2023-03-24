@@ -13,14 +13,12 @@
     justify-content: center;
 
     .marginR {
-      margin-right: 20vw;
+      margin-right: 17vw;
     }
 
     .title {
-      color: #c1c1c1;
-      font-family: Lychee;
-      font-size: 5vw;
-      line-height: 110%;
+      @include typo(Lychee, 90px, null, 1.2, null);
+      color: $pixelWhite;
       margin: 0 auto;
       margin-bottom: 2.5vw;
       text-align: center;
@@ -57,10 +55,11 @@
     }
 
     .bgImgC {
-      @include dims(25vw, 45vw);
+      @include dims(27vw, 45vw);
       @include position(absolute, 50%, auto, auto, 50%);
       border-radius: 32px;
-      transform: translate(-50%, -50%);
+      overflow: hidden;
+      transform: translate(-50%, -58%);
     }
   }
 
@@ -196,12 +195,10 @@
     margin: 25vw auto 10vw auto;
 
     .title {
+      @include typo(Lychee, 80px, null, 1, null);
       @include dims(60vw, auto);
       color: #c1c1c1;
-      font-family: Lychee;
-      font-size: 5vw;
-      line-height: 120%;
-      margin: auto;
+      margin: 0 auto;
       text-align: center;
 
       .italic {
@@ -232,7 +229,7 @@
     padding: 10vw 0;
 
     .marqueeC {
-      margin: 0 auto 4vw auto;
+      margin: 0 auto 5vw auto;
       overflow-x: hidden;
 
       display: flex;
@@ -270,7 +267,7 @@
     }
 
     .contactBtn {
-      @include dims(24vw, 4vw);
+      @include dims(20vw, 4vw);
       color: #c1c1c1;
       font-family: LS-VG5000;
       font-size: 1.75vw;

@@ -24,6 +24,7 @@ import logoStarbucks from "~/assets/img/logo-starbucks.svg"
 import logoDysonBlack from "~/assets/img/logo-dyson-black.svg"
 import logoAbdiBlack from "~/assets/img/logo-abdiibrahim-black.svg"
 import logoObsessoBlack from "~/assets/img/logo-obsesso-black.svg"
+
 import FooterBasic from "~/components/FooterBasic"
 import IconArrowSquare from "~/components/Icons/IconArrowSquare"
 import ButtonGlitch from "~/components/ButtonGlitch"
@@ -61,6 +62,20 @@ const About = () => {
     console.log(modalStore.open)
   }, [modalStore.open])
 
+  function handleModal() {
+    modalStore.setContent(
+      <div className={s.modalContent}>
+        <video className={s.video} controls autoPlay playsInline>
+          <source
+            src="https://player.vimeo.com/progressive_redirect/playback/811194868/rendition/1080p/file.mp4?loc=external&signature=7dc29827ae3db3dfd80474b36b296892ecc96340075b64bbb83f266d886ff389"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+    )
+    modalStore.toggle()
+  }
+
   return (
     <>
       <main className={s.about}>
@@ -68,7 +83,7 @@ const About = () => {
           <h1 className={s.title}>
             Yaratıcı ve stratejik yetenekleri <br /> bünyesinde barındıran <br />
             <span className={s.italic}>dijital marketing </span> ajansıyız.
-            <button className={s.playBtn} onClick={modalStore.toggle}>
+            <button className={s.playBtn} onClick={handleModal}>
               <div className={s.iconTri}>
                 <Img src={playBtnTri} objectFit="contain" />
               </div>

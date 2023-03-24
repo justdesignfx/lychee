@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 
 const Header = () => {
   return (
-    <header className={s.header}>
+    <header className={s.header} data-hide-on-scroll>
       <Link to="/" className={s.imgC}>
         <img className={s.img} src={logo} alt="Lychee Logo" />
       </Link>

@@ -234,7 +234,7 @@
     padding: 5vw 0 10vw 0;
 
     .marqueeC {
-      margin: 0 auto 4vw auto;
+      margin: 0 auto 5vw auto;
       overflow-x: hidden;
 
       display: flex;
@@ -272,10 +272,8 @@
     }
 
     .contactBtn {
-      @include dims(24vw, 4vw);
+      @include dims(20vw, 3.5vw);
       color: #c1c1c1;
-      font-family: LS-VG5000;
-      font-size: 1.75vw;
       margin: 0 auto;
       position: relative;
 
@@ -291,58 +289,6 @@
       @include devicesMax(mobile) {
         @include dims(50vw, 10vw);
         font-size: 5vw;
-      }
-
-      &::after {
-        content: "";
-        @include position(absolute, 100%, auto, auto, 0);
-        @include dims(50%, 2px);
-        background: #ce1953;
-      }
-
-      &::before {
-        content: "";
-        @include position(absolute, 105%, 0, auto, auto);
-        @include dims(50%, 2px);
-        background: #ce1953;
-        transition: 0.2s all ease;
-      }
-
-      @include devicesMin(aboveTablet) {
-        &:hover {
-          &::before {
-            @include position(absolute, 100%, 0, auto, auto);
-          }
-
-          .iconC {
-            .oWrapper {
-              transform: translate(100%, -100%);
-            }
-          }
-        }
-      }
-
-      .iconC {
-        @include dims(20px);
-        overflow: hidden;
-        position: relative;
-
-        @include devicesMax(mobile) {
-          @include dims(0.75rem, auto);
-        }
-
-        .oWrapper {
-          position: relative;
-          display: flex;
-          transition: 0.2s all ease;
-        }
-
-        .tuple {
-          @include position(absolute, 100%, 100%, auto, auto);
-          @include dims(20px);
-
-          display: flex;
-        }
       }
     }
   }

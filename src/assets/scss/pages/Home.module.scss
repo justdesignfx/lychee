@@ -8,9 +8,6 @@
     overflow: hidden;
     position: relative;
 
-    outline: 2px solid blue;
-    outline-offset: -2px;
-
     @include devicesMax(tablet) {
       background-image: url(../img/banner-touch.png);
     }
@@ -18,6 +15,14 @@
     @include devicesMax(mobile) {
       background-size: 120%;
       background-position: bottom right;
+    }
+
+    &:after {
+      content: "";
+      @include position(absolute, auto, 0, -10px, 0);
+      @include dims(100%, 50%);
+      background: linear-gradient(0deg, #16161c, rgb(255, 255, 255, 0));
+      z-index: 0;
     }
 
     .bgVideoC {
@@ -29,6 +34,7 @@
 
       .video {
         @include dims(100%);
+        object-fit: cover;
       }
     }
 
@@ -53,18 +59,22 @@
 
     .marqueeC {
       @include position(absolute, auto, 0, 0, 0);
-      background: linear-gradient(0deg, #16161c, rgb(255, 255, 255, 0));
       padding: 0 0 5vw 0;
+      z-index: 10;
 
       .mText {
         flex-shrink: 0;
-        font-family: LycheeItalic;
+        font-family: Lychee;
         font-weight: 400;
         font-size: 8vw;
         color: #fff;
 
         display: flex;
         align-items: center;
+
+        .italic {
+          font-style: italic;
+        }
 
         .seperator {
           @include dims(200px, 10px);
@@ -77,7 +87,9 @@
 
     .textWrapper {
       margin: 15vw 0 0 3vw;
+      position: relative;
       width: 35vw;
+      z-index: 10;
 
       @include devicesMax(tablet) {
         margin: 12vw 0 0 4vw;
@@ -132,38 +144,47 @@
   }
 
   .greeting {
+    margin: 15vw auto 0 auto;
+
     .textC {
-      margin: 15vw auto 0 auto;
       position: relative;
 
       .imgC {
-        @include position(absolute, 5vw, auto, auto, 30vw);
+        @include position(absolute, 6vw, auto, auto, 32vw);
+        @include dims(23vw);
+        transform: rotate(-9deg);
       }
 
-      .line {
+      .textC {
+        @include typo(Lychee, 53px, null, 1.5, null);
+        color: #c1c1c1;
         margin: 0 auto;
+        text-align: center;
 
-        display: flex;
-        align-items: center;
+        .italic {
+          color: #ce1953;
+          font-family: LaicaBItalic;
+          font-size: 63px;
+        }
 
-        .text {
-          margin: 0 auto;
+        .margin1 {
+          margin-right: 15vw;
+        }
 
-          color: #c1c1c1;
-          font-family: Lychee;
-          font-size: 4vw;
-          line-height: 60%;
-          margin-bottom: 2.5vw;
-          text-align: center;
+        .margin2 {
+          margin-left: 7vw;
+        }
 
-          .italic {
-            color: #ce1953;
-            font-family: LaicaBItalic;
-          }
+        .margin3 {
+          margin-left: 20vw;
+        }
 
-          &.brands {
-            margin-right: 10vw;
-          }
+        .margin4 {
+          margin-right: 24vw;
+        }
+
+        .margin5 {
+          margin-left: 13vw;
         }
       }
     }
@@ -208,7 +229,7 @@
         @include dims(20vw, 4vw);
         background: #131317;
         border: 2px solid #ce1953;
-        border-radius: 32px;
+        border-radius: 4vmin;
         color: #c1c1c1;
         display: block;
         font-family: LS-VG5000;
@@ -299,6 +320,8 @@
   }
 
   .works {
+    margin-top: 10vw;
+
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -333,7 +356,7 @@
       grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
       grid-gap: 2.5rem;
 
-      padding: 10vw 4vw 0 4vw;
+      padding: 15vw 4vw 0 4vw;
 
       .gridItemC {
         overflow: hidden;

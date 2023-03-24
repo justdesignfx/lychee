@@ -1,37 +1,64 @@
-import React, { FormEvent } from "react"
+import { FormEvent } from "react"
 import s from "~/assets/scss/pages/ContactContentCreator.module.scss"
 
-import iconPlus from "~/assets/img/icon-plus.svg"
 import dta from "~/assets/img/digital-talent-agency.png"
+import iconPlus from "~/assets/img/icon-plus.svg"
 import lychee from "~/assets/img/logo.png"
 
+import axios from "axios"
 import cx from "classnames"
 import { useFormik } from "formik"
-import * as yup from "yup"
-import PrivacyPolicyText from "~/components/PrivacyPolicyText"
 import { Link } from "react-router-dom"
+import * as Yup from "yup"
 
-const ContentCreatorFormSchema = yup.object().shape({
-  name: yup.string().required("REQUIRED"),
-  email: yup.string().email("INVALID_EMAIL").required("REQUIRED"),
-  message: yup.string().required("REQUIRED"),
-  socialPlatforms: yup.array().of(yup.string()).required("REQUIRED"),
-  privacyConfirmation: yup.boolean().required("REQUIRED"),
+import api from "~/api"
+import PrivacyPolicyText from "~/components/PrivacyPolicyText"
+
+const ContentCreatorFormSchema = Yup.object({
+  name: Yup.string().required("REQUIRED"),
+  email: Yup.string().email("INVALID_EMAIL").required("REQUIRED"),
+  message: Yup.string().required("REQUIRED"),
+  socialPlatforms: Yup.array().of(Yup.string()).required("REQUIRED"),
+  privacyConfirmation: Yup.boolean().required("REQUIRED"),
 })
 
 const ContactContentCreator = () => {
+  const submitForm = async (values: any) => {
+    try {
+      // 👇️ const data: CreateUserResponse
+      const { data } = await api.post<any>("brandsForm", values, {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      })
+
+      // feedbackStore.toggleFeedback()
+      // feedbackStore.setText(data.message)
+      return data
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.log("error message: ", error.message)
+        // 👇️ error: AxiosError<any, any>
+        return error.message
+      } else {
+        console.log("unexpected error: ", error)
+        return "An unexpected error occurred"
+      }
+    }
+  }
+
   const formik = useFormik({
     initialValues: {
       name: "",
       email: "",
       message: "",
       socialPlatforms: [""],
-      range: "",
       privacyConfirmation: false,
     },
-    validationSchema: ContentCreatorFormSchema,
     onSubmit: (values) => {
       console.log(values)
+      submitForm(values)
     },
   })
 
@@ -53,7 +80,7 @@ const ContactContentCreator = () => {
     <main className={s.contactContentCreator}>
       <h2 className={s.title}>İÇERİK ÜRETİCİ BAŞVURU FORMU</h2>
 
-      <form className={s.formC}>
+      <form className={s.formC} onSubmit={formik.handleSubmit} id="contentCreatorForm">
         <div className={cx(s.inputC, { [s.required]: formik.errors.name === "REQUIRED" && formik.touched.name })}>
           <label
             className={cx(s.label, {
@@ -104,26 +131,26 @@ const ContactContentCreator = () => {
           <small className={s.smallTop}>Sosyal Medya Linkleri</small>
 
           <div
-            className={cx(s.inputC, s.socialLinks, {
+            className={cx(s.inputC, s.socialPlatforms, {
               [s.required]: formik.errors.email === "REQUIRED" && formik.touched.email,
             })}
           >
             <label
               className={cx(s.label, {
-                [s.hidden]: formik.values.email,
+                [s.hidden]: formik.values.socialPlatforms,
               })}
-              htmlFor="socialLinks"
+              htmlFor="socialPlatforms"
             >
               https://www.instagram.com/lycheedigital/
             </label>
             <input
               className={s.input}
-              id="socialLinks"
+              id="socialPlatforms"
               type="text"
               onFocus={handleFocus}
               onBlur={handleFocus}
               onChange={formik.handleChange}
-              value={formik.values.email}
+              value={formik.values.socialPlatforms}
               required
             />
           </div>
@@ -158,7 +185,7 @@ const ContactContentCreator = () => {
           <PrivacyPolicyText setConfirmation={handleConfirmation} />
         </div>
 
-        <button type="submit" className={s.button}>
+        <button type="submit" form="contentCreatorForm" className={s.button}>
           Gönder
         </button>
       </form>

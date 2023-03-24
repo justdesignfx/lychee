@@ -13,6 +13,7 @@ import MagnetCursor from "~/components/MagnetCursor"
 import Menu from "~/components/Menu"
 import Modal from "~/components/Modal"
 import Header from "~/components/Header"
+import { hideOnScroll } from "~/animations/hideOnScroll"
 
 export const SmoothContext = React.createContext<any>(null)
 
@@ -226,6 +227,7 @@ const WithSmooth = ({ children, location }: Props) => {
         stickyTitle()
         floatingItems()
         framedParallax()
+        hideOnScroll()
 
         if (q("[data-sliding-panels]").length > 0) {
           slidingPanels(q)
@@ -318,28 +320,6 @@ const WithSmooth = ({ children, location }: Props) => {
         //     },
         //   })
         // }
-
-        // HAMBURGER HIDE/SHOW
-        const hamburger = document.querySelector("[data-hamburger-menu]")
-
-        if (hamburger) {
-          const showAnim = gsap
-            .from(hamburger, {
-              autoAlpha: 0,
-              paused: true,
-              duration: 0.2,
-            })
-            .progress(1)
-
-          ScrollTrigger.create({
-            start: "top top",
-            end: "max",
-            // // markers: true,
-            onUpdate: (self) => {
-              self.direction === -1 ? showAnim.play() : showAnim.reverse()
-            },
-          })
-        }
 
         // STICKY ELEMENT HIDE SHOW
         // const stickyOtherWorks = document.querySelector("[data-sticky-other-works]")

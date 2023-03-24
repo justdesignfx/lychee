@@ -81,9 +81,9 @@ const Modal = () => {
 
   return (
     <div className={cx(s.modal, { [s.open]: modalStore.open })} ref={modalRef}>
-      {/* <div className={s.close} onClick={handleModal}>
-        <Img src={close} objectFit="contain" />
-      </div> */}
+      <div className={s.close} onClick={handleModal}>
+        {/* <Img src={close} objectFit="contain" /> */}CLOSE
+      </div>
       <div className={s.backdrop} ref={backdropRef} onClick={handleModal}></div>
       <div className={s.content} ref={contentRef} onClick={stopPropagation}>
         {modalStore.content}

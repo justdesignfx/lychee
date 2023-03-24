@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import s from "~/assets/scss/pages/ContactBrand.module.scss"
+
 import BrandForm from "~/components/BrandForm"
 
 import cx from "classnames"

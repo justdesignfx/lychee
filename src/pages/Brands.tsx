@@ -153,15 +153,7 @@ const Brands = () => {
           </div>
           <h1 className={s.text}>Markanız için en etkili influencer marketing kampanyalarını yürütmeye hazırız.</h1>
           <Link to="/contact" className={s.contactBtn}>
-            Kampanya oluşturun
-            <span className={s.iconC}>
-              <div className={s.oWrapper}>
-                <IconArrowSquare fill="#ce1953" />
-                <div className={s.tuple}>
-                  <IconArrowSquare fill="#ce1953" />
-                </div>
-              </div>
-            </span>
+            <ButtonGlitch text="Kampanya oluşturun" size="lg" />
           </Link>
         </section>
       </main>

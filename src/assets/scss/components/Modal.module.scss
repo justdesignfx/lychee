@@ -2,7 +2,7 @@
 
 .modal {
   @include position(fixed, 0, 0, 0, 0);
-  @include dims(100vw, 100%);
+  @include dims(100vw, 100vh);
   overflow: scroll;
   z-index: z-index("modal");
   transition: 0.4s all ease;

@@ -34,7 +34,7 @@ const Menu = () => {
   }, [open])
 
   return (
-    <div className={cx(s.menuC, { [s.open]: open })} data-hamburger-menu>
+    <div className={cx(s.menuC, { [s.open]: open })} data-hide-on-scroll>
       <div className={s.overlay} onClick={handleMenu}></div>
       <div className={s.hamburger} onClick={handleMenu}>
         <div className={s.lineC}>
