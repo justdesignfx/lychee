@@ -9,12 +9,6 @@ export function textReveal(selector: any) {
 
   const scrollLength = 5000
 
-  const lamp = qSingle("[data-lamp]")
-
-  gsap.set(lamp, {
-    scale: 0,
-  })
-
   gsap.to(selector("[data-h-scroll-section]"), {
     x: window.innerWidth,
     xPercent: -100,
@@ -27,7 +21,7 @@ export function textReveal(selector: any) {
       start: "center center",
       end: `bottom+=${scrollLength}px top`,
       pinSpacing: true,
-      markers: true,
+      // markers: true,
     },
   })
 
@@ -52,33 +46,11 @@ export function textReveal(selector: any) {
     })
   })
 
-  const lampTL = gsap.timeline()
-
-  lampTL
-    .to(lamp, {
-      scale: 1,
-      duration: 3,
-    })
-    .to(lamp, {
-      scale: 0,
-      duration: 2,
-    })
-
-  ScrollTrigger.create({
-    id: "lamp",
-    animation: lampTL,
-    trigger: container,
-    markers: true,
-    scrub: true,
-    start: "top top",
-    end: `bottom+=${scrollLength - 1000}px top`,
-  })
-
   ScrollTrigger.create({
     id: "text-reveal",
     animation: tl,
     trigger: container,
-    markers: true,
+    // markers: true,
     scrub: true,
     start: "top top",
     end: `bottom+=${scrollLength - 1000}px top`,

@@ -8,7 +8,7 @@
 
   .intro {
     @include dims(100vw, 100vh);
-    padding: 10vw 4vw;
+    padding: 15vw 4vw;
 
     .title {
       @include typo(Lychee, 90px, null, 1.2, null);

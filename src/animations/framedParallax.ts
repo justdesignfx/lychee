@@ -27,7 +27,7 @@ export function framedParallax() {
         id: "framed-parallax",
         trigger: frames[i],
         scrub: 1,
-        markers: true,
+        // markers: true,
       },
     })
   })

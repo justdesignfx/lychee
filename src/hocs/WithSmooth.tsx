@@ -185,7 +185,7 @@ const WithSmooth = ({ children, location }: Props) => {
                 (windowSize.width > breakpoints.mobile ? 20 : 40) * (marquee.dataset.direction === "1" ? 1 : -1),
               scrollTrigger: {
                 trigger: marquee,
-                // markers: true,
+                // // markers: true,
                 scrub: true,
               },
             })
@@ -214,7 +214,7 @@ const WithSmooth = ({ children, location }: Props) => {
         //       scrollTrigger: {
         //         trigger: item,
         //         scrub: true,
-        //         // markers: true,
+        //         // // markers: true,
         //       },
         //     })
         //   })
@@ -256,7 +256,7 @@ const WithSmooth = ({ children, location }: Props) => {
         //       start: "center bottom",
         //       end: () => `center bottom-=${height}`,
         //       scrub: true,
-        //       // markers: true,
+        //       // // markers: true,
         //     },
         //   })
 
@@ -288,7 +288,7 @@ const WithSmooth = ({ children, location }: Props) => {
         //       //   gsap.to(q("[data-overlay]"), {
         //       //     pointerEvents: "none",
         //       //   })
-        //       // }, // markers: true,
+        //       // }, // // markers: true,
         //     },
         //   })
         // }
@@ -302,7 +302,7 @@ const WithSmooth = ({ children, location }: Props) => {
         //       trigger: q("[data-flip]")[0],
         //       start: "center center",
         //       end: "center center",
-        //       // markers: true,
+        //       // // markers: true,
         //       onEnter: () => {
         //         gsap.to(q("[data-flip]"), {
         //           rotateX: -180,
@@ -334,7 +334,7 @@ const WithSmooth = ({ children, location }: Props) => {
           ScrollTrigger.create({
             start: "top top",
             end: "max",
-            // markers: true,
+            // // markers: true,
             onUpdate: (self) => {
               self.direction === -1 ? showAnim.play() : showAnim.reverse()
             },
@@ -376,7 +376,7 @@ const WithSmooth = ({ children, location }: Props) => {
         //         duration: 0.2,
         //       })
         //     },
-        //     // markers: true,
+        //     // // markers: true,
         //   })
         // }
       })

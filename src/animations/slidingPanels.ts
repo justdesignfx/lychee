@@ -37,7 +37,7 @@ export function slidingPanels(selector: any) {
     pin: true,
     end: () => `+=${pinHeight}`,
     scrub: true,
-    markers: true,
+    // markers: true,
   })
 
   /* ADD SKEW SECTION */

@@ -23,7 +23,7 @@ export function floatingItems() {
       scrub: true,
       start: "center center",
       end: `bottom+=${scrollLength}px top`,
-      // markers: true,
+      // // markers: true,
     },
   })
 
@@ -57,7 +57,7 @@ export function floatingItems() {
     id: "floating-items",
     animation: tl,
     trigger: container,
-    markers: true,
+    // markers: true,
     scrub: true,
     start: "top top",
     end: `bottom+=${scrollLength - 500}px top`,

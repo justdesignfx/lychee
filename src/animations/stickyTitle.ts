@@ -17,7 +17,7 @@ export function stickyTitle() {
         pin: true,
         id: `sticky-title-${i}`,
         pinSpacing: false,
-        markers: true,
+        // markers: true,
       },
     })
   })

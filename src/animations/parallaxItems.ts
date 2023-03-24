@@ -20,7 +20,7 @@ export function parallaxItems() {
         id: "parallax-items",
         trigger: item,
         scrub: 1,
-        markers: true,
+        // markers: true,
       },
     })
   })
