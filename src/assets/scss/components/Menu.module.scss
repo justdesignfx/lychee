@@ -3,7 +3,6 @@
 .menuC {
   @include position(fixed, 0, 0, 0, 0);
   z-index: z-index("menu");
-
   pointer-events: none;
 
   &.open {
@@ -20,7 +19,15 @@
     }
 
     .menu {
-      transform: scale(1);
+      transform: scale(1) translate(0.5rem, -0.5rem);
+      transition-delay: 0.4s;
+      opacity: 1;
+
+      .menuItems {
+        opacity: 1;
+        transition-delay: 0s;
+        transition: 0.2s all ease-in-out;
+      }
     }
   }
 
@@ -35,12 +42,13 @@
   }
 
   .hamburger {
-    @include position(absolute, 1vw, 2vw, auto, auto);
+    @include position(absolute, 1.5rem, 2.5rem, auto, auto);
     @include dims(7vw, 3vw);
     background: #d11a54;
     border-radius: 25px;
-    transition: 0.8s all ease;
+    transition: 0.6s all ease;
     z-index: 30;
+    pointer-events: auto;
 
     display: flex;
     align-items: center;
@@ -70,17 +78,25 @@
   }
 
   .menu {
-    @include position(absolute, 1vw, 2vw, auto, auto);
+    @include position(absolute, 1.5rem, 2.5rem, auto, auto);
     @include dims(32vw, 90vh);
     background: #d11a54;
     border-radius: 28px;
+    opacity: 0;
     padding: 7vw 2vw;
     transform: scale(0);
     transition: 0.8s all ease-in-out;
-    transform-origin: calc(100% - 20px) 20px;
+    transition-delay: 0.4s;
+
+    // transform-origin: calc(100% - 20px) 20px;
+    transform-origin: top right;
     z-index: 20;
 
     .menuItems {
+      opacity: 0;
+      transition: 0.4s all ease-in-out;
+      transition-delay: 0.8s;
+
       .menuItem {
         margin-bottom: 0.5vw;
         overflow: hidden;
