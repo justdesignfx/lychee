@@ -43,7 +43,7 @@
         @include devicesMax(tablet) {
           margin-bottom: 7vw;
           margin-top: 30vw;
-          width: 70vw;
+          width: 60vw;
         }
 
         @include devicesMax(mobile) {
@@ -76,7 +76,7 @@
           place-items: center;
 
           @include devicesMax(tablet) {
-            @include dims(35vw, 6vw);
+            @include dims(30vw, 6vw);
           }
         }
       }
@@ -96,7 +96,7 @@
         align-items: center;
 
         @include devicesMax(tablet) {
-          @include typo(Lychee, 80px, null, 1.2, null);
+          @include typo(Lychee, 90px, null, 1.2, null);
         }
 
         .italic {
@@ -132,11 +132,15 @@
     .textC {
       position: relative;
 
-      .textC {
+      .text {
         @include typo(Lychee, 53px, null, 1.5, null);
         color: #c1c1c1;
         margin: 0 auto;
         text-align: center;
+
+        @include devicesMax(tablet) {
+          @include typo(Lychee, 53px, null, 1.2, null);
+        }
 
         .italic {
           @include typo(LaicaBItalic, 63px, null, 1.5, null);
@@ -208,13 +212,13 @@
 
     display: flex;
     align-items: center;
-    overflow-x: hidden;
+    overflow: hidden;
 
     @include devicesMax(tablet) {
       min-height: auto;
     }
 
-    .hSection {
+    .hScrollContent {
       padding-left: 10vw;
 
       display: flex;
@@ -223,7 +227,17 @@
       flex-shrink: 0;
 
       @include devicesMax(tablet) {
+        padding-left: 0;
         flex-direction: column;
+        width: 100%;
+      }
+
+      .textC {
+        margin: 10vw 0 10vw 5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
       }
     }
 
@@ -236,27 +250,38 @@
       align-items: center;
       justify-content: center;
 
+      @include devicesMax(tablet) {
+        @include dims(auto);
+        margin: 10vw 0;
+      }
+
       .button {
         @include position(absolute, 30vw, auto, auto, -15vw);
         @include dims(20vw, 4vw);
+        @include typo(LS-VG5000, 20px, null, null, null);
         background: #131317;
         border: 2px solid #ce1953;
         border-radius: 4vmin;
         color: #c1c1c1;
-        display: block;
-        font-family: LS-VG5000;
-        font-size: 1.5vw;
-        line-height: 80%;
         margin-bottom: 2.5vw;
 
         display: grid;
         place-items: center;
+
+        @include devicesMax(tablet) {
+          @include position(absolute, 60vw, auto, auto, -20vw);
+          @include dims(32vw, 6vw);
+        }
       }
 
       .instaxC {
         @include position(absolute, 15vw, auto, auto, -10vw);
         @include dims(7vw, auto);
         transform: rotate(-14deg);
+
+        @include devicesMax(tablet) {
+          @include dims(14vw, auto);
+        }
 
         .img {
           @include dims(100%);
@@ -270,6 +295,11 @@
         @include dims(20vw, auto);
         transform: rotate(-18deg);
 
+        @include devicesMax(tablet) {
+          @include position(absolute, 55vw, auto, auto, 40vw);
+          @include dims(30vw, auto);
+        }
+
         .img {
           @include dims(100%);
           display: block;
@@ -280,6 +310,10 @@
       .imgC {
         @include dims(25vw, auto);
 
+        @include devicesMax(tablet) {
+          @include dims(45vw, auto);
+        }
+
         .img {
           @include dims(100%);
           display: block;
@@ -289,8 +323,8 @@
     }
   }
 
-  .marqueeC {
-    overflow-x: hidden;
+  .marquee {
+    overflow: hidden;
 
     display: flex;
     align-items: center;
@@ -340,6 +374,10 @@
     flex-direction: column;
     flex-shrink: 0;
 
+    @include devicesMax(tablet) {
+      margin-bottom: 10vw;
+    }
+
     .titleC {
       margin: 0 auto;
       text-align: center;
@@ -348,6 +386,11 @@
         @include typo(Lychee, 80px, null, 1.3, null);
         color: #c1c1c1;
         margin-bottom: 2.5vw;
+
+        @include devicesMax(tablet) {
+          @include typo(Lychee, 80px, null, 1.1, null);
+          margin-bottom: 5vw;
+        }
 
         .italic {
           color: #ce1953;
@@ -362,11 +405,11 @@
     }
 
     .worksGrid {
+      padding: 15vw 4vw 0 4vw;
+
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
       grid-gap: 2.5rem;
-
-      padding: 15vw 4vw 0 4vw;
 
       .gridItemC {
         overflow: hidden;
@@ -474,40 +517,52 @@
     overflow: hidden;
     position: relative;
 
+    @include devicesMax(tablet) {
+      @include dims(100vw, auto);
+    }
+
     .topC {
-      @include position(fixed, 0, 0, auto, 0);
+      @include position(absolute, 0, 0, auto, 0);
+      padding: 8vw 10vw 0 6vw;
+      z-index: 200;
 
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      z-index: 200;
 
-      padding: 8vw 10vw 0 6vw;
+      @include devicesMax(tablet) {
+        @include position(absolute, 0, auto, 0, 0);
+        flex-direction: column;
+      }
 
       .titleC {
         color: #f2e6cc;
 
         .title {
-          font-family: Lychee;
-          font-size: 3.75vw;
-          line-height: 120%;
+          @include typo(Lychee, 38px, null, 1.2, null);
           margin-bottom: 2vw;
 
           .italic {
-            font-family: LaicaB;
-            font-style: italic;
+            @include typo(LaicaB, 38px, null, 1.2, italic);
           }
         }
 
         .text {
-          @include dims(25vw, auto);
-          font-family: Lychee;
-          font-size: 1.25vw;
-          line-height: 140%;
+          @include typo(Lychee, 20px, null, 1.4, null);
+          width: 25vw;
+
+          @include devicesMax(tablet) {
+            width: 35vw;
+          }
         }
       }
 
       .imgC {
+        @include devicesMax(tablet) {
+          @include dims(40vw, auto);
+          margin-bottom: 20vw;
+        }
+
         .img {
           transform: rotate(20deg);
         }
@@ -515,12 +570,15 @@
     }
 
     .oWrapper {
+      @include position(absolute, auto, -12.5vw, auto, auto);
+      @include dims(125vw, 100vh);
       overflow: hidden;
-      position: relative;
       will-change: transform;
 
-      @include dims(125vw, 100vh);
-      @include position(absolute, auto, -12.5vw, auto, auto);
+      @include devicesMax(tablet) {
+        @include position(relative, auto, auto, auto, auto);
+        @include dims(auto);
+      }
 
       &.blue {
         background: #2d00f5;
@@ -545,6 +603,11 @@
         align-items: center;
         justify-content: center;
 
+        @include devicesMax(tablet) {
+          @include position(relative, auto, auto, auto, auto);
+          @include dims(100vw, 35vh);
+        }
+
         .statC {
           margin-top: 20vw;
           margin-right: 40vw;
@@ -553,6 +616,13 @@
           flex-direction: column;
           align-items: flex-end;
           justify-content: center;
+
+          @include devicesMax(tablet) {
+            margin-left: auto;
+            margin-top: auto;
+            margin-bottom: 5vw;
+            margin-right: 10vw;
+          }
 
           &.pink {
             background: #ce1953;
@@ -603,6 +673,7 @@
 
   .references {
     margin-top: 10vw;
+
     .titleC {
       margin: 0 auto 10vw auto;
       text-align: center;
@@ -610,6 +681,11 @@
       .imgC {
         @include dims(25vw, auto);
         margin: 0 auto 2vw auto;
+
+        @include devicesMax(tablet) {
+          @include dims(45vw, auto);
+          margin-bottom: 5vw;
+        }
 
         .img {
           @include dims(100%);
@@ -619,23 +695,25 @@
       }
 
       .title {
+        @include typo(Lychee, 64px, null, 1.3, null);
         color: #c1c1c1;
-        font-family: Lychee;
-        font-size: 4vw;
-        line-height: 130%;
         margin-bottom: 2.5vw;
 
+        @include devicesMax(tablet) {
+          @include typo(Lychee, 64px, null, 1.1, null);
+          margin: 0 auto 5vw auto;
+          width: 70vw;
+        }
+
         .italic {
+          @include typo(LaicaBItalic, 64px, null, 1.3, null);
           color: #ce1953;
-          font-family: LaicaBItalic;
         }
       }
 
       .text {
+        @include typo(Lychee, 20px, null, 1.5, null);
         color: #c1c1c1;
-        font-family: Lychee;
-        font-size: 2vw;
-        line-height: 150%;
       }
     }
 
@@ -661,9 +739,12 @@
         border: 1px solid #ce1953;
         border-radius: 50%;
         flex-shrink: 0;
-
         padding: 1rem;
         position: relative;
+
+        @include devicesMax(tablet) {
+          @include dims(20vw);
+        }
 
         &::before {
           // for apsect ratio
@@ -734,6 +815,10 @@
     flex-direction: column;
     align-items: center;
 
+    @include devicesMax(tablet) {
+      margin: 15vw 0;
+    }
+
     .titleC {
       margin: 0 auto 3vw auto;
       text-align: center;
@@ -750,18 +835,24 @@
       }
 
       .title {
+        @include typo(Lychee, 64px, null, 0.6, null);
         color: #c1c1c1;
-        font-family: Lychee;
-        font-size: 4vw;
-        line-height: 60%;
         margin-bottom: 2.5vw;
 
         .italic {
-          font-family: LaicaBItalic;
+          @include typo(LaicaBItalic, 82px, null, 0.6, null);
+
+          @include devicesMax(tablet) {
+            @include typo(LaicaBItalic, 74px, null, 0.8, null);
+          }
         }
 
         &:nth-child(1) {
-          font-size: 4.5vw;
+          @include typo(Lychee, 72px, null, 0.6, null);
+
+          @include devicesMax(tablet) {
+            @include typo(Lychee, 64px, null, 0.8, null);
+          }
         }
       }
     }
@@ -771,19 +862,25 @@
       align-items: center;
       column-gap: 2vw;
 
+      @include devicesMax(tablet) {
+        margin-top: 5vw;
+      }
+
       .button {
+        @include typo(LS-VG5000, 24px, null, 0.8, null);
         @include dims(20vw, 4vw);
         border: 2px solid #ce1953;
         border-radius: 36px;
         color: #c1c1c1;
-        display: block;
-        font-family: LS-VG5000;
-        font-size: 1.5vw;
-        line-height: 80%;
         margin-bottom: 2.5vw;
+        padding-bottom: 0.25ch;
 
         display: grid;
         place-items: center;
+
+        @include devicesMax(tablet) {
+          @include dims(30vw, 6vw);
+        }
       }
     }
   }

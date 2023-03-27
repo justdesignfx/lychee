@@ -34,6 +34,7 @@ import MarqueeSimple from "~/components/MarqueeSimple"
 import { SmoothContext } from "~/hocs/WithSmooth"
 import SplitText from "~/components/SplitText"
 import Img from "~/components/Img"
+import ButtonText from "~/components/ButtonText"
 
 const Home = () => {
   const textRevealContent = [
@@ -117,7 +118,7 @@ const Home = () => {
         </section>
         <section className={s.greeting}>
           <div className={s.textC}>
-            <h2 className={s.textC}>
+            <h2 className={s.text}>
               Lychee <span className={s.italic}>global ölçekte</span> ikonik <br />
               <span className={cx(s.text, s.brands, s.margin1)}>markaların </span>
               <span className={s.text}>çözüm ortağı olan</span> <br />
@@ -133,8 +134,10 @@ const Home = () => {
           </div>
         </section>
         <section className={s.horizontalScroll} data-h-scroll>
-          <div className={s.hSection} data-h-scroll-section>
-            <SplitText content={textRevealContent} />
+          <div className={s.hScrollContent} data-h-scroll-section>
+            <div className={s.textC}>
+              <SplitText content={textRevealContent} />
+            </div>
             <div className={s.reels}>
               <Link to="/contact" className={s.button}>
                 Kampanyanı Oluştur
@@ -151,7 +154,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section className={s.marqueeC}>
+        <section className={s.marquee}>
           <div className={s.transformC}>
             <MarqueeSimple direction={-1}>
               <h2 className={s.mText}>
@@ -195,12 +198,13 @@ const Home = () => {
               )
             })}
           </div>
-          <small className={s.lookUp}>
+          <ButtonText text="Daha fazlasını incelemek için" link={{ path: "works", ui: "işlerimize göz atın" }} />
+          {/* <small className={s.lookUp}>
             Daha fazlasını incelemek için{" "}
             <Link to="/works" className={s.link}>
               işlerimize göz atın
             </Link>
-          </small>
+          </small> */}
         </section>
         <section className={s.stats} data-sliding-panels>
           <div className={s.topC}>
@@ -211,7 +215,7 @@ const Home = () => {
               <h4 className={s.text}>Sürekli hareket halindeki dijital dünya için, kreatif sonuçlar elde ediyoruz.</h4>
             </div>
             <div className={s.imgC}>
-              <img className={s.img} src={smartPhone} alt="Smartphone Doodle" />
+              <Img src={smartPhone} alt="Smartphone Doodle" objectFit="contain" />
             </div>
           </div>
           <div className={cx(s.oWrapper, s.blue)} data-sliding-panel>

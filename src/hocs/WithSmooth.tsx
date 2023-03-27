@@ -223,6 +223,7 @@ const WithSmooth = ({ children, location }: Props) => {
         if (q("[data-h-scroll]").length > 0 && windowSize.width > breakpoints.tablet) {
           textReveal(q)
         }
+
         parallaxItems()
         stickyTitle()
         floatingItems()
@@ -364,8 +365,6 @@ const WithSmooth = ({ children, location }: Props) => {
 
     if (windowSize.width > breakpoints.tablet) {
       initSmoothScrollbar()
-    } else {
-      initAnimations(null)
     }
 
     return () => {

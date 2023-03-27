@@ -1,0 +1,14 @@
+@import "../_global.scss";
+
+.buttonText {
+  @include typo(Lychee, 20px, null, 1.5, null);
+  color: #c1c1c1;
+  margin: 5vw 0;
+  text-align: center;
+
+  .link {
+    @include typo(LS-VG5000, 20px, null, 1.5, null);
+    color: #ce1953;
+    text-decoration: underline;
+  }
+}
