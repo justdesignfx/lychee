@@ -37,7 +37,7 @@ const MarqueeSimple = ({ children, direction = 1, speed = 1 }: Props) => {
     <div className={s.marquee}>
       <div
         className={cx(s.marqueeGroup, { [s.animate]: animate, [s.reversed]: direction === 1 })}
-        style={{ animationDuration: `${(size.width > breakpoints.mobile ? 60 : 20) / speed}s` }}
+        // style={{ animationDuration: `${(size.width > breakpoints.mobile ? 60 : 20) / speed}s` }}
       >
         <div className={s.mInner}>{children}</div>
         <div className={s.mInner} aria-hidden="true">
@@ -48,7 +48,7 @@ const MarqueeSimple = ({ children, direction = 1, speed = 1 }: Props) => {
       <div
         aria-hidden="true"
         className={cx(s.marqueeGroup, { [s.animate]: animate, [s.reversed]: direction === 1 })}
-        style={{ animationDuration: `${(size.width > breakpoints.mobile ? 60 : 20) / speed}s` }}
+        // style={{ animationDuration: `${(size.width > breakpoints.mobile ? 60 : 20) / speed}s` }}
       >
         <div className={s.mInner}>{children}</div>
         <div className={s.mInner} aria-hidden="true">

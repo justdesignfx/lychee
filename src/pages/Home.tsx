@@ -91,8 +91,8 @@ const Home = () => {
             </video>
           </div>
 
-          <div className={s.textWrapper}>
-            <h1 className={s.text}>
+          <div className={s.textC}>
+            <h1 className={s.title}>
               Markanız için en etkili <span className={s.inner}>influencer marketing</span> kampanyalarını yürütmeye
               hazırız.
             </h1>
@@ -301,9 +301,8 @@ const Home = () => {
         <section className={s.moveOn}>
           <div className={s.titleC}>
             <h2 className={s.title}>
-              <span className={s.italic}>İncelemeye</span> devam etmek
+              <span className={s.italic}>İncelemeye</span> devam <br /> etmek ister misiniz?
             </h2>
-            <h2 className={s.title}>ister misiniz?</h2>
           </div>
 
           <div className={s.buttons}>

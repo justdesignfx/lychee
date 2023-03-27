@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 import s from "~/assets/scss/components/MagnetCursor.module.scss"
 import useMousePosition from "~/hooks/useMousePosition"
 

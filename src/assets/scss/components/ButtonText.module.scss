@@ -6,9 +6,13 @@
   margin: 5vw 0;
   text-align: center;
 
+  @include devicesMax(mobile) {
+    @include typo(Lychee, 14px, null, 1.5, null);
+  }
+
   .link {
-    @include typo(LS-VG5000, 20px, null, 1.5, null);
     color: #ce1953;
+    font-family: LS-VG5000;
     text-decoration: underline;
   }
 }

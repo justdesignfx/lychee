@@ -1,7 +1,7 @@
 @import "../_global.scss";
 
 $duration: 60s;
-$duration-touch: 20s;
+$duration-mobile: 60s;
 
 .marquee {
   display: flex;
@@ -25,7 +25,7 @@ $duration-touch: 20s;
     animation-direction: normal;
 
     @include devicesMax(mobile) {
-      animation-duration: $duration-touch;
+      animation-duration: $duration-mobile;
     }
 
     &.animate {

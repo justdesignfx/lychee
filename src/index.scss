@@ -9,6 +9,10 @@ html {
   @include devicesMax(tablet) {
     font-size: 20px;
   }
+
+  @include devicesMax(mobile) {
+    font-size: 16px;
+  }
 }
 
 body {
