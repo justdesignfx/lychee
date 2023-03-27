@@ -55,7 +55,7 @@ const Home = () => {
     },
     {
       word: "içerikler",
-      font: "italic",
+      font: "normal",
     },
     {
       word: "üretiyoruz.",
@@ -117,20 +117,19 @@ const Home = () => {
         </section>
         <section className={s.greeting}>
           <div className={s.textC}>
-            <div className={s.imgC}>
-              <Img src={skaterTube} alt="Skating Tube Tv" objectFit="contain" />
-            </div>
-
-            <h1 className={s.textC}>
+            <h2 className={s.textC}>
               Lychee <span className={s.italic}>global ölçekte</span> ikonik <br />
-              <span className={cx(s.text, s.brands, s.margin1)}>markaların</span>
+              <span className={cx(s.text, s.brands, s.margin1)}>markaların </span>
               <span className={s.text}>çözüm ortağı olan</span> <br />
-              <span className={cx(s.text, s.margin2, s.margin4)}>dijital</span>
+              <span className={cx(s.text, s.margin2, s.margin4)}>dijital </span>
               <span className={s.text}>
                 <span className={s.italic}>influencer</span> marketing <br />
               </span>
               <span className={cx(s.text, s.margin5)}> ajansıdır.</span>
-            </h1>
+            </h2>
+            <div className={s.imgC}>
+              <Img src={skaterTube} alt="Skating Tube Tv" objectFit="contain" />
+            </div>
           </div>
         </section>
         <section className={s.horizontalScroll} data-h-scroll>
@@ -154,14 +153,14 @@ const Home = () => {
         </section>
         <section className={s.marqueeC}>
           <div className={s.transformC}>
-            <MarqueeSimple>
+            <MarqueeSimple direction={-1}>
               <h2 className={s.mText}>
                 Neler yapıyoruz. <span className={s.seperator}></span>
               </h2>
             </MarqueeSimple>
           </div>
           <div className={s.transformC}>
-            <MarqueeSimple>
+            <MarqueeSimple direction={-1}>
               <h2 className={s.mText}>Neler yapıyoruz.</h2>
             </MarqueeSimple>
           </div>

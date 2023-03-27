@@ -25,70 +25,9 @@
       z-index: 0;
     }
 
-    .bgVideoC {
-      @include position(absolute, 0, 0, 0, 0);
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .video {
-        @include dims(100%);
-        object-fit: cover;
-      }
-    }
-
-    .logoWrapper {
-      @include dims(10vw, auto);
-      margin: 2vw 3vw;
-
-      @include devicesMax(tablet) {
-        @include dims(20vw, auto);
-        margin: 4vw;
-      }
-
-      @include devicesMax(mobile) {
-        @include dims(30vw, auto);
-      }
-
-      .logo {
-        @include dims(100%);
-        object-fit: contain;
-      }
-    }
-
-    .marqueeC {
-      @include position(absolute, auto, 0, 0, 0);
-      padding: 0 0 5vw 0;
-      z-index: 10;
-
-      .mText {
-        flex-shrink: 0;
-        font-family: Lychee;
-        font-weight: 400;
-        font-size: 8vw;
-        color: #fff;
-
-        display: flex;
-        align-items: center;
-
-        .italic {
-          font-style: italic;
-        }
-
-        .seperator {
-          @include dims(200px, 10px);
-          background: #fff;
-          display: inline-block;
-          margin: 2vw 3vw 0 3vw;
-        }
-      }
-    }
-
     .textWrapper {
       margin: 15vw 0 0 3vw;
       position: relative;
-      width: 35vw;
       z-index: 10;
 
       @include devicesMax(tablet) {
@@ -96,16 +35,15 @@
       }
 
       .text {
+        @include typo(Lychee, 30px, null, 1.2, null);
         color: #c1c1c1;
-        font-size: 2vw;
-        font-family: Lychee;
-        font-weight: 400;
         margin-bottom: 4vw;
+        width: 30vw;
 
         @include devicesMax(tablet) {
           margin-bottom: 7vw;
-          font-size: 4vw;
-          width: 60vw;
+          margin-top: 30vw;
+          width: 70vw;
         }
 
         @include devicesMax(mobile) {
@@ -127,18 +65,63 @@
 
         .button {
           @include dims(14vw, 3vw);
+          @include typo(LS-VG5000, 20px, null, null, null);
           border: 1px solid #c1c1c1;
-          border-radius: 32px;
+          border-radius: 5vmin;
           color: #c1c1c1;
-          display: block;
-          font-family: LS-VG5000;
-          font-size: 1.25vw;
-          line-height: 80%;
           margin-bottom: 2.5vw;
+          padding-bottom: 0.2ch;
 
           display: grid;
           place-items: center;
+
+          @include devicesMax(tablet) {
+            @include dims(35vw, 6vw);
+          }
         }
+      }
+    }
+
+    .marqueeC {
+      @include position(absolute, auto, 0, 0, 0);
+      padding: 0 0 5vw 0;
+      z-index: 10;
+
+      .mText {
+        @include typo(Lychee, 130px, null, 1.2, null);
+        color: #fff;
+        flex-shrink: 0;
+
+        display: flex;
+        align-items: center;
+
+        @include devicesMax(tablet) {
+          @include typo(Lychee, 80px, null, 1.2, null);
+        }
+
+        .italic {
+          font-style: italic;
+        }
+
+        .seperator {
+          @include dims(200px, 10px);
+          background: #fff;
+          display: inline-block;
+          margin: 2vw 3vw 0 3vw;
+        }
+      }
+    }
+
+    .bgVideoC {
+      @include position(absolute, 0, 0, 0, 0);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .video {
+        @include dims(100%);
+        object-fit: cover;
       }
     }
   }
@@ -149,12 +132,6 @@
     .textC {
       position: relative;
 
-      .imgC {
-        @include position(absolute, 6vw, auto, auto, 32vw);
-        @include dims(23vw);
-        transform: rotate(-9deg);
-      }
-
       .textC {
         @include typo(Lychee, 53px, null, 1.5, null);
         color: #c1c1c1;
@@ -162,29 +139,64 @@
         text-align: center;
 
         .italic {
+          @include typo(LaicaBItalic, 63px, null, 1.5, null);
           color: #ce1953;
-          font-family: LaicaBItalic;
-          font-size: 63px;
+
+          @include devicesMax(tablet) {
+            @include typo(LaicaBItalic, 56px, null, 1.5, null);
+          }
         }
 
         .margin1 {
           margin-right: 15vw;
+
+          @include devicesMax(tablet) {
+            margin: 0;
+          }
         }
 
         .margin2 {
           margin-left: 7vw;
+
+          @include devicesMax(tablet) {
+            margin: 0;
+          }
         }
 
         .margin3 {
           margin-left: 20vw;
+
+          @include devicesMax(tablet) {
+            margin: 0;
+          }
         }
 
         .margin4 {
           margin-right: 24vw;
+
+          @include devicesMax(tablet) {
+            margin: 0;
+          }
         }
 
         .margin5 {
           margin-left: 13vw;
+
+          @include devicesMax(tablet) {
+            margin: 0;
+          }
+        }
+      }
+
+      .imgC {
+        @include position(absolute, 6vw, auto, auto, 32vw);
+        @include dims(23vw);
+        transform: rotate(-9deg);
+
+        @include devicesMax(tablet) {
+          @include position(relative, auto, auto, auto, auto);
+          @include dims(63vw);
+          margin: 15vw auto;
         }
       }
     }
@@ -198,6 +210,10 @@
     align-items: center;
     overflow-x: hidden;
 
+    @include devicesMax(tablet) {
+      min-height: auto;
+    }
+
     .hSection {
       padding-left: 10vw;
 
@@ -205,14 +221,10 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-    }
 
-    .lamp {
-      @include position(absolute, auto, auto, -80%, 30%);
-      @include dims(50vw);
-      background: rgb(206, 25, 83);
-      background: radial-gradient(circle, rgba(206, 25, 83, 1) 0%, rgba(206, 25, 83, 0) 100%);
-      filter: blur(100px);
+      @include devicesMax(tablet) {
+        flex-direction: column;
+      }
     }
 
     .reels {
@@ -300,14 +312,16 @@
       }
 
       .mText {
+        @include typo(Lychee, 210px, 700, null, null);
         flex-shrink: 0;
-        font-family: Lychee;
-        font-weight: 700;
-        font-size: 10vw;
         color: #c1c1c1;
 
         display: flex;
         align-items: center;
+
+        @include devicesMax(tablet) {
+          @include typo(Lychee, 110px, 700, null, null);
+        }
 
         .seperator {
           @include dims(200px, 10px);
@@ -331,10 +345,8 @@
       text-align: center;
 
       .title {
+        @include typo(Lychee, 80px, null, 1.3, null);
         color: #c1c1c1;
-        font-family: Lychee;
-        font-size: 4.75vw;
-        line-height: 130%;
         margin-bottom: 2.5vw;
 
         .italic {
@@ -344,10 +356,8 @@
       }
 
       .text {
+        @include typo(Lychee, 35px, null, 1.5, null);
         color: #c1c1c1;
-        font-family: Lychee;
-        font-size: 2vw;
-        line-height: 150%;
       }
     }
 

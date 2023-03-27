@@ -12,6 +12,14 @@
   .imgC {
     @include dims(10vw, auto);
 
+    @include devicesMax(tablet) {
+      @include dims(20vw, auto);
+    }
+
+    @include devicesMax(mobile) {
+      @include dims(30vw, auto);
+    }
+
     .img {
       @include dims(100%);
       display: block;

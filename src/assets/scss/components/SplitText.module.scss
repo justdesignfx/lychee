@@ -1,10 +1,15 @@
 @import "../_global.scss";
 
 .text {
-  @include typo(Lychee, 210px, 400, null, null);
+  @include typo(Lychee, 210px, null, null, null);
   color: #c1c1c1;
   display: block;
   flex-shrink: 0;
+
+  @include devicesMax(tablet) {
+    @include typo(Lychee, 110px, null, null, null);
+    margin-left: 0;
+  }
 
   .word {
     margin-right: 5vw;
