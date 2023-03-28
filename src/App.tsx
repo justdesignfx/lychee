@@ -2,7 +2,6 @@ import gsap, { Power1 } from "gsap"
 import { useEffect, useState } from "react"
 import { Route, Routes, useLocation } from "react-router"
 import ContactIntro from "./components/ContactIntro"
-import Header from "./components/Header"
 import { WithSmooth } from "./hocs/WithSmooth"
 import { useWindowSize } from "./hooks"
 import About from "./pages/About"
@@ -12,6 +11,7 @@ import ContactBrand from "./pages/ContactBrand"
 import ContactContentCreator from "./pages/ContactContentCreator"
 import Creators from "./pages/Creators"
 import Home from "./pages/Home"
+import Partners from "./pages/Partners"
 import Services from "./pages/Services"
 
 function App() {
@@ -53,11 +53,11 @@ function App() {
             <Route path="brand" element={<ContactBrand />}></Route>
           </Route>
           <Route path="contact/content-creator" element={<ContactContentCreator />}></Route>
-
           <Route path="services" element={<Services />}></Route>
           <Route path="creators" element={<Creators />}></Route>
           <Route path="about" element={<About />}></Route>
           <Route path="brands" element={<Brands />}></Route>
+          <Route path="partners" element={<Partners />}></Route>
         </Routes>
       </div>
     </WithSmooth>
