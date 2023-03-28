@@ -12,27 +12,29 @@ const FooterNavigation = () => {
           <small className={s.label}>Adres:</small>
           <h5 className={s.text}>Suadiye Mah. Ersoy Sahil Sitesi Mehtap Apt. No:1 Kadıköy / İstanbul</h5>
         </div>
-        <div className={cx(s.col, s.links)}>
-          <Link className={s.link} to="/creators">
-            Üreticiler
-          </Link>
-          <Link className={s.link} to="/brands">
-            Markalar
-          </Link>
-          <Link className={s.link} to="/partners">
-            Partnerler
-          </Link>
-        </div>
-        <div className={cx(s.col, s.links)}>
-          <Link className={s.link} to="/services">
-            Hizmetler
-          </Link>
-          <Link className={s.link} to="/about">
-            Hakkımızda
-          </Link>
-          <Link className={s.link} to="/contact">
-            İletişim
-          </Link>
+        <div className={s.linkC}>
+          <div className={cx(s.col, s.links)}>
+            <Link className={s.link} to="/creators">
+              Üreticiler
+            </Link>
+            <Link className={s.link} to="/brands">
+              Markalar
+            </Link>
+            <Link className={s.link} to="/partners">
+              Partnerler
+            </Link>
+          </div>
+          <div className={cx(s.col, s.links)}>
+            <Link className={s.link} to="/services">
+              Hizmetler
+            </Link>
+            <Link className={s.link} to="/about">
+              Hakkımızda
+            </Link>
+            <Link className={s.link} to="/contact">
+              İletişim
+            </Link>
+          </div>
         </div>
       </nav>
 

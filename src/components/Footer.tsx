@@ -6,6 +6,7 @@ import FooterNavigation from "./FooterNavigation"
 import { useWindowSize } from "~/hooks"
 import { breakpoints } from "~/variables"
 import { useCursorStore } from "~/store/cursorStore"
+import Img from "./Img"
 
 const Footer = () => {
   const size = useWindowSize()
@@ -31,7 +32,7 @@ const Footer = () => {
   return (
     <footer className={s.footer}>
       <div className={s.imgC} {...cursorHandlers.enter} {...cursorHandlers.leave}>
-        <img src={logo} alt="Lychee Logo" className={s.img} />
+        <Img src={logo} alt="Lychee Logo" zIndex="10" />
       </div>
       <FooterNavigation />
     </footer>

@@ -3,10 +3,6 @@
 .img {
   @include dims(100%);
   display: block;
+  position: relative;
   z-index: -1;
-  // @extend .hide;
-
-  // &.visible {
-  //   @extend .show;
-  // }
 }

@@ -9,7 +9,22 @@
     @include dims(100%, auto);
     border-bottom: 1px solid $eigengrau;
     padding-top: 7vw;
+
     display: flex;
+
+    @include devicesMax(mobile) {
+      flex-direction: column-reverse;
+      padding-bottom: 7vw;
+    }
+
+    .linkC {
+      display: flex;
+
+      @include devicesMax(mobile) {
+        justify-content: space-between;
+        margin: 0 0 7.5vw 0;
+      }
+    }
 
     .col {
       margin-bottom: 2vw;
@@ -19,27 +34,45 @@
         @include dims(30vw, auto);
         margin-right: auto;
 
+        @include devicesMax(mobile) {
+          @include dims(auto);
+        }
+
         .label {
+          @include typo(LS-VG5000, 18px, null, null, null);
           color: #ce1953;
-          font-family: LS-VG5000;
-          font-size: 18px;
+          display: block;
+
+          @include devicesMax(mobile) {
+            margin-bottom: 3vw;
+          }
         }
 
         .text {
-          font-family: Lychee;
-          font-size: 1.75vw;
-          line-height: 140%;
+          @include typo(Lychee, 30px, null, 1.4, null);
+
+          @include devicesMax(mobile) {
+            @include typo(Lychee, 15px, null, 1.4, null);
+          }
         }
       }
 
       &.links {
         margin-left: 10vw;
 
+        @include devicesMax(mobile) {
+          margin-left: 0;
+          margin-right: 5vw;
+        }
+
         .link {
+          @include typo(Lychee, 30px, null, 1.4, null);
           display: block;
-          font-family: Lychee;
-          font-size: 1.75vw;
           margin-bottom: 1.5vw;
+
+          @include devicesMax(mobile) {
+            @include typo(Lychee, 20px, null, 1.4, null);
+          }
 
           &:last-child {
             margin-bottom: 0;
@@ -54,19 +87,35 @@
 
     display: flex;
 
+    @include devicesMax(mobile) {
+      flex-direction: column;
+      padding: 7.5vw 0 10vw 0;
+    }
+
     .item {
-      font-family: Lychee;
-      font-size: 18px;
-      font-weight: 700;
+      @include typo(Lychee, 18px, 700, null, null);
+
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 15px, 700, null, null);
+        margin-bottom: 7.5vw;
+      }
 
       &.privacy {
         margin-left: 5vw;
+
+        @include devicesMax(mobile) {
+          margin-left: 0;
+        }
       }
 
       &.signature {
         font-size: 15px;
         font-weight: 400;
         margin-left: auto;
+
+        @include devicesMax(mobile) {
+          margin-left: 0;
+        }
 
         .jdfx {
           text-decoration: underline;

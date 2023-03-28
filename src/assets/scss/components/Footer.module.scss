@@ -10,14 +10,23 @@
   align-items: stretch;
   flex-shrink: 0;
 
+  @include devicesMax(mobile) {
+    padding: 0 5vw;
+  }
+
   .imgC {
     border-bottom: 1px solid $eigengrau;
     margin: 10vw 0 0 0;
+    position: relative;
 
-    .img {
-      @include dims(100%);
-      display: block;
-      object-fit: contain;
+    &::before {
+      content: "";
+      @include position(absolute, 50%, auto, auto, 50%);
+      @include dims(7rem);
+      background: radial-gradient(circle, rgba(206, 25, 83, 1) 0%, rgba(206, 25, 83, 0) 100%);
+      filter: blur(40px);
+      transform: translate(-50%, -50%);
+      z-index: 5;
     }
   }
 }

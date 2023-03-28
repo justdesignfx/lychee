@@ -487,6 +487,7 @@
       grid-gap: 2.5rem;
 
       @include devicesMax(mobile) {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
         padding: 15vw 8vw 0 8vw;
       }
 
@@ -621,6 +622,10 @@
           @include typo(Lychee, 38px, null, 1.2, null);
           margin-bottom: 2vw;
 
+          @include devicesMax(mobile) {
+            text-align: center;
+          }
+
           .italic {
             @include typo(LaicaB, 38px, null, 1.2, italic);
           }
@@ -632,6 +637,11 @@
 
           @include devicesMax(tablet) {
             width: 35vw;
+          }
+
+          @include devicesMax(mobile) {
+            width: 100%;
+            text-align: center;
           }
         }
       }
@@ -662,10 +672,26 @@
       &.blue {
         background: #2d00f5;
         z-index: 110;
+
+        @include devicesMax(mobile) {
+          @include dims(100vw, 80vh);
+          display: flex;
+          margin-top: auto;
+
+          .statC {
+            .statText {
+              @include typo(LS-VG5000-Shifted, 60px, null, null, null);
+            }
+
+            .desc {
+              @include typo(Lychee, 20px, null, null, null);
+            }
+          }
+        }
       }
 
       &.pink {
-        background: #ce1953;
+        background: $californiaSunset;
         z-index: 105;
       }
 
@@ -714,9 +740,8 @@
           }
 
           .statText {
+            @include typo(LS-VG5000-Shifted, 140px, null, null, null);
             color: #fff;
-            font-family: LS-VG5000-Shifted;
-            font-size: 12vw;
             margin-bottom: 2vw;
             position: relative;
 
@@ -739,10 +764,9 @@
           }
 
           .desc {
+            @include typo(Lychee, 40px, null, null, null);
             @include dims(30vw, auto);
-            font-size: 2.5vw;
             color: #fff;
-            font-family: Lychee;
             text-align: right;
           }
         }
@@ -836,6 +860,11 @@
         @include devicesMax(tablet) {
           flex-wrap: wrap;
         }
+
+        @include devicesMax(mobile) {
+          gap: 4vw;
+          margin-bottom: 4vw;
+        }
       }
 
       .logoC {
@@ -843,8 +872,15 @@
         border: 1px solid #ce1953;
         border-radius: 50%;
         flex-shrink: 0;
-        padding: 1rem;
         position: relative;
+
+        @include devicesMax(tablet) {
+          @include dims(20vw);
+        }
+
+        @include devicesMax(mobile) {
+          @include dims(27vw);
+        }
 
         &::before {
           // for apsect ratio
@@ -855,46 +891,74 @@
 
         &.logoDisney {
           transform: translate(-2vw, 0);
+
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         &.logoAdidas {
           transform: translate(-2vw, -5vw);
+
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         &.logoPhilips {
           transform: translate(0, -2vw);
+
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         &.logoNike {
           transform: translate(3vw, 0);
+
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         &.logoNestle {
           transform: translate(4vw, 5vw);
+
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         &.logoEsteeLauder {
           transform: translate(2vw, -5vw);
+
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         &.logoLoreal {
           transform: translate(-3vw, -6vw);
+
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         &.logoDyson {
           transform: translate(0, -4vw);
+
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         &.logoStarbucks {
           transform: translate(0, 0);
-        }
 
-        @include devicesMax(tablet) {
-          @include dims(20vw);
-        }
-
-        @include devicesMax(mobile) {
-          transform: translate(0, 0);
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         .img {
@@ -911,6 +975,11 @@
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
+
+          @include devicesMax(mobile) {
+            max-height: 45%;
+            max-width: 75%;
+          }
         }
       }
     }
