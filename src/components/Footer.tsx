@@ -16,14 +16,14 @@ const Footer = () => {
     enter: {
       ...(size.width > breakpoints.tablet && {
         onMouseEnter: () => {
-          cursorStore.toggleLamp()
+          cursorStore.setCursor("lamp")
         },
       }),
     },
     leave: {
       ...(size.width > breakpoints.tablet && {
         onMouseLeave: () => {
-          cursorStore.toggleLamp()
+          cursorStore.setCursor("default")
         },
       }),
     },

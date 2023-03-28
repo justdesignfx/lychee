@@ -35,6 +35,9 @@ import { SmoothContext } from "~/hocs/WithSmooth"
 import SplitText from "~/components/SplitText"
 import Img from "~/components/Img"
 import ButtonText from "~/components/ButtonText"
+import { CursorType, useCursorStore } from "~/store/cursorStore"
+import { breakpoints } from "~/variables"
+import { useWindowSize } from "~/hooks"
 
 const Home = () => {
   const textRevealContent = [
@@ -77,6 +80,26 @@ const Home = () => {
   //     console.log(status.offset.y)
   //   })
   // }, [])
+
+  const size = useWindowSize()
+  const cursorStore = useCursorStore()
+
+  const cursorHandlers = {
+    enter: {
+      ...(size.width > breakpoints.tablet && {
+        onMouseEnter: () => {
+          cursorStore.setCursor("lampSmall")
+        },
+      }),
+    },
+    leave: {
+      ...(size.width > breakpoints.tablet && {
+        onMouseLeave: () => {
+          cursorStore.setCursor("default")
+        },
+      }),
+    },
+  }
 
   return (
     <>
@@ -180,7 +203,7 @@ const Home = () => {
           <div className={s.worksGrid}>
             {influencers.map((item, i) => {
               return (
-                <div className={s.gridItemC} key={i}>
+                <div className={s.gridItemC} key={i} {...cursorHandlers.enter} {...cursorHandlers.leave}>
                   <div className={s.infoC}>
                     <div className={s.info}>
                       <small className={s.label}>Marka</small>
