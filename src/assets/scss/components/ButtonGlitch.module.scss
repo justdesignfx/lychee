@@ -11,16 +11,6 @@
   align-items: center;
   justify-content: space-between;
 
-  @include devicesMax(tablet) {
-    @include dims(44vw, 8vw);
-    font-size: 3.25vw;
-  }
-
-  @include devicesMax(mobile) {
-    @include dims(50vw, 10vw);
-    font-size: 5vw;
-  }
-
   &::after {
     content: "";
     @include position(absolute, 100%, auto, auto, 0);

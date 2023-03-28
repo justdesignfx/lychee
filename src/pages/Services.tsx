@@ -93,10 +93,10 @@ const Services = () => {
               <span className={s.small}>ve</span>
             </span>
             <span className={s.line}>
-              <span className={cx(s.italic, s.marginR)}> yeni medya </span>
+              <span className={cx(s.italic, s.margin2)}> yeni medya </span>
               ihtiyaçlarınızı
             </span>
-            <span className={s.line}>karşılıyoruz.</span>
+            <span className={cx(s.line, s.margin1)}>karşılıyoruz.</span>
           </h1>
 
           <p className={s.floatingText}>

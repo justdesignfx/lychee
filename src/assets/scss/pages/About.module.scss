@@ -10,11 +10,21 @@
     @include dims(100vw, 100vh);
     padding: 15vw 4vw;
 
+    @include devicesMax(tablet) {
+      @include dims(100vw, auto);
+      padding: 25vw 4vw;
+    }
+
     .title {
       @include typo(Lychee, 90px, null, 1.2, null);
       color: $stonewallGrey;
       display: inline-block;
       position: relative;
+
+      @include devicesMax(tablet) {
+        @include typo(Lychee, 56px, null, 1.2, null);
+        text-align: center;
+      }
 
       .playBtn {
         @include position(absolute, 105%, 5%, 0, auto);
@@ -27,6 +37,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @include devicesMax(tablet) {
+          @include position(absolute, 135%, auto, auto, 10%);
+          @include dims(15vw);
+        }
 
         .iconTri {
           @include dims(15%);
@@ -51,82 +66,78 @@
     }
   }
 
-  .horizontalScroll {
-    min-height: 100vh;
-    position: relative;
-
-    display: flex;
-    align-items: center;
-    overflow-x: hidden;
-
-    .hSection {
-      padding: 0 20vw 0 10vw;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .text {
-      color: #c1c1c1;
-      font-family: Lychee;
-      font-size: 20vw;
-      font-weight: 400;
-      display: block;
-      flex-shrink: 0;
-
-      .word {
-        margin-right: 5vw;
-        flex-shrink: 0;
-
-        display: inline-block;
-
-        .letter {
-          display: inline-block;
-        }
-      }
-    }
-  }
-
   .team {
     margin: 0 8vw;
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
+    @include devicesMax(tablet) {
+      margin: 0 6vw;
+    }
+
     .partTeam {
       .text {
         @include typo(Lychee, 35px, null, 1.4, null);
         color: $stonewallGrey;
+
+        @include devicesMax(tablet) {
+          @include typo(Lychee, 20px, null, 1.4, null);
+        }
       }
 
       &:nth-child(1) {
         margin-left: auto;
+        padding-top: 35vw;
 
         .text {
           @include dims(24vw, auto);
           margin-bottom: 25vw;
           margin-left: auto;
           margin-right: -8vw;
+
+          @include devicesMax(tablet) {
+            @include dims(auto);
+            margin: 0;
+            margin-bottom: 10vw;
+          }
         }
 
         .imgC {
           @include dims(45vw, 27vw);
+
+          @include devicesMax(tablet) {
+            @include dims(100%, 30vw);
+          }
         }
       }
 
       &:nth-child(2) {
         margin-left: auto;
 
+        @include devicesMax(tablet) {
+          margin-left: 7vw;
+        }
+
         .text {
           @include dims(25vw, auto);
+
+          @include devicesMax(tablet) {
+            @include dims(auto);
+            margin: 0;
+          }
         }
 
         .imgC {
           @include dims(27vw, 40vw);
           margin-bottom: 3vw;
           margin-top: 10vw;
+
+          @include devicesMax(tablet) {
+            @include dims(100%, 50vw);
+            margin: 0;
+            margin-bottom: 5vw;
+          }
         }
       }
     }
@@ -139,6 +150,11 @@
     align-items: center;
     justify-content: center;
 
+    @include devicesMax(tablet) {
+      @include dims(auto);
+      margin: 7.5vw 0 15vw 0;
+    }
+
     .lychee {
       @include dims(40vw);
       margin-top: 10vw;
@@ -146,16 +162,21 @@
 
       display: flex;
 
+      @include devicesMax(tablet) {
+        @include dims(60vw);
+        margin: 0;
+      }
+
       .imgC {
         &.fruit {
-          @include position(absolute, 12vw, auto, auto, 2vw);
-          @include dims(17vw, auto);
+          @include position(absolute, 25%, auto, auto, 5%);
+          @include dims(40%, auto);
           transform: rotate(-28deg);
           z-index: 10;
 
           &.small {
-            @include position(absolute, 5vw, auto, auto, 20vw);
-            @include dims(8vw, auto);
+            @include position(absolute, 5%, auto, auto, 50%);
+            @include dims(20%, auto);
             transform: rotate(84deg);
           }
         }
@@ -172,12 +193,21 @@
   .growth {
     margin: 5vw 0;
 
+    @include devicesMax(tablet) {
+      margin: 5vw;
+    }
+
     .title {
       @include dims(55vw, auto);
       @include typo(Lychee, 60px, null, 1.2, null);
       color: $stonewallGrey;
       margin: 0 auto 3vw auto;
       text-align: center;
+
+      @include devicesMax(tablet) {
+        @include typo(Lychee, 40px, null, 1.2, null);
+        @include dims(auto);
+      }
     }
 
     .text {
@@ -186,6 +216,10 @@
       color: $stonewallGrey;
       margin: 0 auto;
       text-align: center;
+
+      @include devicesMax(tablet) {
+        @include dims(auto);
+      }
     }
   }
 
@@ -195,21 +229,42 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
+    @include devicesMax(tablet) {
+      grid-template-columns: repeat(1, 1fr);
+      margin: 15vw 5vw 20vw 5vw;
+    }
+
     .partAdvertisement {
       &:nth-child(1) {
         margin-left: auto;
+
+        @include devicesMax(tablet) {
+          margin-left: 0;
+          margin-right: auto;
+        }
 
         .title {
           @include typo(Lychee, 60px, null, 1.1, null);
           color: $stonewallGrey;
           margin-bottom: 4vw;
           margin-top: 8vw;
+
+          @include devicesMax(tablet) {
+            @include typo(Lychee, 40px, null, 1.1, null);
+            @include dims(65vw, auto);
+            text-align: left;
+          }
         }
 
         .text {
           @include dims(23vw, auto);
-          @include typo(Lychee, 20px, null, 1.4, null);
+          @include typo(Lychee, 16px, null, 1.4, null);
           color: $stonewallGrey;
+
+          @include devicesMax(tablet) {
+            @include dims(36vw, auto);
+            text-align: left;
+          }
         }
       }
 
@@ -217,15 +272,31 @@
         margin-left: auto;
         position: relative;
 
+        @include devicesMax(tablet) {
+          margin-right: 5vw;
+        }
+
         .imgC {
           &:nth-child(1) {
             @include dims(32vw, 50vw);
+
+            @include devicesMax(tablet) {
+              @include position(relative, auto, auto, auto, auto);
+              @include dims(42vw, 60vw);
+              margin-left: auto;
+            }
           }
 
           &:nth-child(2) {
             @include position(absolute, auto, 50%, -25%, auto);
             @include dims(32vw, 22vw);
             margin-bottom: 3vw;
+
+            @include devicesMax(tablet) {
+              @include position(relative, auto, 35vw, auto, auto);
+              @include dims(48vw, 32vw);
+              margin-top: -20vw;
+            }
           }
         }
       }
@@ -239,16 +310,62 @@
       color: $stonewallGrey;
       margin: 0 auto 3vw auto;
       text-align: center;
+
+      @include devicesMax(tablet) {
+        @include typo(Lychee, 45px, null, 1.2, null);
+        @include dims(auto);
+      }
+    }
+  }
+
+  .horizontalScroll {
+    min-height: 100vh;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+
+    @include devicesMax(tablet) {
+      display: none;
+    }
+
+    .hScrollContent {
+      padding: 0 20vw 0 10vw;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+
+      .textC {
+        margin: 15vw 10vw;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
     }
   }
 
   .partners {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
     .title {
       @include dims(55vw, auto);
       @include typo(Lychee, 80px, null, 1.2, null);
       color: $stonewallGrey;
       margin: 0 auto 3vw auto;
       text-align: center;
+
+      @include devicesMax(tablet) {
+        @include dims(auto);
+        margin: 0 5vw 10vw 5vw;
+      }
     }
 
     .text {
@@ -257,28 +374,20 @@
       color: $stonewallGrey;
       margin: 0 auto;
       text-align: center;
-    }
 
-    .lookUp {
-      color: #c1c1c1;
-      display: block;
-      margin: 4vw auto;
-      text-align: center;
-
-      font-family: Lychee;
-      font-size: 1.25vw;
-      line-height: 150%;
-
-      .link {
-        color: #ce1953;
-        font-family: LS-VG5000;
-        text-decoration: underline;
+      @include devicesMax(tablet) {
+        @include dims(auto);
+        margin: 0 5vw 5vw 5vw;
       }
     }
 
     .logoGrid {
       overflow: hidden;
       padding: 5vw 0;
+
+      @include devicesMax(tablet) {
+        margin-top: 10vw;
+      }
 
       .row {
         margin-bottom: 2vw;
@@ -347,7 +456,8 @@
 
         .img {
           position: absolute;
-          max-width: 100%;
+          max-height: 50%;
+          max-width: 80%;
 
           // Alternate Version
           // top: 0;
@@ -373,11 +483,19 @@
       color: $stonewallGrey;
       margin: 0 auto 4vw auto;
       text-align: center;
+
+      @include devicesMax(tablet) {
+        @include typo(Lychee, 60px, null, 1.1, null);
+      }
     }
 
     .btnC {
       @include dims(20vw, 3vw);
       margin: 0 auto;
+
+      @include devicesMax(tablet) {
+        @include dims(30vw, 6vw);
+      }
     }
   }
 }

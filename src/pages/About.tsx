@@ -26,6 +26,7 @@ import ButtonGlitch from "~/components/ButtonGlitch"
 import FooterBasic from "~/components/FooterBasic"
 import SplitText from "~/components/SplitText"
 import { useModalStore } from "~/store/modalStore"
+import ButtonText from "~/components/ButtonText"
 
 const About = () => {
   const hScrollText = "Her zaman daha iyisini hedefliyoruz."
@@ -162,19 +163,20 @@ const About = () => {
           </h2>
         </section>
         <section className={s.horizontalScroll} data-h-scroll>
-          <div className={s.hSection} data-h-scroll-section>
-            <SplitText content={textRevealContent} />
+          <div className={s.hScrollContent} data-h-scroll-section>
+            <div className={s.textC}>
+              <SplitText content={textRevealContent} />
+            </div>
           </div>
         </section>
         <section className={s.partners}>
           <h2 className={s.title}>En iyi markaların partnerliğini yapıyoruz.</h2>
           <p className={s.text}>Ezber bozan projeler yaratmak için global markalarla çalışıyoruz. </p>
-          <small className={s.lookUp}>
-            Daha fazlasını incelemek mi istiyorsunuz?{" "}
-            <Link to="/works" className={s.link}>
-              Tüm müşterilerimizi inceleyin.
-            </Link>
-          </small>
+
+          <ButtonText
+            text="Daha fazlasını incelemek mi istiyorsunuz?"
+            link={{ ui: "Tüm müşterilerimizi inceleyin.", path: "/partners" }}
+          />
           <div className={s.oHiddenC}>
             <div className={s.logoGrid}>
               <div className={s.row}>

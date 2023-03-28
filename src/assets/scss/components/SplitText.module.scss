@@ -7,11 +7,11 @@
   flex-shrink: 0;
 
   @include devicesMax(tablet) {
-    @include typo(Lychee, 90px, null, 1.2, null);
+    @include typo(Lychee, 80px, null, 1.2, null);
   }
 
   @include devicesMax(mobile) {
-    @include typo(Lychee, 45px, null, 1.2, null);
+    @include typo(Lychee, 40px, null, 1.2, null);
   }
 
   .word {
@@ -32,6 +32,10 @@
       color: $californiaSunset;
       font-family: LaicaB;
       font-style: italic;
+
+      @include devicesMax(tablet) {
+        @include typo(LaicaBItalic, 100px, null, 1.2, null);
+      }
     }
 
     .letter {
