@@ -37,15 +37,32 @@ const Menu = () => {
     <div className={cx(s.menuC, { [s.open]: open })} data-hide-on-scroll>
       <div className={s.overlay} onClick={handleMenu}></div>
       <div className={s.hamburger} onClick={handleMenu}>
-        <div className={s.lineC}>
-          <span className={s.line}></span>
-          <span className={s.line}></span>
+        <div className={s.horizontal}>
+          <div className={s.lineC}>
+            <span className={s.line}></span>
+            <span className={s.line}></span>
+          </div>
+          <div className={s.lineC}>
+            <span className={s.line}></span>
+            <span className={s.line}></span>
+          </div>
         </div>
-        <div className={s.lineC}>
-          <span className={s.line}></span>
-          <span className={s.line}></span>
+        <div className={s.cross}>
+          <div className={s.rotateC}>
+            <div className={s.lineC}>
+              <span className={s.line}></span>
+              <span className={s.line}></span>
+            </div>
+          </div>
+          <div className={s.rotateC}>
+            <div className={s.lineC}>
+              <span className={s.line}></span>
+              <span className={s.line}></span>
+            </div>
+          </div>
         </div>
       </div>
+
       <div className={s.menu}>
         <ul className={s.menuItems}>
           {menuItems.map((item, i) => {

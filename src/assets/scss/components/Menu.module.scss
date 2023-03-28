@@ -16,12 +16,30 @@
 
     .hamburger {
       background: #000;
+
+      .horizontal {
+        .lineC {
+          &:nth-child(1) {
+            transform: translateX(-400%);
+          }
+
+          &:nth-child(2) {
+            transform: translateX(-600%);
+          }
+        }
+      }
+
+      .cross {
+        .lineC {
+          transform: translateX(0);
+        }
+      }
     }
 
     .menu {
-      transform: scale(1) translate(0.5rem, -0.5rem);
+      border-radius: 28px;
+      transform: scale(1);
       transition-delay: 0.4s;
-      opacity: 1;
 
       .menuItems {
         opacity: 1;
@@ -46,6 +64,8 @@
     @include dims(7vw, 3vw);
     background: #d11a54;
     border-radius: 25px;
+    overflow: hidden;
+
     transition: 0.6s all ease;
     z-index: 30;
     pointer-events: auto;
@@ -56,33 +76,61 @@
     flex-direction: column;
 
     .lineC {
-      @include dims(20%, 4px);
-      margin-bottom: 10px;
+      @include dims(28px, 4px);
+      margin-bottom: 4px;
+      transition: 0.4s all ease;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
+      &:last-child {
+        margin-bottom: 0;
+      }
+
       .line {
         @include dims(100%);
         background: #fff;
         display: block;
-      }
 
-      &:nth-child(2) {
-        .line {
-          transform: translateY(100%);
+        &:last-child {
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    .horizontal {
+      position: absolute;
+    }
+
+    .cross {
+      position: absolute;
+
+      .rotateC {
+        &:nth-child(1) {
+          transform: rotate(-45deg);
+
+          .lineC {
+            transform: translateX(100%);
+          }
+        }
+
+        &:nth-child(2) {
+          transform: rotate(45deg);
+
+          .lineC {
+            transform: translateX(100%);
+          }
         }
       }
     }
   }
 
   .menu {
-    @include position(absolute, 1.5rem, 2.5rem, auto, auto);
+    @include position(absolute, 1.25rem, 2.25rem, auto, auto);
     @include dims(32vw, 90vh);
     background: #d11a54;
-    border-radius: 28px;
-    opacity: 0;
+    border-radius: 56px;
     padding: 7vw 2vw;
     transform: scale(0);
     transition: 0.8s all ease-in-out;
