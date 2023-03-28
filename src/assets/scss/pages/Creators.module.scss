@@ -38,13 +38,18 @@
     .statsC {
       position: relative;
 
-      .imgC {
+      .videoC {
         @include dims(31vw, auto);
         border-radius: 32px;
         overflow: hidden;
 
         display: grid;
         place-items: center;
+
+        .video {
+          @include dims(100%);
+          object-fit: cover;
+        }
       }
 
       .statC {

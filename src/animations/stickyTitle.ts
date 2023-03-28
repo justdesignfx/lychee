@@ -11,7 +11,7 @@ export function stickyTitle() {
     gsap.to(sticky, {
       scrollTrigger: {
         trigger: sticky,
-        scrub: false,
+        scrub: true,
         start: "top+=25% top+=25%",
         end: `+=${stickyContainers[i].offsetHeight - sticky.offsetHeight}px`,
         pin: true,

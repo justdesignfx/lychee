@@ -1,16 +1,16 @@
-import React, { useEffect } from "react"
+import { useEffect } from "react"
 import s from "~/assets/scss/pages/About.module.scss"
 import Img from "~/components/Img"
 
 import cx from "classnames"
 import { Link } from "react-router-dom"
 
-import sample from "~/assets/img/sample.png"
-import peel from "~/assets/img/lychee-peel.png"
 import fruit from "~/assets/img/lychee-fruit.png"
+import peel from "~/assets/img/lychee-peel.png"
+import sample from "~/assets/img/sample.png"
 
-import playBtnTri from "~/assets/img/btn-play-tri.svg"
 import playBtnText from "~/assets/img/btn-play-text.svg"
+import playBtnTri from "~/assets/img/btn-play-tri.svg"
 
 import logoAdidas from "~/assets/img/logo-adidas.svg"
 import logoDisney from "~/assets/img/logo-disney.svg"
@@ -21,15 +21,11 @@ import logoNestle from "~/assets/img/logo-nestle.svg"
 import logoNike from "~/assets/img/logo-nike.svg"
 import logoPhilips from "~/assets/img/logo-philips.svg"
 import logoStarbucks from "~/assets/img/logo-starbucks.svg"
-import logoDysonBlack from "~/assets/img/logo-dyson-black.svg"
-import logoAbdiBlack from "~/assets/img/logo-abdiibrahim-black.svg"
-import logoObsessoBlack from "~/assets/img/logo-obsesso-black.svg"
 
-import FooterBasic from "~/components/FooterBasic"
-import IconArrowSquare from "~/components/Icons/IconArrowSquare"
 import ButtonGlitch from "~/components/ButtonGlitch"
-import { useModalStore } from "~/store/modalStore"
+import FooterBasic from "~/components/FooterBasic"
 import SplitText from "~/components/SplitText"
+import { useModalStore } from "~/store/modalStore"
 
 const About = () => {
   const hScrollText = "Her zaman daha iyisini hedefliyoruz."

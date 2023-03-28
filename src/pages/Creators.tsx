@@ -161,8 +161,16 @@ const Creators = () => {
             </Link>
           </div>
           <div className={s.statsC}>
-            <div className={s.imgC}>
-              <Img src={bag} objectFit="cover" />
+            <div className={s.videoC}>
+              {/* <Img src={bag} objectFit="cover" /> */}
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className={s.video}
+                src="https://player.vimeo.com/progressive_redirect/playback/812355311/rendition/1080p/file.mp4?loc=external&signature=06206f8516a1cbd270440dcc40597243b943b9b7fc3fda677b3425da5cf60f26"
+              ></video>
             </div>
             <ul className={s.statC}>
               <li className={s.stat}>

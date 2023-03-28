@@ -27,6 +27,9 @@ import influencer1 from "~/assets/img/influencer-1.jpg"
 import influencer2 from "~/assets/img/influencer-2.jpg"
 import influencer3 from "~/assets/img/influencer-3.jpg"
 
+import playBtnText from "~/assets/img/btn-play-text.svg"
+import playBtnTri from "~/assets/img/btn-play-tri.svg"
+
 import { useContext, useEffect } from "react"
 import { ScrollStatus } from "smooth-scrollbar/interfaces"
 import Footer from "~/components/Footer"
@@ -38,6 +41,7 @@ import ButtonText from "~/components/ButtonText"
 import { CursorType, useCursorStore } from "~/store/cursorStore"
 import { breakpoints } from "~/variables"
 import { useWindowSize } from "~/hooks"
+import { useModalStore } from "~/store/modalStore"
 
 const Home = () => {
   const textRevealContent = [
@@ -83,6 +87,7 @@ const Home = () => {
 
   const size = useWindowSize()
   const cursorStore = useCursorStore()
+  const modalStore = useModalStore()
 
   const cursorHandlers = {
     enter: {
@@ -101,6 +106,20 @@ const Home = () => {
     },
   }
 
+  function handleModal() {
+    modalStore.setContent(
+      <div className={s.modalContent}>
+        <video className={s.video} controls autoPlay playsInline>
+          <source
+            src="https://player.vimeo.com/progressive_redirect/playback/812374325/rendition/1080p/file.mp4?loc=external&signature=a3848ab31075a23e420bf6ef7f04e9e518c2abf377cd67194e57b1d98e9ca61d"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+    )
+    modalStore.toggle()
+  }
+
   return (
     <>
       <main className={s.home}>
@@ -112,6 +131,14 @@ const Home = () => {
                 type="video/mp4"
               />
             </video>
+            <button className={s.playBtn} onClick={handleModal}>
+              <div className={s.iconTri}>
+                <Img src={playBtnTri} objectFit="contain" />
+              </div>
+              <div className={s.text}>
+                <Img src={playBtnText} objectFit="contain" />
+              </div>
+            </button>
           </div>
 
           <div className={s.textC}>

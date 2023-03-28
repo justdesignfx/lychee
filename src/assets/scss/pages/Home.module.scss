@@ -1,4 +1,5 @@
 @import "../_global.scss";
+@import "../ContiniousRotate.scss";
 
 .home {
   background: $eigengrau;
@@ -26,7 +27,7 @@
     }
 
     .textC {
-      margin: 15vw 0 0 3vw;
+      margin: 15vw auto 0 3vw;
       position: relative;
       z-index: 10;
 
@@ -131,6 +132,37 @@
       .video {
         @include dims(100%);
         object-fit: cover;
+      }
+
+      .playBtn {
+        @include position(absolute, 50%, auto, auto, 50%);
+        @include dims(6vw);
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(16px);
+        border-radius: 50%;
+        overflow: hidden;
+        transform: translate(-50%, -50%);
+        @extend .cursorPointer;
+        z-index: 100;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .iconTri {
+          @include dims(15%);
+          @include position(absolute, 50%, auto, auto, 50%);
+          transform: translate(-50%, -50%);
+        }
+
+        .text {
+          @include dims(100%);
+          @include position(absolute, 0, 0, 0, 0);
+          transform-origin: center;
+          padding: 8px;
+
+          @include rotating();
+        }
       }
     }
   }
@@ -1012,7 +1044,6 @@
       }
 
       .title {
-        @include typo(Lychee, 64px, null, 0.6, null);
         color: #c1c1c1;
         margin-bottom: 2.5vw;
 
@@ -1033,7 +1064,7 @@
         }
 
         &:nth-child(1) {
-          @include typo(Lychee, 72px, null, 0.6, null);
+          @include typo(Lychee, 72px, null, null, null);
 
           @include devicesMax(tablet) {
             @include typo(Lychee, 64px, null, 0.8, null);
@@ -1082,5 +1113,18 @@
         }
       }
     }
+  }
+}
+
+.modalContent {
+  @include dims(100vw, 100vh);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .video {
+    @include dims(100%);
+    object-fit: contain;
   }
 }
