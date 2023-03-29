@@ -43,7 +43,7 @@ const BrandForm = () => {
   const submitForm = async (values: any) => {
     try {
       // 👇️ const data: CreateUserResponse
-      const { data } = await api.post<any>("brandsForm", values, {
+      const { data } = await api.post<any>("brandsForm/brandsForm", values, {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",

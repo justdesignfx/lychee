@@ -5,6 +5,7 @@
   position: relative;
 
   .slide {
+    height: 850px;
     border-radius: 32px;
     overflow: hidden;
     position: relative;
@@ -14,12 +15,12 @@
       @include position(absolute, -10px, -10px, auto, -10px);
       @include dims(auto, 40%);
       background: linear-gradient(180deg, $eigengrau, rgb(255, 255, 255, 0));
-      z-index: 10;
+      z-index: 50;
     }
 
     .account {
       @include position(absolute, 2rem, auto, auto, 2rem);
-      z-index: 20;
+      z-index: 100;
 
       display: flex;
       align-items: center;
@@ -34,94 +35,45 @@
         color: $stonewallGrey;
       }
     }
+
+    .mediaC {
+      position: relative;
+
+      .videoC {
+        position: relative;
+
+        &.active {
+          .thumbnail {
+            opacity: 0;
+          }
+        }
+
+        .thumbnail {
+          @include position(absolute, 0, 0, 0, 0);
+          z-index: 10;
+          transition: 0.4s all ease;
+        }
+
+        .video {
+          @include dims(100%);
+          object-fit: cover;
+
+          // @include position(absolute, 0, 0, 0, 0);
+        }
+      }
+    }
   }
 
-  //   .btnWrapper {
-  //     cursor: none;
-  //     display: flex;
-  //     height: fit-content;
-  //     transition: 0.3s all ease;
-  //     width: 120px;
-  //     z-index: 10;
+  .navigation {
+    margin: 2rem 0;
+    display: flex;
+    column-gap: 8px;
 
-  //     position: absolute;
-  //     top: 50%;
-  //     transform: translateY(-50%);
-  //     @extend .show;
-
-  //     @include devicesMax(mobile) {
-  //       top: 50%;
-  //     }
-
-  //     &.disabled {
-  //       @extend .hide;
-  //     }
-
-  //     &.btnPrev {
-  //       justify-content: flex-start;
-  //       left: 5vw;
-
-  //       @include devicesMax(tabletMini) {
-  //         left: 4vw;
-  //       }
-
-  //       @include devicesMax(mobile) {
-  //         left: 7vw;
-  //       }
-  //     }
-
-  //     &.btnNext {
-  //       justify-content: flex-end;
-  //       right: 5vw;
-
-  //       @include devicesMax(mobile) {
-  //         right: 7vw;
-  //       }
-  //     }
-
-  //     .btnInner {
-  //       @include dims(90px, 50px);
-  //       background: #f2f2f2;
-  //       border: 0.5px solid #000000;
-  //       border-radius: 32px;
-  //       cursor: none;
-  //       position: relative;
-  //       transition: 0.3s all ease;
-  //       @extend .flexCenterX;
-
-  //       @include devicesMax(tablet) {
-  //         @include dims(50px);
-  //         border-radius: 50%;
-  //       }
-
-  //       @include devicesMax(mobile) {
-  //         @include dims(40px);
-  //         background: #d9ff51;
-  //       }
-
-  //       .btnArrow {
-  //         cursor: none;
-  //         pointer-events: none;
-
-  //         &.next {
-  //           transform: rotate(45deg);
-  //         }
-
-  //         &.prev {
-  //           transform: rotate(-135deg);
-  //         }
-  //       }
-  //     }
-
-  //     @include devicesMin(aboveTablet) {
-  //       &:hover {
-  //         .btnInner {
-  //           @include dims(50px);
-  //           background: #d9ff51;
-  //           border: 1px solid #d9ff51;
-  //           cursor: none;
-  //         }
-  //       }
-  //     }
-  //   }
+    .navItem {
+      @include dims(80px, 4px);
+      background: red;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+  }
 }

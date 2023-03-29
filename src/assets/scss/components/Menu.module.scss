@@ -63,7 +63,7 @@
     @include position(absolute, 1.5rem, 2.5rem, auto, auto);
     @include dims(7vw, 3vw);
     background: #d11a54;
-    border-radius: 25px;
+    border-radius: 3vmin;
     overflow: hidden;
 
     transition: 0.6s all ease;

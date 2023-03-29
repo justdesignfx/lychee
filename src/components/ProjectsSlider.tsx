@@ -1,5 +1,5 @@
 import s from "~/assets/scss/components/ProjectsSlider.module.scss"
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 import cx from "classnames"
 
@@ -18,8 +18,52 @@ import lycheeSocial from "~/assets/img/lychee-social.png"
 import Img from "./Img"
 import { Link } from "react-router-dom"
 
+type SlideItem = {
+  mediaType: "image" | "video" | string
+  mediaSrc: string
+  name: string
+  thumbnail?: string
+}
+
+const VideoSlide = (item: SlideItem) => {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  function handleVideo() {
+    setIsPlaying((prev) => !prev)
+    console.log("lol")
+  }
+
+  useEffect(() => {
+    if (!videoRef.current) {
+      return
+    }
+
+    videoRef.current.pause()
+
+    if (isPlaying) {
+      videoRef.current.play()
+    } else {
+      videoRef.current.pause()
+    }
+  }, [isPlaying])
+
+  return (
+    <div className={cx(s.videoC, { [s.active]: isPlaying })} onMouseEnter={handleVideo} onMouseLeave={handleVideo}>
+      {item.thumbnail && (
+        <div className={s.thumbnail}>
+          <Img src={item.thumbnail} />
+        </div>
+      )}
+      <video className={s.video} playsInline ref={videoRef} preload="metadata" loop>
+        <source src={item.mediaSrc} type="video/mp4" />
+      </video>
+    </div>
+  )
+}
+
 type Props = {
-  items: any
+  items: SlideItem[]
 }
 
 const ProjectsSlider = (props: Props) => {
@@ -45,7 +89,7 @@ const ProjectsSlider = (props: Props) => {
         {Array.isArray(props.items) &&
           props.items.map((item, i) => {
             return (
-              <React.Fragment key={item.id}>
+              <React.Fragment key={i}>
                 <SwiperSlide>
                   <div className={s.slide}>
                     <div className={s.account}>
@@ -54,7 +98,15 @@ const ProjectsSlider = (props: Props) => {
                       </div>
                       <small className={s.small}>{item.name}</small>
                     </div>
-                    {item.mediaType === "image" ? <Img src={sample} /> : <Img src={sample} />}
+                    <div className={s.mediaC}>
+                      {item.mediaType === "image" ? (
+                        <div className={s.imgC}>
+                          <Img src={sample} />
+                        </div>
+                      ) : (
+                        <VideoSlide {...item} />
+                      )}
+                    </div>
                   </div>
                 </SwiperSlide>
               </React.Fragment>
@@ -62,20 +114,11 @@ const ProjectsSlider = (props: Props) => {
           })}
       </Swiper>
 
-      {/* <button className={cx(s.btnWrapper, s.btnPrev, { [s.disabled]: currentSlide === 0 })} ref={prevElRef}>
-        <div className={s.btnInner}>
-          <RightArrow className={cx(s.btnArrow, s.prev)} />
-        </div>
-      </button>
-
-      <button
-        className={cx(s.btnWrapper, s.btnNext, { [s.disabled]: currentSlide === items.length - 1 })}
-        ref={nextElRef}
-      >
-        <div className={s.btnInner}>
-          <RightArrow className={cx(s.btnArrow, s.next)} />
-        </div>
-      </button> */}
+      {/* <div className={s.navigation}>
+        {props.items.map(() => {
+          return <div className={s.navItem}></div>
+        })}
+      </div> */}
     </div>
   )
 }

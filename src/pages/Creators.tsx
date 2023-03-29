@@ -51,31 +51,39 @@ const Creators = () => {
       name: "ogedaygirisken",
       mediaType: "image",
       mediaSrc: sample,
+      thumbnail: sample,
     },
     {
+      thumbnail: sample,
       name: "dilaraaydin",
-      mediaType: "image",
-      mediaSrc: sample,
+      mediaType: "video",
+      mediaSrc:
+        "https://player.vimeo.com/progressive_redirect/playback/812354380/rendition/1080p/file.mp4?loc=external&signature=b06db44e4e76dcc874a9080d44dc607f32c7d2398eb5a93043e9e5f92b9b0f3f",
     },
     {
+      thumbnail: sample,
       name: "elifbaldann",
-      mediaType: "image",
-      mediaSrc: sample,
+      mediaType: "video",
+      mediaSrc:
+        "https://player.vimeo.com/progressive_redirect/playback/812370122/rendition/1080p/file.mp4?loc=external&signature=675471875abdbc9f7c3865e151f34b85e8c794e24199132b40a24ac63e9ceb0d",
     },
     {
       name: "ogedaygirisken",
       mediaType: "image",
       mediaSrc: sample,
+      thumbnail: sample,
     },
     {
       name: "dilaraaydin",
       mediaType: "image",
       mediaSrc: sample,
+      thumbnail: sample,
     },
     {
       name: "elifbaldann",
       mediaType: "image",
       mediaSrc: sample,
+      thumbnail: sample,
     },
   ]
 
