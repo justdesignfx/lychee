@@ -7,11 +7,9 @@ export function floatingItems() {
   const sliding: HTMLElement[] = qSingle("[data-floating-items]")
   const items: HTMLElement[] = qAll("[data-floating-item]")
 
-  console.log(items)
-
   if (items.length <= 0) return
 
-  const scrollLength = 3000
+  const scrollLength = 5000
 
   gsap.to(sliding, {
     x: window.innerWidth,
@@ -27,12 +25,11 @@ export function floatingItems() {
     },
   })
 
-  // SET
+  // SET ITEMS INITIAL
   items.forEach((item, i: number) => {
     gsap.set(item, {
-      x: () => `${500 + 400 * i}px`,
-      rotation: () => gsap.utils.random(-30, 30),
-      opacity: 0,
+      x: () => `${200 * Math.pow(3, i)}px`,
+      rotation: () => gsap.utils.random(-20, 20),
       z: 10,
     })
   })
@@ -48,9 +45,7 @@ export function floatingItems() {
         rotation: () => gsap.utils.random(-5, 5),
       },
       "s"
-    ).to(item, {
-      opacity: 1,
-    })
+    )
   })
 
   ScrollTrigger.create({

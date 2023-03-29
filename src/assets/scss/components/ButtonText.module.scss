@@ -6,6 +6,10 @@
   margin: 5vw 0;
   text-align: center;
 
+  &.lg {
+    @include typo(Lychee, 40px, null, 1.5, null);
+  }
+
   @include devicesMax(mobile) {
     @include typo(Lychee, 14px, null, 1.5, null);
   }

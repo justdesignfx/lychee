@@ -36,6 +36,7 @@ import IconArrowSquare from "~/components/Icons/IconArrowSquare"
 import MarqueeSimple from "~/components/MarqueeSimple"
 import ProjectsSlider from "~/components/ProjectsSlider"
 import SquareGrid from "~/components/SquareGrid"
+import ButtonText from "~/components/ButtonText"
 
 const Creators = () => {
   const cards = [
@@ -195,9 +196,10 @@ const Creators = () => {
         </section>
         <section className={s.foundations}>
           <h2 className={s.title}>
-            Lychee,
+            Lychee, <span className={s.margin1}></span>
             <span className={s.italic}>üreticilerin,</span> <br /> <span className={s.italic}>influencerların</span> ve
-            <span className={s.italic}>sanatçıların</span> <br /> olağanüstü yaratıcılığının peşinden gitme tutkusuyla
+            <span className={s.italic}> sanatçıların</span> <br /> olağanüstü yaratıcılığının{" "}
+            <span className={s.margin2}></span> peşinden <br /> <span className={s.margin3}></span>gitme tutkusuyla
             kuruldu.
           </h2>
           <small className={s.small}>
@@ -250,13 +252,12 @@ const Creators = () => {
               macro influencerlardan oluşur.
             </h2>
           </div>
-          <ProjectsSlider items={sliderItems} />
-          <small className={s.lookUp}>
-            Daha fazlasını incelemek için{" "}
-            <Link to="/works" className={s.link}>
-              işlerimize göz atın
-            </Link>
-          </small>
+          <div className={s.sliderC}>
+            <ProjectsSlider items={sliderItems} />
+          </div>
+          <div className={s.buttonC}>
+            <ButtonText text="Daha fazlasını incelemek için" link={{ ui: "işlerimize göz atın", path: "/partners" }} />
+          </div>
         </section>
         <section className={s.faces}>
           <div className={s.singleTitleC}>
@@ -269,18 +270,17 @@ const Creators = () => {
           <div className={s.gridC}>
             <SquareGrid items={influencers} />
           </div>
-          <small className={s.smallText}>
-            Tüm içerik üreticilerimizi görmek için{" "}
-            <Link to="/contact" className={s.link}>
-              bizimle iletişime geçin.
-            </Link>
-          </small>
+
+          <ButtonText
+            text="Tüm içerik üreticilerimizi görmek için"
+            link={{ ui: "bizimle iletişime geçin.", path: "/contact" }}
+          />
         </section>
         <section className={s.why} data-floating-items-c>
           <h2 className={s.title}>
             Neden <span className={s.italic}>Lychee</span> ile çalışmalısınız.
           </h2>
-          <div className={s.hSection} data-floating-items>
+          <div className={s.horizontalScrollContent} data-floating-items>
             {cards.map((card) => {
               return (
                 <div data-floating-item>
@@ -298,12 +298,7 @@ const Creators = () => {
               </h2>
             </MarqueeSimple>
           </div>
-          <small className={s.join}>
-            Lychee'nin seçkin ekosistemine{" "}
-            <Link to="/works" className={s.link}>
-              katılın.
-            </Link>
-          </small>
+          <ButtonText size="lg" text="Lychee'nin seçkin ekosistemine" link={{ ui: "katılın.", path: "/contact" }} />
         </section>
       </main>
 

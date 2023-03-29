@@ -2,8 +2,16 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(3, minmax(400px, 1fr));
   grid-gap: 2.5rem;
+
+  @include devicesMax(tablet) {
+    grid-template-columns: repeat(2, minmax(400px, 1fr));
+  }
+
+  @include devicesMax(tablet) {
+    grid-template-columns: repeat(1, minmax(92vw, 1fr));
+  }
 
   .gridItemC {
     overflow: hidden;
@@ -18,7 +26,7 @@
 
     &::after {
       content: "";
-      @include position(absolute, auto, -10px, -10px, -10px);
+      @include position(absolute, auto, -20px, -20px, -20px);
       @include dims(auto, 40%);
       background: linear-gradient(0deg, $eigengrau, rgb(255, 255, 255, 0));
       z-index: 10;
@@ -56,6 +64,7 @@
       @include position(absolute, 0, 0, 0, 0);
       @include dims(100%);
       max-width: 100%;
+      transform: scale(1.01);
 
       display: block;
       object-fit: cover;

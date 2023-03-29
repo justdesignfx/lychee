@@ -3,40 +3,90 @@
 .creators {
   padding-top: 5vw;
 
+  @include devicesMax(tablet) {
+    padding-top: 20vw;
+  }
+
   .textC {
     margin: 8vw 10vw 0 4vw;
+
+    @include devicesMax(tablet) {
+      margin: 20vw 4vw 0 4vw;
+    }
+
+    @include devicesMax(mobile) {
+      margin: 20vw 6vw 0 6vw;
+    }
 
     .small {
       @include typo(LS-VG5000, 18px, null, null, null);
       color: $californiaSunset;
       display: block;
       margin-bottom: 0.5rem;
+
+      @include devicesMax(mobile) {
+        @include typo(LS-VG5000, 16px, null, null, null);
+        text-align: center;
+      }
     }
 
     .title {
       @include typo(Lychee, 60px, null, null, null);
       color: $stonewallGrey;
       margin-bottom: 2vw;
+
+      @include devicesMax(tablet) {
+        @include typo(Lychee, 40px, null, null, null);
+      }
+
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 32px, null, 1.4, null);
+        margin-bottom: 7.5vw;
+        text-align: center;
+      }
     }
 
     .subtitle {
       @include typo(Lychee, 20px, null, 1.4, null);
       color: $stonewallGrey;
       margin-bottom: 2vw;
+
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 16px, null, 1.6, null);
+        margin-bottom: 7.5vw;
+        text-align: center;
+      }
     }
 
     .btnC {
       @include dims(15vw, 2.5vw);
       display: block;
       margin-right: auto;
+
+      @include devicesMax(tablet) {
+        @include dims(22vw, 5vw);
+      }
+
+      @include devicesMax(mobile) {
+        @include dims(60vw, 10vw);
+        margin: 0 auto;
+      }
     }
   }
 
   .intro {
     display: flex;
 
+    @include devicesMax(mobile) {
+      flex-direction: column;
+    }
+
     .statsC {
       position: relative;
+
+      @include devicesMax(mobile) {
+        margin: 20vw 5vw;
+      }
 
       .videoC {
         @include dims(516px, 917px);
@@ -45,6 +95,17 @@
 
         display: grid;
         place-items: center;
+
+        @include devicesMax(tablet) {
+          @include dims(316px, 517px);
+          margin-top: 50vw;
+          margin-right: 12vw;
+        }
+
+        @include devicesMax(mobile) {
+          @include dims(100%, 150vw);
+          margin: 0;
+        }
 
         .video {
           @include dims(100%);
@@ -61,6 +122,16 @@
 
         display: flex;
         flex-direction: column;
+
+        @include devicesMax(tablet) {
+          @include position(absolute, 35%, auto, auto, 50%);
+          padding: 1.25rem 1.25rem;
+        }
+
+        @include devicesMax(mobile) {
+          @include position(absolute, 0.5rem, 0.5rem, auto, auto);
+          border-radius: 24px;
+        }
 
         .stat {
           flex-shrink: 0;
@@ -82,6 +153,10 @@
             color: $californiaSunset;
             margin-bottom: 4vw;
             white-space: nowrap;
+
+            @include devicesMax(tablet) {
+              @include typo(Lychee, 12px, null, null, italic);
+            }
           }
 
           .data {
@@ -90,6 +165,10 @@
             display: flex;
             gap: 0.5rem;
             white-space: nowrap;
+
+            @include devicesMax(tablet) {
+              @include typo(LS-VG5000, 28px, null, null, null);
+            }
           }
 
           .iconC {
@@ -109,18 +188,54 @@
         grid-template-rows: repeat(2, 1fr);
         row-gap: 1vw;
 
+        @include devicesMax(tablet) {
+          @include position(absolute, 85%, auto, auto, -50%);
+          padding: 1.25rem;
+        }
+
+        @include devicesMax(mobile) {
+          @include position(absolute, 95%, auto, auto, 50%);
+          padding: 1.25rem 2rem;
+          row-gap: 3vw;
+          transform: translateX(-50%);
+        }
+
         .info {
           display: grid;
           grid-template-columns: 6vw auto;
 
+          @include devicesMax(tablet) {
+            grid-template-columns: 10vw auto;
+          }
+
+          @include devicesMax(mobile) {
+            grid-template-columns: 22vw auto;
+          }
+
           .label {
             @include typo(Lychee, 18px, null, null, italic);
             color: $californiaSunset;
+
+            @include devicesMax(tablet) {
+              @include typo(Lychee, 14px, null, null, italic);
+            }
+
+            @include devicesMax(mobile) {
+              @include typo(Lychee, 16px, null, null, italic);
+            }
           }
 
           .data {
             @include typo(Lychee, 18px, null, null, normal);
             color: $stonewallGrey;
+
+            @include devicesMax(tablet) {
+              @include typo(Lychee, 14px, null, null, normal);
+            }
+
+            @include devicesMax(mobile) {
+              @include typo(Lychee, 16px, null, null, normal);
+            }
           }
         }
       }
@@ -130,14 +245,60 @@
   .foundations {
     position: relative;
 
+    @include devicesMax(tablet) {
+      margin: 20vw 0 10vw 0;
+    }
+
     .title {
       @include typo(Lychee, 90px, null, 1.1, null);
       color: $stonewallGrey;
       margin: 10vw 4vw;
-      text-shadow: 12px 7px 21px rgba(0, 0, 0, 0.6);
+      text-shadow: 10px 10px 20px #000;
+
+      @include devicesMax(tablet) {
+        @include typo(Lychee, 45px, null, 1.3, null);
+      }
+
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 32px, null, 1.3, null);
+        text-align: center;
+      }
 
       .italic {
         @include typo(LaicaBItalic, 90px, null, null, null);
+        letter-spacing: 1px;
+
+        @include devicesMax(tablet) {
+          @include typo(LaicaBItalic, 45px, null, null, null);
+        }
+
+        @include devicesMax(mobile) {
+          @include typo(LaicaBItalic, 34px, null, null, null);
+        }
+      }
+
+      .margin1 {
+        margin-right: 16vw;
+
+        @include devicesMax(mobile) {
+          display: none;
+        }
+      }
+
+      .margin2 {
+        margin-right: 5vw;
+
+        @include devicesMax(mobile) {
+          display: none;
+        }
+      }
+
+      .margin3 {
+        margin-right: 12vw;
+
+        @include devicesMax(mobile) {
+          display: none;
+        }
       }
     }
 
@@ -148,6 +309,20 @@
       display: block;
       margin-left: 40vw;
       margin-top: 10vw;
+
+      @include devicesMax(tablet) {
+        @include typo(Lychee, 14px, null, 1.4, null);
+        @include dims(35vw, auto);
+        margin-left: 50vw;
+        margin-top: 15vw;
+      }
+
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 20px, null, 1.6, null);
+        @include dims(80vw, auto);
+        margin: 0 auto;
+        text-align: center;
+      }
     }
 
     .imgC {
@@ -158,40 +333,68 @@
 
       &::before {
         content: "";
-        @include position(absolute, auto, 0, -10px, 0);
-        @include dims(auto, 50%);
+        @include position(absolute, auto, -20px, -20px, -20px);
+        @include dims(auto, 80%);
         background: linear-gradient(0deg, $eigengrau, rgb(255, 255, 255, 0));
         z-index: 10;
       }
 
       &.left {
-        @include position(absolute, 25%, auto, auto, 5%);
-        @include dims(10vw, auto);
+        @include position(absolute, 47%, auto, auto, 5%);
+        @include dims(12vw, auto);
+
+        @include devicesMax(mobile) {
+          @include position(relative, auto, auto, auto, auto);
+          @include dims(80%, auto);
+          margin: 5vw auto;
+        }
       }
 
       &.mid {
-        @include position(absolute, -15%, auto, auto, 25%);
+        @include position(absolute, -15%, auto, auto, 23%);
         @include dims(13vw, auto);
+
+        @include devicesMax(mobile) {
+          @include position(relative, auto, auto, auto, auto);
+          @include dims(80%, auto);
+          margin: 5vw auto;
+        }
       }
 
       &.right {
         @include position(absolute, 15%, auto, auto, 55%);
         @include dims(20vw, auto);
+
+        @include devicesMax(mobile) {
+          @include position(relative, auto, auto, auto, auto);
+          @include dims(80%, auto);
+          margin: 5vw auto;
+        }
       }
     }
   }
 
   .conclusion {
+    padding-bottom: 15vw;
     position: relative;
     margin-top: 10vw;
+    overflow-x: clip;
 
     .marqueeC {
       margin: 7vw 0;
+
+      @include devicesMax(tablet) {
+        margin-bottom: 10vw;
+      }
 
       .mText {
         @include typo(LS-VG5000, 152px, null, null, null);
         color: $californiaSunset;
         padding: 2.5vw;
+
+        @include devicesMax(tablet) {
+          @include typo(LS-VG5000, 90px, null, null, null);
+        }
       }
     }
 
@@ -201,56 +404,91 @@
       color: $stonewallGrey;
       margin: 0 auto;
       text-align: center;
+
+      @include devicesMax(tablet) {
+        @include typo(Lychee, 28px, null, 1.4, null);
+        @include dims(90vw, auto);
+      }
+
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 24px, null, 1.4, null);
+      }
     }
 
     .imgC {
-      @include position(absolute, 75%, 0, auto, auto);
-      @include dims(15vw, auto);
-    }
-  }
+      @include position(absolute, auto, -3vw, -5vw, auto);
+      @include dims(25vw, auto);
+      transform: rotate(-18deg);
 
-  .featuredProjects {
-    padding-top: 10vw;
+      @include devicesMax(tablet) {
+        @include position(absolute, 90%, -3vw, auto, auto);
+        @include dims(30vw, auto);
+      }
 
-    .lookUp {
-      color: #c1c1c1;
-      display: block;
-      margin: 4vw auto;
-      text-align: center;
-
-      font-family: Lychee;
-      font-size: 1.25vw;
-      line-height: 150%;
-
-      .link {
-        color: #ce1953;
-        font-family: LS-VG5000;
-        text-decoration: underline;
+      @include devicesMax(mobile) {
+        @include position(relative, auto, auto, auto, auto);
+        @include dims(60vw, auto);
+        margin: 20vw auto 0 auto;
       }
     }
   }
 
+  .featuredProjects {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    .sliderC {
+      overflow: hidden;
+      padding: 2vw 4vw 4vw 4vw;
+      width: 100vw;
+
+      @include devicesMax(tablet) {
+        padding: 6vw 4vw;
+      }
+
+      @include devicesMax(mobile) {
+        padding: 10vw 0;
+      }
+    }
+
+    .buttonC {
+      margin: 0 auto;
+    }
+  }
+
   .faces {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     .singleTitleC {
       margin: 12.5vw auto 7.5vw auto;
 
       .title {
         @include dims(65vw, auto);
         @include typo(Lychee, 80px, null, 1.4, null);
-
         color: #c1c1c1;
         margin: 0 auto;
         text-align: center;
+
+        @include devicesMax(tablet) {
+          @include typo(Lychee, 60px, null, 1.2, null);
+          @include dims(90vw, auto);
+        }
+
+        @include devicesMax(mobile) {
+          @include typo(Lychee, 32px, null, 1.2, null);
+          @include dims(90vw, auto);
+        }
 
         .italic {
           color: #ce1953;
           font-family: LaicaBItalic;
         }
       }
-    }
-
-    .gridC {
-      padding: 0 8vw;
     }
 
     .smallText {
@@ -280,12 +518,33 @@
     align-items: flex-end;
     overflow-x: hidden;
 
+    @include devicesMax(tablet) {
+      min-height: auto;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 10vw;
+    }
+
     .title {
-      @include dims(35vw, auto);
       @include position(absolute, 5vw, auto, auto, 5vw);
       @include typo(Lychee, 70px, null, 1.1, null);
+      @include dims(35vw, auto);
       color: $stonewallGrey;
       margin-bottom: 2vw;
+
+      @include devicesMax(tablet) {
+        @include position(relative, auto, auto, auto, auto);
+        @include typo(Lychee, 50px, null, 1.1, null);
+        @include dims(70vw, auto);
+        margin-bottom: 10vw;
+        margin-left: 10vw;
+      }
+
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 32px, null, 1.1, null);
+        text-align: center;
+        margin: 0 auto 10vw auto;
+      }
 
       .italic {
         color: #ce1953;
@@ -293,14 +552,20 @@
       }
     }
 
-    .hSection {
+    .horizontalScrollContent {
       padding-left: 30vw;
-      padding-right: 20vw;
 
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+
+      @include devicesMax(tablet) {
+        @include dims(100vw, auto);
+        flex-wrap: wrap;
+        gap: 4vw;
+        padding: 0;
+      }
     }
   }
 
@@ -311,6 +576,11 @@
     flex-direction: column;
     justify-content: center;
 
+    @include devicesMax(tablet) {
+      @include dims(auto);
+      margin: 10vw 0;
+    }
+
     .mText {
       @include typo(Lychee, 160px, 700, null, null);
       color: $stonewallGrey;
@@ -320,8 +590,12 @@
       align-items: center;
       flex-shrink: 0;
 
+      @include devicesMax(tablet) {
+        @include typo(Lychee, 100px, 700, null, null);
+      }
+
       .seperator {
-        @include dims(250px, 10px);
+        @include dims(3ch, 10px);
         background: $stonewallGrey;
         display: inline-block;
         margin: 2vw 3vw 0 3vw;

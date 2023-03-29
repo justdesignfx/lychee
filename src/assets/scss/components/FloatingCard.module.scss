@@ -3,12 +3,31 @@
 .floatingCard {
   @include dims(25vw, auto);
   border-radius: 16px;
+  flex-shrink: 0;
   min-height: 18vw;
   padding: 1.5rem;
+
+  @include devicesMax(tablet) {
+    @include dims(35vw, auto);
+    min-height: 25vw;
+  }
+
+  @include devicesMax(mobile) {
+    @include dims(90vw, auto);
+    min-height: 45vw;
+  }
 
   .title {
     font-size: 3vw;
     margin-bottom: 2vw;
+
+    @include devicesMax(tablet) {
+      font-size: 4vw;
+    }
+
+    @include devicesMax(mobile) {
+      font-size: 8vw;
+    }
 
     .normal {
       display: block;

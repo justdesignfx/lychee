@@ -17,6 +17,7 @@ import sample from "~/assets/img/sample.png"
 import lycheeSocial from "~/assets/img/lychee-social.png"
 import Img from "./Img"
 import { Link } from "react-router-dom"
+import IconArrowSquare from "./Icons/IconArrowSquare"
 
 type SlideItem = {
   mediaType: "image" | "video" | string
@@ -77,13 +78,24 @@ const ProjectsSlider = (props: Props) => {
         style={{ width: "100%", height: "100%" }}
         modules={[Navigation]}
         onSlideChange={(e: any) => setCurrentSlide(e.activeIndex)}
-        slidesPerView={3}
+        slidesPerView={1}
         spaceBetween={50}
         speed={600}
         navigation={{
           prevEl,
           nextEl,
           disabledClass: "hidden",
+        }}
+        breakpoints={{
+          // when window width is >= 640px
+          641: {
+            spaceBetween: 25,
+            slidesPerView: 3,
+          },
+          1024: {
+            spaceBetween: 30,
+            slidesPerView: 3,
+          },
         }}
       >
         {Array.isArray(props.items) &&
@@ -113,6 +125,25 @@ const ProjectsSlider = (props: Props) => {
             )
           })}
       </Swiper>
+
+      <button className={cx(s.btnWrapper, s.btnPrev, { [s.disabled]: currentSlide === 0 })} ref={prevElRef}>
+        <div className={s.btnInner}>
+          <div className={cx(s.btnArrow, s.prev)}>
+            <IconArrowSquare fill="#ce1953" />
+          </div>
+        </div>
+      </button>
+
+      <button
+        className={cx(s.btnWrapper, s.btnNext, { [s.disabled]: currentSlide === props.items.length - 1 })}
+        ref={nextElRef}
+      >
+        <div className={s.btnInner}>
+          <div className={cx(s.btnArrow, s.next)}>
+            <IconArrowSquare fill="#ce1953" />
+          </div>
+        </div>
+      </button>
 
       {/* <div className={s.navigation}>
         {props.items.map(() => {
