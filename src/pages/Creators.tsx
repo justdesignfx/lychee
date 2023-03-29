@@ -67,24 +67,6 @@ const Creators = () => {
       mediaSrc:
         "https://player.vimeo.com/progressive_redirect/playback/812370122/rendition/1080p/file.mp4?loc=external&signature=675471875abdbc9f7c3865e151f34b85e8c794e24199132b40a24ac63e9ceb0d",
     },
-    {
-      name: "ogedaygirisken",
-      mediaType: "image",
-      mediaSrc: sample,
-      thumbnail: sample,
-    },
-    {
-      name: "dilaraaydin",
-      mediaType: "image",
-      mediaSrc: sample,
-      thumbnail: sample,
-    },
-    {
-      name: "elifbaldann",
-      mediaType: "image",
-      mediaSrc: sample,
-      thumbnail: sample,
-    },
   ]
 
   const influencers = [
