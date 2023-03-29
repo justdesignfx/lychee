@@ -14,5 +14,9 @@
     color: #ce1953;
     font-family: LS-VG5000;
     text-decoration: underline;
+
+    @include devicesMax(mobile) {
+      display: block;
+    }
   }
 }

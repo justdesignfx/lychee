@@ -41,8 +41,16 @@
   &.lg {
     font-size: 26px;
 
+    @include devicesMax(mobile) {
+      font-size: 20px;
+    }
+
     .iconC {
       @include dims(18px);
+
+      @include devicesMax(mobile) {
+        @include dims(14px);
+      }
 
       .tuple {
         @include dims(18px);

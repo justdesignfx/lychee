@@ -53,7 +53,7 @@
     @include dims(100%);
     z-index: z-index("modalBackdrop");
 
-    background: rgba(0, 0, 0, 0.75);
+    background: $eigengrau;
     // backdrop-filter: blur(18px);
     // -webkit-backdrop-filter: blur(18px);
   }

@@ -15,6 +15,10 @@
       padding: 25vw 4vw;
     }
 
+    @include devicesMax(mobile) {
+      padding: 35vw 4vw;
+    }
+
     .title {
       @include typo(Lychee, 90px, null, 1.2, null);
       color: $stonewallGrey;
@@ -24,6 +28,10 @@
       @include devicesMax(tablet) {
         @include typo(Lychee, 56px, null, 1.2, null);
         text-align: center;
+      }
+
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 32px, null, 1.2, null);
       }
 
       .playBtn {
@@ -41,6 +49,12 @@
         @include devicesMax(tablet) {
           @include position(absolute, 135%, auto, auto, 10%);
           @include dims(15vw);
+        }
+
+        @include devicesMax(mobile) {
+          @include dims(25vw);
+          @include position(absolute, 135%, auto, auto, 50%);
+          transform: translateX(-50%);
         }
 
         .iconTri {
@@ -76,6 +90,10 @@
       margin: 0 6vw;
     }
 
+    @include devicesMax(mobile) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
     .partTeam {
       .text {
         @include typo(Lychee, 35px, null, 1.4, null);
@@ -84,11 +102,18 @@
         @include devicesMax(tablet) {
           @include typo(Lychee, 20px, null, 1.4, null);
         }
+
+        @include devicesMax(mobile) {
+          @include typo(Lychee, 24px, null, 1.4, null);
+        }
       }
 
       &:nth-child(1) {
         margin-left: auto;
-        padding-top: 35vw;
+
+        @include devicesMax(tablet) {
+          padding-top: 35vw;
+        }
 
         .text {
           @include dims(24vw, auto);
@@ -101,6 +126,10 @@
             margin: 0;
             margin-bottom: 10vw;
           }
+
+          @include devicesMax(mobile) {
+            text-align: center;
+          }
         }
 
         .imgC {
@@ -108,6 +137,11 @@
 
           @include devicesMax(tablet) {
             @include dims(100%, 30vw);
+          }
+
+          @include devicesMax(mobile) {
+            @include dims(100%, 50vw);
+            display: none;
           }
         }
       }
@@ -119,12 +153,20 @@
           margin-left: 7vw;
         }
 
+        @include devicesMax(mobile) {
+          margin-left: 0;
+        }
+
         .text {
           @include dims(25vw, auto);
 
           @include devicesMax(tablet) {
             @include dims(auto);
             margin: 0;
+          }
+
+          @include devicesMax(mobile) {
+            text-align: center;
           }
         }
 
@@ -137,6 +179,11 @@
             @include dims(100%, 50vw);
             margin: 0;
             margin-bottom: 5vw;
+          }
+
+          @include devicesMax(mobile) {
+            @include dims(100%, 50vw);
+            margin-bottom: 10vw;
           }
         }
       }
@@ -155,6 +202,10 @@
       margin: 7.5vw 0 15vw 0;
     }
 
+    @include devicesMax(mobile) {
+      margin: 10vw 0 17.5vw 0;
+    }
+
     .lychee {
       @include dims(40vw);
       margin-top: 10vw;
@@ -165,6 +216,10 @@
       @include devicesMax(tablet) {
         @include dims(60vw);
         margin: 0;
+      }
+
+      @include devicesMax(mobile) {
+        @include dims(70vw);
       }
 
       .imgC {
@@ -208,6 +263,11 @@
         @include typo(Lychee, 40px, null, 1.2, null);
         @include dims(auto);
       }
+
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 32px, null, 1.2, null);
+        margin-bottom: 10vw;
+      }
     }
 
     .text {
@@ -220,6 +280,10 @@
       @include devicesMax(tablet) {
         @include dims(auto);
       }
+
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 20px, null, 1.4, null);
+      }
     }
   }
 
@@ -231,7 +295,7 @@
 
     @include devicesMax(tablet) {
       grid-template-columns: repeat(1, 1fr);
-      margin: 15vw 5vw 20vw 5vw;
+      margin: 15vw 5vw 15vw 5vw;
     }
 
     .partAdvertisement {
@@ -254,16 +318,31 @@
             @include dims(65vw, auto);
             text-align: left;
           }
+
+          @include devicesMax(mobile) {
+            @include typo(Lychee, 28px, null, 1.4, null);
+            @include dims(100%, auto);
+            margin-bottom: 10vw;
+            text-align: center;
+          }
         }
 
         .text {
           @include dims(23vw, auto);
-          @include typo(Lychee, 16px, null, 1.4, null);
+          @include typo(Lychee, 20px, null, 1.4, null);
           color: $stonewallGrey;
 
           @include devicesMax(tablet) {
+            @include typo(Lychee, 16px, null, 1.4, null);
             @include dims(36vw, auto);
             text-align: left;
+          }
+
+          @include devicesMax(mobile) {
+            @include typo(Lychee, 20px, null, 1.4, null);
+            @include dims(100%, auto);
+            margin-bottom: 10vw;
+            text-align: center;
           }
         }
       }
@@ -276,6 +355,10 @@
           margin-right: 5vw;
         }
 
+        @include devicesMax(mobile) {
+          margin-right: 0;
+        }
+
         .imgC {
           &:nth-child(1) {
             @include dims(32vw, 50vw);
@@ -284,6 +367,10 @@
               @include position(relative, auto, auto, auto, auto);
               @include dims(42vw, 60vw);
               margin-left: auto;
+            }
+
+            @include devicesMax(mobile) {
+              display: none;
             }
           }
 
@@ -296,6 +383,12 @@
               @include position(relative, auto, 35vw, auto, auto);
               @include dims(48vw, 32vw);
               margin-top: -20vw;
+            }
+
+            @include devicesMax(mobile) {
+              @include position(relative, auto, auto, auto, auto);
+              @include dims(100%, 60vw);
+              margin: 0;
             }
           }
         }
@@ -312,8 +405,13 @@
       text-align: center;
 
       @include devicesMax(tablet) {
-        @include typo(Lychee, 45px, null, 1.2, null);
+        @include typo(Lychee, 48px, null, 1.2, null);
         @include dims(auto);
+        margin: 0 4vw 15vw 4vw;
+      }
+
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 28px, null, 1.4, null);
       }
     }
   }
@@ -363,8 +461,13 @@
       text-align: center;
 
       @include devicesMax(tablet) {
+        @include typo(Lychee, 60px, null, 1.2, null);
         @include dims(auto);
-        margin: 0 5vw 10vw 5vw;
+        margin: 0 5vw 5vw 5vw;
+      }
+
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 32px, null, 1.4, null);
       }
     }
 
@@ -376,8 +479,13 @@
       text-align: center;
 
       @include devicesMax(tablet) {
+        @include typo(Lychee, 30px, null, 1.4, null);
         @include dims(auto);
         margin: 0 5vw 5vw 5vw;
+      }
+
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 20px, null, 1.4, null);
       }
     }
 
@@ -397,6 +505,15 @@
         justify-content: center;
         gap: 2vw;
 
+        @include devicesMax(tablet) {
+          flex-wrap: wrap;
+        }
+
+        @include devicesMax(mobile) {
+          gap: 4vw;
+          margin-bottom: 4vw;
+        }
+
         &:last-child() {
           margin-bottom: 0;
         }
@@ -411,6 +528,14 @@
         padding: 1rem;
         position: relative;
 
+        @include devicesMax(tablet) {
+          @include dims(20vw);
+        }
+
+        @include devicesMax(mobile) {
+          @include dims(27vw);
+        }
+
         &::before {
           // for apsect ratio
           content: "";
@@ -420,38 +545,74 @@
 
         &.logoDisney {
           transform: translate(-2vw, 0);
+
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         &.logoAdidas {
           transform: translate(-2vw, -5vw);
+
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         &.logoPhilips {
           transform: translate(0, -2vw);
+
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         &.logoNike {
           transform: translate(3vw, 0);
+
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         &.logoNestle {
           transform: translate(4vw, 5vw);
+
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         &.logoEsteeLauder {
           transform: translate(2vw, -5vw);
+
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         &.logoLoreal {
           transform: translate(-3vw, -6vw);
+
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         &.logoDyson {
           transform: translate(0, -4vw);
+
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         &.logoStarbucks {
           transform: translate(0, 0);
+
+          @include devicesMax(mobile) {
+            transform: translate(0, 0);
+          }
         }
 
         .img {
@@ -477,6 +638,10 @@
   .dare {
     padding: 5vw 0 10vw 0;
 
+    @include devicesMax(mobile) {
+      padding: 10vw 0 20vw 0;
+    }
+
     .text {
       @include dims(65vw, auto);
       @include typo(Lychee, 80px, null, 1.1, null);
@@ -487,6 +652,11 @@
       @include devicesMax(tablet) {
         @include typo(Lychee, 60px, null, 1.1, null);
       }
+
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 40px, null, 1.1, null);
+        margin-bottom: 10vw;
+      }
     }
 
     .btnC {
@@ -495,6 +665,10 @@
 
       @include devicesMax(tablet) {
         @include dims(30vw, 6vw);
+      }
+
+      @include devicesMax(mobile) {
+        @include dims(60vw, 12vw);
       }
     }
   }
