@@ -224,8 +224,8 @@ const WithSmooth = ({ children, location }: Props) => {
           textReveal(q)
         }
 
-        parallaxItems()
         stickyTitle()
+        parallaxItems()
         floatingItems()
         framedParallax()
         hideOnScroll()

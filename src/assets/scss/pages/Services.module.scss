@@ -3,6 +3,29 @@
 .services {
   padding-top: 5vw;
 
+  @include devicesMax(tablet) {
+    padding-top: 10vw;
+  }
+
+  .stickyText {
+    color: $eigengrau;
+    display: inline-block;
+    font-family: Lychee;
+    font-size: 5vw;
+    line-height: 110%;
+
+    @include devicesMax(tablet) {
+      font-size: 6vw;
+      margin-bottom: 5vw;
+      width: 50vw;
+    }
+
+    .italic {
+      color: $californiaSunset;
+      font-family: LaicaBItalic;
+    }
+  }
+
   .titleC {
     @include dims(100%, 100vh);
     padding-top: 10vw;
@@ -12,13 +35,9 @@
     align-items: flex-start;
     justify-content: center;
 
-    .margin2 {
-      margin-right: 17vw;
-
-      @include devicesMax(tablet) {
-        display: inline-block;
-        margin-right: 0;
-      }
+    @include devicesMax(tablet) {
+      flex-direction: column;
+      @include dims(100%, auto);
     }
 
     .title {
@@ -30,8 +49,19 @@
       text-shadow: 0px 10px 10px #16161e95;
       z-index: 10;
 
+      @include devicesMax(tablet) {
+        @include typo(Lychee, 60px, null, 1.2, null);
+        margin-bottom: 5vw;
+        margin-top: 20vw;
+        width: 90%;
+      }
+
       .line {
         display: block;
+
+        @include devicesMax(tablet) {
+          display: inline;
+        }
 
         &.margin1 {
           margin-right: 52vw;
@@ -45,24 +75,36 @@
 
       .italic {
         font-family: LaicaBItalic;
+
+        @include devicesMax(tablet) {
+          display: inline;
+        }
       }
 
       .small {
-        font-size: 3vw;
+        @include typo(Lychee, 20px, null, 1.2, null);
+
+        @include devicesMax(tablet) {
+          @include typo(Lychee, 44px, null, 1.2, null);
+        }
       }
     }
 
     .floatingText {
-      @include dims(20vw, auto);
       @include position(absolute, 70%, auto, auto, 70%);
-
+      @include typo(Lychee, 20px, null, 1.4, null);
+      @include dims(20vw, auto);
       color: #c1c1c1;
-      font-family: Lychee;
-      font-size: 1.25vw;
-      line-height: 140%;
       margin: 0 auto;
       margin-bottom: 2.5vw;
       text-align: left;
+
+      @include devicesMax(tablet) {
+        @include position(relative, auto, auto, auto, auto);
+        @include typo(Lychee, 24px, null, 1.4, null);
+        @include dims(70vw, auto);
+        text-align: center;
+      }
     }
 
     .bgImgC {
@@ -71,6 +113,28 @@
       border-radius: 32px;
       overflow: hidden;
       transform: translate(-50%, -58%) rotate(-10deg);
+
+      @include devicesMax(tablet) {
+        transform: translate(-50%, -80%) rotate(-10deg);
+
+        &::before {
+          content: "";
+          @include position(absolute, auto, -20px, 0px, -20px);
+          @include dims(auto, 80%);
+          background: linear-gradient(0deg, $eigengrau 0%, #16161ee6 30%, rgb(255, 255, 255, 0) 100%);
+          z-index: 10;
+        }
+      }
+    }
+
+    .margin2 {
+      margin-right: 17vw;
+
+      @include devicesMax(tablet) {
+        @include dims(100%, auto);
+        display: inline-block;
+        margin-right: 0;
+      }
     }
   }
 
@@ -108,7 +172,7 @@
       }
 
       &:nth-child(3) {
-        @include dims(10vw, 18vw);
+        @include dims(15vw, 25vw);
         border-radius: 32px;
         filter: blur(16px);
         transform: rotate(21deg);
@@ -127,19 +191,6 @@
 
   .theWay {
     padding: 0 4vw;
-
-    .stickyText {
-      color: #16161e;
-      display: inline-block;
-      font-family: Lychee;
-      font-size: 5vw;
-      line-height: 110%;
-
-      .italic {
-        color: #d41a5e;
-        font-family: LaicaBItalic;
-      }
-    }
   }
 
   .sideServices {
@@ -152,12 +203,21 @@
       align-items: flex-start;
       justify-content: flex-start;
 
+      @include devicesMax(tablet) {
+        @include dims(50vw, auto);
+        margin: 12.5vw auto 2vw 40vw;
+      }
+
       .title {
         color: #ce1953;
         font-family: LS-VG5000;
         font-size: 1.25vw;
         line-height: 100%;
         margin-bottom: 1vw;
+
+        @include devicesMax(tablet) {
+          font-size: 2vw;
+        }
       }
 
       .text {
@@ -165,6 +225,10 @@
         font-family: Lychee;
         font-size: 3vw;
         line-height: 120%;
+
+        @include devicesMax(tablet) {
+          font-size: 4vw;
+        }
 
         .italic {
           color: #ce1953;
@@ -221,19 +285,6 @@
 
   .pros {
     padding: 0 4vw;
-
-    .stickyText {
-      color: #16161e;
-      display: inline-block;
-      font-family: Lychee;
-      font-size: 5vw;
-      line-height: 110%;
-
-      .italic {
-        color: #d41a5e;
-        font-family: LaicaBItalic;
-      }
-    }
   }
 
   .dare {

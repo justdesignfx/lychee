@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react"
+import { ReactElement } from "react"
 import s from "~/assets/scss/components/List.module.scss"
 
 type Props = {
