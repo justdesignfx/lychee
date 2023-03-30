@@ -593,6 +593,7 @@
           @include dims(100%);
           max-width: 100%;
           transition: 0.4s all ease-in-out;
+          transform: scale(1.01);
 
           display: block;
           object-fit: cover;

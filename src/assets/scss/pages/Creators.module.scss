@@ -178,6 +178,10 @@
 
           .iconC {
             @include dims(20px);
+
+            @include devicesMax(mobile) {
+              @include dims(12px);
+            }
           }
         }
       }
