@@ -8,6 +8,14 @@
 
   &.lg {
     @include typo(Lychee, 40px, null, 1.5, null);
+
+    @include devicesMax(tablet) {
+      @include typo(Lychee, 24px, null, 1.5, null);
+    }
+
+    @include devicesMax(mobile) {
+      @include typo(Lychee, 18px, null, 1.5, null);
+    }
   }
 
   @include devicesMax(mobile) {

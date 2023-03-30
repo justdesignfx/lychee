@@ -13,8 +13,8 @@
   }
 
   @include devicesMax(mobile) {
-    @include dims(90vw, auto);
-    min-height: 45vw;
+    @include dims(90vw, 65vw);
+    margin: 0 auto;
   }
 
   .title {
@@ -26,7 +26,7 @@
     }
 
     @include devicesMax(mobile) {
-      font-size: 8vw;
+      font-size: 9vw;
     }
 
     .normal {

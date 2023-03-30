@@ -139,6 +139,7 @@
         @include dims(6vw);
         background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         border-radius: 50%;
         overflow: hidden;
         transform: translate(-50%, -50%);

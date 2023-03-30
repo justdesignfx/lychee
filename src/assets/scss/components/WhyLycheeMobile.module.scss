@@ -1,0 +1,123 @@
+@import "../global.scss";
+
+.slider {
+  position: relative;
+
+  .slide {
+    border-radius: 32px;
+    height: 850px;
+    overflow: hidden;
+    position: relative;
+
+    @include devicesMax(tablet) {
+      height: 480px;
+    }
+
+    @include devicesMax(mobile) {
+      width: 80vw;
+      margin: 0 auto;
+    }
+
+    &::before {
+      content: "";
+      @include position(absolute, -10px, -10px, auto, -10px);
+      @include dims(auto, 40%);
+      background: linear-gradient(180deg, $eigengrau, rgb(255, 255, 255, 0));
+      pointer-events: none;
+      z-index: 50;
+    }
+  }
+
+  //   .btnWrapper {
+  //     cursor: none;
+  //     display: flex;
+  //     height: fit-content;
+  //     transition: 0.3s all ease;
+  //     width: 120px;
+  //     z-index: 10;
+
+  //     position: absolute;
+  //     top: 50%;
+  //     transform: translateY(-50%);
+  //     @extend .show;
+
+  //     &.disabled {
+  //       @extend .hide;
+  //     }
+
+  //     &.btnPrev {
+  //       justify-content: flex-start;
+  //       left: 5vw;
+
+  //       @include devicesMax(tabletMini) {
+  //         left: 4vw;
+  //       }
+
+  //       @include devicesMax(mobile) {
+  //         left: 5vw;
+  //       }
+  //     }
+
+  //     &.btnNext {
+  //       justify-content: flex-end;
+  //       right: 5vw;
+
+  //       @include devicesMax(mobile) {
+  //         right: 5vw;
+  //       }
+  //     }
+
+  //     .btnInner {
+  //       @include dims(90px, 50px);
+  //       cursor: none;
+  //       position: relative;
+  //       transition: 0.3s all ease;
+  //       @extend .flexCenterX;
+
+  //       @include devicesMax(tablet) {
+  //         @include dims(50px);
+  //         border-radius: 50%;
+  //       }
+
+  //       @include devicesMax(mobile) {
+  //         @include dims(25px);
+  //       }
+
+  //       .btnArrow {
+  //         cursor: none;
+  //         pointer-events: none;
+
+  //         &.next {
+  //           transform: rotate(45deg);
+  //         }
+
+  //         &.prev {
+  //           transform: rotate(-135deg);
+  //         }
+  //       }
+  //     }
+  //   }
+
+  .navigation {
+    @include dims(90vw, 4px);
+    margin: 2rem auto;
+    display: flex;
+    column-gap: 8px;
+
+    display: flex;
+    justify-content: center;
+
+    .navItem {
+      @include dims(50px, 4px);
+      background: $californiaSunset;
+      border-radius: 4px;
+      overflow: hidden;
+      opacity: 0.3;
+      transition: 0.4s all ease;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+}

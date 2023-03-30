@@ -3,7 +3,7 @@
 .creators {
   padding-top: 5vw;
 
-  @include devicesMax(tablet) {
+  @include devicesMax(mobile) {
     padding-top: 20vw;
   }
 
@@ -15,7 +15,7 @@
     }
 
     @include devicesMax(mobile) {
-      margin: 20vw 6vw 0 6vw;
+      margin: 20vw auto 0 auto;
     }
 
     .small {
@@ -40,9 +40,11 @@
       }
 
       @include devicesMax(mobile) {
-        @include typo(Lychee, 32px, null, 1.4, null);
+        @include typo(Lychee, 30px, null, 1.4, null);
+        margin: 0 auto;
         margin-bottom: 7.5vw;
         text-align: center;
+        width: 95%;
       }
     }
 
@@ -53,8 +55,10 @@
 
       @include devicesMax(mobile) {
         @include typo(Lychee, 16px, null, 1.6, null);
+        margin: 0 auto;
         margin-bottom: 7.5vw;
         text-align: center;
+        width: 80%;
       }
     }
 
@@ -89,7 +93,7 @@
       }
 
       .videoC {
-        @include dims(516px, 917px);
+        @include dims(30vw, 50vw);
         border-radius: 32px;
         overflow: hidden;
 
@@ -119,6 +123,7 @@
         border-radius: 16px;
         padding: 2rem 1.5rem;
         backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
 
         display: flex;
         flex-direction: column;
@@ -181,6 +186,7 @@
         @include position(absolute, 55%, auto, auto, -45%);
         background: rgb(22, 22, 30, 0.3);
         backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         border-radius: 16px;
         padding: 2rem;
 
@@ -249,6 +255,11 @@
       margin: 20vw 0 10vw 0;
     }
 
+    @include devicesMax(mobile) {
+      display: flex;
+      flex-direction: column;
+    }
+
     .title {
       @include typo(Lychee, 90px, null, 1.1, null);
       color: $stonewallGrey;
@@ -261,7 +272,9 @@
 
       @include devicesMax(mobile) {
         @include typo(Lychee, 32px, null, 1.3, null);
+        margin-top: -25vw;
         text-align: center;
+        order: 2;
       }
 
       .italic {
@@ -320,8 +333,9 @@
       @include devicesMax(mobile) {
         @include typo(Lychee, 20px, null, 1.6, null);
         @include dims(80vw, auto);
-        margin: 0 auto;
+        margin: 10vw auto;
         text-align: center;
+        order: 4;
       }
     }
 
@@ -333,9 +347,9 @@
 
       &::before {
         content: "";
-        @include position(absolute, auto, -20px, -20px, -20px);
+        @include position(absolute, auto, -20px, 0px, -20px);
         @include dims(auto, 80%);
-        background: linear-gradient(0deg, $eigengrau, rgb(255, 255, 255, 0));
+        background: linear-gradient(0deg, $eigengrau 0%, #16161ee6 30%, rgb(255, 255, 255, 0) 100%);
         z-index: 10;
       }
 
@@ -347,6 +361,7 @@
           @include position(relative, auto, auto, auto, auto);
           @include dims(80%, auto);
           margin: 5vw auto;
+          order: 3;
         }
       }
 
@@ -356,8 +371,9 @@
 
         @include devicesMax(mobile) {
           @include position(relative, auto, auto, auto, auto);
-          @include dims(80%, auto);
+          @include dims(60%, auto);
           margin: 5vw auto;
+          order: 1;
         }
       }
 
@@ -369,6 +385,7 @@
           @include position(relative, auto, auto, auto, auto);
           @include dims(80%, auto);
           margin: 5vw auto;
+          order: 5;
         }
       }
     }
@@ -385,6 +402,10 @@
 
       @include devicesMax(tablet) {
         margin-bottom: 10vw;
+      }
+
+      @include devicesMax(mobile) {
+        margin-bottom: 20vw;
       }
 
       .mText {
@@ -412,6 +433,7 @@
 
       @include devicesMax(mobile) {
         @include typo(Lychee, 24px, null, 1.4, null);
+        @include dims(92vw, auto);
       }
     }
 
@@ -429,6 +451,7 @@
         @include position(relative, auto, auto, auto, auto);
         @include dims(60vw, auto);
         margin: 20vw auto 0 auto;
+        transform: rotate(0);
       }
     }
   }
@@ -464,8 +487,16 @@
     align-items: center;
     justify-content: center;
 
+    @include devicesMax(mobile) {
+      margin-bottom: 10vw;
+    }
+
     .singleTitleC {
       margin: 12.5vw auto 7.5vw auto;
+
+      @include devicesMax(mobile) {
+        margin: 25vw 0;
+      }
 
       .title {
         @include dims(65vw, auto);
@@ -480,7 +511,7 @@
         }
 
         @include devicesMax(mobile) {
-          @include typo(Lychee, 32px, null, 1.2, null);
+          @include typo(Lychee, 42px, null, 1.2, null);
           @include dims(90vw, auto);
         }
 
@@ -488,23 +519,6 @@
           color: #ce1953;
           font-family: LaicaBItalic;
         }
-      }
-    }
-
-    .smallText {
-      color: #c1c1c1;
-      display: block;
-      margin: 3vw auto;
-      text-align: center;
-
-      font-family: Lychee;
-      font-size: 1.25vw;
-      line-height: 150%;
-
-      .link {
-        color: #ce1953;
-        font-family: LS-VG5000;
-        text-decoration: underline;
       }
     }
   }
@@ -541,7 +555,7 @@
       }
 
       @include devicesMax(mobile) {
-        @include typo(Lychee, 32px, null, 1.1, null);
+        @include typo(Lychee, 36px, null, 1.1, null);
         text-align: center;
         margin: 0 auto 10vw auto;
       }
@@ -581,9 +595,14 @@
       margin: 10vw 0;
     }
 
+    @include devicesMax(mobile) {
+      margin: 20vw 0;
+    }
+
     .mText {
       @include typo(Lychee, 160px, 700, null, null);
       color: $stonewallGrey;
+
       padding: 2.5vw 0;
 
       display: flex;
@@ -594,25 +613,16 @@
         @include typo(Lychee, 100px, 700, null, null);
       }
 
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 37px, 700, null, null);
+        margin-bottom: 5vw;
+      }
+
       .seperator {
-        @include dims(3ch, 10px);
+        @include dims(2.5ch, 0.2ch);
         background: $stonewallGrey;
         display: inline-block;
         margin: 2vw 3vw 0 3vw;
-      }
-    }
-
-    .join {
-      @include typo(Lychee, 40px, null, null, null);
-      color: #c1c1c1;
-      display: block;
-      margin: 2vw auto;
-      text-align: center;
-
-      .link {
-        color: #ce1953;
-        font-family: LS-VG5000;
-        text-decoration: underline;
       }
     }
   }

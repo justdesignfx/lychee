@@ -37,8 +37,13 @@ import MarqueeSimple from "~/components/MarqueeSimple"
 import ProjectsSlider from "~/components/ProjectsSlider"
 import SquareGrid from "~/components/SquareGrid"
 import ButtonText from "~/components/ButtonText"
+import WhyLycheeMobile from "~/components/WhyLycheeMobile"
+import { useWindowSize } from "~/hooks"
+import { breakpoints } from "~/variables"
 
 const Creators = () => {
+  const size = useWindowSize()
+
   const cards = [
     { title: { p1: "Non-Exclusive", p2: "Partnership" }, type: "blue" },
     { title: { p1: "Özel", p2: "Pazarlama Ekibi" }, type: "transparent" },
@@ -276,20 +281,29 @@ const Creators = () => {
             link={{ ui: "bizimle iletişime geçin.", path: "/contact" }}
           />
         </section>
-        <section className={s.why} data-floating-items-c>
-          <h2 className={s.title}>
-            Neden <span className={s.italic}>Lychee</span> ile çalışmalısınız.
-          </h2>
-          <div className={s.horizontalScrollContent} data-floating-items>
-            {cards.map((card) => {
-              return (
-                <div data-floating-item>
-                  <FloatingCard {...card} />
-                </div>
-              )
-            })}
-          </div>
-        </section>
+        {size.width > breakpoints.mobile ? (
+          <section className={s.why} data-floating-items-c>
+            <h2 className={s.title}>
+              Neden <span className={s.italic}>Lychee</span> ile çalışmalısınız.
+            </h2>
+            <div className={s.horizontalScrollContent} data-floating-items>
+              {cards.map((card) => {
+                return (
+                  <div data-floating-item>
+                    <FloatingCard {...card} />
+                  </div>
+                )
+              })}
+            </div>
+          </section>
+        ) : (
+          <>
+            <section className={s.whyMobile}>
+              <WhyLycheeMobile items={cards} />
+            </section>
+          </>
+        )}
+
         <section className={s.waitingForYou}>
           <div className={s.marqueeC}>
             <MarqueeSimple direction={-1}>

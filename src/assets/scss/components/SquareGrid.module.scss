@@ -2,14 +2,14 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(400px, 1fr));
+  grid-template-columns: repeat(3, minmax(430px, 1fr));
   grid-gap: 2.5rem;
 
   @include devicesMax(tablet) {
-    grid-template-columns: repeat(2, minmax(400px, 1fr));
+    grid-template-columns: repeat(2, minmax(400px, 300px));
   }
 
-  @include devicesMax(tablet) {
+  @include devicesMax(mobile) {
     grid-template-columns: repeat(1, minmax(92vw, 1fr));
   }
 
@@ -42,10 +42,19 @@
       flex-direction: column;
       justify-content: flex-end;
 
+      @include devicesMax(mobile) {
+        padding: 3.5vw 5vw;
+      }
+
       .text {
         @include typo(Lychee, 30px, null, 1.4, null);
         color: $bleachedSilk;
         margin-bottom: 1vw;
+
+        @include devicesMax(mobile) {
+          @include typo(Lychee, 24px, null, 1.4, null);
+          margin-bottom: 2vw;
+        }
       }
 
       .social {
@@ -56,6 +65,10 @@
 
         .iconC {
           @include dims(1.5rem, auto);
+
+          @include devicesMax(mobile) {
+            @include dims(1.25rem, auto);
+          }
         }
       }
     }
@@ -77,5 +90,14 @@
       // left: 50%;
       // transform: translate(-50%, -50%);
     }
+  }
+
+  .seeMoreBtn {
+    @include typo(Lychee, 20px, null, null, null);
+    border: 1px solid $californiaSunset;
+    border-radius: 5vmin;
+    color: #c1c1c1;
+    margin: 0 auto 5vw auto;
+    padding: 0.5rem 1rem;
   }
 }

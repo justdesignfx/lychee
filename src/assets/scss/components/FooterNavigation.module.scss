@@ -7,13 +7,14 @@
 
   .navigation {
     @include dims(100%, auto);
-    border-bottom: 1px solid $eigengrau;
+    border-bottom: 2px solid $eigengrau;
     padding-top: 7vw;
 
     display: flex;
 
     @include devicesMax(mobile) {
       flex-direction: column-reverse;
+      margin-top: 10vw;
       padding-bottom: 7vw;
     }
 
@@ -22,7 +23,7 @@
 
       @include devicesMax(mobile) {
         justify-content: space-between;
-        margin: 0 0 7.5vw 0;
+        margin: 0 0 8.5vw 0;
       }
     }
 
@@ -35,7 +36,7 @@
         margin-right: auto;
 
         @include devicesMax(mobile) {
-          @include dims(auto);
+          @include dims(65vw, auto);
         }
 
         .label {
@@ -72,6 +73,7 @@
 
           @include devicesMax(mobile) {
             @include typo(Lychee, 20px, null, 1.4, null);
+            margin-bottom: 5vw;
           }
 
           &:last-child {
