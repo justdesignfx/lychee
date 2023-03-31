@@ -1,4 +1,4 @@
-import React, { ReactElement, useCallback, useLayoutEffect, useRef } from "react"
+import React, { ReactElement, useCallback, useEffect, useLayoutEffect, useRef } from "react"
 import Scrollbar, { ScrollbarPlugin } from "smooth-scrollbar"
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
@@ -71,7 +71,7 @@ const WithSmooth = ({ children, location }: Props) => {
 
   useResizeDetector({ targetRef: contentRef, onResize })
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let ctx: any
     let ctx1: any
 
@@ -80,73 +80,7 @@ const WithSmooth = ({ children, location }: Props) => {
       console.log("Smooth Destroyed")
     }
 
-    const initSmoothScrollbar = () => {
-      class ModalPlugin extends ScrollbarPlugin {
-        static pluginName = "modal"
-
-        static defaultOptions = {
-          open: false,
-        }
-
-        transformDelta(delta: any) {
-          return this.options.open ? { x: 0, y: 0 } : delta
-        }
-      }
-
-      Scrollbar.use(ModalPlugin)
-
-      if (scrollerRef.current) {
-        smooth.current = Scrollbar.init(scrollerRef.current, {
-          damping: 0.075,
-          delegateTo: document,
-          alwaysShowTracks: false,
-          renderByPixels: false,
-        })
-        console.log("Smooth Initialized")
-      }
-
-      ctx = gsap.context(() => {
-        // disable bounce
-        gsap.set("body", {
-          height: "100vh",
-          width: "100vw",
-          overflow: "hidden",
-        })
-
-        gsap.set(scrollerRef.current, {
-          height: "100vh",
-          width: "100vw",
-          overflow: "hidden",
-        })
-      })
-
-      ScrollTrigger.scrollerProxy(scrollerRef.current, {
-        scrollTop(value: any) {
-          if (smooth.current) {
-            if (arguments.length) {
-              smooth.current.scrollTop = value
-            }
-            return smooth.current.scrollTop
-          }
-        },
-      })
-
-      smooth.current?.addListener(ScrollTrigger.update)
-      ScrollTrigger.defaults({ scroller: scrollerRef.current })
-
-      initAnimations(smooth.current)
-
-      // Only necessary to correct marker position - not needed in production
-      if (document.querySelector(".gsap-marker-scroller-start")) {
-        const markers = gsap.utils.toArray('[class *= "gsap-marker"]')
-
-        smooth.current?.addListener(({ offset }: any) => {
-          gsap.set(markers, { marginTop: -offset.y })
-        })
-      }
-    }
-
-    const initAnimations = (smoothInstance?: Scrollbar | null) => {
+    const initAnimations = () => {
       ctx1 = gsap.context(() => {
         // MARQUEE
         if (q("[data-marquee]").length > 0) {
@@ -220,6 +154,7 @@ const WithSmooth = ({ children, location }: Props) => {
         //     })
         //   })
         // }
+
         if (q("[data-h-scroll]").length > 0 && windowSize.width > breakpoints.tablet) {
           textReveal(q)
         }
@@ -233,94 +168,6 @@ const WithSmooth = ({ children, location }: Props) => {
         if (q("[data-sliding-panels]").length > 0) {
           slidingPanels(q)
         }
-
-        // stickyTitle()
-
-        // REVEAL WRAPPER
-        // if (q("[data-reveal]").length > 0 && windowSize.width > breakpoints.tablet) {
-        //   console.log("DATA REVEAL INITIALIZED")
-
-        //   const height = document.querySelector("[data-reveal]")?.clientHeight
-
-        //   gsap.set(q("[data-reveal]"), {
-        //     yPercent: -50,
-        //   })
-
-        //   gsap.set(q("[data-overlay]"), {
-        //     opacity: 1,
-        //   })
-
-        //   gsap.to(q("[data-reveal]"), {
-        //     // translateZ: -100,
-        //     yPercent: 0,
-        //     ease: "none",
-        //     scrollTrigger: {
-        //       trigger: q("[data-reveal]"),
-        //       start: "center bottom",
-        //       end: () => `center bottom-=${height}`,
-        //       scrub: true,
-        //       // // markers: true,
-        //     },
-        //   })
-
-        //   gsap.to(q("[data-overlay]"), {
-        //     // translateZ: -100,
-        //     opacity: 0,
-        //     ease: "none",
-        //     scrollTrigger: {
-        //       trigger: q("[data-reveal]"),
-        //       start: "center bottom",
-        //       end: () => `center bottom-=${height}`,
-        //       scrub: true,
-        //       // onEnter: () => {
-        //       //   gsap.to(q("[data-overlay]"), {
-        //       //     pointerEvents: "auto",
-        //       //   })
-        //       // },
-        //       // onLeave: () => {
-        //       //   gsap.to(q("[data-overlay]"), {
-        //       //     pointerEvents: "none",
-        //       //   })
-        //       // },
-        //       // onEnterBack: () => {
-        //       //   gsap.to(q("[data-overlay]"), {
-        //       //     pointerEvents: "auto",
-        //       //   })
-        //       // },
-        //       // onLeaveBack: () => {
-        //       //   gsap.to(q("[data-overlay]"), {
-        //       //     pointerEvents: "none",
-        //       //   })
-        //       // }, // // markers: true,
-        //     },
-        //   })
-        // }
-
-        // FLIPPING ITEM
-        // if (q("[data-flip]").length > 0) {
-        //   console.log("DATA FLIP INITIALIZED")
-
-        //   gsap.to(q("[data-flip]"), {
-        //     scrollTrigger: {
-        //       trigger: q("[data-flip]")[0],
-        //       start: "center center",
-        //       end: "center center",
-        //       // // markers: true,
-        //       onEnter: () => {
-        //         gsap.to(q("[data-flip]"), {
-        //           rotateX: -180,
-        //           duration: 0,
-        //         })
-        //       },
-        //       onEnterBack: () => {
-        //         gsap.to(q("[data-flip]"), {
-        //           rotateX: 0,
-        //           duration: 0,
-        //         })
-        //       },
-        //     },
-        //   })
-        // }
 
         // STICKY ELEMENT HIDE SHOW
         // const stickyOtherWorks = document.querySelector("[data-sticky-other-works]")
@@ -363,8 +210,77 @@ const WithSmooth = ({ children, location }: Props) => {
       })
     }
 
+    const initSmoothScrollbar = () => {
+      class ModalPlugin extends ScrollbarPlugin {
+        static pluginName = "modal"
+
+        static defaultOptions = {
+          open: false,
+        }
+
+        transformDelta(delta: any) {
+          return this.options.open ? { x: 0, y: 0 } : delta
+        }
+      }
+
+      Scrollbar.use(ModalPlugin)
+
+      if (scrollerRef.current) {
+        smooth.current = Scrollbar.init(scrollerRef.current, {
+          damping: 0.075,
+          delegateTo: document,
+          alwaysShowTracks: false,
+          renderByPixels: false,
+        })
+        console.log("Smooth Initialized")
+      }
+
+      ctx = gsap.context(() => {
+        // disable bounce
+        gsap.set("body", {
+          height: "100vh",
+          width: "100vw",
+          overflow: "hidden",
+        })
+
+        gsap.set(scrollerRef.current, {
+          height: "100vh",
+          width: "100vw",
+          overflow: "hidden",
+        })
+      })
+
+      ScrollTrigger.scrollerProxy(scrollerRef.current, {
+        scrollTop(value: any) {
+          if (smooth.current) {
+            if (arguments.length) {
+              smooth.current.scrollTop = value
+            }
+            return smooth.current.scrollTop
+          }
+        },
+      })
+
+      initAnimations()
+
+      smooth.current?.addListener(ScrollTrigger.update)
+      ScrollTrigger.defaults({ scroller: scrollerRef.current })
+
+      // Only necessary to correct marker position - not needed in production
+      if (document.querySelector(".gsap-marker-scroller-start")) {
+        const markers = gsap.utils.toArray('[class *= "gsap-marker"]')
+
+        smooth.current?.addListener(({ offset }: any) => {
+          gsap.set(markers, { marginTop: -offset.y })
+        })
+      }
+    }
+
     if (windowSize.width > breakpoints.tablet) {
       initSmoothScrollbar()
+      console.log("DESKTOP", windowSize.width)
+    } else {
+      initAnimations()
     }
 
     return () => {

@@ -6,6 +6,8 @@ import { Link } from "react-router-dom"
 import doodleLaying from "~/assets/img/doodle-laying.png"
 import sample from "~/assets/img/sample.png"
 
+import mask from "~/assets/img/Mask.svg"
+
 import FloatingCard from "~/components/FloatingCard"
 import FooterBasic from "~/components/FooterBasic"
 import IconArrowSquare from "~/components/Icons/IconArrowSquare"
@@ -13,8 +15,13 @@ import List from "~/components/List"
 import MarqueeSimple from "~/components/MarqueeSimple"
 import Img from "~/components/Img"
 import ButtonGlitch from "~/components/ButtonGlitch"
+import { useWindowSize } from "~/hooks"
+import { breakpoints } from "~/variables"
+import WhyLycheeMobile from "~/components/WhyLycheeMobile"
 
 const Services = () => {
+  const size = useWindowSize()
+
   const theWay = [
     {
       title: "Mükemmel yönetim için adım adım ilerliyoruz.",
@@ -131,24 +138,32 @@ const Services = () => {
           />
         </section>
 
-        <section className={s.sideServices}>
-          <div className={s.sideServicesTitleC}>
-            <h2 className={s.title}>YAN HİZMETLERİMİZ</h2>
-            <p className={s.text}>
-              Tüm işlerin <span className={s.italic}>tek çatı altında</span> gerçekleşebilmesi için en iyi ekiplerle
-              çalışıyoruz.
-            </p>
-          </div>
-          <div className={s.cards}>
-            {cards.map((card, i) => {
-              return (
-                <div className={s.cardC} key={i}>
-                  <FloatingCard {...card} />
-                </div>
-              )
-            })}
-          </div>
-        </section>
+        {size.width > breakpoints.mobile ? (
+          <section className={s.sideServices}>
+            <div className={s.sideServicesTitleC}>
+              <h2 className={s.title}>YAN HİZMETLERİMİZ</h2>
+              <p className={s.text}>
+                Tüm işlerin <span className={s.italic}>tek çatı altında</span> gerçekleşebilmesi için en iyi ekiplerle
+                çalışıyoruz.
+              </p>
+            </div>
+            <div className={s.cards}>
+              {cards.map((card, i) => {
+                return (
+                  <div className={s.cardC} key={i}>
+                    <FloatingCard {...card} />
+                  </div>
+                )
+              })}
+            </div>
+          </section>
+        ) : (
+          <>
+            <section className={s.whyMobile}>
+              <WhyLycheeMobile items={cards} />
+            </section>
+          </>
+        )}
 
         <section className={s.singleTitleC}>
           <h1 className={s.title}>

@@ -1,29 +1,37 @@
 @import "../_global.scss";
 
+.stickyText {
+  color: $eigengrau;
+  display: inline-block;
+  font-family: Lychee;
+  font-size: 5vw;
+  line-height: 110%;
+
+  @include devicesMax(tablet) {
+    font-size: 7vw;
+    margin-bottom: 2vw;
+    width: 60vw;
+  }
+
+  @include devicesMax(mobile) {
+    font-size: 12vw;
+    margin-bottom: 10vw;
+    margin-top: 5vw;
+    text-align: center;
+    width: 100%;
+  }
+
+  .italic {
+    color: $californiaSunset;
+    font-family: LaicaBItalic;
+  }
+}
+
 .services {
   padding-top: 5vw;
 
   @include devicesMax(tablet) {
     padding-top: 10vw;
-  }
-
-  .stickyText {
-    color: $eigengrau;
-    display: inline-block;
-    font-family: Lychee;
-    font-size: 5vw;
-    line-height: 110%;
-
-    @include devicesMax(tablet) {
-      font-size: 6vw;
-      margin-bottom: 5vw;
-      width: 50vw;
-    }
-
-    .italic {
-      color: $californiaSunset;
-      font-family: LaicaBItalic;
-    }
   }
 
   .titleC {
@@ -36,8 +44,8 @@
     justify-content: center;
 
     @include devicesMax(tablet) {
-      flex-direction: column;
       @include dims(100%, auto);
+      flex-direction: column;
     }
 
     .title {
@@ -54,6 +62,13 @@
         margin-bottom: 5vw;
         margin-top: 20vw;
         width: 90%;
+      }
+
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 30px, null, 1.2, null);
+        margin-bottom: 10vw;
+        margin-top: 50vw;
+        width: 95%;
       }
 
       .line {
@@ -87,6 +102,10 @@
         @include devicesMax(tablet) {
           @include typo(Lychee, 44px, null, 1.2, null);
         }
+
+        @include devicesMax(mobile) {
+          @include typo(Lychee, 24px, null, 1.2, null);
+        }
       }
     }
 
@@ -105,6 +124,12 @@
         @include dims(70vw, auto);
         text-align: center;
       }
+
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 18px, null, 1.4, null);
+        @include dims(70vw, auto);
+        text-align: center;
+      }
     }
 
     .bgImgC {
@@ -116,13 +141,23 @@
 
       @include devicesMax(tablet) {
         transform: translate(-50%, -80%) rotate(-10deg);
+      }
 
-        &::before {
-          content: "";
-          @include position(absolute, auto, -20px, 0px, -20px);
-          @include dims(auto, 80%);
-          background: linear-gradient(0deg, $eigengrau 0%, #16161ee6 30%, rgb(255, 255, 255, 0) 100%);
-          z-index: 10;
+      @include devicesMax(mobile) {
+        @include dims(35vw, 60vw);
+        border-radius: 16px;
+      }
+
+      &::before {
+        content: "";
+        @include position(absolute, auto, -20px, 0px, -20px);
+        @include dims(auto, 80%);
+        background: linear-gradient(0deg, $eigengrau 0%, #16161ee6 30%, rgb(255, 255, 255, 0) 100%);
+        z-index: 10;
+        display: none;
+
+        @include devicesMax(tablet) {
+          display: block;
         }
       }
     }
@@ -145,14 +180,24 @@
     display: flex;
     justify-content: space-between;
 
+    @include devicesMax(mobile) {
+      margin-bottom: 40vw;
+    }
+
     .imgC {
       overflow: hidden;
 
       &:nth-child(1) {
         @include dims(10vw, 18vw);
         border-radius: 32px;
-        filter: blur(16px);
+        filter: blur(8px);
         transform: translate(0, -80%) rotate(-23deg);
+
+        @include devicesMax(mobile) {
+          @include dims(20vw, 35vw);
+          border-radius: 16px;
+          z-index: -1;
+        }
 
         &::after {
           content: "";
@@ -169,13 +214,28 @@
         @include dims(30vw);
         mix-blend-mode: difference;
         z-index: 10;
+
+        @include devicesMax(tablet) {
+          @include position(absolute, -30%, auto, auto, 30%);
+          @include dims(40vw);
+        }
+
+        @include devicesMax(mobile) {
+          @include position(absolute, 0%, auto, auto, 10%);
+          @include dims(75vw);
+        }
       }
 
       &:nth-child(3) {
         @include dims(15vw, 25vw);
         border-radius: 32px;
-        filter: blur(16px);
+        filter: blur(6px);
         transform: rotate(21deg);
+
+        @include devicesMax(mobile) {
+          @include dims(30vw, 55vw);
+          border-radius: 16px;
+        }
 
         &::after {
           content: "";
@@ -191,6 +251,10 @@
 
   .theWay {
     padding: 0 4vw;
+
+    @include devicesMax(mobile) {
+      padding: 0;
+    }
   }
 
   .sideServices {
@@ -208,6 +272,12 @@
         margin: 12.5vw auto 2vw 40vw;
       }
 
+      @include devicesMax(mobile) {
+        @include dims(90vw, auto);
+        align-items: center;
+        margin: 30vw auto 10vw auto;
+      }
+
       .title {
         color: #ce1953;
         font-family: LS-VG5000;
@@ -217,6 +287,12 @@
 
         @include devicesMax(tablet) {
           font-size: 2vw;
+        }
+
+        @include devicesMax(mobile) {
+          font-size: 4vw;
+          margin-bottom: 4vw;
+          text-align: center;
         }
       }
 
@@ -228,6 +304,11 @@
 
         @include devicesMax(tablet) {
           font-size: 4vw;
+        }
+
+        @include devicesMax(mobile) {
+          font-size: 7vw;
+          text-align: center;
         }
 
         .italic {
@@ -246,21 +327,43 @@
       gap: 5vw;
 
       .cardC {
+        &:nth-child(1) {
+          @include devicesMax(tablet) {
+            transform: translate(10%, 20%);
+          }
+        }
+
         &:nth-child(2) {
           transform: translate(-50%, 70%);
           z-index: 20;
+
+          @include devicesMax(tablet) {
+            transform: translate(-20%, 40%);
+          }
         }
 
         &:nth-child(3) {
           transform: translate(-25%, 25%);
+
+          @include devicesMax(tablet) {
+            transform: translate(20%, 30%);
+          }
         }
 
         &:nth-child(4) {
           transform: translate(25%, 25%);
+
+          @include devicesMax(tablet) {
+            transform: translate(-5%, 0%);
+          }
         }
 
         &:nth-child(5) {
           transform: translate(-55%, 60%);
+
+          @include devicesMax(tablet) {
+            transform: translate(85%, 30%);
+          }
         }
       }
     }
@@ -276,6 +379,11 @@
       margin: 0 auto;
       text-align: center;
 
+      @include devicesMax(tablet) {
+        @include typo(Lychee, 34px, null, 1, null);
+        @include dims(90vw, auto);
+      }
+
       .italic {
         color: #ce1953;
         font-family: LaicaBItalic;
@@ -285,10 +393,27 @@
 
   .pros {
     padding: 0 4vw;
+
+    @include devicesMax(mobile) {
+      padding: 0;
+    }
   }
 
   .dare {
     padding: 10vw 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include devicesMax(tablet) {
+      @include dims(auto);
+      margin: 10vw 0;
+    }
+
+    @include devicesMax(mobile) {
+      margin: 20vw 0;
+    }
 
     .marqueeC {
       margin: 0 auto 5vw auto;
@@ -298,6 +423,10 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
+
+      @include devicesMax(mobile) {
+        margin: 0 auto 15vw auto;
+      }
 
       .mText {
         flex-shrink: 0;
@@ -310,7 +439,7 @@
         align-items: center;
 
         .seperator {
-          @include dims(200px, 10px);
+          @include dims(2.75ch, 0.2ch);
           background: #c1c1c1;
           display: inline-block;
           margin: 2vw 3vw 0 3vw;
@@ -326,80 +455,31 @@
       line-height: 120%;
       margin: 0 auto 3vw auto;
       text-align: center;
+
+      @include devicesMax(tablet) {
+        @include dims(70vw, auto);
+        font-size: 3.5vw;
+        margin: 0 auto 5vw auto;
+      }
+
+      @include devicesMax(mobile) {
+        @include dims(90vw, auto);
+        font-size: 6vw;
+        margin: 0 auto 10vw auto;
+      }
     }
 
     .contactBtn {
       @include dims(20vw, 4vw);
-      color: #c1c1c1;
-      font-family: LS-VG5000;
-      font-size: 1.75vw;
       margin: 0 auto;
-      position: relative;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
 
       @include devicesMax(tablet) {
-        @include dims(44vw, 8vw);
-        font-size: 3.25vw;
+        @include dims(34vw, 6vw);
+        margin: 0 auto;
       }
 
       @include devicesMax(mobile) {
-        @include dims(50vw, 10vw);
-        font-size: 5vw;
-      }
-
-      &::after {
-        content: "";
-        @include position(absolute, 100%, auto, auto, 0);
-        @include dims(50%, 2px);
-        background: #ce1953;
-      }
-
-      &::before {
-        content: "";
-        @include position(absolute, 105%, 0, auto, auto);
-        @include dims(50%, 2px);
-        background: #ce1953;
-        transition: 0.2s all ease;
-      }
-
-      @include devicesMin(aboveTablet) {
-        &:hover {
-          &::before {
-            @include position(absolute, 100%, 0, auto, auto);
-          }
-
-          .iconC {
-            .oWrapper {
-              transform: translate(100%, -100%);
-            }
-          }
-        }
-      }
-
-      .iconC {
-        @include dims(20px);
-        overflow: hidden;
-        position: relative;
-
-        @include devicesMax(mobile) {
-          @include dims(0.75rem, auto);
-        }
-
-        .oWrapper {
-          position: relative;
-          display: flex;
-          transition: 0.2s all ease;
-        }
-
-        .tuple {
-          @include position(absolute, 100%, 100%, auto, auto);
-          @include dims(20px);
-
-          display: flex;
-        }
+        @include dims(60vw, 10vw);
       }
     }
   }

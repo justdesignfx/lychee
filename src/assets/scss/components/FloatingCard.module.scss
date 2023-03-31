@@ -8,7 +8,7 @@
   padding: 1.5rem;
 
   @include devicesMax(tablet) {
-    @include dims(35vw, auto);
+    @include dims(37vw, auto);
     min-height: 25vw;
   }
 
@@ -45,6 +45,14 @@
     font-size: 1.25vw;
     line-height: 160%;
     margin-bottom: 3vw;
+
+    @include devicesMax(tablet) {
+      font-size: 1.75vw;
+    }
+
+    @include devicesMax(mobile) {
+      font-size: 4.5vw;
+    }
   }
 
   &.blue {
