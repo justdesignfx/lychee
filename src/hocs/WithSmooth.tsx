@@ -1,20 +1,29 @@
-import React, { ReactElement, useCallback, useEffect, useLayoutEffect, useRef } from "react"
-import Scrollbar, { ScrollbarPlugin } from "smooth-scrollbar"
+import React, { ReactElement, useCallback, useEffect, useRef } from "react"
+
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
+
 import { useResizeDetector } from "react-resize-detector"
+import Scrollbar, { ScrollbarPlugin } from "smooth-scrollbar"
 
-import { floatingItems, parallaxItems, slidingPanels, stickyTitle, textReveal, framedParallax } from "~/animations"
+import {
+  floatingItems,
+  framedParallax,
+  parallaxItems,
+  slidingPanels,
+  stickyTitle,
+  textReveal,
+  hideOnScroll,
+  marquee,
+} from "~/animations"
 
-import { breakpoints } from "~/variables"
 import { useWindowSize } from "~/hooks"
+import { breakpoints } from "~/variables"
 
+import Header from "~/components/Header"
 import MagnetCursor from "~/components/MagnetCursor"
 import Menu from "~/components/Menu"
 import Modal from "~/components/Modal"
-import Header from "~/components/Header"
-import { hideOnScroll } from "~/animations/hideOnScroll"
-import { marquee } from "~/animations/marquee"
 
 export const SmoothContext = React.createContext<any>(null)
 
@@ -29,12 +38,13 @@ const WithSmooth = ({ children, location }: Props) => {
   const scrollerRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const smooth = useRef<Scrollbar | null>(null)
-  const q = gsap.utils.selector(scrollerRef)
 
   const size = useWindowSize()
 
   const clearScrollTriggers = () => {
     ScrollTrigger.getAll().forEach((instance) => {
+      console.log(instance)
+
       instance.kill()
     })
 
@@ -78,19 +88,20 @@ const WithSmooth = ({ children, location }: Props) => {
 
     if (smooth.current) {
       smooth.current.destroy()
-      console.log("Smooth Destroyed")
+      console.log("%c Smooth Destroyed", "background: #222; color: blue")
     }
 
     const initAnimations = () => {
       animationsContext = gsap.context(() => {
         size.width > breakpoints.tablet && textReveal()
-        marquee()
         size.width > breakpoints.tablet && stickyTitle()
-        parallaxItems()
         size.width > breakpoints.tablet && floatingItems()
         size.width > breakpoints.tablet && framedParallax()
-        hideOnScroll()
         size.width > breakpoints.tablet && slidingPanels()
+
+        hideOnScroll()
+        parallaxItems()
+        marquee()
       })
     }
 
@@ -107,7 +118,26 @@ const WithSmooth = ({ children, location }: Props) => {
         }
       }
 
+      class MobilePlugin extends ScrollbarPlugin {
+        static pluginName = "mobile"
+        static defaultOptions = {
+          speed: 0.5,
+        }
+
+        transformDelta(delta: any, fromEvent: any) {
+          if (fromEvent.type !== "touchend") {
+            return delta
+          }
+
+          return {
+            x: delta.x * this.options.speed,
+            y: delta.y * this.options.speed,
+          }
+        }
+      }
+
       Scrollbar.use(ModalPlugin)
+      Scrollbar.use(MobilePlugin)
 
       if (scrollerRef.current) {
         smooth.current = Scrollbar.init(scrollerRef.current, {
@@ -116,7 +146,7 @@ const WithSmooth = ({ children, location }: Props) => {
           alwaysShowTracks: false,
           renderByPixels: false,
         })
-        console.log("Smooth Initialized")
+        console.log("%c Smooth Initialized", "background: #222; color: #bada55")
       }
 
       ctx = gsap.context(() => {
@@ -160,12 +190,13 @@ const WithSmooth = ({ children, location }: Props) => {
       }
     }
 
-    if (size.width > breakpoints.tablet) {
-      initSmoothScrollbar()
-      console.log("DESKTOP", size.width)
-    } else {
-      initAnimations()
-    }
+    // if (size.width > breakpoints.tablet) {
+    //   initSmoothScrollbar()
+    //   console.log("DESKTOP", size.width)
+    // } else {
+    //   initAnimations()
+    // }
+    initSmoothScrollbar()
 
     return () => {
       clearScrollTriggers()

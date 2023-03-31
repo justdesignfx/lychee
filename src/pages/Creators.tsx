@@ -278,9 +278,9 @@ const Creators = () => {
               Neden <span className={s.italic}>Lychee</span> ile çalışmalısınız.
             </h2>
             <div className={s.horizontalScrollContent} data-floating-items>
-              {cards.map((card) => {
+              {cards.map((card, i) => {
                 return (
-                  <div data-floating-item>
+                  <div data-floating-item key={i}>
                     <FloatingCard {...card} />
                   </div>
                 )

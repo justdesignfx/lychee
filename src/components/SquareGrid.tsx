@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import s from "~/assets/scss/components/SquareGrid.module.scss"
 
 import { AnimatePresence, motion, Variants } from "framer-motion"
@@ -8,7 +8,6 @@ import IconInstagram from "~/components/Icons/IconInstagram"
 import { useWindowSize } from "~/hooks"
 import { breakpoints } from "~/variables"
 import IconTiktok from "./Icons/IconTiktok"
-import Img from "./Img"
 
 const itemVariants: Variants = {
   open: {
@@ -40,7 +39,7 @@ const SquareGrid = (props: Props) => {
     <div className={s.grid}>
       {props.items.map((item, i) => {
         return (
-          <>
+          <React.Fragment key={i}>
             {size.width > breakpoints.mobile ? (
               <>
                 <div className={s.gridItemC} key={i}>
@@ -88,7 +87,7 @@ const SquareGrid = (props: Props) => {
                 </AnimatePresence>
               </>
             )}
-          </>
+          </React.Fragment>
         )
       })}
       {size.width <= breakpoints.mobile && (

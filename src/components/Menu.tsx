@@ -15,23 +15,30 @@ const Menu = () => {
     { ui: "Creators", path: "/creators" },
     { ui: "Brands", path: "/brands" },
     { ui: "Services", path: "/services" },
-    { ui: "Clients", path: "/clients" },
+    { ui: "Partners", path: "/partners" },
     { ui: "About Us", path: "/about" },
     { ui: "Contact", path: "/contact" },
   ]
 
   function handleMenu() {
     setOpen((prev) => !prev)
+
+    if (open) {
+      smoothContext.unlockScrollbar()
+    } else {
+      smoothContext.lockScrollbar()
+    }
   }
 
-  useEffect(() => {
-    // TODO: lock below desktop
-    if (open) {
-      smoothContext.lockScrollbar()
-    } else {
-      smoothContext.unlockScrollbar()
-    }
-  }, [open])
+  // useEffect(() => {
+  //   // TODO: lock below desktop
+  //   if (open) {
+  //     smoothContext.lockScrollbar()
+  //   } else {
+  //     smoothContext.unlockScrollbar()
+  //     console.log("in")
+  //   }
+  // }, [open])
 
   return (
     <div className={cx(s.menuC, { [s.open]: open })} data-hide-on-scroll>

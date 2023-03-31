@@ -101,27 +101,25 @@ const ProjectsSlider = (props: Props) => {
         {Array.isArray(props.items) &&
           props.items.map((item, i) => {
             return (
-              <React.Fragment key={i}>
-                <SwiperSlide>
-                  <div className={s.slide}>
-                    <div className={s.account}>
-                      <div className={s.imgC}>
-                        <Img src={lycheeSocial} />
-                      </div>
-                      <small className={s.small}>{item.name}</small>
+              <SwiperSlide key={i}>
+                <div className={s.slide}>
+                  <div className={s.account}>
+                    <div className={s.imgC}>
+                      <Img src={lycheeSocial} />
                     </div>
-                    <div className={s.mediaC}>
-                      {item.mediaType === "image" ? (
-                        <div className={s.imgC}>
-                          <Img src={sample} />
-                        </div>
-                      ) : (
-                        <VideoSlide {...item} />
-                      )}
-                    </div>
+                    <small className={s.small}>{item.name}</small>
                   </div>
-                </SwiperSlide>
-              </React.Fragment>
+                  <div className={s.mediaC}>
+                    {item.mediaType === "image" ? (
+                      <div className={s.imgC}>
+                        <Img src={sample} />
+                      </div>
+                    ) : (
+                      <VideoSlide {...item} />
+                    )}
+                  </div>
+                </div>
+              </SwiperSlide>
             )
           })}
       </Swiper>
