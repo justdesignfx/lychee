@@ -1,15 +1,15 @@
-import { qSingle } from "./../utils/index"
+import { qAll, qSingle } from "./../utils/index"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-export function textReveal(selector: any) {
+export function textReveal() {
   const container = qSingle("[data-h-scroll]")
 
   if (!container) return
 
   const scrollLength = 5000
 
-  gsap.to(selector("[data-h-scroll-section]"), {
+  gsap.to(qAll("[data-h-scroll-section]"), {
     x: window.innerWidth,
     xPercent: -100,
     ease: "none", // <-- IMPORTANT!
@@ -25,7 +25,7 @@ export function textReveal(selector: any) {
     },
   })
 
-  const letters = selector("[data-letter]")
+  const letters = qAll("[data-letter]")
 
   letters.forEach((letter: any, i: number) => {
     gsap.set(letter, {

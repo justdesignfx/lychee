@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-
 import s from "~/assets/scss/components/WhyLycheeMobile.module.scss"
 
 import cx from "classnames"
@@ -47,14 +46,13 @@ const WhyLycheeMobile = (props: Props) => {
         {Array.isArray(props.items) &&
           props.items.map((item, i) => {
             return (
-              <React.Fragment key={i}>
-                <SwiperSlide>
-                  <FloatingCard {...item} />
-                </SwiperSlide>
-              </React.Fragment>
+              <SwiperSlide key={i}>
+                <FloatingCard {...item} />
+              </SwiperSlide>
             )
           })}
       </Swiper>
+
       {/* 
       <button className={cx(s.btnWrapper, s.btnPrev, { [s.disabled]: currentSlide === 0 })} ref={prevElRef}>
         <div className={s.btnInner}>
@@ -77,7 +75,7 @@ const WhyLycheeMobile = (props: Props) => {
 
       <div className={s.navigation}>
         {props.items.map((item, i) => {
-          return <div className={cx(s.navItem, { [s.active]: currentSlide === i })}></div>
+          return <div className={cx(s.navItem, { [s.active]: currentSlide === i })} key={i}></div>
         })}
       </div>
     </div>

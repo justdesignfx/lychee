@@ -1,9 +1,12 @@
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { qAll } from "~/utils"
 
-export function slidingPanels(selector: any) {
-  const container = selector("[data-sliding-panels]")[0]
-  const panels = selector("[data-sliding-panel]")
+export function slidingPanels() {
+  const container = qAll("[data-sliding-panels]")
+  const panels = qAll("[data-sliding-panel]")
+
+  if (container.length <= 0) return
 
   let pinHeight = 0
 
