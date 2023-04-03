@@ -253,7 +253,7 @@
         align-items: center;
 
         .seperator {
-          @include dims(200px, 10px);
+          @include dims(2.75ch, 0.2ch);
           background: #c1c1c1;
           display: inline-block;
           margin: 2vw 3vw 0 3vw;

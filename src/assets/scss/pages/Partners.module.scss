@@ -32,6 +32,7 @@
 
       @include devicesMax(mobile) {
         @include typo(Lychee, 40px, null, 1.2, null);
+        margin-bottom: 10vw;
       }
     }
 
@@ -105,6 +106,10 @@
       justify-content: center;
       flex-direction: column;
 
+      @include devicesMax(mobile) {
+        margin: 0 auto 10vw auto;
+      }
+
       .mText {
         flex-shrink: 0;
         font-family: Lychee;
@@ -116,7 +121,7 @@
         align-items: center;
 
         .seperator {
-          @include dims(200px, 10px);
+          @include dims(2.75ch, 0.2ch);
           background: #c1c1c1;
           display: inline-block;
           margin: 2vw 3vw 0 3vw;
@@ -132,6 +137,18 @@
       line-height: 120%;
       margin: 0 auto 3vw auto;
       text-align: center;
+
+      @include devicesMax(tablet) {
+        @include dims(80vw, auto);
+        font-size: 3.5vw;
+      }
+
+      @include devicesMax(mobile) {
+        @include dims(90vw, auto);
+        font-size: 4.5vw;
+        line-height: 140%;
+        margin: 0 auto 10vw auto;
+      }
     }
 
     .contactBtn {
@@ -147,13 +164,14 @@
       justify-content: space-between;
 
       @include devicesMax(tablet) {
-        @include dims(44vw, 8vw);
+        @include dims(32vw, 6vw);
         font-size: 3.25vw;
       }
 
       @include devicesMax(mobile) {
-        @include dims(50vw, 10vw);
+        @include dims(60vw, 10vw);
         font-size: 5vw;
+        margin-bottom: 10vw;
       }
 
       &::after {
