@@ -1,6 +1,7 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
 import s from "~/assets/scss/pages/ContactBrand.module.scss"
+
+import { Link } from "react-router-dom"
 
 import BrandForm from "~/components/BrandForm"
 
@@ -18,6 +19,7 @@ const ContactBrand = () => {
       <div className={s.buttons}>
         <button className={s.button}>Şimdi başlayın</button>
       </div> */}
+
       <BrandForm />
       <small className={s.linkC}>
         İçerik üreticisi misiniz?{" "}

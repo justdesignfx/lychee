@@ -292,6 +292,10 @@
           @include dims(100%, 30vw);
         }
       }
+
+      &.required {
+        border: 1px solid #ce1953;
+      }
     }
 
     .confirmation {

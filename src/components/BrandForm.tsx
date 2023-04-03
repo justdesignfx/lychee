@@ -1,15 +1,21 @@
-import { FormEvent, useRef, useState } from "react"
+import { FormEvent, useEffect, useRef, useState } from "react"
 import s from "~/assets/scss/components/BrandForm.module.scss"
 
+import axios from "axios"
 import cx from "classnames"
+import { useFormik } from "formik"
 import gsap from "gsap"
+
 import Dropdown from "./Dropdown"
 import PrivacyPolicyText from "./PrivacyPolicyText"
-import { Formik, useFormik } from "formik"
-import { Form } from "react-router-dom"
-import * as yup from "yup"
-import axios from "axios"
+
+import brandFormModel from "~/validations/BrandForm/brandFormModel"
+import initialValues from "~/validations/BrandForm/initialValues"
+
+const { formId, formField } = brandFormModel
+
 import api from "~/api"
+import brandFormSchema from "~/validations/BrandForm/brandFormSchema"
 
 // interface Values {
 //   name: string
@@ -22,16 +28,16 @@ import api from "~/api"
 //   range: string
 // }
 
-const BrandFormSchema = yup.object().shape({
-  name: yup.string().required("REQUIRED"),
-  email: yup.string().email("INVALID_EMAIL").required("REQUIRED"),
-  company: yup.string().required("REQUIRED"),
-  websiteUrl: yup.string().required("REQUIRED"),
-  role: yup.string().required("REQUIRED"),
-  message: yup.string().required("REQUIRED"),
-  socialPlatforms: yup.array().of(yup.string()).required("REQUIRED"),
-  privacyConfirmation: yup.boolean().required("REQUIRED"),
-})
+// const BrandFormSchema = yup.object().shape({
+//   name: yup.string().required("REQUIRED"),
+//   email: yup.string().email("INVALID_EMAIL").required("REQUIRED"),
+//   company: yup.string().required("REQUIRED"),
+//   websiteUrl: yup.string().required("REQUIRED"),
+//   role: yup.string().required("REQUIRED"),
+//   message: yup.string().required("REQUIRED"),
+//   socialPlatforms: yup.array().of(yup.string()).required("REQUIRED"),
+//   privacyConfirmation: yup.boolean().required("REQUIRED"),
+// })
 
 const BrandForm = () => {
   const formRef = useRef<HTMLFormElement>(null)
@@ -39,6 +45,87 @@ const BrandForm = () => {
   const brandFormRef = useRef<HTMLDivElement>(null)
 
   const [started, setStarted] = useState(false)
+
+  function handleFocus(e: FormEvent | any) {
+    e.preventDefault()
+
+    if (e.type === "focus" && e) {
+      e.target.labels[0].style.opacity = "0"
+    } else if (e.type === "blur" && e) {
+      e.target.labels[0].style.opacity = "1"
+    }
+  }
+
+  function handleConfirmation() {
+    formik.setFieldValue("privacyConfirmation", !formik.values.privacyConfirmation, true)
+  }
+
+  function handleSocial(type: string) {
+    // setSocialPlatforms((prev) => [...prev, type])
+    formik.setFieldValue("socialPlatforms", [...formik.values.socialPlatforms, type], true)
+  }
+
+  function handleNavigation(direction: "NEXT" | "PREV") {
+    // if (currentStep === 0) {
+    //   if (formik.values.name === "" || formik.values.email === "") {
+    //     alert("first")
+    //     return
+    //   }
+    // }
+
+    gsap.to(formRef.current, {
+      autoAlpha: 0,
+      duration: 0.2,
+      onComplete: () => {
+        switch (direction) {
+          case "NEXT":
+            formik.validateField("name").then((result) => {
+              console.log(result)
+            })
+
+            formik.validateField("name")
+            formik.validateField("email")
+            // if (currentStep < steps.length) {
+            //   setCurrentStep((prev) => prev + 1)
+            // }
+
+            break
+          case "PREV":
+            if (currentStep > 0) {
+              setCurrentStep((prev) => prev - 1)
+            }
+            break
+          default:
+            break
+        }
+
+        gsap.to(formRef.current, {
+          autoAlpha: 1,
+          duration: 0.6,
+          delay: 0.4,
+        })
+      },
+    })
+  }
+
+  function handleRange() {
+    console.log("lol")
+  }
+
+  function handleFormStart() {
+    gsap.to(brandFormRef.current, {
+      autoAlpha: 0,
+      duration: 0.4,
+      onComplete: () => {
+        setStarted((prev) => !prev)
+        gsap.to(brandFormRef.current, {
+          autoAlpha: 1,
+          duration: 0.4,
+          delay: 0.8,
+        })
+      },
+    })
+  }
 
   const submitForm = async (values: any) => {
     try {
@@ -65,27 +152,13 @@ const BrandForm = () => {
     }
   }
 
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      email: "",
-      company: "",
-      websiteUrl: "",
-      role: "",
-      message: "",
-      socialPlatforms: [""],
-      range: "",
-      privacyConfirmation: false,
-    },
-    validationSchema: BrandFormSchema,
-    onSubmit: (values) => {
-      console.log(values)
-      submitForm(values).then((res: { mesage: string; success: boolean }) => {
-        if (res.success) {
-        }
-      })
-    },
-  })
+  function handleSubmit(values: any) {
+    if (currentStep === steps.length - 1) {
+      submitForm(values)
+    } else {
+      setCurrentStep((prev) => prev + 1)
+    }
+  }
 
   function handleValidation(field: string) {
     // @ts-ignore
@@ -107,49 +180,62 @@ const BrandForm = () => {
     { ui: "Diğer", type: "OTHER" },
   ]
 
+  const formik = useFormik({
+    initialValues,
+    validationSchema: brandFormSchema[currentStep],
+    onSubmit: (values) => {
+      console.log(values)
+      handleSubmit(values)
+      // submitForm(values).then((res: { mesage: string; success: boolean }) => {
+      //   if (res.success) {
+      //   }
+      // })
+    },
+  })
+
   const steps = [
     {
       question: "Öncelikle sizi tanımak istiyoruz. Aşağıdaki bilgileri doldurabilir misiniz?",
       ui: (
         <>
-          <div className={cx(s.inputC, { [s.required]: formik.errors.name === "REQUIRED" && formik.touched.name })}>
+          <div className={cx(s.inputC, { [s.required]: formik.errors.name && formik.touched.name })}>
             <label
               className={cx(s.label, {
                 [s.hidden]: formik.values.name,
               })}
-              htmlFor="name"
+              htmlFor={formField.name.name}
             >
               Ad Soyad
             </label>
             <input
               className={s.input}
-              id="name"
+              name={formField.name.name}
+              id={formField.name.name}
               type="text"
               onFocus={handleFocus}
               onBlur={handleFocus}
               onChange={formik.handleChange}
               value={formik.values.name}
-              required
             />
           </div>
-          <div className={cx(s.inputC, { [s.required]: formik.errors.email === "REQUIRED" && formik.touched.email })}>
+          <div className={cx(s.inputC, { [s.required]: formik.errors.email && formik.touched.email })}>
             <label
               className={cx(s.label, {
                 [s.hidden]: formik.values.email,
               })}
-              htmlFor="email"
+              htmlFor={formField.email.name}
             >
               Eposta Adresi
             </label>
             <input
               className={s.input}
-              id="email"
+              name={formField.email.name}
+              id={formField.email.name}
               type="text"
               onFocus={handleFocus}
               onBlur={handleFocus}
               onChange={formik.handleChange}
               value={formik.values.email}
-              required
             />
           </div>
         </>
@@ -159,70 +245,68 @@ const BrandForm = () => {
       question: "Şirketiniz / markanız hakkında bilgi verebilir misiniz?",
       ui: (
         <>
-          <div
-            className={cx(s.inputC, { [s.required]: formik.errors.company === "REQUIRED" && formik.touched.company })}
-          >
+          <div className={cx(s.inputC, { [s.required]: formik.errors.company && formik.touched.company })}>
             <label
               className={cx(s.label, {
                 [s.hidden]: formik.values.company,
               })}
-              htmlFor="company"
+              htmlFor={formField.company.name}
             >
-              Şirket
+              {formField.company.label}
             </label>
             <input
               className={s.input}
-              id="company"
+              name={formField.company.name}
+              id={formField.company.name}
               type="text"
               onFocus={handleFocus}
               onBlur={handleFocus}
               onChange={formik.handleChange}
               value={formik.values.company}
-              required
             />
           </div>
           <div
             className={cx(s.inputC, {
-              [s.required]: formik.errors.websiteUrl === "REQUIRED" && formik.touched.websiteUrl,
+              [s.required]: formik.errors.websiteUrl && formik.touched.websiteUrl,
             })}
           >
             <label
               className={cx(s.label, {
                 [s.hidden]: formik.values.websiteUrl,
               })}
-              htmlFor="websiteUrl"
+              htmlFor={formField.websiteUrl.name}
             >
-              Website Linki
+              {formField.websiteUrl.label}
             </label>
             <input
               className={s.input}
-              id="websiteUrl"
+              id={formField.websiteUrl.name}
+              name={formField.websiteUrl.name}
               type="text"
               onFocus={handleFocus}
               onBlur={handleFocus}
               onChange={formik.handleChange}
               value={formik.values.websiteUrl}
-              required
             />
           </div>
-          <div className={cx(s.inputC, { [s.required]: formik.errors.role === "REQUIRED" && formik.touched.role })}>
+          <div className={cx(s.inputC, { [s.required]: formik.errors.role && formik.touched.role })}>
             <label
               className={cx(s.label, {
                 [s.hidden]: formik.values.role,
               })}
-              htmlFor="role"
+              htmlFor={formField.role.name}
             >
-              Pozisyon
+              {formField.role.label}
             </label>
             <input
               className={s.input}
-              id="role"
+              id={formField.role.name}
+              name={formField.role.name}
               type="text"
               onFocus={handleFocus}
               onBlur={handleFocus}
               onChange={formik.handleChange}
               value={formik.values.role}
-              required
             />
           </div>
         </>
@@ -234,18 +318,18 @@ const BrandForm = () => {
         <>
           <div
             className={cx(s.textareaC, {
-              [s.required]: formik.errors.message === "REQUIRED" && formik.touched.message,
+              [s.required]: formik.errors.message,
             })}
           >
-            <label className={s.label} htmlFor="message">
+            <label className={s.label} htmlFor={formField.message.name}>
               Message
             </label>
             <textarea
               className={s.textarea}
-              id="message"
+              id={formField.message.name}
+              name={formField.message.name}
               onChange={formik.handleChange}
               value={formik.values.message}
-              required
             />
           </div>
         </>
@@ -263,7 +347,7 @@ const BrandForm = () => {
               {social.map((platform, i) => {
                 return (
                   <div
-                    className={cx(s.radio, { [s.active]: formik.values.socialPlatforms.includes(platform.type) })}
+                    className={cx(s.radio, { [s.active]: formik.values.socialPlatforms })}
                     onClick={() => handleSocial(platform.type)}
                     key={i}
                   >
@@ -309,81 +393,6 @@ const BrandForm = () => {
     },
   ]
 
-  function handleFocus(e: FormEvent | any) {
-    e.preventDefault()
-
-    if (e.type === "focus" && e) {
-      e.target.labels[0].style.opacity = "0"
-    } else if (e.type === "blur" && e) {
-      e.target.labels[0].style.opacity = "1"
-    }
-  }
-
-  function handleConfirmation() {
-    formik.setFieldValue("privacyConfirmation", !formik.values.privacyConfirmation, true)
-  }
-
-  function handleSocial(type: string) {
-    // setSocialPlatforms((prev) => [...prev, type])
-    formik.setFieldValue("socialPlatforms", [...formik.values.socialPlatforms, type], true)
-  }
-
-  function handleNavigation(direction: "NEXT" | "PREV") {
-    // if (currentStep === 0) {
-    //   if (formik.values.name === "" || formik.values.email === "") {
-    //     alert("first")
-    //     return
-    //   }
-    // }
-
-    gsap.to(formRef.current, {
-      autoAlpha: 0,
-      duration: 0.2,
-      onComplete: () => {
-        switch (direction) {
-          case "NEXT":
-            if (currentStep < steps.length) {
-              setCurrentStep((prev) => prev + 1)
-            }
-
-            break
-          case "PREV":
-            if (currentStep > 0) {
-              setCurrentStep((prev) => prev - 1)
-            }
-            break
-          default:
-            break
-        }
-
-        gsap.to(formRef.current, {
-          autoAlpha: 1,
-          duration: 0.6,
-          delay: 0.4,
-        })
-      },
-    })
-  }
-
-  function handleRange() {
-    console.log("lol")
-  }
-
-  function handleFormStart() {
-    gsap.to(brandFormRef.current, {
-      autoAlpha: 0,
-      duration: 0.4,
-      onComplete: () => {
-        setStarted((prev) => !prev)
-        gsap.to(brandFormRef.current, {
-          autoAlpha: 1,
-          duration: 0.4,
-          delay: 0.8,
-        })
-      },
-    })
-  }
-
   return (
     <div className={s.brandForm} ref={brandFormRef}>
       {!started ? (
@@ -400,7 +409,7 @@ const BrandForm = () => {
         <>
           <h2 className={s.title}>MARKA BAŞVURU FORMU</h2>
           <div className={s.formC}>
-            <form id="brandForm" className={s.form} ref={formRef} onSubmit={formik.handleSubmit}>
+            <form id={formId} className={s.form} ref={formRef} onSubmit={formik.handleSubmit}>
               {steps[currentStep].question && (
                 <p className={s.question}>
                   {currentStep + 1}. {steps[currentStep].question}
@@ -412,15 +421,9 @@ const BrandForm = () => {
 
           <>
             <div className={s.buttons}>
-              {currentStep === steps.length - 1 ? (
-                <button className={cx(s.button, s.next)} type="submit" form="brandForm">
-                  Formu Gönder
-                </button>
-              ) : (
-                <button type="button" className={cx(s.button, s.next)} onClick={() => handleNavigation("NEXT")}>
-                  Sonraki adım
-                </button>
-              )}
+              <button className={cx(s.button, s.next)} type={"submit"} form="brandForm">
+                {currentStep === steps.length - 1 ? "Formu Gönder" : "Sonraki Adım"}
+              </button>
 
               <button
                 type="button"

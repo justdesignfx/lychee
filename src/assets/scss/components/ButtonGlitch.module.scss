@@ -58,7 +58,7 @@
     }
   }
 
-  @include devicesMin(aboveTablet) {
+  @media (hover: hover) {
     &:hover {
       &::before {
         @include position(absolute, 100%, 0, auto, auto);

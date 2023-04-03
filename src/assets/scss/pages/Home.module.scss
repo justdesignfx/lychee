@@ -535,13 +535,15 @@
           padding-bottom: 100%;
         }
 
-        &:hover {
-          .infoC {
-            opacity: 1;
-          }
+        @media (hover: hover) {
+          &:hover {
+            .infoC {
+              opacity: 1;
+            }
 
-          .img {
-            filter: blur(32px) brightness(1.5);
+            .img {
+              filter: blur(32px) brightness(1.5);
+            }
           }
         }
 
