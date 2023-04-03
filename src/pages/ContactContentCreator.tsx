@@ -1,8 +1,8 @@
-import { FormEvent } from "react"
+import { ChangeEvent, FormEvent, useId } from "react"
 import s from "~/assets/scss/pages/ContactContentCreator.module.scss"
 
 import dta from "~/assets/img/digital-talent-agency.png"
-import iconPlus from "~/assets/img/icon-plus.svg"
+import plus from "~/assets/icon/plus.svg"
 import lychee from "~/assets/img/logo.png"
 
 import axios from "axios"
@@ -13,12 +13,23 @@ import * as Yup from "yup"
 
 import api from "~/api"
 import PrivacyPolicyText from "~/components/PrivacyPolicyText"
+import Img from "~/components/Img"
+import IconPlus from "~/components/Icons/IconPlus"
+import { log } from "console"
 
 const ContentCreatorFormSchema = Yup.object({
   name: Yup.string().required("REQUIRED"),
   email: Yup.string().email("INVALID_EMAIL").required("REQUIRED"),
-  message: Yup.string().required("REQUIRED"),
-  socialPlatforms: Yup.array().of(Yup.string()).required("REQUIRED"),
+  socialPlatforms: Yup.array()
+    .of(
+      Yup.object().shape({
+        label: Yup.string(),
+        value: Yup.string(),
+        id: Yup.string(),
+      })
+    )
+    .required("REQUIRED"),
+  message: Yup.string(),
   privacyConfirmation: Yup.boolean().required("REQUIRED"),
 })
 
@@ -48,14 +59,21 @@ const ContactContentCreator = () => {
     }
   }
 
+  function uIdGenerator() {
+    return Math.random().toString(16).slice(2)
+  }
+
+  const maxPlatforms = 10
+
   const formik = useFormik({
     initialValues: {
       name: "",
       email: "",
       message: "",
-      socialPlatforms: [""],
+      socialPlatforms: [{ id: uIdGenerator(), label: "", value: "" }],
       privacyConfirmation: false,
     },
+    validationSchema: ContentCreatorFormSchema,
     onSubmit: (values) => {
       console.log(values)
       submitForm(values)
@@ -74,6 +92,33 @@ const ContactContentCreator = () => {
 
   function handleConfirmation() {
     formik.setFieldValue("privacyConfirmation", !formik.values.privacyConfirmation, true)
+  }
+
+  function addField() {
+    const id = uIdGenerator()
+
+    const socialPlatform = { id, label: uIdGenerator(), value: uIdGenerator() }
+    formik.setFieldValue("socialPlatforms", [...formik.values.socialPlatforms, socialPlatform])
+    console.log(formik.values.socialPlatforms)
+  }
+
+  function removeField(id: string) {
+    const filtered = formik.values.socialPlatforms.filter((platform) => {
+      return platform.id !== id
+    })
+
+    formik.setFieldValue("socialPlatforms", filtered)
+  }
+
+  const handleFieldChange = (field: any, fieldValue: any) => {
+    console.log(field, fieldValue)
+
+    const { socialPlatforms } = formik.values
+    const updatedFieldValues = {
+      ...socialPlatforms,
+      field,
+    }
+    formik.setFieldValue("fieldValues", updatedFieldValues)
   }
 
   return (
@@ -98,7 +143,6 @@ const ContactContentCreator = () => {
             onBlur={handleFocus}
             onChange={formik.handleChange}
             value={formik.values.name}
-            required
           />
         </div>
 
@@ -123,41 +167,62 @@ const ContactContentCreator = () => {
             onBlur={handleFocus}
             onChange={formik.handleChange}
             value={formik.values.email}
-            required
           />
         </div>
 
         <div className={s.multipleInputC}>
           <small className={s.smallTop}>Sosyal Medya Linkleri</small>
 
-          <div
-            className={cx(s.inputC, s.socialPlatforms, {
-              [s.required]: formik.errors.email === "REQUIRED" && formik.touched.email,
-            })}
-          >
-            <label
-              className={cx(s.label, {
-                [s.hidden]: formik.values.socialPlatforms,
-              })}
-              htmlFor="socialPlatforms"
-            >
-              https://www.instagram.com/lycheedigital/
-            </label>
-            <input
-              className={s.input}
-              id="socialPlatforms"
-              type="text"
-              onFocus={handleFocus}
-              onBlur={handleFocus}
-              onChange={formik.handleChange}
-              value={formik.values.socialPlatforms}
-              required
-            />
-          </div>
+          {formik.values.socialPlatforms.map((platform, i) => {
+            return (
+              <div
+                className={cx(s.inputC, s.socialPlatforms, {
+                  [s.required]: formik.errors.socialPlatforms && formik.touched.socialPlatforms,
+                })}
+                key={i}
+              >
+                <label
+                  className={cx(s.label, {
+                    [s.hidden]: formik.values.socialPlatforms,
+                  })}
+                  htmlFor={platform.id}
+                >
+                  https://www.instagram.com/lycheedigital/
+                </label>
+                <input
+                  className={s.input}
+                  id={platform.id}
+                  name={`social_${platform.id}`}
+                  type="text"
+                  onFocus={handleFocus}
+                  onBlur={handleFocus}
+                  onChange={(e) => handleFieldChange(platform, e.target.value)}
+                  value={formik.values.socialPlatforms[i].value}
+                />
+                <button
+                  className={s.deleteBtn}
+                  type="button"
+                  onClick={() => {
+                    i > 0 && removeField(platform.id)
+                  }}
+                >
+                  <div className={s.iconC}>
+                    <IconPlus fill="#c8c8c8" />
+                  </div>
+                </button>
+              </div>
+            )
+          })}
 
-          <button type="button" className={s.addButton}>
+          <button
+            type="button"
+            className={cx(s.addButton, { [s.disabled]: formik.values.socialPlatforms.length == maxPlatforms })}
+            onClick={() => formik.values.socialPlatforms.length <= maxPlatforms && addField()}
+          >
             <div className={s.plusC}>
-              <img src={iconPlus} alt="Icon Plus" />
+              <div className={s.iconW}>
+                <IconPlus fill="#c8c8c8" />
+              </div>
             </div>
             Yeni ekleyin
           </button>
@@ -169,13 +234,7 @@ const ContactContentCreator = () => {
           })}
         >
           <small className={s.smallTop}>Eklemek İstediğiniz Bilgi Var mı?</small>
-          <textarea
-            className={s.textarea}
-            id="message"
-            onChange={formik.handleChange}
-            value={formik.values.message}
-            required
-          />
+          <textarea className={s.textarea} id="message" onChange={formik.handleChange} value={formik.values.message} />
         </div>
 
         <div className={s.confirmation}>
@@ -185,7 +244,7 @@ const ContactContentCreator = () => {
           <PrivacyPolicyText setConfirmation={handleConfirmation} />
         </div>
 
-        <button type="submit" form="contentCreatorForm" className={s.button}>
+        <button type="submit" form="contentCreatorForm" className={s.submitButton}>
           Gönder
         </button>
       </form>

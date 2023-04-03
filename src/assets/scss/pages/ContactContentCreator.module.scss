@@ -5,11 +5,22 @@
   $fontSizeMobile: 1rem;
   $paddingLeft: 1.25rem;
 
+  padding: 5vw 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 5vw 0;
+
+  @include devicesMax(tablet) {
+    @include dims(100vw, 100vh);
+    padding: 0;
+  }
+
+  @include devicesMax(mobile) {
+    @include dims(100vw, auto);
+    padding: 30vw 0 0 0;
+  }
 
   .title {
     color: #ce1953;
@@ -19,18 +30,27 @@
     line-height: 100%;
     margin-bottom: 5vw;
     text-align: center;
+
+    @include devicesMax(tablet) {
+      margin-bottom: 0;
+    }
+
+    @include devicesMax(mobile) {
+      font-size: 4.5vw;
+      margin-bottom: 10vw;
+    }
   }
 
   .formC {
     @include dims(37vw, auto);
 
     @include devicesMax(tablet) {
-      @include dims(45vw, auto);
+      @include dims(55vw, auto);
       margin: 5vw 3vw 7vw 2vw;
     }
 
     @include devicesMax(mobile) {
-      @include dims(100%, auto);
+      @include dims(90%, auto);
       margin: 0;
       order: 2;
       padding-bottom: 20vw;
@@ -40,18 +60,46 @@
       margin-bottom: 5vw;
       position: relative;
 
+      @include devicesMax(tablet) {
+        @include dims(100%, 6.5vw);
+        margin-top: 10vw;
+      }
+
+      @include devicesMax(mobile) {
+        @include dims(100%, 14vw);
+        margin-bottom: 4vw;
+        margin-top: 20vw;
+      }
+
       .addButton {
-        font-family: Lychee;
-        margin-bottom: 0.5vw;
         color: #c8c8c8;
+        font-family: Lychee;
         font-size: 1vw;
+        margin-bottom: 0.5vw;
         padding-left: 1.5rem;
 
         display: flex;
         align-items: center;
 
+        @include devicesMax(tablet) {
+          font-size: 1.75vw;
+        }
+
+        @include devicesMax(mobile) {
+          font-size: 4vw;
+        }
+
+        &.disabled {
+          opacity: 0.3;
+          pointer-events: none;
+        }
+
         .plusC {
-          @include dims(2.5vw);
+          $dims: 2.5vw;
+          $dimsTablet: 4vw;
+          $dimsMobile: 8vw;
+
+          @include dims($dims);
           background: #1d1d28;
           border-radius: 50%;
           margin-right: 0.75vw;
@@ -59,6 +107,27 @@
           display: flex;
           align-items: center;
           justify-content: center;
+
+          @include devicesMax(tablet) {
+            @include dims($dimsTablet);
+          }
+
+          @include devicesMax(mobile) {
+            @include dims($dimsMobile);
+            margin-right: 1.75vw;
+          }
+
+          .iconW {
+            @include dims(calc($dims - 1.5rem));
+
+            @include devicesMax(tablet) {
+              @include dims(calc($dimsTablet - 1rem));
+            }
+
+            @include devicesMax(mobile) {
+              @include dims(calc($dimsMobile - 1rem));
+            }
+          }
         }
       }
     }
@@ -82,9 +151,13 @@
       line-height: 120%;
       white-space: nowrap;
 
+      @include devicesMax(tablet) {
+        @include position(absolute, -30px, auto, auto, auto);
+      }
+
       @include devicesMax(mobile) {
         @include position(absolute, auto, auto, 110%, 50%);
-        font-size: 12px;
+        font-size: 14px;
         margin-bottom: 2vw;
         padding-left: 0;
         transform: translateX(-50%);
@@ -95,16 +168,16 @@
       @include dims(100%, 4vw);
       background: #1b1b24;
       border-radius: 32px;
-
-      position: relative;
       margin-bottom: 1.25vw;
+      position: relative;
 
       &:last-child {
         margin-bottom: 0;
       }
 
       @include devicesMax(tablet) {
-        @include dims(100%, 5.5vw);
+        @include dims(100%, 6.5vw);
+        margin-bottom: 2.5vw;
       }
 
       @include devicesMax(mobile) {
@@ -166,6 +239,26 @@
       &.required {
         border: 1px solid #ce1953;
       }
+
+      .deleteBtn {
+        @include position(absolute, 50%, 2%, auto, auto);
+        @include dims(2rem);
+        background: $californiaSunset;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        transition: 0.4s all ease;
+        opacity: 0.5;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        .iconC {
+          @include position(absolute, 50%, auto, auto, 50%);
+          @include dims(60%);
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+      }
     }
 
     .textareaC {
@@ -182,14 +275,16 @@
       justify-content: flex-start;
 
       @include devicesMax(tablet) {
-        @include dims(100%, 14vw);
+        @include dims(100%, 20vw);
         margin-bottom: 3vw;
+        margin-top: 15vw;
       }
 
       @include devicesMax(mobile) {
         @include dims(100%, 35vw);
+        border-radius: 16px;
         margin-bottom: 6vw;
-        margin-top: 5vw;
+        margin-top: 35vw;
       }
 
       .label {
@@ -215,8 +310,8 @@
         font-family: Lychee;
         font-size: 1.25rem;
         font-weight: 400;
-        line-height: 120%;
         margin: 0;
+        line-height: 120%;
         padding: 0;
         background: none;
         border: none;
@@ -234,7 +329,7 @@
     }
 
     .confirmation {
-      $boxDims: 20px;
+      $boxDims: 18px;
       @extend .cursorPointer;
       margin-bottom: 5vw;
 
@@ -266,21 +361,37 @@
     }
   }
 
-  .button {
+  .submitButton {
     @include dims(18vw, 3.5vw);
-    font-family: LS-VG5000;
-    margin-bottom: 0.5vw;
     border: 1px solid #ce1953;
     border-radius: 36px;
     color: #ce1953;
+    font-family: LS-VG5000;
     font-size: 1.5vw;
+    margin-bottom: 0.5vw;
 
     display: grid;
     place-items: center;
+
+    @include devicesMax(tablet) {
+      @include dims(24vw, 6vw);
+      font-size: 2.5vw;
+    }
+
+    @include devicesMax(mobile) {
+      @include dims(60vw, 12vw);
+      font-size: 5.5vw;
+      margin: 15vw auto 0 auto;
+      padding-bottom: 0.2ch;
+    }
   }
 
   .imgC {
     z-index: 100;
+
+    @include devicesMax(tablet) {
+      display: none;
+    }
 
     .img {
       @include dims(100%);
@@ -307,6 +418,10 @@
     font-family: Lychee;
     font-size: 1.25rem;
     line-height: 150%;
+
+    @include devicesMax(mobile) {
+      display: none;
+    }
 
     .link {
       color: #ce1953;
