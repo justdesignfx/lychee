@@ -6,8 +6,6 @@ import { Link } from "react-router-dom"
 import doodleLaying from "~/assets/img/doodle-laying.png"
 import sample from "~/assets/img/sample.png"
 
-import mask from "~/assets/img/Mask.svg"
-
 import FloatingCard from "~/components/FloatingCard"
 import FooterBasic from "~/components/FooterBasic"
 import IconArrowSquare from "~/components/Icons/IconArrowSquare"
@@ -110,19 +108,21 @@ const Services = () => {
             Sürekli hareket eden görüntüler dünyasında bir dizi temel dijital çözümler sunuyoruz.
           </p>
 
-          <div className={s.bgImgC}>
-            <Img src={sample} objectFit="cover" />
+          <div className={s.bgImgC} data-parallax data-speed-y="0.2" data-direction-y="-1">
+            <div className={s.rotateC}>
+              <Img src={sample} objectFit="cover" />
+            </div>
           </div>
         </section>
 
         <section className={s.misc}>
-          <div className={s.imgC}>
+          <div className={s.imgC} data-parallax data-speed-y="0.1" data-direction-y="-1">
             <Img src={sample} objectFit="cover" />
           </div>
           <div className={s.imgC} data-parallax data-speed-y="0.5" data-direction-y="1">
             <Img src={doodleLaying} objectFit="contain" />
           </div>
-          <div className={s.imgC}>
+          <div className={s.imgC} data-parallax data-speed-y="0.15" data-direction-y="-1">
             <Img src={sample} objectFit="cover" />
           </div>
         </section>
@@ -138,15 +138,16 @@ const Services = () => {
           />
         </section>
 
-        {size.width > breakpoints.mobile ? (
-          <section className={s.sideServices}>
-            <div className={s.sideServicesTitleC}>
-              <h2 className={s.title}>YAN HİZMETLERİMİZ</h2>
-              <p className={s.text}>
-                Tüm işlerin <span className={s.italic}>tek çatı altında</span> gerçekleşebilmesi için en iyi ekiplerle
-                çalışıyoruz.
-              </p>
-            </div>
+        <section className={s.sideServices}>
+          <div className={s.sideServicesTitleC}>
+            <h2 className={s.title}>YAN HİZMETLERİMİZ</h2>
+            <p className={s.text}>
+              Tüm işlerin <span className={s.italic}>tek çatı altında</span> gerçekleşebilmesi için en iyi ekiplerle
+              çalışıyoruz.
+            </p>
+          </div>
+
+          {size.width > breakpoints.mobile ? (
             <div className={s.cards}>
               {cards.map((card, i) => {
                 return (
@@ -156,14 +157,12 @@ const Services = () => {
                 )
               })}
             </div>
-          </section>
-        ) : (
-          <>
-            <section className={s.whyMobile}>
+          ) : (
+            <div className={s.whyMobile}>
               <WhyLycheeMobile items={cards} />
-            </section>
-          </>
-        )}
+            </div>
+          )}
+        </section>
 
         <section className={s.singleTitleC}>
           <h1 className={s.title}>

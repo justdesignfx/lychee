@@ -121,7 +121,7 @@ const WithSmooth = ({ children, location }: Props) => {
       class MobilePlugin extends ScrollbarPlugin {
         static pluginName = "mobile"
         static defaultOptions = {
-          speed: 0.5,
+          speed: 0.75,
         }
 
         transformDelta(delta: any, fromEvent: any) {
@@ -152,13 +152,14 @@ const WithSmooth = ({ children, location }: Props) => {
       ctx = gsap.context(() => {
         // disable bounce
         gsap.set("body", {
-          height: "100vh",
+          height: size.height,
           width: "100vw",
           overflow: "hidden",
         })
+        // disable bounce
 
         gsap.set(scrollerRef.current, {
-          height: "100vh",
+          height: size.height,
           width: "100vw",
           overflow: "hidden",
         })

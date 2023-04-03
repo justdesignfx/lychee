@@ -1,9 +1,20 @@
 @import "../_global.scss";
 
 .footerNavigation {
+  background: #f4f2f2;
+  color: $eigengrau;
+  padding: 0 10vw;
+
   display: flex;
   flex-direction: column;
-  color: $eigengrau;
+
+  @include devicesMax(tablet) {
+    padding: 0 4vw;
+  }
+
+  @include devicesMax(mobile) {
+    padding: 0 5vw;
+  }
 
   .navigation {
     @include dims(100%, auto);
@@ -35,6 +46,11 @@
         @include dims(30vw, auto);
         margin-right: auto;
 
+        @include devicesMax(tablet) {
+          @include typo(Lychee, 20px, null, 1.4, null);
+          @include dims(40vw, auto);
+        }
+
         @include devicesMax(mobile) {
           @include dims(65vw, auto);
         }
@@ -51,6 +67,10 @@
 
         .text {
           @include typo(Lychee, 30px, null, 1.4, null);
+
+          @include devicesMax(tablet) {
+            @include typo(Lychee, 20px, null, 1.4, null);
+          }
 
           @include devicesMax(mobile) {
             @include typo(Lychee, 15px, null, 1.4, null);
@@ -70,6 +90,10 @@
           @include typo(Lychee, 30px, null, 1.4, null);
           display: block;
           margin-bottom: 1.5vw;
+
+          @include devicesMax(tablet) {
+            @include typo(Lychee, 20px, null, 1.4, null);
+          }
 
           @include devicesMax(mobile) {
             @include typo(Lychee, 20px, null, 1.4, null);
@@ -96,6 +120,10 @@
 
     .item {
       @include typo(Lychee, 18px, 700, null, null);
+
+      @include devicesMax(tablet) {
+        @include typo(Lychee, 14px, 700, null, null);
+      }
 
       @include devicesMax(mobile) {
         @include typo(Lychee, 15px, 700, null, null);

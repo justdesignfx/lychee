@@ -17,7 +17,7 @@
 
   @include devicesMax(mobile) {
     border-radius: 24px;
-    padding: 7vw 4vw;
+    padding: 7vw 4vw 14vw 4vw;
   }
 
   .list {
@@ -31,6 +31,7 @@
 
       @include devicesMax(mobile) {
         margin-left: 8vw;
+        padding: 10vw 0;
       }
 
       &:last-child {
@@ -40,7 +41,7 @@
 
       &.active {
         .oHidden {
-          max-height: 50vh;
+          max-height: 35vh;
         }
 
         .itemTitleC {
@@ -111,8 +112,8 @@
           }
 
           @include devicesMax(mobile) {
-            @include position(absolute, 0, 102%, auto, auto);
-            font-size: 5vw;
+            @include position(absolute, 10%, 103%, auto, auto);
+            font-size: 4vw;
           }
         }
 

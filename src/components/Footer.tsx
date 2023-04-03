@@ -31,8 +31,10 @@ const Footer = () => {
 
   return (
     <footer className={s.footer}>
-      <div className={s.imgC} {...cursorHandlers.enter} {...cursorHandlers.leave}>
-        <Img src={logo} alt="Lychee Logo" zIndex="10" />
+      <div className={s.imgC}>
+        <div className={s.eventC} {...cursorHandlers.enter} {...cursorHandlers.leave}>
+          <Img src={logo} alt="Lychee Logo" zIndex="10" />
+        </div>
       </div>
       <FooterNavigation />
     </footer>

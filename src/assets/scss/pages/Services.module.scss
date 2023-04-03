@@ -46,6 +46,7 @@
     @include devicesMax(tablet) {
       @include dims(100%, auto);
       flex-direction: column;
+      padding-top: 20vw;
     }
 
     .title {
@@ -97,7 +98,7 @@
       }
 
       .small {
-        @include typo(Lychee, 20px, null, 1.2, null);
+        @include typo(Lychee, 60px, null, 1.2, null);
 
         @include devicesMax(tablet) {
           @include typo(Lychee, 44px, null, 1.2, null);
@@ -133,31 +134,35 @@
     }
 
     .bgImgC {
+      @include position(absolute, 15%, auto, auto, 35%);
       @include dims(27vw, 45vw);
-      @include position(absolute, 50%, auto, auto, 50%);
-      border-radius: 32px;
-      overflow: hidden;
-      transform: translate(-50%, -58%) rotate(-10deg);
-
-      @include devicesMax(tablet) {
-        transform: translate(-50%, -80%) rotate(-10deg);
-      }
 
       @include devicesMax(mobile) {
+        @include position(absolute, 25%, auto, auto, 30%);
         @include dims(35vw, 60vw);
-        border-radius: 16px;
       }
 
-      &::before {
-        content: "";
-        @include position(absolute, auto, -20px, 0px, -20px);
-        @include dims(auto, 80%);
-        background: linear-gradient(0deg, $eigengrau 0%, #16161ee6 30%, rgb(255, 255, 255, 0) 100%);
-        z-index: 10;
-        display: none;
+      .rotateC {
+        transform: rotate(-10deg);
+        border-radius: 32px;
+        overflow: hidden;
+        position: relative;
 
-        @include devicesMax(tablet) {
-          display: block;
+        @include devicesMax(mobile) {
+          border-radius: 16px;
+        }
+
+        &::before {
+          content: "";
+          @include position(absolute, auto, -20px, 0px, -20px);
+          @include dims(auto, 80%);
+          background: linear-gradient(0deg, $eigengrau 0%, #16161ee6 30%, rgb(255, 255, 255, 0) 100%);
+          z-index: 10;
+          display: none;
+
+          @include devicesMax(tablet) {
+            display: block;
+          }
         }
       }
     }
@@ -210,14 +215,14 @@
       }
 
       &:nth-child(2) {
-        @include position(absolute, -100%, auto, auto, 30%);
+        @include position(absolute, -50%, auto, auto, 30%);
         @include dims(30vw);
         mix-blend-mode: difference;
         z-index: 10;
 
         @include devicesMax(tablet) {
-          @include position(absolute, -30%, auto, auto, 30%);
-          @include dims(40vw);
+          @include position(absolute, -70%, auto, auto, 30%);
+          @include dims(35vw);
         }
 
         @include devicesMax(mobile) {
@@ -275,7 +280,7 @@
       @include devicesMax(mobile) {
         @include dims(90vw, auto);
         align-items: center;
-        margin: 30vw auto 10vw auto;
+        margin: 30vw auto 20vw auto;
       }
 
       .title {
@@ -380,8 +385,12 @@
       text-align: center;
 
       @include devicesMax(tablet) {
-        @include typo(Lychee, 34px, null, 1, null);
-        @include dims(90vw, auto);
+        @include typo(Lychee, 64px, null, 1, null);
+      }
+
+      @include devicesMax(mobile) {
+        @include typo(Lychee, 32px, null, 1.2, null);
+        @include dims(80vw, auto);
       }
 
       .italic {
@@ -400,7 +409,8 @@
   }
 
   .dare {
-    padding: 10vw 0;
+    @include dims(100%, 90vh);
+    overflow-x: clip;
 
     display: flex;
     flex-direction: column;
@@ -408,7 +418,7 @@
 
     @include devicesMax(tablet) {
       @include dims(auto);
-      margin: 10vw 0;
+      margin: 15vw 0 10vw 0;
     }
 
     @include devicesMax(mobile) {
@@ -474,12 +484,12 @@
       margin: 0 auto;
 
       @include devicesMax(tablet) {
-        @include dims(34vw, 6vw);
+        @include dims(30vw, 6vw);
         margin: 0 auto;
       }
 
       @include devicesMax(mobile) {
-        @include dims(60vw, 10vw);
+        @include dims(55vw, 10vw);
       }
     }
   }
