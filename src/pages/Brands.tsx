@@ -12,11 +12,12 @@ import stickerBans from "~/assets/img/sticker-bans.svg"
 import stickerPeace from "~/assets/img/sticker-peace.svg"
 import MarqueeSimple from "~/components/MarqueeSimple"
 import IconArrowSquare from "~/components/Icons/IconArrowSquare"
+import StickyNav from "~/components/StickyNav"
 
 const Brands = () => {
   return (
     <>
-      <main className={s.brands}>
+      <main className={s.brands} data-sticky-item-c>
         <section className={s.intro}>
           <div className={s.textC}>
             <small className={s.small}>LETS GET SCROLLING</small>
@@ -156,6 +157,7 @@ const Brands = () => {
             <ButtonGlitch text="Kampanya oluşturun" size="lg" />
           </Link>
         </section>
+        <StickyNav />
       </main>
       <FooterBasic />
     </>

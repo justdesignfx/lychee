@@ -24,6 +24,7 @@ import Header from "~/components/Header"
 import MagnetCursor from "~/components/MagnetCursor"
 import Menu from "~/components/Menu"
 import Modal from "~/components/Modal"
+import { stickyItem } from "~/animations/stickyItem"
 
 export const SmoothContext = React.createContext<any>(null)
 
@@ -102,6 +103,7 @@ const WithSmooth = ({ children, location }: Props) => {
         hideOnScroll()
         parallaxItems()
         marquee()
+        stickyItem()
       })
     }
 

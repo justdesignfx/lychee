@@ -31,6 +31,7 @@ import SquareGrid from "~/components/SquareGrid"
 import WhyLycheeMobile from "~/components/WhyLycheeMobile"
 import { useWindowSize } from "~/hooks"
 import { breakpoints } from "~/variables"
+import StickyNav from "~/components/StickyNav"
 
 const Creators = () => {
   const size = useWindowSize()
@@ -305,6 +306,7 @@ const Creators = () => {
           </div>
           <ButtonText size="lg" text="Lychee'nin seçkin ekosistemine" link={{ ui: "katılın.", path: "/contact" }} />
         </section>
+        <StickyNav />
       </main>
 
       <FooterBasic />
