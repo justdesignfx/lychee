@@ -25,6 +25,8 @@ import MagnetCursor from "~/components/MagnetCursor"
 import Menu from "~/components/Menu"
 import Modal from "~/components/Modal"
 import { stickyItem } from "~/animations/stickyItem"
+import StickyNav from "~/components/StickyNav"
+import { AnimatePresence } from "framer-motion"
 
 export const SmoothContext = React.createContext<any>(null)
 
@@ -234,6 +236,7 @@ const WithSmooth = ({ children, location }: Props) => {
       <Menu />
       <MagnetCursor />
       <Modal />
+      {<StickyNav pathname={location.pathname} />}
     </SmoothContext.Provider>
   )
 }

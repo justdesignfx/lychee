@@ -11,10 +11,8 @@ export function stickyItem() {
     gsap.to(sticky, {
       scrollTrigger: {
         trigger: sticky,
-        start: `top top+=${sticky.getBoundingClientRect().top}}px`,
+        start: `top top+=${sticky.offsetTop}}px`,
         end: `+=${stickyContainers[i].offsetHeight - window.innerHeight}px`,
-        scrub: true,
-        pin: true,
         onLeave: () => {
           gsap.to(sticky, {
             autoAlpha: 0,
@@ -28,7 +26,6 @@ export function stickyItem() {
           })
         },
         id: `sticky-item-${i}`,
-        pinSpacing: false,
         markers: true,
       },
     })

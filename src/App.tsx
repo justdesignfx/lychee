@@ -55,8 +55,8 @@ function App() {
           <Route path="contact/content-creator" element={<ContactContentCreator />}></Route>
           <Route path="services" element={<Services />}></Route>
           <Route path="creators" element={<Creators />}></Route>
-          <Route path="about" element={<About />}></Route>
           <Route path="brands" element={<Brands />}></Route>
+          <Route path="about" element={<About />}></Route>
           <Route path="partners" element={<Partners />}></Route>
         </Routes>
       </div>

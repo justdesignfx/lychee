@@ -157,7 +157,6 @@ const Brands = () => {
             <ButtonGlitch text="Kampanya oluşturun" size="lg" />
           </Link>
         </section>
-        <StickyNav />
       </main>
       <FooterBasic />
     </>

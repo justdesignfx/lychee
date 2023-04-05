@@ -136,7 +136,7 @@ const Creators = () => {
 
   return (
     <>
-      <main className={s.creators}>
+      <main className={s.creators} data-sticky-item-c>
         <section className={s.intro}>
           <div className={s.textC}>
             <small className={s.small}>DIGITAL TALENT AGENCY</small>
@@ -306,7 +306,6 @@ const Creators = () => {
           </div>
           <ButtonText size="lg" text="Lychee'nin seçkin ekosistemine" link={{ ui: "katılın.", path: "/contact" }} />
         </section>
-        <StickyNav />
       </main>
 
       <FooterBasic />

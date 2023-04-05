@@ -1,25 +1,51 @@
 @import "../_global.scss";
 
 .stickyNav {
-  @include position(absolute, calc(70vh), auto, auto, 50vw);
-  background: $eigengrau;
-  border: 1px solid $californiaSunset;
   border-radius: 32px;
-  transform: translate(-50%, -50%);
 
   display: flex;
 
-  .navItem {
-    @include dims(15vw, 3.5vw);
-    border-radius: 28px;
+  &.left {
+    &::before {
+      left: 0;
+    }
+  }
 
-    background: $californiaSunset;
-    margin: 4px;
+  .navItem {
+    @include dims(15vw, 54px);
+    border-radius: 28px;
+    color: #fff;
+    font-family: LS-VG5000;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     font-size: 1.5rem;
+  }
+
+  &::before {
+    content: "";
+    @include position(absolute, 50%, auto, auto, 50%);
+    @include dims(15vw, 100%);
+    background: $californiaSunset;
+    border-radius: 28px;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: 0.6s all ease-in-out;
+    z-index: -1;
+    will-change: transform;
+  }
+
+  &::after {
+    $distance: -4px;
+
+    content: "";
+    @include position(absolute, $distance, $distance, $distance, $distance);
+    border: 1px solid $californiaSunset;
+    border-radius: 32px;
+    pointer-events: none;
+    background: $eigengrau;
+    z-index: -2;
   }
 }
