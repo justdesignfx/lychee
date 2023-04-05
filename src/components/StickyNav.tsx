@@ -1,9 +1,7 @@
-import { AnimatePresence } from "framer-motion"
-import React from "react"
-import { Link } from "react-router-dom"
 import s from "~/assets/scss/components/StickyNav.module.scss"
-import { motion } from "framer-motion"
 
+import { AnimatePresence, motion } from "framer-motion"
+import { Link } from "react-router-dom"
 import cx from "classnames"
 
 type Props = {
@@ -17,7 +15,7 @@ const StickyNav = (props: Props) => {
         <motion.nav
           data-sticky-item
           className={cx(s.stickyNav, { [s.left]: props.pathname.includes("brands") })}
-          initial={{ opacity: 0, y: 100, x: "-50%", position: "fixed", bottom: "2rem", left: "50%" }}
+          initial={{ opacity: 0, y: 100, x: "-50%", position: "fixed", bottom: "2%", left: "50%" }}
           animate={{ opacity: 1, y: 0, transition: { duration: 0.4 } }}
           exit={{ opacity: 0, transition: { duration: 0.2 } }}
         >

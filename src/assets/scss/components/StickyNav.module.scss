@@ -22,12 +22,21 @@
     justify-content: center;
 
     font-size: 1.5rem;
+
+    @include devicesMax(tablet) {
+      @include dims(30vw, 60px);
+    }
+
+    @include devicesMax(mobile) {
+      @include dims(45vw, 40px);
+      font-size: 1rem;
+    }
   }
 
   &::before {
     content: "";
     @include position(absolute, 50%, auto, auto, 50%);
-    @include dims(15vw, 100%);
+    @include dims(50%, 100%);
     background: $californiaSunset;
     border-radius: 28px;
     pointer-events: none;
