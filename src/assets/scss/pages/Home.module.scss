@@ -5,7 +5,8 @@
   background: $eigengrau;
 
   .hero {
-    @include dims(100%, 100vh);
+    @include dims(100%, 115vh);
+    padding-top: 10vh;
     overflow: hidden;
     position: relative;
 
@@ -20,7 +21,7 @@
 
     .textC {
       display: inline-block;
-      margin: 15vw auto 0 3vw;
+      margin: 10vw auto 0 3vw;
       position: relative;
       transform: translateZ(1px);
       z-index: 100;
@@ -87,8 +88,9 @@
     }
 
     .marqueeC {
-      @include position(absolute, auto, 0, 0, 0);
+      @include position(absolute, 100vh, 0, auto, 0);
       padding: 0 0 2% 0;
+      transform: translateY(-100%);
       z-index: 10;
 
       .mText {

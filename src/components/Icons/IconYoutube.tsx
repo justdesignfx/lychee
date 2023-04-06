@@ -12,7 +12,7 @@ const IconYoutube = ({ fill = "#fff" }: Props) => {
         transform="translate(9448.502 4541.5)"
         fill={fill}
         stroke="#fff"
-        stroke-width="1"
+        strokeWidth="1"
       />
     </svg>
   )
