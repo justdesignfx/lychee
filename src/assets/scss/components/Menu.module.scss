@@ -2,21 +2,13 @@
 
 .menuC {
   @include position(fixed, 0, 0, 0, 0);
-  z-index: z-index("menu");
   pointer-events: none;
+  z-index: z-index("menu");
 
   &.open {
     pointer-events: auto;
 
-    .overlay {
-      opacity: 0.7;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
     .hamburger {
-      background: #000;
-
       .horizontal {
         .lineC {
           &:nth-child(1) {
@@ -30,59 +22,75 @@
       }
 
       .cross {
-        .lineC {
-          transform: translateX(0);
+        .rotateC {
+          &:nth-child(1) {
+            .lineC {
+              transform: translateX(0) translateY(70%);
+            }
+          }
+
+          &:nth-child(2) {
+            .lineC {
+              transform: translateX(0) translateY(-70%);
+            }
+          }
         }
-      }
-    }
-
-    .menu {
-      @include dims(32vw, 90vh);
-      padding: 7vw 2vw;
-      transition-delay: 0.4s;
-
-      .menuItems {
-        opacity: 1;
-        transition-delay: 0s;
-        transition: 0.2s all ease-in-out;
       }
     }
   }
 
   .overlay {
     @include position(absolute, 0, 0, 0, 0);
-    background: #000000;
-    opacity: 0;
-    pointer-events: none;
-    transition: 1s all ease;
-    visibility: hidden;
+    background: #000;
     z-index: 10;
   }
 
-  .hamburger {
-    @include position(absolute, 1.5rem, 2.5rem, auto, auto);
-    @include dims(7vw, 3vw);
-    background: #d11a54;
-    border-radius: 3vmin;
-    overflow: hidden;
+  $width: 110px;
+  $widthMobile: 64px;
 
-    transition: 0.6s all ease;
-    z-index: 30;
+  $height: 48px;
+  $heightMobile: 32px;
+
+  $top: 3%;
+  $right: 2vw;
+  $rightTablet: 4vw;
+  $distance: -4px;
+
+  .hamburger {
+    @include position(absolute, $top, $right, auto, auto);
+    @include dims($width, $height);
+    border-radius: 32px;
+    overflow: hidden;
     pointer-events: auto;
+    z-index: 30;
 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 
+    @include devicesMax(tablet) {
+      @include position(absolute, $top, $rightTablet, auto, auto);
+    }
+
+    @include devicesMax(mobile) {
+      @include position(absolute, $top, $rightTablet, auto, auto);
+      @include dims($widthMobile, $heightMobile);
+    }
+
     .lineC {
-      @include dims(28px, 4px);
-      margin-bottom: 4px;
-      transition: 0.4s all ease;
+      @include dims(32px, 4px);
+      margin-bottom: 5px;
+      transition: 0.8s all ease;
 
       display: flex;
       align-items: center;
       justify-content: center;
+
+      @include devicesMax(mobile) {
+        @include dims(22px, 2px);
+        margin-bottom: 4px;
+      }
 
       &:last-child {
         margin-bottom: 0;
@@ -93,8 +101,10 @@
         background: #fff;
         display: block;
 
-        &:last-child {
-          transform: translateY(-50%);
+        &.glitched {
+          &:last-child {
+            transform: translateY(-50%);
+          }
         }
       }
     }
@@ -111,7 +121,7 @@
           transform: rotate(-45deg);
 
           .lineC {
-            transform: translateX(100%);
+            transform: translateX(300%);
           }
         }
 
@@ -119,7 +129,7 @@
           transform: rotate(45deg);
 
           .lineC {
-            transform: translateX(100%);
+            transform: translateX(400%);
           }
         }
       }
@@ -127,33 +137,61 @@
   }
 
   .menu {
-    @include position(absolute, 1.25rem, 2.25rem, auto, auto);
-    @include dims(0px);
-    background: #d11a54;
-    border-radius: 3vmin;
-    padding: 0;
-    transition: 0.8s all ease-in-out;
-    transition-delay: 0.4s;
+    @include position(absolute, $top, $right, auto, auto);
+    @include dims(25vw, 90vh);
+    padding: 6vw 2vw 2vw 2vw;
 
-    // transform-origin: calc(100% - 20px) 20px;
-    transform-origin: top right;
-    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    @include devicesMax(tablet) {
+      @include position(absolute, $top, $rightTablet, auto, auto);
+      @include dims(60vw, 80vh);
+      padding: 6vw;
+    }
+
+    @include devicesMax(mobile) {
+      @include dims(95vw, 85vh);
+      padding: 10vw;
+    }
+
+    .background {
+      background: $californiaSunset;
+      will-change: transform;
+      z-index: 20;
+
+      @include devicesMax(mobile) {
+        @include dims($widthMobile, $heightMobile);
+      }
+
+      // &[data-open="true"] {
+      //   @include position(absolute, $distance, $distance, auto, auto);
+      //   @include dims(100%);
+      // }
+    }
 
     .menuItems {
-      opacity: 0;
-      transition: 0.4s all ease-in-out;
-      transition-delay: 0.8s;
+      position: relative;
+      z-index: 30;
 
       .menuItem {
         margin-bottom: 0.5vw;
+        opacity: 0;
         overflow: hidden;
 
-        &:hover {
-          .link {
-            transform: translateX(0) skew(0);
+        @include devicesMax(mobile) {
+          margin-bottom: 2vw;
+        }
 
-            .text {
-              transform: skew(-10deg);
+        @media (hover: hover) {
+          &:hover {
+            .link {
+              transform: translateX(0) skew(0);
+
+              .text {
+                transform: skew(-10deg);
+              }
             }
           }
         }
@@ -177,12 +215,38 @@
           }
 
           .text {
-            color: #fff;
+            color: $bleachedSilk;
             font-family: Lychee;
-            font-size: 4vw;
+            font-size: 3.5vw;
             transform: skew(0);
             transition: 0.4s all ease;
+
+            @include devicesMax(tablet) {
+              font-size: 7.5vw;
+            }
+
+            @include devicesMax(mobile) {
+              font-size: 12vw;
+            }
           }
+        }
+      }
+    }
+
+    .social {
+      margin-top: auto;
+      z-index: 30;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .iconC {
+        @include dims(auto, 1.5rem);
+        opacity: 0.9;
+
+        @include devicesMax(mobile) {
+          @include dims(auto, 1.25rem);
         }
       }
     }

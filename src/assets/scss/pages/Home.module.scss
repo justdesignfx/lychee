@@ -18,14 +18,6 @@
       background-position: bottom right;
     }
 
-    &:after {
-      content: "";
-      @include position(absolute, auto, 0, -10px, 0);
-      @include dims(100%, 50%);
-      background: linear-gradient(0deg, #16161c, rgb(255, 255, 255, 0));
-      z-index: 7;
-    }
-
     .textC {
       display: inline-block;
       margin: 15vw auto 0 3vw;
@@ -96,7 +88,7 @@
 
     .marqueeC {
       @include position(absolute, auto, 0, 0, 0);
-      padding: 0 0 5vw 0;
+      padding: 0 0 2% 0;
       z-index: 10;
 
       .mText {
@@ -145,7 +137,7 @@
         -webkit-backdrop-filter: blur(16px);
         border-radius: 50%;
         overflow: hidden;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, 70%);
         @extend .cursorPointer;
         z-index: 200;
 
@@ -172,10 +164,13 @@
   }
 
   .greeting {
-    margin: 15vw auto 0 auto;
+    display: flex;
+    padding-top: 15vw;
+    position: relative;
 
     .textC {
       position: relative;
+      margin: 0 auto;
 
       .text {
         @include typo(Lychee, 53px, null, 1.5, null);
@@ -253,7 +248,7 @@
       }
 
       .imgC {
-        @include position(absolute, 6vw, auto, auto, 32vw);
+        @include position(absolute, 6vw, auto, auto, 17vw);
         @include dims(23vw);
         transform: rotate(-9deg);
 
@@ -267,6 +262,16 @@
           @include dims(80vw);
         }
       }
+    }
+
+    &:before {
+      content: "";
+      @include position(absolute, 0, 0, auto, 0);
+      @include dims(100%);
+      background: linear-gradient(0deg, #16161c, rgb(255, 255, 255, 0));
+      pointer-events: none;
+      transform: translateY(-99%);
+      z-index: 8;
     }
   }
 
