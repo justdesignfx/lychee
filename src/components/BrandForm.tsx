@@ -10,7 +10,7 @@ import Dropdown from "./Dropdown"
 import PrivacyPolicyText from "./PrivacyPolicyText"
 
 import brandFormModel from "~/validations/BrandForm/brandFormModel"
-import initialValues from "~/validations/BrandForm/initialValues"
+import { IBrandForm, initialValues } from "~/validations/BrandForm/initialValues"
 
 const { formId, formField } = brandFormModel
 
@@ -44,6 +44,8 @@ const BrandForm = () => {
   const [currentStep, setCurrentStep] = useState(0)
   const brandFormRef = useRef<HTMLDivElement>(null)
 
+  const initial: IBrandForm = initialValues
+
   const [started, setStarted] = useState(false)
 
   function handleFocus(e: FormEvent | any) {
@@ -61,8 +63,19 @@ const BrandForm = () => {
   }
 
   function handleSocial(type: string) {
-    // setSocialPlatforms((prev) => [...prev, type])
-    formik.setFieldValue("socialPlatforms", [...formik.values.socialPlatforms, type], true)
+    if (formik.values.socialPlatforms.includes(type)) {
+      const platforms = formik.values.socialPlatforms as Array<string>
+      const filtered = platforms.filter((platform) => {
+        return platform !== type
+      })
+      console.log(filtered)
+
+      formik.setFieldValue("socialPlatforms", [...filtered], true)
+    } else {
+      formik.setFieldValue("socialPlatforms", [...formik.values.socialPlatforms, type], true)
+    }
+
+    console.log(type, formik.values.socialPlatforms)
   }
 
   function handleNavigation(direction: "NEXT" | "PREV") {
@@ -79,16 +92,7 @@ const BrandForm = () => {
       onComplete: () => {
         switch (direction) {
           case "NEXT":
-            formik.validateField("name").then((result) => {
-              console.log(result)
-            })
-
-            formik.validateField("name")
-            formik.validateField("email")
-            // if (currentStep < steps.length) {
-            //   setCurrentStep((prev) => prev + 1)
-            // }
-
+            setCurrentStep((prev) => prev + 1)
             break
           case "PREV":
             if (currentStep > 0) {
@@ -156,7 +160,7 @@ const BrandForm = () => {
     if (currentStep === steps.length - 1) {
       submitForm(values)
     } else {
-      setCurrentStep((prev) => prev + 1)
+      handleNavigation("NEXT")
     }
   }
 
@@ -347,7 +351,12 @@ const BrandForm = () => {
               {social.map((platform, i) => {
                 return (
                   <div
-                    className={cx(s.radio, { [s.active]: formik.values.socialPlatforms })}
+                    className={cx(s.radio, {
+                      [s.active]:
+                        formik.values.socialPlatforms &&
+                        formik.values.socialPlatforms.length > 0 &&
+                        formik.values.socialPlatforms.includes(platform.type),
+                    })}
                     onClick={() => handleSocial(platform.type)}
                     key={i}
                   >

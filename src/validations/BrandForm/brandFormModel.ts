@@ -32,7 +32,7 @@ export default {
       requiredErrorMsg: "Zipcode is required",
     },
     social: {
-      name: "social",
+      name: "socialPlatforms",
       label: "Sosyal*",
       requiredErrorMsg: "Country is required",
     },

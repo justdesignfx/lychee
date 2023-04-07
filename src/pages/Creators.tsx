@@ -276,7 +276,7 @@ const Creators = () => {
         {size.width > breakpoints.mobile ? (
           <section className={s.why} data-floating-items-c>
             <h2 className={s.title}>
-              Neden <span className={s.italic}>Lychee</span> ile çalışmalısınız.
+              Neden <span className={s.italic}>Lychee</span> ile çalışmalısınız?
             </h2>
             <div className={s.horizontalScrollContent} data-floating-items>
               {cards.map((card, i) => {

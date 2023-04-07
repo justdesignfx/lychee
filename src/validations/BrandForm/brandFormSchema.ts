@@ -19,7 +19,7 @@ export default [
     [message.name]: Yup.string().required(`${message.requiredErrorMsg}`),
   }),
   Yup.object().shape({
-    [social.name]: Yup.string().required(`${social.requiredErrorMsg}`),
+    [social.name]: Yup.array().of(Yup.string()).required(`${social.requiredErrorMsg}`),
   }),
   Yup.object().shape({
     [budget.name]: Yup.string().required(`${budget.requiredErrorMsg}`),
