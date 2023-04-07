@@ -1,12 +1,12 @@
 @import "../_global.scss";
 
 .contactBrand {
-  @include dims(100vw, calc(100vh - $headerHeight));
+  @include dims(100%);
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
 
   .textC {
     margin: 0 auto 3vw auto;

@@ -1,7 +1,7 @@
 import BrandFormModel from "./brandFormModel"
 
 const {
-  formField: { name, email, company, websiteUrl, role, message, social, budget },
+  formField: { name, email, company, websiteUrl, role, message, socialPlatforms, budget },
 } = BrandFormModel
 
 export interface IBrandForm {
@@ -15,6 +15,6 @@ export const initialValues: IBrandForm = {
   [websiteUrl.name]: "",
   [role.name]: "",
   [message.name]: "",
-  [social.name]: [],
+  [socialPlatforms.name]: [],
   [budget.name]: "",
 }

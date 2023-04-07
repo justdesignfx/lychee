@@ -2,7 +2,7 @@ import * as Yup from "yup"
 import BrandFormModel from "./brandFormModel"
 
 const {
-  formField: { name, email, company, websiteUrl, role, message, social, budget },
+  formField: { name, email, company, websiteUrl, role, message, socialPlatforms, budget },
 } = BrandFormModel
 
 export default [
@@ -19,7 +19,7 @@ export default [
     [message.name]: Yup.string().required(`${message.requiredErrorMsg}`),
   }),
   Yup.object().shape({
-    [social.name]: Yup.array().of(Yup.string()).required(`${social.requiredErrorMsg}`),
+    [socialPlatforms.name]: Yup.array().of(Yup.string()).min(1).required(`${socialPlatforms.requiredErrorMsg}`),
   }),
   Yup.object().shape({
     [budget.name]: Yup.string().required(`${budget.requiredErrorMsg}`),

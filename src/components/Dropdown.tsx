@@ -1,10 +1,11 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import s from "~/assets/scss/components/Dropdown.module.scss"
 
 import cx from "classnames"
 
 import { useOnClickOutside } from "~/hooks"
 import { truncateString } from "~/utils"
+import IconArrow from "./Icons/IconArrow"
 
 interface Option {
   id?: string
@@ -13,13 +14,13 @@ interface Option {
 
 interface Props {
   options?: Option[]
-  defaultValue: Option
+  defaultValue?: Option
   onChange: any
   label?: string
   selectedOption?: any
 }
 
-const Dropdown = ({ options, onChange, label, defaultValue, selectedOption = defaultValue }: Props) => {
+const Dropdown = ({ options, onChange, label, defaultValue, selectedOption }: Props) => {
   const selectInputRef = useRef(null)
   const optionsRef = useRef(null)
 
@@ -31,35 +32,24 @@ const Dropdown = ({ options, onChange, label, defaultValue, selectedOption = def
 
   useOnClickOutside(selectInputRef, handleClickOutside)
 
+  useEffect(() => {
+    console.log(selectedOption)
+  }, [selectedOption])
+
   return (
     <div className={s.selectInput} onClick={() => setOpen(!isOpen)} ref={selectInputRef}>
-      {label ||
-        (defaultValue && (
-          <label className={s.label}>
-            {truncateString(`${selectedOption ? selectedOption.title.replace("<br> ", "") : label}`, 26)}
-          </label>
-        ))}
+      {<label className={s.label}>{selectedOption ? selectedOption : label}</label>}
       {isOpen && (
         <ul className={cx(s.options, { [s.option]: isOpen })} ref={optionsRef}>
-          <li
-            key={defaultValue.id}
-            className={cx(s.option)}
-            onClick={() => {
-              setOpen(false)
-              onChange(defaultValue.id)
-            }}
-          >
-            {defaultValue.title}
-          </li>
           {options &&
             options.length > 0 &&
-            options.map((option: Option) => (
+            options.map((option: Option, i) => (
               <li
-                key={option.id}
+                key={i}
                 className={cx(s.option)}
                 onClick={() => {
                   setOpen(false)
-                  onChange(option.id)
+                  onChange(option.title)
                 }}
               >
                 {option.title.replace("<br> ", "")}
@@ -67,7 +57,9 @@ const Dropdown = ({ options, onChange, label, defaultValue, selectedOption = def
             ))}
         </ul>
       )}
-      <div className={s.iconW}></div>
+      <div className={s.iconW}>
+        <IconArrow fill={"#6C6C79"} />
+      </div>
     </div>
   )
 }

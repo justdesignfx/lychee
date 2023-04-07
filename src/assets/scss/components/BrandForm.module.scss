@@ -1,59 +1,93 @@
 @import "../_global.scss";
 
 .brandForm {
-  //   outline: 1px solid #ce1953;
-  //   outline-offset: -1px;
-
   $fontSize: 1.25rem;
   $fontSizeMobile: 1rem;
   $paddingLeft: 1.25rem;
 
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  flex: 1;
 
-  .buttons {
-    .button {
-      @include dims(20vw, 4vw);
-      font-family: LS-VG5000;
-      margin-bottom: 0.5vw;
+  .button {
+    @include dims(18vw, 3.5vw);
+    font-family: LS-VG5000;
+    margin-bottom: 0.5vw;
+    opacity: 1;
+    pointer-events: auto;
+    transition: 0.4s all ease;
 
-      display: grid;
-      place-items: center;
+    display: grid;
+    place-items: center;
 
-      &.next {
-        border: 1px solid #ce1953;
-        border-radius: 36px;
-        color: #ce1953;
-        font-size: 1.5vw;
+    &.next {
+      border: 1px solid #ce1953;
+      border-radius: 36px;
+      color: #ce1953;
+      font-size: 1.5vw;
+    }
+
+    &.prev {
+      color: #6c6c79;
+      opacity: 0.3;
+      text-decoration: underline;
+      transition: 0.4s all ease;
+
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+
+      &.show {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
       }
+    }
 
-      &.prev {
-        color: #6c6c79;
-        opacity: 0.3;
-        text-decoration: underline;
-        transition: 0.4s all ease;
-
-        opacity: 0;
-        pointer-events: none;
-        visibility: hidden;
-
-        &.show {
-          opacity: 1;
-          pointer-events: auto;
-          visibility: visible;
-        }
-      }
+    &.disabled {
+      opacity: 0.3;
+      pointer-events: none;
     }
   }
 
-  .title {
-    color: #ce1953;
-    font-family: Lychee;
-    font-size: $fontSize;
-    font-weight: 400;
-    line-height: 100%;
-    margin-bottom: 1.5vw;
+  .buttons {
+    margin: 2vw auto 1vw auto;
+    position: relative;
+  }
+
+  .bottom {
+    @include position(absolute, auto, auto, 0, auto);
+    @include dims(100%, auto);
+    margin: 8% 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .prevButton {
+      margin-top: auto;
+    }
+
+    .progressBar {
+      @include dims(100%, 4px);
+      background: #292929;
+      border-radius: 2px;
+      position: relative;
+      margin: 0 3vw 0 3vw;
+      overflow: hidden;
+
+      .progress {
+        @include position(absolute, 0, auto, 0, 0);
+        @include dims(100%);
+        background: #ce1953;
+        transform-origin: left;
+        transition: 1s all ease;
+      }
+    }
   }
 
   .question {
@@ -66,7 +100,8 @@
     text-align: center;
   }
 
-  .formIntro {
+  .formIntro,
+  .formEnd {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -74,13 +109,16 @@
 
     .title {
       @include dims(35vw, auto);
-
       color: #c8c8c8;
       font-family: Lychee;
       font-size: 3vw;
       font-weight: 400;
       line-height: 120%;
       text-align: center;
+
+      .italic {
+        font-family: LaicaBItalic;
+      }
     }
 
     .text {
@@ -96,9 +134,39 @@
     }
   }
 
+  .top {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    .responseMessage {
+      @include position(absolute, 100%, auto, auto, 50%);
+      color: #ff0000;
+      font-family: Lychee;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 160%;
+      margin: 0 auto;
+      text-align: center;
+      transform: translate(-50%);
+      width: 100%;
+    }
+  }
+
   .formC {
     @include dims(37vw, 22vw);
     position: relative;
+  }
+
+  .title {
+    color: #ce1953;
+    font-family: Lychee;
+    font-size: $fontSize;
+    font-weight: 400;
+    line-height: 100%;
+    margin: 0 auto;
+    margin-bottom: 1.5vw;
   }
 
   .form {
@@ -120,16 +188,6 @@
       padding-bottom: 20vw;
     }
 
-    .error {
-      @include position(absolute, 100%, auto, auto, auto);
-      color: #3b3b3b;
-      font-family: Moderat;
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 160%;
-      margin: 2vw 0;
-    }
-
     .row {
       display: flex;
       gap: 1rem;
@@ -144,9 +202,9 @@
       @include dims(100%, 3.5vw);
       background: #1b1b24;
       border-radius: 32px;
-
-      position: relative;
       margin-bottom: 1.25vw;
+      position: relative;
+      transition: 0.4s all ease;
 
       &:last-child {
         margin-bottom: 0;
@@ -233,9 +291,12 @@
     }
 
     .textareaC {
-      @include dims(100%, 15vw);
+      @include dims(100%, 20vw);
       background: #1b1b24;
       border-radius: 32px;
+      margin-bottom: 1vw;
+      padding: 1.5rem;
+      gap: 1rem;
 
       display: flex;
       flex-direction: column;
@@ -261,8 +322,6 @@
         font-size: $fontSize;
         font-weight: 400;
         line-height: 100%;
-        margin-top: 1vw;
-        padding-left: $paddingLeft;
 
         @include devicesMax(mobile) {
           font-size: $fontSizeMobile;
@@ -271,18 +330,18 @@
       }
 
       .textarea {
-        @include dims(100%, 5vw);
-        color: #3b3b3b;
+        @include dims(100%, auto);
+        color: $stonewallGrey;
         font-family: Lychee;
         font-size: 1.25rem;
         font-weight: 400;
-        line-height: 120%;
-        margin: 0;
-        padding: 0;
+        line-height: 160%;
         background: none;
         border: none;
         outline: none;
         resize: none;
+
+        flex: 1;
 
         @include devicesMax(tablet) {
           @include dims(100%, 10vw);
@@ -330,23 +389,6 @@
     }
   }
 
-  .progressBar {
-    @include dims(100%, 4px);
-    background: #292929;
-    border-radius: 2px;
-    position: relative;
-    margin: 0 3vw 0 3vw;
-    overflow: hidden;
-
-    .progress {
-      @include position(absolute, 0, auto, 0, 0);
-      @include dims(100%);
-      background: #ce1953;
-      transform-origin: left;
-      transition: 1s all ease;
-    }
-  }
-
   .socialC {
     display: flex;
     flex-direction: column;
@@ -361,6 +403,7 @@
       line-height: 100%;
       margin-bottom: 1vw;
       text-align: center;
+      transition: 0.4s all ease;
 
       @include devicesMax(mobile) {
         font-size: $fontSizeMobile;
@@ -412,12 +455,18 @@
         }
       }
     }
+
+    &.required {
+      .label {
+        color: $californiaSunset;
+      }
+    }
   }
 
   .confirmation {
     $boxDims: 20px;
     @extend .cursorPointer;
-    margin-top: auto;
+    margin-top: 10vw;
 
     display: flex;
     align-items: flex-start;

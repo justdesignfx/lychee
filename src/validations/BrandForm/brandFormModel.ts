@@ -3,43 +3,43 @@ export default {
   formField: {
     name: {
       name: "name",
-      label: "İsim*",
+      label: "Ad Soyad*",
       requiredErrorMsg: "Name is required",
     },
     email: {
       name: "email",
-      label: "Email*",
+      label: "Eposta Adresi*",
       requiredErrorMsg: "Email is required",
     },
     company: {
       name: "company",
       label: "Company*",
-      requiredErrorMsg: "Address Line 1 is required",
+      requiredErrorMsg: "Company is required",
     },
     websiteUrl: {
       name: "websiteUrl",
       label: "Website Linki*",
-      requiredErrorMsg: "City is required",
+      requiredErrorMsg: "Website Url is required",
     },
     role: {
       name: "role",
       label: "Pozisyon*",
-      requiredErrorMsg: "City is required",
+      requiredErrorMsg: "Role is required",
     },
     message: {
       name: "message",
       label: "Mesaj*",
-      requiredErrorMsg: "Zipcode is required",
+      requiredErrorMsg: "Message is required",
     },
-    social: {
+    socialPlatforms: {
       name: "socialPlatforms",
       label: "Sosyal*",
-      requiredErrorMsg: "Country is required",
+      requiredErrorMsg: "Social Platforms is required",
     },
     budget: {
       name: "budget",
       label: "Bütçe*",
-      requiredErrorMsg: "Country is required",
+      requiredErrorMsg: "Budget is required",
     },
   },
 }
