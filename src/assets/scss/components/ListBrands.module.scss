@@ -13,6 +13,7 @@
     margin: 0 0 0 8vw;
     overflow: hidden;
     position: relative;
+    z-index: 10;
 
     @include devicesMax(tablet) {
       display: none;
@@ -26,6 +27,7 @@
       border-radius: 50%;
       filter: blur(20px);
       will-change: transform;
+      z-index: -1;
     }
   }
 
