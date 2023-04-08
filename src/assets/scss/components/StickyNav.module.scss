@@ -12,16 +12,15 @@
   }
 
   .navItem {
-    @include dims(15vw, 54px);
+    @include dims(12vw, 52px);
     border-radius: 28px;
     color: #fff;
     font-family: LS-VG5000;
+    font-size: 1.25rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
-    font-size: 1.5rem;
 
     @include devicesMax(tablet) {
       @include dims(30vw, 60px);
@@ -47,7 +46,7 @@
   }
 
   &::after {
-    $distance: -4px;
+    $distance: -6px;
 
     content: "";
     @include position(absolute, $distance, $distance, $distance, $distance);

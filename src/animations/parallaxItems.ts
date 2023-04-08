@@ -2,7 +2,7 @@ import gsap from "gsap"
 import { qAll } from "~/utils"
 
 export function parallaxItems() {
-  const items = qAll("[data-parallax]")
+  const items = qAll("[data-parallax='true']")
 
   if (items.length <= 0) return
 

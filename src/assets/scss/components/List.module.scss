@@ -69,9 +69,10 @@
       }
 
       .itemTitleC {
-        display: flex;
         margin-bottom: 1vw;
         position: relative;
+
+        display: flex;
 
         .toggleMobile {
           display: none;

@@ -6,6 +6,9 @@ import ButtonGlitch from "~/components/ButtonGlitch"
 import Img from "~/components/Img"
 import FooterBasic from "~/components/FooterBasic"
 
+import playBtnText from "~/assets/img/btn-play-text.svg"
+import playBtnTri from "~/assets/img/btn-play-tri.svg"
+
 import portalDiamond from "~/assets/img/portal-diamond.png"
 import sample from "~/assets/img/sample.png"
 import stickerBans from "~/assets/img/sticker-bans.svg"
@@ -13,8 +16,30 @@ import stickerPeace from "~/assets/img/sticker-peace.svg"
 import MarqueeSimple from "~/components/MarqueeSimple"
 import IconArrowSquare from "~/components/Icons/IconArrowSquare"
 import StickyNav from "~/components/StickyNav"
+import { useModalStore } from "~/store/modalStore"
+import { useWindowSize } from "~/hooks"
+import { breakpoints } from "~/variables"
+import { useState } from "react"
+import ListBrands from "~/components/ListBrands"
 
 const Brands = () => {
+  const modalStore = useModalStore()
+  const size = useWindowSize()
+
+  function handleModal() {
+    modalStore.setContent(
+      <div className={s.modalContent}>
+        <video className={s.video} controls autoPlay playsInline>
+          <source
+            src="https://player.vimeo.com/progressive_redirect/playback/812374325/rendition/1080p/file.mp4?loc=external&signature=a3848ab31075a23e420bf6ef7f04e9e518c2abf377cd67194e57b1d98e9ca61d"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+    )
+    modalStore.toggle()
+  }
+
   return (
     <>
       <main className={s.brands} data-sticky-item-c>
@@ -34,6 +59,23 @@ const Brands = () => {
               <ButtonGlitch size="sm" text="Hemen başlayın" />
             </Link>
           </div>
+
+          <div className={s.bgVideoC}>
+            <video className={s.video} loop autoPlay muted playsInline>
+              <source
+                src="https://player.vimeo.com/progressive_redirect/playback/811194868/rendition/1080p/file.mp4?loc=external&signature=7dc29827ae3db3dfd80474b36b296892ecc96340075b64bbb83f266d886ff389"
+                type="video/mp4"
+              />
+            </video>
+            <button className={s.playBtn} onClick={handleModal}>
+              <div className={s.iconTri}>
+                <Img src={playBtnTri} objectFit="contain" />
+              </div>
+              <div className={s.text}>
+                <Img src={playBtnText} objectFit="contain" />
+              </div>
+            </button>
+          </div>
         </section>
         <section className={s.misc}>
           <div className={s.imgC} data-framed-parallax-frame>
@@ -46,7 +88,12 @@ const Brands = () => {
               <Img src={sample} />
             </div>
           </div>
-          <div className={s.imgC} data-parallax data-speed-y="0.5" data-direction-y="-1">
+          <div
+            className={s.imgC}
+            data-parallax={() => (size.width > breakpoints.mobile ? true : false)}
+            data-speed-y="0.5"
+            data-direction-y="-1"
+          >
             <Img src={sample} />
           </div>
         </section>
@@ -68,51 +115,7 @@ const Brands = () => {
             </div>
           </div>
 
-          <div className={s.methodsList}>
-            <div className={s.scrollbar} data-sticky-title-c>
-              <div className={s.thumb} data-sticky-title></div>
-            </div>
-            <ul className={s.list}>
-              <li className={s.listItem}>
-                <small className={s.index}>01</small>
-                <h5 className={s.title}>Hedeflerinizi Tanımlamak</h5>
-                <p className={s.text}>
-                  Satış huninizde daha fazla müşteri adayı, daha düşük CPM, artan marka bilinirliği, pazarlama
-                  kampanyalarınızda benzersiz ve yeni içerik arıyorsanız, sizin için buradayız. Hedef kitlenizi, temel
-                  hedeflerinizi, tercih ettiğiniz sosyal kanalları ve kampanyanız için başarıya eşit olan diğer her şeyi
-                  tam olarak tanımlamak için deneyimli stratejistlerden oluşan ekibimizle işbirliği yapacaksınız.
-                </p>
-              </li>
-              <li className={s.listItem}>
-                <small className={s.index}>02</small>
-                <h5 className={s.title}>Kampanya Stratejinizi İnşa Etmek</h5>
-                <p className={s.text}>
-                  Biz mümkün olan en iyi kampanya stratejinizi oluştururken kahvenizden bir yudum alın. Hedeflerinizi
-                  öğrendikten ve kurumsal kimliğinizi analiz ettikten sonra, ekibimiz bütçeniz ve parametreleriniz
-                  dahilinde mükemmel stratejiyi oluşturacaktır. Kampanyanızı yürütmek, beyin fırtınası yapmak ve
-                  projenin nihai onayını almak için uygulayabileceğimiz eksiksiz bir senaryonlar menüsü hazırlıyoruz.
-                </p>
-              </li>
-              <li className={s.listItem}>
-                <small className={s.index}>03</small>
-                <h5 className={s.title}>Hayallerinizi Şekillendirecek İçerik Üreticinizi Seçmek</h5>
-                <p className={s.text}>
-                  Yaratıcı, kreatif içerik üreticileri ve influencer ekibimizin içinden markanızı en iyi şekilde
-                  tanıtacak yeteceği buluyoruz. Ekibimiz seçtiğiniz platformda markanız için yaratıcı reklam
-                  kampanyaları oluşturur.
-                </p>
-              </li>
-              <li className={s.listItem}>
-                <small className={s.index}>04</small>
-                <h5 className={s.title}>Gerçek Zamanlı Sonuçları Görmek</h5>
-                <p className={s.text}>
-                  Veri analistlerinden oluşan ekibimiz, bir sonraki kampanya lansmanınızın temelini oluşturan kampanya
-                  içgörülerinizi belirler. Bu verilere dayanarak kampanyanızın bir öncekinden daha iyi olması için en
-                  etkili yol haritalarını çizer.
-                </p>
-              </li>
-            </ul>
-          </div>
+          <ListBrands />
         </section>
         <section className={s.platforms}>
           <div className={s.stickerC}>
