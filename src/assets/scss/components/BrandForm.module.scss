@@ -240,6 +240,8 @@
 
       .label {
         @include position(absolute, 0, 0, 0, 0);
+        background: #1b1b24;
+        border-radius: 32px;
         color: #6c6c79;
         font-family: Lychee;
         font-size: $fontSize;
@@ -279,6 +281,28 @@
         @include position(absolute, 50%, 0, auto, auto);
         @include dims(2vw, auto);
         transform: translateY(-50%);
+      }
+
+      &.website {
+        .withPre {
+          @include dims(auto, 100%);
+
+          display: flex;
+          align-items: center;
+
+          .pre {
+            color: #6c6c79;
+            font-family: Lychee;
+            font-size: $fontSize;
+            font-weight: 400;
+            line-height: 120%;
+            padding-left: 1.25rem;
+          }
+
+          .input {
+            @include position(relative, auto, auto, auto, auto);
+          }
+        }
       }
 
       &.dropdownC {

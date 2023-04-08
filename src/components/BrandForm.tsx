@@ -17,8 +17,9 @@ import { initialValues } from "~/validations/BrandForm/initialValues"
 
 const { formId, formField } = brandFormModel
 import api from "~/api"
+import { qAll } from "~/utils"
 
-const BrandForm = () => {
+const BrandForm = (props: any) => {
   const formRef = useRef<HTMLFormElement>(null)
   const brandFormRef = useRef<HTMLDivElement>(null)
   const [currentStep, setCurrentStep] = useState(0)
@@ -27,6 +28,23 @@ const BrandForm = () => {
   const [started, setStarted] = useState(false)
   const [end, setEnd] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
+  // Form start animation
+  useEffect(() => {
+    const hiddenEls = qAll("[data-hide-on-form-start]")
+
+    if (started) {
+      gsap.to(hiddenEls, {
+        autoAlpha: 0,
+      })
+    }
+
+    return () => {
+      gsap.to(hiddenEls, {
+        autoAlpha: 1,
+      })
+    }
+  }, [started])
 
   const budgetRanges = [
     { id: "1", title: "25k ₺'den az" },
@@ -224,7 +242,7 @@ const BrandForm = () => {
       question: "Şirketiniz / markanız hakkında bilgi verebilir misiniz?",
       ui: (
         <>
-          <div className={cx(s.inputC, { [s.required]: formik.errors.company && formik.touched.company && true })}>
+          <div className={cx(s.inputC, { [s.required]: formik.errors.company && formik.touched.company })}>
             <label
               className={cx(s.label, {
                 [s.hidden]: formik.values.company,
@@ -246,8 +264,8 @@ const BrandForm = () => {
           </div>
 
           <div
-            className={cx(s.inputC, {
-              [s.required]: formik.errors.websiteUrl && formik.touched.websiteUrl && true,
+            className={cx(s.inputC, s.website, {
+              [s.required]: formik.errors.websiteUrl && formik.touched.websiteUrl,
             })}
           >
             <label
@@ -258,19 +276,22 @@ const BrandForm = () => {
             >
               {formField.websiteUrl.label}
             </label>
-            <input
-              className={s.input}
-              id={formField.websiteUrl.name}
-              name={formField.websiteUrl.name}
-              type="text"
-              onFocus={handleFocus}
-              onBlur={handleFocus}
-              onChange={formik.handleChange}
-              value={formik.values.websiteUrl}
-            />
+            <div className={s.withPre}>
+              <p className={s.pre}>https://</p>
+              <input
+                className={s.input}
+                id={formField.websiteUrl.name}
+                name={formField.websiteUrl.name}
+                type="text"
+                onFocus={handleFocus}
+                onBlur={handleFocus}
+                onChange={formik.handleChange}
+                value={formik.values.websiteUrl}
+              />
+            </div>
           </div>
 
-          <div className={cx(s.inputC, { [s.required]: formik.errors.role && formik.touched.role && true })}>
+          <div className={cx(s.inputC, { [s.required]: formik.errors.role && formik.touched.role })}>
             <label
               className={cx(s.label, {
                 [s.hidden]: formik.values.role,
@@ -384,17 +405,24 @@ const BrandForm = () => {
 
   return (
     <div className={s.brandForm} ref={brandFormRef}>
-      {!started && (
-        <div className={s.formIntro}>
-          <h1 className={s.title}>Dijital reklamcılığın geleceğine hoş geldiniz.</h1>
-          <p className={s.text}>Şimdi marka vizyonunuzu, kampanyanızı ve hayallerinizi öğrenme zamanı.</p>
-          <div className={s.buttons}>
-            <button className={cx(s.button, s.next)} onClick={handleFormStart}>
-              Şimdi Başlayın
-            </button>
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {!started && (
+          <motion.div
+            className={s.formIntro}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 0.4 } }}
+            exit={{ opacity: 0, transition: { duration: 0.2 } }}
+          >
+            <h1 className={s.title}>Dijital reklamcılığın geleceğine hoş geldiniz.</h1>
+            <p className={s.text}>Şimdi marka vizyonunuzu, kampanyanızı ve hayallerinizi öğrenme zamanı.</p>
+            <div className={s.buttons}>
+              <button className={cx(s.button, s.next)} onClick={handleFormStart}>
+                Şimdi Başlayın
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {started && !end && (
         <>
@@ -471,21 +499,28 @@ const BrandForm = () => {
         </>
       )}
 
-      {end && (
-        <div className={s.formEnd}>
-          <h1 className={s.title}>
-            Formunuz başarıyla ekibimize <span className={s.italic}> ulaştı.</span>
-          </h1>
-          <p className={s.text}>
-            Artık hayalinizdeki kampanyaya daha da yakınsınız. En kısa sürede sizinle iletişime geçeceğiz.
-          </p>
-          <div className={s.buttons}>
-            <Link to="/" className={cx(s.button, s.next)}>
-              Anasayfaya Dön
-            </Link>
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {end && (
+          <motion.div
+            className={s.formEnd}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 0.4 } }}
+            exit={{ opacity: 0, transition: { duration: 0.2 } }}
+          >
+            <h1 className={s.title}>
+              Formunuz başarıyla ekibimize <span className={s.italic}> ulaştı.</span>
+            </h1>
+            <p className={s.text}>
+              Artık hayalinizdeki kampanyaya daha da yakınsınız. En kısa sürede sizinle iletişime geçeceğiz.
+            </p>
+            <div className={s.buttons}>
+              <Link to="/" className={cx(s.button, s.next)}>
+                Anasayfaya Dön
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

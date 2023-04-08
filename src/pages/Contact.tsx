@@ -10,11 +10,11 @@ const Contact = () => {
     <div className={s.contact}>
       <Outlet></Outlet>
 
-      <div className={cx(s.imgC, s.left)}>
+      <div className={cx(s.imgC, s.left)} data-hide-on-form-start>
         <img src={floating} alt="Background Visual" className={s.img} />
       </div>
 
-      <div className={cx(s.imgC, s.right)}>
+      <div className={cx(s.imgC, s.right)} data-hide-on-form-start>
         <img src={floating} alt="Background Visual" className={s.img} />
       </div>
     </div>

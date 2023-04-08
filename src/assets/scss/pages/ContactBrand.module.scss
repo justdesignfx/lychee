@@ -62,7 +62,7 @@
   }
 
   .linkC {
-    @include position(absolute, auto, auto, 2vw, 2vw);
+    @include position(absolute, auto, auto, 2%, 2vw);
     color: #c8c8c8;
     font-family: Lychee;
     font-size: 1.25rem;
