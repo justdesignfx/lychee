@@ -16,29 +16,38 @@
     display: none;
   }
 
-  .cursor {
-    @include position(absolute, 50%, auto, auto, 50%);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: 0.2s all cubic-bezier(0.215, 0.61, 0.355, 1);
-
-    &.default {
+  &.default {
+    .cursor {
       @include dims(18px);
       background: rgb(206, 25, 83);
     }
+  }
 
-    &.lamp {
+  &.lamp {
+    mix-blend-mode: darken;
+
+    .cursor {
       @include dims(15rem);
       background: rgb(206, 25, 83);
       background: radial-gradient(circle, rgba(206, 25, 83, 1) 0%, rgba(206, 25, 83, 0) 100%);
       filter: blur(100px);
+      position: relative;
     }
+  }
 
-    &.lampSmall {
+  &.lampSmall {
+    .cursor {
       @include dims(5rem);
       background: rgb(206, 25, 83);
       background: radial-gradient(circle, rgba(206, 25, 83, 1) 0%, rgba(206, 25, 83, 0) 100%);
       filter: blur(10px);
     }
+  }
+
+  .cursor {
+    @include position(absolute, 50%, auto, auto, 50%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.2s all cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 }

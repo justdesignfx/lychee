@@ -155,11 +155,12 @@ const WithSmooth = ({ children, location }: Props) => {
 
       ctx = gsap.context(() => {
         // disable bounce
-        gsap.set("body", {
-          height: size.height,
-          width: "100vw",
-          overflow: "hidden",
-        })
+        size.width > breakpoints.tablet &&
+          gsap.set("body", {
+            height: size.height,
+            width: "100vw",
+            overflow: "hidden",
+          })
         // disable bounce
 
         gsap.set(scrollerRef.current, {

@@ -8,7 +8,6 @@
 
   .imgC {
     background: #f4f2f2;
-
     border-radius: 5vmin 5vmin 0 0;
     margin-bottom: -1px;
     padding: 10vw;
@@ -16,11 +15,11 @@
     position: relative;
 
     @include devicesMax(tablet) {
-      padding: 0 4vw;
+      padding: 8vw 4vw;
     }
 
     @include devicesMax(mobile) {
-      padding: 0 5vw;
+      padding: 15vw 5vw;
     }
 
     &::before {
@@ -37,17 +36,25 @@
       }
     }
 
+    &::after {
+      content: "";
+      @include position(absolute, 100%, auto, auto, 50%);
+      @include dims(80%, 1px);
+      background: $eigengrau;
+      transform: translateX(-50%);
+      z-index: 20;
+
+      @include devicesMax(tablet) {
+        @include dims(92%, 1px);
+      }
+
+      @include devicesMax(tablet) {
+        display: none;
+      }
+    }
+
     .eventC {
       position: relative;
-
-      &::after {
-        content: "";
-        @include position(absolute, 120%, auto, auto, 50%);
-        @include dims(100%, 1px);
-        background: $eigengrau;
-        transform: translateX(-50%);
-        z-index: 20;
-      }
     }
   }
 }

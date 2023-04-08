@@ -25,7 +25,6 @@
 
     @include devicesMax(mobile) {
       flex-direction: column-reverse;
-      margin-top: 10vw;
       padding-bottom: 7vw;
     }
 
@@ -66,7 +65,7 @@
         }
 
         .text {
-          @include typo(Lychee, 30px, null, 1.4, null);
+          @include typo(Lychee, 20px, null, 1.4, null);
 
           @include devicesMax(tablet) {
             @include typo(Lychee, 20px, null, 1.4, null);
@@ -79,7 +78,7 @@
       }
 
       &.links {
-        margin-left: 10vw;
+        margin-left: 5vw;
 
         @include devicesMax(mobile) {
           margin-left: 0;
@@ -87,9 +86,9 @@
         }
 
         .link {
-          @include typo(Lychee, 30px, null, 1.4, null);
+          @include typo(Lychee, 20px, null, 1.4, null);
           display: block;
-          margin-bottom: 1.5vw;
+          margin-bottom: 1vw;
 
           @include devicesMax(tablet) {
             @include typo(Lychee, 20px, null, 1.4, null);
