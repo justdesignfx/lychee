@@ -106,6 +106,12 @@
     transform: translateY(-50%);
     @extend .show;
 
+    display: none;
+
+    @include devicesMax(mobile) {
+      display: flex;
+    }
+
     &.disabled {
       @extend .hide;
     }

@@ -27,6 +27,7 @@ import Modal from "~/components/Modal"
 import { stickyItem } from "~/animations/stickyItem"
 import StickyNav from "~/components/StickyNav"
 import { AnimatePresence } from "framer-motion"
+import { qSingle } from "~/utils"
 
 export const SmoothContext = React.createContext<any>(null)
 
@@ -41,7 +42,6 @@ const WithSmooth = ({ children, location }: Props) => {
   const scrollerRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const smooth = useRef<Scrollbar | null>(null)
-
   const size = useWindowSize()
 
   const clearScrollTriggers = () => {
@@ -66,6 +66,17 @@ const WithSmooth = ({ children, location }: Props) => {
         })
       },
     })
+  }
+
+  const updateMarkers = () => {
+    // Only necessary to correct marker position - not needed in production
+    if (qSingle(".gsap-marker-scroller-start")) {
+      const markers = gsap.utils.toArray('[class *= "gsap-marker"]')
+
+      smooth.current?.addListener(({ offset }: any) => {
+        gsap.set(markers, { marginTop: -offset.y })
+      })
+    }
   }
 
   const lockScrollbar = () => {
@@ -181,27 +192,14 @@ const WithSmooth = ({ children, location }: Props) => {
         },
       })
 
-      initAnimations()
-
       smooth.current?.addListener(ScrollTrigger.update)
       ScrollTrigger.defaults({ scroller: scrollerRef.current })
 
-      // Only necessary to correct marker position - not needed in production
-      if (document.querySelector(".gsap-marker-scroller-start")) {
-        const markers = gsap.utils.toArray('[class *= "gsap-marker"]')
+      initAnimations()
 
-        smooth.current?.addListener(({ offset }: any) => {
-          gsap.set(markers, { marginTop: -offset.y })
-        })
-      }
+      updateMarkers()
     }
 
-    // if (size.width > breakpoints.tablet) {
-    //   initSmoothScrollbar()
-    //   console.log("DESKTOP", size.width)
-    // } else {
-    //   initAnimations()
-    // }
     initSmoothScrollbar()
 
     return () => {

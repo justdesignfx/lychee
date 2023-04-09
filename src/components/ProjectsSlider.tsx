@@ -80,6 +80,7 @@ const ProjectsSlider = (props: Props) => {
         onSlideChange={(e: any) => setCurrentSlide(e.activeIndex)}
         slidesPerView={1}
         spaceBetween={50}
+        preventInteractionOnTransition={true}
         speed={600}
         navigation={{
           prevEl,

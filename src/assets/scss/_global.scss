@@ -42,14 +42,14 @@ $satinDeepBlack: #1b1b21;
 }
 
 $widescreen: 1680px;
-$desktop: 1280px;
+$desktop: 1440px;
 $tablet: 1024px;
 $tabletmini: 768px;
 $mobile: 480px;
 
 @mixin devicesMax($breakpoint) {
   @if $breakpoint == widescreen {
-    @media only screen and (min-width: $widescreen) {
+    @media only screen and (max-width: $widescreen) {
       @content;
     }
   }
@@ -66,7 +66,7 @@ $mobile: 480px;
     }
   }
 
-  @if $breakpoint == tabletMini {
+  @if $breakpoint == tabletmini {
     @media only screen and (max-width: $tabletmini) {
       @content;
     }
