@@ -6,28 +6,33 @@
 
   .hero {
     @include dims(100%, 115vh);
+    background: #000;
     padding-top: 10vh;
     overflow: hidden;
     position: relative;
 
     @include devicesMax(tablet) {
-      background-image: url(../img/banner-touch.png);
+      @include dims(100%, auto);
     }
 
     @include devicesMax(mobile) {
-      background-size: 120%;
-      background-position: bottom right;
+      display: flex;
+      flex-direction: column;
     }
 
     .textC {
       display: inline-block;
-      margin: 10vw auto 0 3vw;
+      margin: 10vw auto 0 4vw;
       position: relative;
       transform: translateZ(1px);
       z-index: 100;
 
       @include devicesMax(tablet) {
-        margin: 12vw 0 0 4vw;
+        margin: 12vw 0 95vw 4vw;
+      }
+
+      @include devicesMax(mobile) {
+        margin: 15vw auto 0 auto;
       }
 
       .title {
@@ -38,7 +43,6 @@
 
         @include devicesMax(tablet) {
           margin-bottom: 7vw;
-          margin-top: 30vw;
           width: 60vw;
         }
 
@@ -76,11 +80,12 @@
           place-items: center;
 
           @include devicesMax(tablet) {
-            @include dims(30vw, 6vw);
+            @include dims(28vw, 6vw);
           }
 
           @include devicesMax(mobile) {
-            @include dims(64vw, 11vw);
+            @include dims(54vw, 10vw);
+            @include typo(LS-VG5000, 16px, null, null, null);
             margin-bottom: 7.5vw;
           }
         }
@@ -92,6 +97,10 @@
       padding: 0 0 2% 0;
       transform: translateY(-100%);
       z-index: 10;
+
+      @include devicesMax(mobile) {
+        @include position(absolute, auto, 0, 0, 0);
+      }
 
       .mText {
         @include typo(Lychee, 130px, null, 1.2, null);
@@ -105,12 +114,16 @@
           @include typo(Lychee, 90px, null, 1.2, null);
         }
 
+        @include devicesMax(mobile) {
+          @include typo(Lychee, 40px, null, 1.2, null);
+        }
+
         .italic {
           font-style: italic;
         }
 
         .seperator {
-          @include dims(200px, 10px);
+          @include dims(3ch, 0.15ch);
           background: #fff;
           display: inline-block;
           margin: 2vw 3vw 0 3vw;
@@ -126,9 +139,24 @@
       align-items: center;
       justify-content: center;
 
+      @include devicesMax(tablet) {
+        @include position(absolute, auto, 0, 0, 0);
+      }
+
+      @include devicesMax(mobile) {
+        @include position(relative, auto, auto, auto, auto);
+        margin-top: -30vw;
+      }
+
       .video {
-        @include dims(100%);
+        @include dims(100%, auto);
+        display: block;
         object-fit: cover;
+
+        @include devicesMax(mobile) {
+          @include dims(150%, auto);
+          margin-right: 15vw;
+        }
       }
 
       .playBtn {
@@ -147,8 +175,18 @@
         align-items: center;
         justify-content: center;
 
+        @include devicesMax(tablet) {
+          @include position(absolute, -5%, auto, auto, 85%);
+          @include dims(15vw);
+        }
+
+        @include devicesMax(mobile) {
+          @include position(absolute, 40%, auto, auto, 50%);
+          @include dims(25vw);
+        }
+
         .iconTri {
-          @include dims(15%);
+          @include dims(25%);
           @include position(absolute, 50%, auto, auto, 50%);
           transform: translate(-50%, -50%);
         }
@@ -209,7 +247,7 @@
         }
 
         .margin1 {
-          margin-right: 15vw;
+          margin-right: 14vw;
 
           @include devicesMax(tablet) {
             margin: 0;
@@ -274,6 +312,10 @@
       pointer-events: none;
       transform: translateY(-99%);
       z-index: 8;
+
+      @include devicesMax(tablet) {
+        @include dims(100%, 60%);
+      }
     }
   }
 
@@ -906,10 +948,12 @@
         }
 
         @include devicesMax(tablet) {
-          flex-wrap: wrap;
+          gap: 1vw;
+          margin-bottom: 1.5vw;
         }
 
         @include devicesMax(mobile) {
+          flex-wrap: wrap;
           gap: 4vw;
           margin-bottom: 4vw;
         }
@@ -923,7 +967,7 @@
         position: relative;
 
         @include devicesMax(tablet) {
-          @include dims(20vw);
+          @include dims(15.5vw);
         }
 
         @include devicesMax(mobile) {
@@ -1024,6 +1068,11 @@
           left: 50%;
           transform: translate(-50%, -50%);
 
+          @include devicesMax(tablet) {
+            max-height: 45%;
+            max-width: 75%;
+          }
+
           @include devicesMax(mobile) {
             max-height: 45%;
             max-width: 75%;
@@ -1071,7 +1120,7 @@
           @include typo(LaicaBItalic, 82px, null, 0.6, null);
 
           @include devicesMax(tablet) {
-            @include typo(LaicaBItalic, 74px, null, 0.8, null);
+            @include typo(LaicaBItalic, 68px, null, 1.4, null);
           }
 
           @include devicesMax(mobile) {

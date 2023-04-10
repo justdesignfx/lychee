@@ -61,12 +61,10 @@
       position: relative;
 
       @include devicesMax(tablet) {
-        @include dims(100%, 6.5vw);
         margin-top: 10vw;
       }
 
       @include devicesMax(mobile) {
-        @include dims(100%, 14vw);
         margin-bottom: 4vw;
         margin-top: 20vw;
       }
@@ -156,7 +154,7 @@
       }
 
       @include devicesMax(mobile) {
-        @include position(absolute, auto, auto, 110%, 50%);
+        @include position(absolute, -30px, auto, auto, 50%);
         font-size: 14px;
         margin-bottom: 2vw;
         padding-left: 0;

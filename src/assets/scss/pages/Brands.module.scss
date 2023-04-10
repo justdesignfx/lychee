@@ -134,11 +134,12 @@
       }
 
       .video {
-        @include dims(150%, auto);
+        @include dims(100%, auto);
         display: block;
         object-fit: cover;
 
         @include devicesMax(mobile) {
+          @include dims(150%, auto);
           margin-right: 15vw;
         }
       }

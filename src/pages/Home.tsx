@@ -10,18 +10,18 @@ import reels from "~/assets/img/reels.png"
 import skaterTube from "~/assets/img/skater-tube.svg"
 import smartPhone from "~/assets/img/smartphone.svg"
 
+import logoAbdiBlack from "~/assets/img/logo-abdiibrahim-black.svg"
 import logoAdidas from "~/assets/img/logo-adidas.svg"
 import logoDisney from "~/assets/img/logo-disney.svg"
+import logoDysonBlack from "~/assets/img/logo-dyson-black.svg"
 import logoDyson from "~/assets/img/logo-dyson.svg"
 import logoEsteeLauder from "~/assets/img/logo-estee-lauder.svg"
 import logoLoreal from "~/assets/img/logo-loreal.svg"
 import logoNestle from "~/assets/img/logo-nestle.svg"
 import logoNike from "~/assets/img/logo-nike.svg"
+import logoObsessoBlack from "~/assets/img/logo-obsesso-black.svg"
 import logoPhilips from "~/assets/img/logo-philips.svg"
 import logoStarbucks from "~/assets/img/logo-starbucks.svg"
-import logoDysonBlack from "~/assets/img/logo-dyson-black.svg"
-import logoAbdiBlack from "~/assets/img/logo-abdiibrahim-black.svg"
-import logoObsessoBlack from "~/assets/img/logo-obsesso-black.svg"
 
 import influencer1 from "~/assets/img/influencer-1.jpg"
 import influencer2 from "~/assets/img/influencer-2.jpg"
@@ -30,18 +30,15 @@ import influencer3 from "~/assets/img/influencer-3.jpg"
 import playBtnText from "~/assets/img/btn-play-text.svg"
 import playBtnTri from "~/assets/img/btn-play-tri.svg"
 
-import { useContext, useEffect } from "react"
-import { ScrollStatus } from "smooth-scrollbar/interfaces"
-import Footer from "~/components/Footer"
-import MarqueeSimple from "~/components/MarqueeSimple"
-import { SmoothContext } from "~/hocs/WithSmooth"
-import SplitText from "~/components/SplitText"
-import Img from "~/components/Img"
 import ButtonText from "~/components/ButtonText"
-import { CursorType, useCursorStore } from "~/store/cursorStore"
-import { breakpoints } from "~/variables"
+import Footer from "~/components/Footer"
+import Img from "~/components/Img"
+import MarqueeSimple from "~/components/MarqueeSimple"
+import SplitText from "~/components/SplitText"
 import { useWindowSize } from "~/hooks"
+import { useCursorStore } from "~/store/cursorStore"
 import { useModalStore } from "~/store/modalStore"
+import { breakpoints } from "~/variables"
 
 const Home = () => {
   const textRevealContent = [
@@ -124,23 +121,6 @@ const Home = () => {
     <>
       <main className={s.home}>
         <section className={s.hero}>
-          <div className={s.bgVideoC}>
-            <video className={s.video} loop autoPlay muted playsInline>
-              <source
-                src="https://player.vimeo.com/progressive_redirect/playback/811194868/rendition/1080p/file.mp4?loc=external&signature=7dc29827ae3db3dfd80474b36b296892ecc96340075b64bbb83f266d886ff389"
-                type="video/mp4"
-              />
-            </video>
-            <button className={s.playBtn} onClick={handleModal}>
-              <div className={s.iconTri}>
-                <Img src={playBtnTri} objectFit="contain" />
-              </div>
-              <div className={s.text}>
-                <Img src={playBtnText} objectFit="contain" />
-              </div>
-            </button>
-          </div>
-
           <div className={s.textC}>
             <h1 className={s.title}>
               Markanız için en etkili <span className={s.inner}>influencer marketing</span> kampanyalarını yürütmeye
@@ -156,6 +136,27 @@ const Home = () => {
                 İçerik Üreticisiyim
               </Link>
             </div>
+          </div>
+
+          <div className={s.bgVideoC}>
+            <video className={s.video} loop autoPlay muted playsInline width={1080} height={1214}>
+              <source
+                src={
+                  size.width > breakpoints.tablet
+                    ? "https://player.vimeo.com/progressive_redirect/playback/811194868/rendition/1080p/file.mp4?loc=external&signature=7dc29827ae3db3dfd80474b36b296892ecc96340075b64bbb83f266d886ff389"
+                    : "https://player.vimeo.com/progressive_redirect/playback/812352429/rendition/1080p/file.mp4?loc=external&signature=04e2f212839943887df5ccb86b16f0fa7c834e86d233a063420a92919b34311e"
+                }
+                type="video/mp4"
+              />
+            </video>
+            <button className={s.playBtn} onClick={handleModal}>
+              <div className={s.iconTri}>
+                <Img src={playBtnTri} objectFit="contain" />
+              </div>
+              <div className={s.text}>
+                <Img src={playBtnText} objectFit="contain" />
+              </div>
+            </button>
           </div>
 
           <div className={s.marqueeC}>

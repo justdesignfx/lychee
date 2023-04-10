@@ -3,7 +3,7 @@
 .header {
   @include position(fixed, 0, 0, auto, 0);
   @include dims(100%, $headerHeight);
-  padding: 0 2vw;
+  padding: 0 2vw 0 4vw;
   z-index: z-index("header");
 
   display: flex;

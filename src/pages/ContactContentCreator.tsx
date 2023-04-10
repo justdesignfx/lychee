@@ -1,37 +1,21 @@
-import { ChangeEvent, FormEvent, useId } from "react"
+import { FormEvent } from "react"
 import s from "~/assets/scss/pages/ContactContentCreator.module.scss"
 
 import dta from "~/assets/img/digital-talent-agency.png"
-import plus from "~/assets/icon/plus.svg"
 import lychee from "~/assets/img/logo.png"
+
+import { filter, find } from "lodash"
 
 import axios from "axios"
 import cx from "classnames"
 import { useFormik } from "formik"
 import { Link } from "react-router-dom"
-import * as Yup from "yup"
 
 import api from "~/api"
-import PrivacyPolicyText from "~/components/PrivacyPolicyText"
-import Img from "~/components/Img"
 import IconPlus from "~/components/Icons/IconPlus"
-import { log } from "console"
-
-const ContentCreatorFormSchema = Yup.object({
-  name: Yup.string().required("REQUIRED"),
-  email: Yup.string().email("INVALID_EMAIL").required("REQUIRED"),
-  socialPlatforms: Yup.array()
-    .of(
-      Yup.object().shape({
-        label: Yup.string(),
-        value: Yup.string(),
-        id: Yup.string(),
-      })
-    )
-    .required("REQUIRED"),
-  message: Yup.string(),
-  privacyConfirmation: Yup.boolean().required("REQUIRED"),
-})
+import PrivacyPolicyText from "~/components/PrivacyPolicyText"
+import contentCreatorSchema from "~/validations/ContentCreatorForm/contentCreatorSchema"
+import { ISocialPlatform, initialValues } from "~/validations/ContentCreatorForm/initialValues"
 
 const ContactContentCreator = () => {
   const submitForm = async (values: any) => {
@@ -66,14 +50,8 @@ const ContactContentCreator = () => {
   const maxPlatforms = 10
 
   const formik = useFormik({
-    initialValues: {
-      name: "",
-      email: "",
-      message: "",
-      socialPlatforms: [{ id: uIdGenerator(), label: "", value: "" }],
-      privacyConfirmation: false,
-    },
-    validationSchema: ContentCreatorFormSchema,
+    initialValues: initialValues,
+    validationSchema: contentCreatorSchema,
     onSubmit: (values) => {
       console.log(values)
       submitForm(values)
@@ -103,7 +81,8 @@ const ContactContentCreator = () => {
   }
 
   function removeField(id: string) {
-    const filtered = formik.values.socialPlatforms.filter((platform) => {
+    const platforms = formik.values.socialPlatforms as Array<any>
+    const filtered = platforms.filter((platform) => {
       return platform.id !== id
     })
 
@@ -119,6 +98,18 @@ const ContactContentCreator = () => {
       field,
     }
     formik.setFieldValue("fieldValues", updatedFieldValues)
+  }
+
+  function handleSocial(platform: ISocialPlatform) {
+    if (formik.values.socialPlatforms.find(platform.id)) {
+      const platforms = formik.values.socialPlatforms
+
+      const filtered = filter(platforms, { id: platform.id })
+
+      formik.setFieldValue("socialPlatforms", [...filtered], true)
+    } else {
+      formik.setFieldValue("socialPlatforms", [...formik.values.socialPlatforms, platform], true)
+    }
   }
 
   return (
@@ -173,7 +164,7 @@ const ContactContentCreator = () => {
         <div className={s.multipleInputC}>
           <small className={s.smallTop}>Sosyal Medya Linkleri</small>
 
-          {formik.values.socialPlatforms.map((platform, i) => {
+          {formik.values.socialPlatforms.map((platform: any, i: number) => {
             return (
               <div
                 className={cx(s.inputC, s.socialPlatforms, {
@@ -196,20 +187,22 @@ const ContactContentCreator = () => {
                   type="text"
                   onFocus={handleFocus}
                   onBlur={handleFocus}
-                  onChange={(e) => handleFieldChange(platform, e.target.value)}
+                  onChange={() => handleFieldChange}
                   value={formik.values.socialPlatforms[i].value}
                 />
-                <button
-                  className={s.deleteBtn}
-                  type="button"
-                  onClick={() => {
-                    i > 0 && removeField(platform.id)
-                  }}
-                >
-                  <div className={s.iconC}>
-                    <IconPlus fill="#c8c8c8" />
-                  </div>
-                </button>
+                {i > 0 && (
+                  <button
+                    className={cx(s.deleteBtn)}
+                    type="button"
+                    onClick={() => {
+                      i > 0 && removeField(platform.id)
+                    }}
+                  >
+                    <div className={s.iconC}>
+                      <IconPlus fill="#c8c8c8" />
+                    </div>
+                  </button>
+                )}
               </div>
             )
           })}
@@ -259,7 +252,7 @@ const ContactContentCreator = () => {
 
       <small className={s.linkC}>
         Markanız mı var?{" "}
-        <Link className={s.link} to="/contact/content-creator">
+        <Link className={s.link} to="/contact/brand">
           Hemen başlayın.
         </Link>{" "}
       </small>

@@ -19,7 +19,7 @@ const { formId, formField } = brandFormModel
 import api from "~/api"
 import { qAll } from "~/utils"
 
-const BrandForm = (props: any) => {
+const BrandForm = () => {
   const formRef = useRef<HTMLFormElement>(null)
   const brandFormRef = useRef<HTMLDivElement>(null)
   const [currentStep, setCurrentStep] = useState(0)
