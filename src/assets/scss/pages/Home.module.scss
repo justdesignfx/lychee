@@ -713,10 +713,10 @@
       }
 
       .titleC {
-        color: #f2e6cc;
+        color: $waxPoetic;
 
         .title {
-          @include typo(Lychee, 38px, null, 1.2, null);
+          @include typo(Lychee, 65px, null, 1.2, null);
           margin-bottom: 2vw;
 
           @include devicesMax(mobile) {
@@ -724,12 +724,12 @@
           }
 
           .italic {
-            @include typo(LaicaB, 38px, null, 1.2, italic);
+            @include typo(LaicaB, 65px, null, 1.2, italic);
           }
         }
 
         .text {
-          @include typo(Lychee, 20px, null, 1.4, null);
+          @include typo(Lychee, 20px, null, 1.6, null);
           width: 25vw;
 
           @include devicesMax(tablet) {
@@ -770,6 +770,41 @@
         @include dims(100vw, auto);
       }
 
+      // .bg {
+      //   @include position(absolute, 0, -100px, 0, -100px);
+      //   z-index: -1;
+
+      //   &.blue {
+      //     background: #2d00f5;
+      //     z-index: 110;
+
+      //     @include devicesMax(mobile) {
+      //       @include dims(100vw, 140vw);
+      //       display: flex;
+      //     }
+      //   }
+
+      //   &.pink {
+      //     background: $californiaSunset;
+      //     z-index: 105;
+
+      //     @include devicesMax(mobile) {
+      //       @include dims(100vw, 100vw);
+      //       display: flex;
+      //     }
+      //   }
+
+      //   &.black {
+      //     background: $eigengrau;
+      //     z-index: 100;
+
+      //     @include devicesMax(mobile) {
+      //       @include dims(100vw, 160vw);
+      //       display: flex;
+      //     }
+      //   }
+      // }
+
       &.blue {
         background: #2d00f5;
         z-index: 110;
@@ -777,16 +812,6 @@
         @include devicesMax(mobile) {
           @include dims(100vw, 140vw);
           display: flex;
-
-          // .statC {
-          //   .statText {
-          //     @include typo(LS-VG5000-Shifted, 60px, null, null, null);
-          //   }
-
-          //   .desc {
-          //     @include typo(Lychee, 20px, null, null, null);
-          //   }
-          // }
         }
       }
 
@@ -811,12 +836,12 @@
       }
 
       .screen {
-        @include position(absolute, 0, 0, auto, auto);
+        @include position(absolute, 0, 12.5vw, auto, auto);
         @include dims(100vw, 100vh);
 
         display: flex;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
+        justify-content: flex-end;
 
         @include devicesMax(tablet) {
           @include position(relative, auto, auto, auto, auto);
@@ -828,15 +853,34 @@
           @include dims(100vw, auto);
         }
 
+        .small {
+          @include position(absolute, auto, 2vw, 2%, auto);
+          @include typo(Lychee, 12px, null, null, null);
+          color: $bleachedSilk;
+        }
+
+        .indexC {
+          @include position(absolute, auto, auto, 3%, 6vw);
+          @include typo(Lychee, 16px, null, null, null);
+          border: 1px solid $bleachedSilk;
+          border-radius: 32px;
+          color: $bleachedSilk;
+          padding: 1rem 2rem;
+
+          .index {
+            @include typo(Lychee, 16px, null, null, null);
+            color: $bleachedSilk;
+          }
+        }
+
         .statC {
-          margin-top: 20vw;
-          margin-right: 40vw;
+          margin-top: 30vw;
+          margin-right: 35vw;
 
           display: flex;
           flex-direction: column;
           align-items: flex-end;
           justify-content: center;
-          flex-shrink: 0;
 
           @include devicesMax(tablet) {
             margin-left: auto;
@@ -850,19 +894,17 @@
             margin: auto auto 20vw auto;
           }
 
-          &.pink {
-            background: #ce1953;
-            z-index: 105;
-          }
+          // &.pink {
+          //   z-index: 105;
+          // }
 
-          &.black {
-            background: $eigengrau;
-            z-index: 100;
-          }
+          // &.black {
+          //   z-index: 100;
+          // }
 
           .statText {
             @include typo(LS-VG5000-Shifted, 140px, null, null, null);
-            color: #fff;
+            color: $waxPoetic;
             margin-bottom: 2vw;
             position: relative;
 
@@ -875,10 +917,18 @@
               margin-bottom: 4vw;
             }
 
+            .num60 {
+              @include typo(LS-VG5000-Shifted, 200px, null, null, null);
+            }
+
+            .num20 {
+              @include typo(LS-VG5000-Shifted, 200px, null, null, null);
+            }
+
             .asterisk {
               @include position(absolute, 0, 0, auto, auto);
+              @include typo(LS-VG5000, 60px, null, null, null);
               display: inline-block;
-              font-size: 4.5vw;
               transform: translate(100%, 0);
 
               @include devicesMax(mobile) {
@@ -888,7 +938,7 @@
             }
 
             .million {
-              font-size: 8vw;
+              @include typo(LS-VG5000, 140px, null, null, null);
 
               @include devicesMax(mobile) {
                 font-size: 16vw;
@@ -896,8 +946,8 @@
             }
 
             .percent {
-              font-family: Lychee;
-              font-size: 5vw;
+              @include typo(Lychee, 100px, null, null, null);
+              padding-left: 1vw;
               transform: translate(100%, 0);
 
               @include devicesMax(mobile) {
@@ -908,9 +958,9 @@
           }
 
           .desc {
-            @include typo(Lychee, 40px, null, null, null);
+            @include typo(Lychee, 40px, null, 1.2, null);
             @include dims(30vw, auto);
-            color: #fff;
+            color: $waxPoetic;
             text-align: right;
 
             @include devicesMax(tablet) {
@@ -989,6 +1039,12 @@
         @include typo(Lychee, 20px, null, 1.5, null);
         color: #c1c1c1;
         margin: 0 auto;
+
+        br {
+          @include devicesMax(mobile) {
+            display: none;
+          }
+        }
 
         @include devicesMax(mobile) {
           @include typo(Lychee, 20px, null, 1.5, null);

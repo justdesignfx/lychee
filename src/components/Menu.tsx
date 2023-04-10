@@ -33,9 +33,9 @@ const Menu = () => {
     setOpen((prev) => !prev)
 
     if (open) {
-      smoothContext.unlockScrollbar()
+      smoothContext?.unlockScrollbar()
     } else {
-      smoothContext.lockScrollbar()
+      smoothContext?.lockScrollbar()
     }
   }
 

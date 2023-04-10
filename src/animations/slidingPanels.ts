@@ -12,24 +12,14 @@ export function slidingPanels() {
 
   panels.forEach((panel: HTMLElement) => {
     pinHeight = pinHeight + panel.clientWidth
-
-    // gsap.set([panels[0], panels[1]], {
-    //   clipPath: "polygon(10% 0px, 100% 0px, 90% 100%, 0% 100%)",
-    // })
-
-    // gsap.set([panels[0], panels[1]], {
-    //   clipPath: "polygon(10% 0px, 100% 0px, 90% 100%, 0% 100%)",
-    // })
   })
 
   const tl = gsap
     .timeline()
     .to(panels[0], {
-      // clipPath: "polygon(110% 0, 100% 0, 90% 100%, 100% 100%)",
       width: 0,
     })
     .to(panels[1], {
-      // clipPath: "polygon(110% 0, 100% 0, 90% 100%, 100% 100%)",
       width: 0,
     })
 
@@ -46,6 +36,8 @@ export function slidingPanels() {
   /* ADD SKEW SECTION */
   let proxy = { skew: 0, scale: 0 }
   let skewSetter = gsap.quickSetter("[data-sliding-panel]", "skewX", "deg") // fast
+  let unskewSetter = gsap.quickSetter("[data-sliding-panel-unskew]", "skewX", "deg") // fast
+
   let clamp = gsap.utils.clamp(-10, 10) // don't let the skew go beyond 20 degrees.
 
   ScrollTrigger.create({
@@ -63,7 +55,7 @@ export function slidingPanels() {
           overwrite: true,
           onUpdate: () => {
             skewSetter(proxy.skew)
-            // scaleSetter(proxy.scale)
+            unskewSetter(-proxy.skew)
           },
         })
       }

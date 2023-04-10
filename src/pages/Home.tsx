@@ -279,33 +279,60 @@ const Home = () => {
             </div>
           </div>
           <div className={cx(s.oWrapper, s.blue)} data-sliding-panel>
-            <div className={cx(s.screen, s.blue)}>
+            {/* <div className={cx(s.bg, s.blue)}></div> */}
+            <div className={cx(s.screen, s.blue)} data-sliding-panel-unskew>
               <div className={cx(s.statC, s.blue)}>
-                <h1 className={s.statText}>
-                  60 <span className={s.million}>milyon</span> <span className={s.asterisk}>*</span>
-                </h1>
+                <h3 className={s.statText}>
+                  <span className={s.num60}>60 </span>
+                  <span className={s.million}>milyon</span> <span className={s.asterisk}>*</span>
+                </h3>
                 <p className={s.desc}>Organik görüntülenme sağlandı.</p>
               </div>
-            </div>
-          </div>
-          <div className={cx(s.oWrapper, s.pink)} data-sliding-panel>
-            <div className={cx(s.screen, s.pink)}>
-              <div className={cx(s.statC, s.pink)}>
-                <h1 className={s.statText}>
-                  7bin<span className={s.asterisk}>*</span>
-                </h1>
-                <p className={s.desc}>Özgün içerik üretildi.</p>
+              <small className={s.small}>
+                *2022-2023 marka işbirlikleri ortalama verilerinden ortaya çıkan sonuçlardır.
+              </small>
+              <div className={s.indexC}>
+                <span className={s.index}>1 - 3</span>
               </div>
             </div>
           </div>
-          <div className={cx(s.oWrapper, s.black)} data-sliding-panel>
-            <div className={cx(s.screen, s.black)}>
-              <div className={cx(s.statC, s.black)}>
-                <h1 className={s.statText}>
-                  20,25<span className={s.percent}>%</span>
+
+          <div className={cx(s.oWrapper, s.pink)} data-sliding-panel>
+            {/* <div className={cx(s.bg, s.pink)}></div> */}
+            <div className={cx(s.screen, s.pink)} data-sliding-panel-unskew>
+              <div className={cx(s.statC, s.pink)}>
+                <h3 className={s.statText}>
+                  <span className={s.num60}>7 </span>
+                  <span className={s.thousand}>bin</span>
                   <span className={s.asterisk}>*</span>
-                </h1>
+                </h3>
+                <p className={s.desc}>Özgün içerik üretildi.</p>
+              </div>
+              <small className={s.small}>
+                *2022-2023 marka işbirlikleri ortalama verilerinden ortaya çıkan sonuçlardır.
+              </small>
+              <div className={s.indexC}>
+                <span className={s.index}>2 - 3</span>
+              </div>
+            </div>
+          </div>
+
+          <div className={cx(s.oWrapper, s.black)} data-sliding-panel>
+            {/* <div className={cx(s.bg, s.black)}></div> */}
+            <div className={cx(s.screen, s.black)} data-sliding-panel-unskew>
+              <div className={cx(s.statC, s.black)}>
+                <h3 className={s.statText}>
+                  <span className={s.num20}>20,25</span>
+                  <span className={s.percent}>%</span>
+                  <span className={s.asterisk}>*</span>
+                </h3>
                 <p className={s.desc}>Ortalama görüntüleme başına takipçi sayısı artışı.</p>
+              </div>
+              <small className={s.small}>
+                *2022-2023 marka işbirlikleri ortalama verilerinden ortaya çıkan sonuçlardır.
+              </small>
+              <div className={s.indexC}>
+                <span className={s.index}>3 - 3</span>
               </div>
             </div>
           </div>
