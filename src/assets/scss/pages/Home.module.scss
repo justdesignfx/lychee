@@ -305,16 +305,19 @@
     }
 
     &:before {
+      $height: 20vw;
+      $heightTablet: 60vw;
       content: "";
       @include position(absolute, 0, 0, auto, 0);
-      @include dims(100%);
-      background: linear-gradient(0deg, #16161c, rgb(255, 255, 255, 0));
+      @include dims(100%, $height);
+      transform: translateY(calc(-1 * $height));
+      background: linear-gradient(0deg, #16161c 20%, rgb(255, 255, 255, 0));
       pointer-events: none;
-      transform: translateY(-99%);
       z-index: 8;
 
       @include devicesMax(tablet) {
-        @include dims(100%, 60%);
+        @include dims(100%, $heightTablet);
+        transform: translateY(calc(-1 * $heightTablet));
       }
     }
   }
@@ -507,7 +510,7 @@
         }
 
         .seperator {
-          @include dims(200px, 10px);
+          @include dims(2.75ch, 0.15ch);
           background: #c1c1c1;
           display: inline-block;
           margin: 2vw 3vw 0 3vw;
@@ -568,11 +571,11 @@
       padding: 15vw 4vw 0 4vw;
 
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       grid-gap: 2.5rem;
 
       @include devicesMax(mobile) {
-        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+        grid-template-columns: repeat(1, 1fr);
         padding: 15vw 8vw 0 8vw;
       }
 

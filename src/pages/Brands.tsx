@@ -34,6 +34,7 @@ const Brands = () => {
             src="https://player.vimeo.com/progressive_redirect/playback/812374325/rendition/1080p/file.mp4?loc=external&signature=a3848ab31075a23e420bf6ef7f04e9e518c2abf377cd67194e57b1d98e9ca61d"
             type="video/mp4"
           />
+          Your browser does not support the video tag.
         </video>
       </div>
     )
@@ -70,6 +71,7 @@ const Brands = () => {
                 }
                 type="video/mp4"
               />
+              Your browser does not support the video tag.
             </video>
             <button className={s.playBtn} onClick={handleModal}>
               <div className={s.iconTri}>
