@@ -63,7 +63,11 @@ const Brands = () => {
           <div className={s.bgVideoC}>
             <video className={s.video} loop autoPlay muted playsInline>
               <source
-                src="https://player.vimeo.com/progressive_redirect/playback/811194868/rendition/1080p/file.mp4?loc=external&signature=7dc29827ae3db3dfd80474b36b296892ecc96340075b64bbb83f266d886ff389"
+                src={
+                  size.width > breakpoints.tablet
+                    ? "https://player.vimeo.com/progressive_redirect/playback/811194868/rendition/1080p/file.mp4?loc=external&signature=7dc29827ae3db3dfd80474b36b296892ecc96340075b64bbb83f266d886ff389"
+                    : "https://player.vimeo.com/progressive_redirect/playback/812352429/rendition/1080p/file.mp4?loc=external&signature=04e2f212839943887df5ccb86b16f0fa7c834e86d233a063420a92919b34311e"
+                }
                 type="video/mp4"
               />
             </video>

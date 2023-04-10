@@ -5,7 +5,6 @@
 
   .slide {
     border-radius: 32px;
-    height: 850px;
     overflow: hidden;
     position: relative;
     z-index: 10;
@@ -98,7 +97,6 @@
     display: flex;
     height: fit-content;
     transition: 0.3s all ease;
-    width: 120px;
     z-index: 10;
 
     position: absolute;

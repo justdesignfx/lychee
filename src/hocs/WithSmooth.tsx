@@ -196,7 +196,6 @@ const WithSmooth = ({ children, location }: Props) => {
       ScrollTrigger.defaults({ scroller: scrollerRef.current })
 
       initAnimations()
-
       updateMarkers()
     }
 

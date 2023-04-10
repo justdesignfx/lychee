@@ -19,10 +19,10 @@ const StickyNav = (props: Props) => {
           animate={{ opacity: 1, y: 0, transition: { duration: 0.4 } }}
           exit={{ opacity: 0, transition: { duration: 0.2 } }}
         >
-          <Link to="/brands" className={s.navItem}>
+          <Link to="/brands" className={cx(s.navItem, { [s.disabled]: props.pathname.includes("brands") })}>
             <p>Markalar</p>
           </Link>
-          <Link to="/creators" className={s.navItem}>
+          <Link to="/creators" className={cx(s.navItem, { [s.disabled]: props.pathname.includes("creators") })}>
             <p>Üreticiler</p>
           </Link>
         </motion.nav>

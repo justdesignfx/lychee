@@ -2,6 +2,7 @@
 
 .stickyNav {
   border-radius: 32px;
+  z-index: z-index("stickyNav");
 
   display: flex;
 
@@ -17,6 +18,7 @@
     color: #fff;
     font-family: LS-VG5000;
     font-size: 1.25rem;
+    pointer-events: auto;
 
     display: flex;
     align-items: center;
@@ -27,8 +29,12 @@
     }
 
     @include devicesMax(mobile) {
-      @include dims(45vw, 40px);
-      font-size: 1rem;
+      @include dims(35vw, 32px);
+      font-size: 0.85rem;
+    }
+
+    &.disabled {
+      pointer-events: none;
     }
   }
 
@@ -46,7 +52,7 @@
   }
 
   &::after {
-    $distance: -6px;
+    $distance: -4px;
 
     content: "";
     @include position(absolute, $distance, $distance, $distance, $distance);

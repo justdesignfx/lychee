@@ -32,7 +32,7 @@ const Modal = () => {
     if (modalStore.open) {
       // mobile and tablet
       setLocked(true)
-      sContext.lockScrollbar()
+      sContext?.lockScrollbar()
 
       gsap.to(backdropRef.current, {
         autoAlpha: 1,
@@ -42,7 +42,7 @@ const Modal = () => {
     } else {
       // mobile and tablet
       setLocked(false)
-      sContext.unlockScrollbar()
+      sContext?.unlockScrollbar()
 
       gsap.to(backdropRef.current, {
         autoAlpha: 0,
