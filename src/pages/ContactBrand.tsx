@@ -20,7 +20,7 @@ const ContactBrand = () => {
         <button className={s.button}>Şimdi başlayın</button>
       </div> */}
 
-      <BrandForm formStarted={setFormStarted} />
+      <BrandForm />
       <small className={s.linkC} data-hide-on-form-start>
         İçerik üreticisi misiniz?{" "}
         <Link className={s.link} to="/contact/content-creator">
