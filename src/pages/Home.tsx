@@ -106,7 +106,7 @@ const Home = () => {
   function handleModal() {
     modalStore.setContent(
       <div className={s.modalContent}>
-        <video className={s.video} controls autoPlay playsInline>
+        <video className={s.video} width="1920" height="1080" controls autoPlay playsInline>
           <source
             src="https://player.vimeo.com/progressive_redirect/playback/812374325/rendition/1080p/file.mp4?loc=external&signature=a3848ab31075a23e420bf6ef7f04e9e518c2abf377cd67194e57b1d98e9ca61d"
             type="video/mp4"
@@ -139,15 +139,22 @@ const Home = () => {
           </div>
 
           <div className={s.bgVideoC}>
-            <video className={s.video} loop autoPlay muted playsInline width={1080} height={1214}>
-              <source
-                src={
-                  size.width > breakpoints.tablet
-                    ? "https://player.vimeo.com/progressive_redirect/playback/811194868/rendition/1080p/file.mp4?loc=external&signature=7dc29827ae3db3dfd80474b36b296892ecc96340075b64bbb83f266d886ff389"
-                    : "https://player.vimeo.com/progressive_redirect/playback/812352429/rendition/1080p/file.mp4?loc=external&signature=04e2f212839943887df5ccb86b16f0fa7c834e86d233a063420a92919b34311e"
-                }
-                type="video/mp4"
-              />
+            <video className={s.video} loop autoPlay muted playsInline>
+              {size.width > breakpoints.tablet ? (
+                <source
+                  width="1920"
+                  height="1080"
+                  src="https://player.vimeo.com/progressive_redirect/playback/811194868/rendition/1080p/file.mp4?loc=external&signature=7dc29827ae3db3dfd80474b36b296892ecc96340075b64bbb83f266d886ff389"
+                  type="video/mp4"
+                />
+              ) : (
+                <source
+                  width="1080"
+                  height="1214"
+                  src="https://player.vimeo.com/progressive_redirect/playback/812352429/rendition/1080p/file.mp4?loc=external&signature=04e2f212839943887df5ccb86b16f0fa7c834e86d233a063420a92919b34311e"
+                  type="video/mp4"
+                />
+              )}
             </video>
             <button className={s.playBtn} onClick={handleModal}>
               <div className={s.iconTri}>
@@ -283,7 +290,7 @@ const Home = () => {
             <div className={cx(s.screen, s.pink)}>
               <div className={cx(s.statC, s.pink)}>
                 <h1 className={s.statText}>
-                  7000<span className={s.asterisk}>*</span>
+                  7bin<span className={s.asterisk}>*</span>
                 </h1>
                 <p className={s.desc}>Özgün içerik üretildi.</p>
               </div>

@@ -701,6 +701,12 @@
       @include devicesMax(tablet) {
         @include position(absolute, 0, auto, 0, 0);
         flex-direction: column;
+        padding: 8vw 0 40vw 6vw;
+      }
+
+      @include devicesMax(mobile) {
+        margin: 0 auto;
+        padding: 8vw 4vw;
       }
 
       .titleC {
@@ -737,7 +743,11 @@
       .imgC {
         @include devicesMax(tablet) {
           @include dims(40vw, auto);
-          margin-bottom: 20vw;
+        }
+
+        @include devicesMax(mobile) {
+          @include dims(60vw, auto);
+          padding-bottom: 75vw;
         }
 
         .img {
@@ -754,7 +764,7 @@
 
       @include devicesMax(tablet) {
         @include position(relative, auto, auto, auto, auto);
-        @include dims(auto);
+        @include dims(100vw, auto);
       }
 
       &.blue {
@@ -762,30 +772,39 @@
         z-index: 110;
 
         @include devicesMax(mobile) {
-          @include dims(100vw, 80vh);
+          @include dims(100vw, 140vw);
           display: flex;
-          margin-top: auto;
 
-          .statC {
-            .statText {
-              @include typo(LS-VG5000-Shifted, 60px, null, null, null);
-            }
+          // .statC {
+          //   .statText {
+          //     @include typo(LS-VG5000-Shifted, 60px, null, null, null);
+          //   }
 
-            .desc {
-              @include typo(Lychee, 20px, null, null, null);
-            }
-          }
+          //   .desc {
+          //     @include typo(Lychee, 20px, null, null, null);
+          //   }
+          // }
         }
       }
 
       &.pink {
         background: $californiaSunset;
         z-index: 105;
+
+        @include devicesMax(mobile) {
+          @include dims(100vw, 100vw);
+          display: flex;
+        }
       }
 
       &.black {
         background: $eigengrau;
         z-index: 100;
+
+        @include devicesMax(mobile) {
+          @include dims(100vw, 160vw);
+          display: flex;
+        }
       }
 
       .screen {
@@ -798,7 +817,12 @@
 
         @include devicesMax(tablet) {
           @include position(relative, auto, auto, auto, auto);
-          @include dims(100vw, 35vh);
+          @include dims(100vw, 80vw);
+        }
+
+        @include devicesMax(mobile) {
+          @include position(relative, auto, auto, auto, auto);
+          @include dims(100vw, auto);
         }
 
         .statC {
@@ -809,12 +833,18 @@
           flex-direction: column;
           align-items: flex-end;
           justify-content: center;
+          flex-shrink: 0;
 
           @include devicesMax(tablet) {
             margin-left: auto;
             margin-top: auto;
             margin-bottom: 5vw;
-            margin-right: 10vw;
+            margin-right: 7vw;
+          }
+
+          @include devicesMax(mobile) {
+            @include dims(85vw, auto);
+            margin: auto auto 20vw auto;
           }
 
           &.pink {
@@ -833,21 +863,44 @@
             margin-bottom: 2vw;
             position: relative;
 
+            @include devicesMax(tablet) {
+              @include typo(LS-VG5000-Shifted, 160px, null, null, null);
+            }
+
+            @include devicesMax(mobile) {
+              @include typo(LS-VG5000-Shifted, 98px, null, null, null);
+              margin-bottom: 4vw;
+            }
+
             .asterisk {
               @include position(absolute, 0, 0, auto, auto);
               display: inline-block;
               font-size: 4.5vw;
               transform: translate(100%, 0);
+
+              @include devicesMax(mobile) {
+                @include position(absolute, 0, 3%, auto, auto);
+                font-size: 10vw;
+              }
             }
 
             .million {
               font-size: 8vw;
+
+              @include devicesMax(mobile) {
+                font-size: 16vw;
+              }
             }
 
             .percent {
               font-family: Lychee;
               font-size: 5vw;
               transform: translate(100%, 0);
+
+              @include devicesMax(mobile) {
+                font-size: 12vw;
+                padding-left: 2vw;
+              }
             }
           }
 
@@ -856,6 +909,16 @@
             @include dims(30vw, auto);
             color: #fff;
             text-align: right;
+
+            @include devicesMax(tablet) {
+              @include typo(Lychee, 40px, null, 1.2, null);
+              @include dims(60vw, auto);
+            }
+
+            @include devicesMax(mobile) {
+              @include typo(Lychee, 20px, null, 1.2, null);
+              @include dims(80%, auto);
+            }
           }
         }
       }
