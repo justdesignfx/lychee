@@ -110,21 +110,19 @@ $mobile: 480px;
 // z-index
 $z-indexes: (
   "preloader",
+  "cookiePopup",
   "cursor",
-  "stickyNav",
   "modalClose",
   "modalContent",
   "modalBackdrop",
   "modal",
-  "cookiePopup",
   "menu",
   "hamburger",
-  "menuDummy",
   "header",
+  "stickyNav",
   "stickyEl",
   "logo",
   "main",
-  "footerOverlay",
   "footer"
 );
 

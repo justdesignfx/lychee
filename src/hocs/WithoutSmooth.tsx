@@ -1,22 +1,12 @@
-import React, { ReactElement, useCallback, useEffect, useRef } from "react"
+import { ReactElement, useCallback, useEffect, useRef } from "react"
 
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
 import { useResizeDetector } from "react-resize-detector"
 
-import {
-  floatingItems,
-  framedParallax,
-  hideOnScroll,
-  marquee,
-  parallaxItems,
-  slidingPanels,
-  stickyTitle,
-  textReveal,
-} from "~/animations"
+import { hideOnScroll, marquee, parallaxItems } from "~/animations"
 
 import { useWindowSize } from "~/hooks"
-import { breakpoints } from "~/variables"
 
 import { stickyItem } from "~/animations/stickyItem"
 import Header from "~/components/Header"
@@ -35,8 +25,16 @@ interface Props {
 const WithoutSmooth = ({ children, location }: Props) => {
   const contentRef = useRef<HTMLDivElement>(null)
   const size = useWindowSize()
+  let animationsContext: gsap.Context
 
-  const clearScrollTriggers = () => {
+  const refreshScrollTrigger = () => {
+    ScrollTrigger.refresh()
+    console.log("SCROLLTRIGGER REFRESHED")
+  }
+
+  const cleanupAnimations = () => {
+    animationsContext?.revert()
+
     ScrollTrigger.getAll().forEach((instance) => {
       console.log(instance)
 
@@ -47,36 +45,28 @@ const WithoutSmooth = ({ children, location }: Props) => {
     gsap.killTweensOf(window)
   }
 
+  const initAnimations = () => {
+    animationsContext = gsap.context(() => {
+      hideOnScroll()
+      parallaxItems()
+      marquee()
+      stickyItem()
+    })
+  }
+
   const onResize = useCallback(() => {
-    ScrollTrigger.refresh()
-    console.log("SCROLLTRIGGER REFRESHED")
+    cleanupAnimations()
+    initAnimations()
+    refreshScrollTrigger()
   }, [])
 
   useResizeDetector({ targetRef: contentRef, onResize })
 
   useEffect(() => {
-    let animationsContext: gsap.Context
-
-    const initAnimations = () => {
-      animationsContext = gsap.context(() => {
-        size.width > breakpoints.tablet && textReveal()
-        size.width > breakpoints.tablet && stickyTitle()
-        size.width > breakpoints.tablet && floatingItems()
-        size.width > breakpoints.tablet && framedParallax()
-        size.width > breakpoints.tablet && slidingPanels()
-
-        hideOnScroll()
-        parallaxItems()
-        marquee()
-        stickyItem()
-      })
-    }
-
     initAnimations()
 
     return () => {
-      clearScrollTriggers()
-      animationsContext && animationsContext.revert()
+      cleanupAnimations()
     }
   }, [size.width, location])
 
