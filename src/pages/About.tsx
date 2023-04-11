@@ -1,9 +1,6 @@
-import { useEffect } from "react"
 import s from "~/assets/scss/pages/About.module.scss"
-import Img from "~/components/Img"
 
 import cx from "classnames"
-import { Link } from "react-router-dom"
 
 import fruit from "~/assets/img/lychee-fruit.png"
 import peel from "~/assets/img/lychee-peel.png"
@@ -22,14 +19,14 @@ import logoNike from "~/assets/img/logo-nike.svg"
 import logoPhilips from "~/assets/img/logo-philips.svg"
 import logoStarbucks from "~/assets/img/logo-starbucks.svg"
 
+import Img from "~/components/Img"
 import ButtonGlitch from "~/components/ButtonGlitch"
+import ButtonText from "~/components/ButtonText"
 import FooterBasic from "~/components/FooterBasic"
 import SplitText from "~/components/SplitText"
 import { useModalStore } from "~/store/modalStore"
-import ButtonText from "~/components/ButtonText"
 
 const About = () => {
-  const hScrollText = "Her zaman daha iyisini hedefliyoruz."
   const textRevealContent = [
     {
       word: "Her",
@@ -54,10 +51,6 @@ const About = () => {
   ]
 
   const modalStore = useModalStore()
-
-  useEffect(() => {
-    console.log(modalStore.open)
-  }, [modalStore.open])
 
   function handleModal() {
     modalStore.setContent(
@@ -116,10 +109,10 @@ const About = () => {
             <div className={cx(s.imgC, s.fruit, s.small)} data-parallax data-speed-y="0.5" data-direction-y="-1">
               <Img src={fruit} objectFit="contain" />
             </div>
-            <div className={cx(s.imgC, s.fruit)} data-parallax data-speed-y="0.5" data-direction-y="-1">
+            <div className={cx(s.imgC, s.fruit)} data-parallax data-speed-y="0.6" data-direction-y="-1">
               <Img src={fruit} objectFit="contain" />
             </div>
-            <div className={cx(s.imgC, s.peel)} data-parallax data-speed-y="0.5" data-direction-y="-1">
+            <div className={cx(s.imgC, s.peel)} data-parallax data-speed-y="0.2" data-direction-y="-1">
               <Img src={peel} objectFit="contain" />
             </div>
           </div>

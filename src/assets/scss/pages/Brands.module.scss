@@ -232,7 +232,6 @@
 
         @include devicesMax(mobile) {
           @include dims(100%, 120vw);
-          margin-bottom: 10vw;
           padding: 10vw;
         }
       }

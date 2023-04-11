@@ -36,18 +36,10 @@ body {
 .scrollbar-thumb {
   background: $californiaSunset !important;
   opacity: 0.9;
-
-  @include devicesMax(mobile) {
-    width: 4px !important;
-  }
 }
 
 .scrollbar-track {
   background: transparent !important;
-
-  @include devicesMax(mobile) {
-    width: 4px !important;
-  }
 }
 
 ::selection {
