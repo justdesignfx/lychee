@@ -1,5 +1,5 @@
+import { useEffect, useRef, useState } from "react"
 import s from "~/assets/scss/components/ProjectsSlider.module.scss"
-import React, { useEffect, useRef, useState } from "react"
 
 import cx from "classnames"
 
@@ -13,11 +13,11 @@ import { useSwiperRef } from "~/hooks"
 import "swiper/css"
 import "swiper/css/navigation"
 
-import sample from "~/assets/img/sample.png"
 import lycheeSocial from "~/assets/img/lychee-social.png"
-import Img from "./Img"
-import { Link } from "react-router-dom"
+import sample from "~/assets/img/sample.png"
+
 import IconArrowSquare from "./Icons/IconArrowSquare"
+import Img from "./Img"
 
 type SlideItem = {
   mediaType: "image" | "video" | string
@@ -113,7 +113,7 @@ const ProjectsSlider = (props: Props) => {
                   <div className={s.mediaC}>
                     {item.mediaType === "image" ? (
                       <div className={s.imgC}>
-                        <Img src={sample} />
+                        <Img src={item.mediaSrc} />
                       </div>
                     ) : (
                       <VideoSlide {...item} />

@@ -28,7 +28,7 @@ export function floatingItems() {
   // SET ITEMS INITIAL
   items.forEach((item, i: number) => {
     gsap.set(item, {
-      x: () => `${200 * Math.pow(3, i)}px`,
+      x: () => `${50 * Math.pow(3, i)}px`,
       rotation: () => gsap.utils.random(-20, 20),
       z: 10,
     })
@@ -41,7 +41,7 @@ export function floatingItems() {
     tl.to(
       item,
       {
-        x: () => `${-50 * i}px`,
+        x: () => `${-20 * i}px`,
         rotation: () => gsap.utils.random(-5, 5),
       },
       "s"

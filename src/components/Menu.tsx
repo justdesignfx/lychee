@@ -3,9 +3,10 @@ import s from "~/assets/scss/components/Menu.module.scss"
 
 import cx from "classnames"
 import { Link } from "react-router-dom"
+import { AnimatePresence, motion } from "framer-motion"
+
 import arrow from "~/assets/img/arrow-right.svg"
 import { SmoothContext } from "~/hocs/WithSmooth"
-import { AnimatePresence, motion } from "framer-motion"
 import { useWindowSize } from "~/hooks"
 import { breakpoints } from "~/variables"
 import IconInstagram from "./Icons/IconInstagram"
@@ -52,26 +53,6 @@ const Menu = () => {
   const hamburgerVariants = {
     open: { background: "#16161c" },
     close: { background: "#ce1953" },
-  }
-
-  const menuVariants = {
-    open: { position: "absolute", top: "1.25rem", right: "2.25rem", scale: "1", transition: { duration: 0.4 } },
-    close: { position: "absolute", top: "1.5rem", right: "2.5rem", scale: "0", transition: { duration: 0.4 } },
-  }
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.5,
-      },
-    },
-  }
-
-  const menuItemVariant = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1 },
   }
 
   function responsiveBorderRadius() {
@@ -200,6 +181,7 @@ const Menu = () => {
             )
           })}
         </motion.ul>
+
         <AnimatePresence>
           {open && (
             <motion.div

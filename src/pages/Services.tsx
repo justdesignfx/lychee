@@ -6,6 +6,10 @@ import { Link } from "react-router-dom"
 import doodleLaying from "~/assets/img/doodle-laying.png"
 import sample from "~/assets/img/sample.png"
 
+import nescafe from "~/assets/img/nescafe.jpg"
+import nikes from "~/assets/img/nikes.jpg"
+import smoothie from "~/assets/img/smoothie.jpg"
+
 import FloatingCard from "~/components/FloatingCard"
 import FooterBasic from "~/components/FooterBasic"
 import IconArrowSquare from "~/components/Icons/IconArrowSquare"
@@ -110,20 +114,20 @@ const Services = () => {
 
           <div className={s.bgImgC} data-parallax data-speed-y="0.2" data-direction-y="-1">
             <div className={s.rotateC}>
-              <Img src={sample} objectFit="cover" />
+              <Img src={nescafe} objectFit="cover" />
             </div>
           </div>
         </section>
 
         <section className={s.misc}>
           <div className={s.imgC} data-parallax data-speed-y="0.1" data-direction-y="-1">
-            <Img src={sample} objectFit="cover" />
+            <Img src={nikes} objectFit="cover" />
           </div>
           <div className={s.imgC} data-parallax data-speed-y="0.5" data-direction-y="1">
             <Img src={doodleLaying} objectFit="contain" />
           </div>
           <div className={s.imgC} data-parallax data-speed-y="0.15" data-direction-y="-1">
-            <Img src={sample} objectFit="cover" />
+            <Img src={smoothie} objectFit="cover" />
           </div>
         </section>
 

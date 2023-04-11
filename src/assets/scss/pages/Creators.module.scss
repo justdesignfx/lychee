@@ -356,13 +356,13 @@
       position: relative;
       z-index: -1;
 
-      &::before {
-        content: "";
-        @include position(absolute, auto, -20px, 0px, -20px);
-        @include dims(auto, 80%);
-        background: linear-gradient(0deg, $eigengrau 0%, #16161ee6 30%, rgb(255, 255, 255, 0) 100%);
-        z-index: 10;
-      }
+      // &::before {
+      //   content: "";
+      //   @include position(absolute, auto, -20px, 0px, -20px);
+      //   @include dims(auto, 80%);
+      //   background: linear-gradient(0deg, $eigengrau 0%, #16161ee6 30%, rgb(255, 255, 255, 0) 100%);
+      //   z-index: 10;
+      // }
 
       &.left {
         @include position(absolute, 47%, auto, auto, 5%);

@@ -11,6 +11,10 @@ import creator1 from "~/assets/img/creator-1.jpg"
 import creator2 from "~/assets/img/creator-2.jpg"
 import creator3 from "~/assets/img/creator-3.jpg"
 
+import slider1 from "~/assets/img/slider-1.jpg"
+import slider2 from "~/assets/img/slider-2.jpg"
+import slider3 from "~/assets/img/slider-3.jpg"
+
 import gridInf1 from "~/assets/img/grid-inf-1.jpg"
 import gridInf2 from "~/assets/img/grid-inf-2.jpg"
 import gridInf3 from "~/assets/img/grid-inf-3.jpg"
@@ -31,7 +35,6 @@ import SquareGrid from "~/components/SquareGrid"
 import WhyLycheeMobile from "~/components/WhyLycheeMobile"
 import { useWindowSize } from "~/hooks"
 import { breakpoints } from "~/variables"
-import StickyNav from "~/components/StickyNav"
 
 const Creators = () => {
   const size = useWindowSize()
@@ -46,20 +49,20 @@ const Creators = () => {
 
   const sliderItems = [
     {
+      thumbnail: slider1,
       name: "ogedaygirisken",
-      mediaType: "image",
-      mediaSrc: sample,
-      thumbnail: sample,
-    },
-    {
-      thumbnail: sample,
-      name: "dilaraaydin",
       mediaType: "video",
       mediaSrc:
-        "https://player.vimeo.com/progressive_redirect/playback/812354380/rendition/1080p/file.mp4?loc=external&signature=b06db44e4e76dcc874a9080d44dc607f32c7d2398eb5a93043e9e5f92b9b0f3f",
+        "https://player.vimeo.com/progressive_redirect/playback/812355311/rendition/1080p/file.mp4?loc=external&signature=06206f8516a1cbd270440dcc40597243b943b9b7fc3fda677b3425da5cf60f26",
     },
     {
-      thumbnail: sample,
+      thumbnail: slider2,
+      name: "dilaraaydin",
+      mediaType: "image",
+      mediaSrc: slider2,
+    },
+    {
+      thumbnail: slider3,
       name: "elifbaldann",
       mediaType: "video",
       mediaSrc:
@@ -69,7 +72,7 @@ const Creators = () => {
 
   const influencers = [
     {
-      pic: gridInf1,
+      img: gridInf1,
       name: "Ogeday Girişken",
       social: {
         tiktok: "tiktok",
@@ -77,7 +80,7 @@ const Creators = () => {
       },
     },
     {
-      pic: gridInf2,
+      img: gridInf2,
       name: "Dilara Aydın",
       social: {
         tiktok: "tiktok",
@@ -85,7 +88,7 @@ const Creators = () => {
       },
     },
     {
-      pic: gridInf3,
+      img: gridInf3,
       name: "Melisa Aslı Pamuk",
       social: {
         tiktok: "tiktok",
@@ -93,7 +96,7 @@ const Creators = () => {
       },
     },
     {
-      pic: gridInf4,
+      img: gridInf4,
       name: "Buçe Buse Kahraman",
       social: {
         tiktok: "tiktok",
@@ -101,7 +104,7 @@ const Creators = () => {
       },
     },
     {
-      pic: gridInf5,
+      img: gridInf5,
       name: "Zeynep Aleyna Şen",
       social: {
         tiktok: "tiktok",
@@ -109,7 +112,7 @@ const Creators = () => {
       },
     },
     {
-      pic: gridInf6,
+      img: gridInf6,
       name: "Aylin Engör",
       social: {
         tiktok: "tiktok",
@@ -117,7 +120,7 @@ const Creators = () => {
       },
     },
     {
-      pic: gridInf7,
+      img: gridInf7,
       name: "Elif Baldan",
       social: {
         tiktok: "tiktok",
@@ -125,7 +128,7 @@ const Creators = () => {
       },
     },
     {
-      pic: gridInf8,
+      img: gridInf8,
       name: "Esra Koçhan",
       social: {
         tiktok: "tiktok",
@@ -150,7 +153,6 @@ const Creators = () => {
           </div>
           <div className={s.statsC}>
             <div className={s.videoC}>
-              {/* <Img src={bag} objectFit="cover" /> */}
               <video
                 autoPlay
                 loop

@@ -197,11 +197,11 @@
         border-radius: 32px;
         filter: blur(8px);
         transform: translate(0, -80%) rotate(-23deg);
+        z-index: -1;
 
         @include devicesMax(mobile) {
           @include dims(20vw, 35vw);
           border-radius: 16px;
-          z-index: -1;
         }
 
         &::after {
@@ -218,7 +218,7 @@
         @include position(absolute, -50%, auto, auto, 30%);
         @include dims(30vw);
         mix-blend-mode: difference;
-        z-index: 10;
+        z-index: 100;
 
         @include devicesMax(tablet) {
           @include position(absolute, -70%, auto, auto, 30%);
