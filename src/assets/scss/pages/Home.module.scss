@@ -150,6 +150,7 @@
 
       .video {
         @include dims(100%, auto);
+        min-height: 90vh;
         display: block;
         object-fit: cover;
 
@@ -310,7 +311,7 @@
       content: "";
       @include position(absolute, 0, 0, auto, 0);
       @include dims(100%, $height);
-      transform: translateY(calc(-1 * $height));
+      transform: translateY(calc(-1 * calc($height - 2px)));
       background: linear-gradient(0deg, #16161c 20%, rgb(255, 255, 255, 0));
       pointer-events: none;
       z-index: 8;
@@ -692,9 +693,13 @@
       @include dims(100vw, auto);
     }
 
+    @include devicesMax(mobile) {
+      margin-bottom: 30vw;
+    }
+
     .topC {
-      @include position(absolute, 0, 0, auto, 0);
-      padding: 8vw 10vw 0 6vw;
+      @include position(absolute, 0, 0, 0, 0);
+      pointer-events: none;
       z-index: 200;
 
       display: flex;
@@ -702,9 +707,7 @@
       justify-content: space-between;
 
       @include devicesMax(tablet) {
-        @include position(absolute, 0, auto, 0, 0);
         flex-direction: column;
-        padding: 8vw 0 40vw 6vw;
       }
 
       @include devicesMax(mobile) {
@@ -714,17 +717,29 @@
 
       .titleC {
         color: $waxPoetic;
+        margin: 8vw 0 0 6vw;
+
+        @include devicesMax(mobile) {
+          margin: 0;
+        }
 
         .title {
           @include typo(Lychee, 65px, null, 1.2, null);
           margin-bottom: 2vw;
 
           @include devicesMax(mobile) {
+            @include typo(Lychee, 35px, null, 1.2, null);
+            margin-bottom: 4vw;
             text-align: center;
           }
 
           .italic {
             @include typo(LaicaB, 65px, null, 1.2, italic);
+
+            @include devicesMax(mobile) {
+              @include typo(LaicaB, 35px, null, 1.2, italic);
+              text-align: center;
+            }
           }
         }
 
@@ -737,91 +752,89 @@
           }
 
           @include devicesMax(mobile) {
-            width: 100%;
+            @include typo(Lychee, 15px, null, 1.6, null);
+            margin: 0 auto;
+            width: 90%;
             text-align: center;
           }
         }
       }
 
       .imgC {
+        margin: 4vw 8vw 0 0;
+        transform: rotate(16deg);
+
         @include devicesMax(tablet) {
           @include dims(40vw, auto);
+          margin: 0 0 60vw 4vw;
         }
 
         @include devicesMax(mobile) {
           @include dims(60vw, auto);
-          padding-bottom: 75vw;
+          margin: 0 auto;
+          padding-bottom: 60vw;
         }
 
         .img {
           transform: rotate(20deg);
         }
       }
+
+      .small {
+        @include position(absolute, auto, 2vw, 2%, auto);
+        @include typo(Lychee, 16px, null, null, null);
+        color: $bleachedSilk;
+
+        @include devicesMax(tablet) {
+          @include position(absolute, auto, 7vw, 0, auto);
+          opacity: 0.3;
+        }
+
+        @include devicesMax(mobile) {
+          @include position(absolute, auto, 4vw, 0, 50%);
+          @include typo(Lychee, 12px, null, 1.4, null);
+          text-align: center;
+          transform: translateX(-50%);
+          width: 80%;
+        }
+      }
     }
 
     .oWrapper {
-      @include position(absolute, auto, -12.5vw, auto, auto);
+      @include position(absolute, auto, auto, auto, -12.5vw);
       @include dims(125vw, 100vh);
       overflow: hidden;
       will-change: transform;
 
       @include devicesMax(tablet) {
         @include position(relative, auto, auto, auto, auto);
-        @include dims(100vw, auto);
+        @include dims(100%, auto);
+        display: flex;
       }
 
-      // .bg {
-      //   @include position(absolute, 0, -100px, 0, -100px);
-      //   z-index: -1;
-
-      //   &.blue {
-      //     background: #2d00f5;
-      //     z-index: 110;
-
-      //     @include devicesMax(mobile) {
-      //       @include dims(100vw, 140vw);
-      //       display: flex;
-      //     }
-      //   }
-
-      //   &.pink {
-      //     background: $californiaSunset;
-      //     z-index: 105;
-
-      //     @include devicesMax(mobile) {
-      //       @include dims(100vw, 100vw);
-      //       display: flex;
-      //     }
-      //   }
-
-      //   &.black {
-      //     background: $eigengrau;
-      //     z-index: 100;
-
-      //     @include devicesMax(mobile) {
-      //       @include dims(100vw, 160vw);
-      //       display: flex;
-      //     }
-      //   }
-      // }
-
       &.blue {
-        background: #2d00f5;
-        z-index: 110;
+        background: $bluePencil;
+        z-index: 120;
+
+        @include devicesMax(tablet) {
+          @include dims(100vw, 100vw);
+        }
 
         @include devicesMax(mobile) {
           @include dims(100vw, 140vw);
-          display: flex;
         }
       }
 
       &.pink {
         background: $californiaSunset;
-        z-index: 105;
+        z-index: 110;
+
+        @include devicesMax(tablet) {
+          @include dims(100vw, 60vw);
+        }
 
         @include devicesMax(mobile) {
-          @include dims(100vw, 100vw);
-          display: flex;
+          @include dims(100%, 150vw);
         }
       }
 
@@ -829,15 +842,18 @@
         background: $eigengrau;
         z-index: 100;
 
+        @include devicesMax(tablet) {
+          @include dims(100vw, 100vw);
+        }
+
         @include devicesMax(mobile) {
-          @include dims(100vw, 160vw);
-          display: flex;
+          @include dims(100%, 90vw);
         }
       }
 
       .screen {
-        @include position(absolute, 0, 12.5vw, auto, auto);
-        @include dims(100vw, 100vh);
+        @include position(absolute, 0, auto, 0, 12.5vw);
+        @include dims(100vw, auto);
 
         display: flex;
         align-items: flex-start;
@@ -845,18 +861,6 @@
 
         @include devicesMax(tablet) {
           @include position(relative, auto, auto, auto, auto);
-          @include dims(100vw, 80vw);
-        }
-
-        @include devicesMax(mobile) {
-          @include position(relative, auto, auto, auto, auto);
-          @include dims(100vw, auto);
-        }
-
-        .small {
-          @include position(absolute, auto, 2vw, 2%, auto);
-          @include typo(Lychee, 12px, null, null, null);
-          color: $bleachedSilk;
         }
 
         .indexC {
@@ -867,6 +871,10 @@
           color: $bleachedSilk;
           padding: 1rem 2rem;
 
+          @include devicesMax(tablet) {
+            display: none;
+          }
+
           .index {
             @include typo(Lychee, 16px, null, null, null);
             color: $bleachedSilk;
@@ -874,7 +882,7 @@
         }
 
         .statC {
-          margin-top: 30vw;
+          margin-top: 500px;
           margin-right: 35vw;
 
           display: flex;
@@ -883,46 +891,48 @@
           justify-content: center;
 
           @include devicesMax(tablet) {
-            margin-left: auto;
-            margin-top: auto;
-            margin-bottom: 5vw;
-            margin-right: 7vw;
+            margin: auto 7vw 5vw auto;
           }
 
           @include devicesMax(mobile) {
-            @include dims(85vw, auto);
-            margin: auto auto 20vw auto;
+            margin: auto 12vw 20vw auto;
+
+            &.pink {
+              margin: 20vw 12vw auto auto;
+            }
           }
 
-          // &.pink {
-          //   z-index: 105;
-          // }
-
-          // &.black {
-          //   z-index: 100;
-          // }
-
           .statText {
-            @include typo(LS-VG5000-Shifted, 140px, null, null, null);
             color: $waxPoetic;
             margin-bottom: 2vw;
             position: relative;
 
-            @include devicesMax(tablet) {
-              @include typo(LS-VG5000-Shifted, 160px, null, null, null);
-            }
-
             @include devicesMax(mobile) {
-              @include typo(LS-VG5000-Shifted, 98px, null, null, null);
               margin-bottom: 4vw;
             }
 
             .num60 {
               @include typo(LS-VG5000-Shifted, 200px, null, null, null);
+
+              @include devicesMax(mobile) {
+                @include typo(LS-VG5000-Shifted, 82px, null, null, null);
+              }
+            }
+
+            .num7 {
+              @include typo(LS-VG5000-Shifted, 200px, null, null, null);
+
+              @include devicesMax(mobile) {
+                @include typo(LS-VG5000-Shifted, 152px, null, null, null);
+              }
             }
 
             .num20 {
               @include typo(LS-VG5000-Shifted, 200px, null, null, null);
+
+              @include devicesMax(mobile) {
+                @include typo(LS-VG5000-Shifted, 82px, null, null, null);
+              }
             }
 
             .asterisk {
@@ -933,15 +943,23 @@
 
               @include devicesMax(mobile) {
                 @include position(absolute, 0, 3%, auto, auto);
-                font-size: 10vw;
+                @include typo(LS-VG5000, 40px, null, null, null);
               }
             }
 
             .million {
-              @include typo(LS-VG5000, 140px, null, null, null);
+              @include typo(LS-VG5000-Shifted, 140px, null, null, null);
 
               @include devicesMax(mobile) {
-                font-size: 16vw;
+                @include typo(LS-VG5000-Shifted, 60px, null, null, null);
+              }
+            }
+
+            .thousand {
+              @include typo(LS-VG5000-Shifted, 140px, null, null, null);
+
+              @include devicesMax(mobile) {
+                @include typo(LS-VG5000-Shifted, 100px, null, null, null);
               }
             }
 
@@ -951,7 +969,7 @@
               transform: translate(100%, 0);
 
               @include devicesMax(mobile) {
-                font-size: 12vw;
+                @include typo(Lychee, 40px, null, null, null);
                 padding-left: 2vw;
               }
             }
