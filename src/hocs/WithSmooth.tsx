@@ -9,24 +9,23 @@ import Scrollbar, { ScrollbarPlugin } from "smooth-scrollbar"
 import {
   floatingItems,
   framedParallax,
+  hideOnScroll,
+  marquee,
   parallaxItems,
   slidingPanels,
   stickyTitle,
   textReveal,
-  hideOnScroll,
-  marquee,
 } from "~/animations"
 
 import { useWindowSize } from "~/hooks"
 import { breakpoints } from "~/variables"
 
+import { stickyItem } from "~/animations/stickyItem"
 import Header from "~/components/Header"
 import MagnetCursor from "~/components/MagnetCursor"
 import Menu from "~/components/Menu"
 import Modal from "~/components/Modal"
-import { stickyItem } from "~/animations/stickyItem"
 import StickyNav from "~/components/StickyNav"
-import { AnimatePresence } from "framer-motion"
 import { qSingle } from "~/utils"
 
 export const SmoothContext = React.createContext<any>(null)
@@ -43,8 +42,16 @@ const WithSmooth = ({ children, location }: Props) => {
   const contentRef = useRef<HTMLDivElement>(null)
   const smooth = useRef<Scrollbar | null>(null)
   const size = useWindowSize()
+  let animationsContext: gsap.Context
 
-  const clearScrollTriggers = () => {
+  const refreshScrollTrigger = () => {
+    ScrollTrigger.refresh()
+    console.log("SCROLLTRIGGER REFRESHED")
+  }
+
+  const cleanupAnimations = () => {
+    animationsContext?.revert()
+
     ScrollTrigger.getAll().forEach((instance) => {
       console.log(instance)
 
@@ -53,6 +60,21 @@ const WithSmooth = ({ children, location }: Props) => {
 
     // This in case a scroll animation is active while the route is updated
     gsap.killTweensOf(window)
+  }
+
+  const initAnimations = () => {
+    animationsContext = gsap.context(() => {
+      size.width > breakpoints.tablet && textReveal()
+      size.width > breakpoints.tablet && stickyTitle()
+      size.width > breakpoints.tablet && floatingItems()
+      size.width > breakpoints.tablet && framedParallax()
+      size.width > breakpoints.tablet && slidingPanels()
+
+      hideOnScroll()
+      parallaxItems()
+      marquee()
+      stickyItem()
+    })
   }
 
   const scrollToTop = () => {
@@ -90,34 +112,19 @@ const WithSmooth = ({ children, location }: Props) => {
   }
 
   const onResize = useCallback(() => {
-    ScrollTrigger.refresh()
-    console.log("SCROLLTRIGGER REFRESHED")
+    cleanupAnimations()
+    initAnimations()
+    refreshScrollTrigger()
   }, [])
 
   useResizeDetector({ targetRef: contentRef, onResize })
 
   useEffect(() => {
-    let ctx: gsap.Context
-    let animationsContext: gsap.Context
+    let smoothFrameCtx: gsap.Context
 
     if (smooth.current) {
       smooth.current.destroy()
       console.log("%c Smooth Destroyed", "background: #222; color: blue")
-    }
-
-    const initAnimations = () => {
-      animationsContext = gsap.context(() => {
-        size.width > breakpoints.tablet && textReveal()
-        size.width > breakpoints.tablet && stickyTitle()
-        size.width > breakpoints.tablet && floatingItems()
-        size.width > breakpoints.tablet && framedParallax()
-        size.width > breakpoints.tablet && slidingPanels()
-
-        hideOnScroll()
-        parallaxItems()
-        marquee()
-        stickyItem()
-      })
     }
 
     const initSmoothScrollbar = () => {
@@ -164,7 +171,7 @@ const WithSmooth = ({ children, location }: Props) => {
         console.log("%c Smooth Initialized", "background: #222; color: #bada55")
       }
 
-      ctx = gsap.context(() => {
+      smoothFrameCtx = gsap.context(() => {
         // disable bounce
         size.width > breakpoints.tablet &&
           gsap.set("body", {
@@ -202,9 +209,8 @@ const WithSmooth = ({ children, location }: Props) => {
     initSmoothScrollbar()
 
     return () => {
-      clearScrollTriggers()
-      ctx && ctx.revert()
-      animationsContext && animationsContext.revert()
+      cleanupAnimations()
+      smoothFrameCtx?.revert()
     }
   }, [size.width, location])
 
