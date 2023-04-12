@@ -73,7 +73,9 @@ const WithoutSmooth = ({ children, location }: Props) => {
   return (
     <>
       <Header />
-      <div ref={contentRef}>{children}</div>
+      <div ref={contentRef} className="app-content">
+        {children}
+      </div>
       <Menu />
       <MagnetCursor />
       <Modal />

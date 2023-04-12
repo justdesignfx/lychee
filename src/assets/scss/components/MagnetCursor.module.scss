@@ -27,10 +27,10 @@
     mix-blend-mode: darken;
 
     .cursor {
-      @include dims(15rem);
+      @include dims(10rem);
       background: rgb(206, 25, 83);
       background: radial-gradient(circle, rgba(206, 25, 83, 1) 0%, rgba(206, 25, 83, 0) 100%);
-      filter: blur(100px);
+      filter: blur(30px);
       position: relative;
     }
   }

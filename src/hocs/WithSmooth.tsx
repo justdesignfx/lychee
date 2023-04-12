@@ -43,6 +43,7 @@ const WithSmooth = ({ children, location }: Props) => {
   const smooth = useRef<Scrollbar | null>(null)
   const size = useWindowSize()
   let animationsContext: gsap.Context
+  let smoothFrameCtx: gsap.Context
 
   const refreshScrollTrigger = () => {
     ScrollTrigger.refresh()
@@ -51,10 +52,10 @@ const WithSmooth = ({ children, location }: Props) => {
 
   const cleanupAnimations = () => {
     animationsContext?.revert()
+    smoothFrameCtx?.revert()
 
     ScrollTrigger.getAll().forEach((instance) => {
       console.log(instance)
-
       instance.kill()
     })
 
@@ -75,6 +76,85 @@ const WithSmooth = ({ children, location }: Props) => {
       marquee()
       stickyItem()
     })
+  }
+
+  const initSmoothScrollbar = () => {
+    class ModalPlugin extends ScrollbarPlugin {
+      static pluginName = "modal"
+
+      static defaultOptions = {
+        open: false,
+      }
+
+      transformDelta(delta: any) {
+        return this.options.open ? { x: 0, y: 0 } : delta
+      }
+    }
+
+    class MobilePlugin extends ScrollbarPlugin {
+      static pluginName = "mobile"
+      static defaultOptions = {
+        speed: 0.75,
+      }
+
+      transformDelta(delta: any, fromEvent: any) {
+        if (fromEvent.type !== "touchend") {
+          return delta
+        }
+
+        return {
+          x: delta.x * this.options.speed,
+          y: delta.y * this.options.speed,
+        }
+      }
+    }
+
+    Scrollbar.use(ModalPlugin)
+    Scrollbar.use(MobilePlugin)
+
+    if (scrollerRef.current) {
+      smooth.current = Scrollbar.init(scrollerRef.current, {
+        damping: 0.75,
+        delegateTo: document,
+        alwaysShowTracks: false,
+        renderByPixels: false,
+      })
+      console.log("%c Smooth Initialized", "background: #222; color: #bada55")
+    }
+
+    smoothFrameCtx = gsap.context(() => {
+      // disable bounce
+      size.width > breakpoints.tablet &&
+        gsap.set("body", {
+          height: size.height,
+          width: "100vw",
+          overflow: "hidden",
+        })
+      // disable bounce
+
+      gsap.set(scrollerRef.current, {
+        height: size.height,
+        width: "100vw",
+        overflow: "hidden",
+      })
+    })
+
+    ScrollTrigger.scrollerProxy(scrollerRef.current, {
+      scrollTop(value: any) {
+        if (smooth.current) {
+          if (arguments.length) {
+            smooth.current.scrollTop = value
+          }
+          return smooth.current.scrollTop
+        }
+      },
+    })
+
+    smooth.current?.addListener(ScrollTrigger.update)
+    ScrollTrigger.defaults({ scroller: scrollerRef.current })
+
+    initAnimations()
+    updateMarkers()
   }
 
   const scrollToTop = () => {
@@ -113,104 +193,22 @@ const WithSmooth = ({ children, location }: Props) => {
 
   const onResize = useCallback(() => {
     cleanupAnimations()
-    initAnimations()
+    initSmoothScrollbar()
     refreshScrollTrigger()
   }, [])
 
   useResizeDetector({ targetRef: contentRef, onResize })
 
   useEffect(() => {
-    let smoothFrameCtx: gsap.Context
-
     if (smooth.current) {
       smooth.current.destroy()
       console.log("%c Smooth Destroyed", "background: #222; color: blue")
-    }
-
-    const initSmoothScrollbar = () => {
-      class ModalPlugin extends ScrollbarPlugin {
-        static pluginName = "modal"
-
-        static defaultOptions = {
-          open: false,
-        }
-
-        transformDelta(delta: any) {
-          return this.options.open ? { x: 0, y: 0 } : delta
-        }
-      }
-
-      class MobilePlugin extends ScrollbarPlugin {
-        static pluginName = "mobile"
-        static defaultOptions = {
-          speed: 0.75,
-        }
-
-        transformDelta(delta: any, fromEvent: any) {
-          if (fromEvent.type !== "touchend") {
-            return delta
-          }
-
-          return {
-            x: delta.x * this.options.speed,
-            y: delta.y * this.options.speed,
-          }
-        }
-      }
-
-      Scrollbar.use(ModalPlugin)
-      Scrollbar.use(MobilePlugin)
-
-      if (scrollerRef.current) {
-        smooth.current = Scrollbar.init(scrollerRef.current, {
-          damping: 0.075,
-          delegateTo: document,
-          alwaysShowTracks: false,
-          renderByPixels: false,
-        })
-        console.log("%c Smooth Initialized", "background: #222; color: #bada55")
-      }
-
-      smoothFrameCtx = gsap.context(() => {
-        // disable bounce
-        size.width > breakpoints.tablet &&
-          gsap.set("body", {
-            height: size.height,
-            width: "100vw",
-            overflow: "hidden",
-          })
-        // disable bounce
-
-        gsap.set(scrollerRef.current, {
-          height: size.height,
-          width: "100vw",
-          overflow: "hidden",
-        })
-      })
-
-      ScrollTrigger.scrollerProxy(scrollerRef.current, {
-        scrollTop(value: any) {
-          if (smooth.current) {
-            if (arguments.length) {
-              smooth.current.scrollTop = value
-            }
-            return smooth.current.scrollTop
-          }
-        },
-      })
-
-      smooth.current?.addListener(ScrollTrigger.update)
-      ScrollTrigger.defaults({ scroller: scrollerRef.current })
-
-      initAnimations()
-      updateMarkers()
     }
 
     initSmoothScrollbar()
 
     return () => {
       cleanupAnimations()
-      smoothFrameCtx?.revert()
     }
   }, [size.width, location])
 
@@ -235,7 +233,9 @@ const WithSmooth = ({ children, location }: Props) => {
     <SmoothContext.Provider value={{ scrollToTop, lockScrollbar, unlockScrollbar, smooth }}>
       <Header />
       <div ref={scrollerRef}>
-        <div ref={contentRef}>{children}</div>
+        <div ref={contentRef} className="app-content">
+          {children}
+        </div>
       </div>
       <Menu />
       <MagnetCursor />

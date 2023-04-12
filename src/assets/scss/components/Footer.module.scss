@@ -6,55 +6,175 @@
   align-items: stretch;
   flex-shrink: 0;
 
-  .imgC {
+  overflow: hidden;
+
+  .eventC {
     background: #f4f2f2;
     border-radius: 5vmin 5vmin 0 0;
     margin-bottom: -1px;
     padding: 10vw;
-    padding-bottom: 5vw;
-    position: relative;
+    padding-bottom: 0;
 
     @include devicesMax(tablet) {
-      padding: 8vw 4vw;
+      padding: 10vw 8vw;
     }
 
     @include devicesMax(mobile) {
       padding: 15vw 5vw;
     }
+  }
 
-    &::before {
-      content: "";
-      @include position(absolute, 50%, auto, auto, 50%);
-      @include dims(7rem);
-      background: radial-gradient(circle, rgba(206, 25, 83, 1) 0%, rgba(206, 25, 83, 0) 100%);
-      filter: blur(40px);
-      transform: translate(-50%, -50%);
-      z-index: 5;
+  .top {
+    position: relative;
 
-      @include devicesMin(aboveTablet) {
-        display: none;
-      }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 15vw;
+
+    @include devicesMax(tablet) {
+      grid-template-columns: repeat(1, 1fr);
     }
 
-    &::after {
-      content: "";
-      @include position(absolute, 100%, auto, auto, 50%);
-      @include dims(80%, 1px);
-      background: $eigengrau;
-      transform: translateX(-50%);
-      z-index: 20;
+    // &::after {
+    //   content: "";
+    //   @include position(absolute, 100%, auto, auto, 50%);
+    //   @include dims(80%, 1px);
+    //   background: $eigengrau;
+    //   transform: translateX(-50%);
+    //   z-index: 20;
 
-      @include devicesMax(tablet) {
-        @include dims(92%, 1px);
-      }
+    //   @include devicesMax(tablet) {
+    //     @include dims(92%, 1px);
+    //   }
 
-      @include devicesMax(tablet) {
-        display: none;
-      }
-    }
+    //   @include devicesMax(tablet) {
+    //     display: none;
+    //   }
+    // }
 
-    .eventC {
+    .imgC {
       position: relative;
+
+      @include devicesMax(tablet) {
+        margin-bottom: 10vw;
+      }
+
+      &::before {
+        content: "";
+        @include position(absolute, 50%, auto, auto, 50%);
+        @include dims(7rem);
+        background: radial-gradient(circle, rgba(206, 25, 83, 1) 0%, rgba(206, 25, 83, 0) 100%);
+        filter: blur(40px);
+        transform: translate(-50%, -50%);
+        z-index: 5;
+
+        @include devicesMin(aboveTablet) {
+          display: none;
+        }
+      }
+    }
+
+    .social {
+      display: flex;
+      flex-direction: column;
+
+      .text {
+        margin-bottom: 3vw;
+        display: flex;
+        position: relative;
+
+        @include devicesMax(tablet) {
+          margin-bottom: 10vw;
+        }
+
+        @include devicesMax(mobile) {
+          margin-bottom: 20vw;
+        }
+
+        .stickerC {
+          @include dims(10vw);
+          margin-left: 5vw;
+
+          @include devicesMax(tablet) {
+            @include dims(25vw);
+            margin-left: 22vw;
+          }
+
+          @include devicesMax(mobile) {
+            @include dims(25vw);
+            margin-left: 15vw;
+          }
+        }
+
+        .followUs {
+          @include position(absolute, 5vw, auto, auto, -5vw);
+          @include typo(LS-VG5000-Shifted, 70px, null, null, null);
+          color: $californiaSunset;
+          transform: rotate(16deg);
+          white-space: nowrap;
+          z-index: 5;
+
+          @include devicesMax(tablet) {
+            @include position(absolute, 14vw, auto, auto, -5vw);
+          }
+
+          @include devicesMax(mobile) {
+            @include position(absolute, 20vw, auto, auto, -2vw);
+            @include typo(LS-VG5000-Shifted, 40px, null, null, null);
+          }
+        }
+
+        .takip {
+          color: $californiaSunset;
+          @include typo(LS-VG5000-Shifted, 50px, null, null, null);
+          @include position(absolute, 0, auto, auto, 13vw);
+          transform: rotate(-9deg);
+          white-space: nowrap;
+          z-index: 5;
+
+          @include devicesMax(tablet) {
+            @include position(absolute, 0, auto, auto, 45vw);
+          }
+
+          @include devicesMax(mobile) {
+            @include typo(LS-VG5000-Shifted, 30px, null, null, null);
+            @include position(absolute, 0, auto, auto, 37vw);
+          }
+        }
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        @include devicesMax(tablet) {
+          justify-content: center;
+        }
+
+        .linkC {
+          @include typo(LS-VG5000, 20px, null, null, null);
+          @include dims(10vw, 2.75vw);
+          background: $eigengrau;
+          border-radius: 32px;
+          color: #fff;
+          padding-bottom: 0.2ch;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          @include devicesMax(tablet) {
+            @include typo(LS-VG5000, 24px, null, null, null);
+            @include dims(24vw, 6vw);
+          }
+
+          @include devicesMax(mobile) {
+            @include typo(LS-VG5000, 20px, null, null, null);
+            @include dims(40vw, 12vw);
+          }
+        }
+      }
     }
   }
 }

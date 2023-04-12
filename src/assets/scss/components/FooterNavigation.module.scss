@@ -78,7 +78,7 @@
       }
 
       &.links {
-        margin-left: 5vw;
+        margin-left: 8vw;
 
         @include devicesMax(mobile) {
           margin-left: 0;
@@ -88,7 +88,7 @@
         .link {
           @include typo(Lychee, 20px, null, 1.4, null);
           display: block;
-          margin-bottom: 1vw;
+          margin-bottom: 0.5vw;
 
           @include devicesMax(tablet) {
             @include typo(Lychee, 20px, null, 1.4, null);
