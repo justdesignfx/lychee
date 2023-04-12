@@ -114,7 +114,7 @@ const WithSmooth = ({ children, location }: Props) => {
 
     if (scrollerRef.current) {
       smooth.current = Scrollbar.init(scrollerRef.current, {
-        damping: 0.75,
+        damping: 0.075,
         delegateTo: document,
         alwaysShowTracks: false,
         renderByPixels: false,

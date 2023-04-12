@@ -1,10 +1,11 @@
 import s from "~/assets/scss/pages/Creators.module.scss"
 import Img from "~/components/Img"
 
+import { useEffect } from "react"
+import { useTranslation } from "react-i18next"
 import cx from "classnames"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
-import sample from "~/assets/img/sample.png"
 import visitor from "~/assets/img/smartphone-portal.svg"
 
 import creator1 from "~/assets/img/creator-1.jpg"
@@ -36,8 +37,23 @@ import WhyLycheeMobile from "~/components/WhyLycheeMobile"
 import { useWindowSize } from "~/hooks"
 import { breakpoints } from "~/variables"
 
+const lngs: any = {
+  en: { nativeName: "EN" },
+  tr: { nativeName: "TR" },
+}
+
 const Creators = () => {
   const size = useWindowSize()
+  const navigate = useNavigate()
+  const { i18n } = useTranslation()
+
+  useEffect(() => {
+    if (i18n.language === lngs.tr.nativeName) {
+      navigate("/hizmetler")
+    } else {
+      navigate("/services")
+    }
+  }, [i18n.language])
 
   const cards = [
     { title: { p1: "Non-Exclusive", p2: "Partnership" }, type: "blue" },

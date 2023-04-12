@@ -1,0 +1,31 @@
+@import "../_global.scss";
+
+.selectWrapper {
+  @include dims(100%);
+  @extend .cursorPointer;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  .lngText {
+    @include position(absolute, 50%, auto, auto, 50%);
+    transform: translate(-50%, -50%);
+    color: $stonewallGrey;
+    display: block;
+    font-family: LS-VG5000;
+    font-size: 32px;
+    font-weight: 400;
+    @extend .hide;
+
+    @include devicesMax(mobile) {
+      font-size: 4.5vw;
+    }
+
+    &.enabled {
+      @extend .show;
+    }
+  }
+}

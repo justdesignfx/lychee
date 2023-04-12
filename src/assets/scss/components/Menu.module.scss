@@ -39,6 +39,12 @@
     }
   }
 
+  .langBtnC {
+    @include position(absolute, 2%, auto, auto, 50%);
+    @include dims(2rem);
+    pointer-events: auto;
+  }
+
   .overlay {
     @include position(absolute, 0, 0, 0, 0);
     background: #000;

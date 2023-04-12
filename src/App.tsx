@@ -1,20 +1,13 @@
-import gsap, { Power1 } from "gsap"
 import { useEffect, useState } from "react"
-import { Route, Routes, useLocation } from "react-router"
-import ContactIntro from "./components/ContactIntro"
-import { useWindowSize } from "./hooks"
-import About from "./pages/About"
-import Brands from "./pages/Brands"
-import Contact from "./pages/Contact"
-import ContactBrand from "./pages/ContactBrand"
-import ContactContentCreator from "./pages/ContactContentCreator"
-import Creators from "./pages/Creators"
-import Home from "./pages/Home"
-import Partners from "./pages/Partners"
-import Services from "./pages/Services"
-import { breakpoints } from "./variables"
-import { WithSmooth } from "./hocs/WithSmooth"
-import { WithoutSmooth } from "./hocs/WithoutSmooth"
+
+import { useLocation } from "react-router"
+import gsap, { Power1 } from "gsap"
+
+import Layout from "~/components/Layout"
+import { WithSmooth } from "~/hocs/WithSmooth"
+import { WithoutSmooth } from "~/hocs/WithoutSmooth"
+import { useWindowSize } from "~/hooks"
+import { breakpoints } from "~/variables"
 
 function App() {
   const location = useLocation()
@@ -49,39 +42,11 @@ function App() {
     <>
       {size.width > breakpoints.tablet ? (
         <WithSmooth location={displayLocation}>
-          <div data-route-transition>
-            <Routes location={displayLocation}>
-              <Route index element={<Home />}></Route>
-              <Route path="contact" element={<Contact />}>
-                <Route index element={<ContactIntro />}></Route>
-                <Route path="brand" element={<ContactBrand />}></Route>
-              </Route>
-              <Route path="contact/content-creator" element={<ContactContentCreator />}></Route>
-              <Route path="services" element={<Services />}></Route>
-              <Route path="creators" element={<Creators />}></Route>
-              <Route path="brands" element={<Brands />}></Route>
-              <Route path="about" element={<About />}></Route>
-              <Route path="partners" element={<Partners />}></Route>
-            </Routes>
-          </div>
+          <Layout displayLocation={displayLocation} />
         </WithSmooth>
       ) : (
         <WithoutSmooth location={displayLocation}>
-          <div data-route-transition>
-            <Routes location={displayLocation}>
-              <Route index element={<Home />}></Route>
-              <Route path="contact" element={<Contact />}>
-                <Route index element={<ContactIntro />}></Route>
-                <Route path="brand" element={<ContactBrand />}></Route>
-              </Route>
-              <Route path="contact/content-creator" element={<ContactContentCreator />}></Route>
-              <Route path="services" element={<Services />}></Route>
-              <Route path="creators" element={<Creators />}></Route>
-              <Route path="brands" element={<Brands />}></Route>
-              <Route path="about" element={<About />}></Route>
-              <Route path="partners" element={<Partners />}></Route>
-            </Routes>
-          </div>
+          <Layout displayLocation={displayLocation} />
         </WithoutSmooth>
       )}
     </>

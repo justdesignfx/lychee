@@ -14,20 +14,23 @@ import IconYoutube from "./Icons/IconYoutube"
 import IconLinkedin from "./Icons/IconLinkedin"
 import IconTwitter from "./Icons/IconTwitter"
 import IconTiktok from "./Icons/IconTiktok"
+import DropdownLang from "./DropdownLang"
+import { useTranslation } from "react-i18next"
 
 const Menu = () => {
+  const { t, i18n } = useTranslation()
   const [open, setOpen] = useState(false)
   const size = useWindowSize()
 
   const smoothContext = useContext(SmoothContext)
 
   const menuItems = [
-    { ui: "Creators", path: "/creators" },
-    { ui: "Brands", path: "/brands" },
-    { ui: "Services", path: "/services" },
-    { ui: "Partners", path: "/partners" },
-    { ui: "About Us", path: "/about" },
-    { ui: "Contact", path: "/contact" },
+    { ui: t("menu.creators.ui"), path: t("menu.creators.path") },
+    { ui: t("menu.brands.ui"), path: t("menu.brands.path") },
+    { ui: t("menu.services.ui"), path: t("menu.services.path") },
+    { ui: t("menu.partners.ui"), path: t("menu.partners.path") },
+    { ui: t("menu.about.ui"), path: t("menu.about.path") },
+    { ui: t("menu.contact.ui"), path: t("menu.contact.path") },
   ]
 
   function handleMenu() {
@@ -72,6 +75,10 @@ const Menu = () => {
           ></motion.div>
         )}
       </AnimatePresence>
+
+      <div className={s.langBtnC}>
+        <DropdownLang />
+      </div>
 
       <motion.div
         className={s.hamburger}

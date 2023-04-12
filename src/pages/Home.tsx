@@ -39,52 +39,91 @@ import { useWindowSize } from "~/hooks"
 import { useCursorStore } from "~/store/cursorStore"
 import { useModalStore } from "~/store/modalStore"
 import { breakpoints } from "~/variables"
+import { Trans, useTranslation } from "react-i18next"
+
+const lngs: any = {
+  en: { nativeName: "EN" },
+  tr: { nativeName: "TR" },
+}
 
 const Home = () => {
-  const textRevealContent = [
-    {
-      word: "Yeni",
-      font: "normal",
-    },
-    {
-      word: "medya",
-      font: "normal",
-    },
-    {
-      word: "platformlarında",
-      font: "normal",
-    },
-    {
-      word: "kreatif",
-      font: "italic",
-    },
-    {
-      word: "içerikler",
-      font: "normal",
-    },
-    {
-      word: "üretiyoruz.",
-      font: "normal",
-    },
-  ]
+  const { t, i18n } = useTranslation()
+  const size = useWindowSize()
+  const cursorStore = useCursorStore()
+  const modalStore = useModalStore()
+
+  const textRevealContent =
+    i18n.language === lngs.en.nativeName
+      ? [
+          {
+            word: t("home.textReveal.text.w1.word"),
+            font: t("home.textReveal.text.w1.font"),
+          },
+          {
+            word: t("home.textReveal.text.w2.word"),
+            font: t("home.textReveal.text.w2.font"),
+          },
+          {
+            word: t("home.textReveal.text.w3.word"),
+            font: t("home.textReveal.text.w3.font"),
+          },
+          {
+            word: t("home.textReveal.text.w4.word"),
+            font: t("home.textReveal.text.w4.font"),
+          },
+          {
+            word: t("home.textReveal.text.w5.word"),
+            font: t("home.textReveal.text.w5.font"),
+          },
+          {
+            word: t("home.textReveal.text.w6.word"),
+            font: t("home.textReveal.text.w6.font"),
+          },
+          {
+            word: t("home.textReveal.text.w7.word"),
+            font: t("home.textReveal.text.w7.font"),
+          },
+          {
+            word: t("home.textReveal.text.w8.word"),
+            font: t("home.textReveal.text.w8.font"),
+          },
+          {
+            word: t("home.textReveal.text.w9.word"),
+            font: t("home.textReveal.text.w9.font"),
+          },
+        ]
+      : [
+          {
+            word: t("home.textReveal.text.w1.word"),
+            font: t("home.textReveal.text.w1.font"),
+          },
+          {
+            word: t("home.textReveal.text.w2.word"),
+            font: t("home.textReveal.text.w2.font"),
+          },
+          {
+            word: t("home.textReveal.text.w3.word"),
+            font: t("home.textReveal.text.w3.font"),
+          },
+          {
+            word: t("home.textReveal.text.w4.word"),
+            font: t("home.textReveal.text.w4.font"),
+          },
+          {
+            word: t("home.textReveal.text.w5.word"),
+            font: t("home.textReveal.text.w5.font"),
+          },
+          {
+            word: t("home.textReveal.text.w6.word"),
+            font: t("home.textReveal.text.w6.font"),
+          },
+        ]
 
   const influencers = [
     { pic: influencer1, brandLogo: logoDysonBlack },
     { pic: influencer2, brandLogo: logoAbdiBlack },
     { pic: influencer3, brandLogo: logoObsessoBlack },
   ]
-
-  // const smoothCtx = useContext(SmoothContext)
-
-  // useEffect(() => {
-  //   smoothCtx?.smooth.current.addListener((status: ScrollStatus) => {
-  //     console.log(status.offset.y)
-  //   })
-  // }, [])
-
-  const size = useWindowSize()
-  const cursorStore = useCursorStore()
-  const modalStore = useModalStore()
 
   const cursorHandlers = {
     enter: {
@@ -123,18 +162,30 @@ const Home = () => {
       <main className={s.home}>
         <section className={s.hero}>
           <div className={s.textC}>
-            <h1 className={s.title}>
-              Markanız için en etkili <span className={s.inner}>influencer marketing</span> kampanyalarını yürütmeye
-              hazırız.
-            </h1>
+            {/* <h1 className={s.title}>
+              <Trans i18nKey="home.intro.title" t={t}>
+                {t("home.intro.title")}
+              </Trans>
+            </h1> */}
+            {i18n.language === lngs.en.nativeName ? (
+              <h1 className={s.title}>
+                We are ready to run the most effective <span className={s.inner}>influencer marketing</span> campaigns
+                for your brand.
+              </h1>
+            ) : (
+              <h1 className={s.title}>
+                Markanız için en etkili <span className={s.inner}>influencer marketing</span> kampanyalarını yürütmeye
+                hazırız.
+              </h1>
+            )}
 
             <div className={s.buttons}>
-              <Link to="/contact/brand" className={s.button}>
-                Markam Var
+              <Link to={`${t("home.intro.buttons.b1.path")}`} className={s.button}>
+                {t("home.intro.buttons.b1.ui")}
               </Link>
 
-              <Link to="/contact/content-creator" className={s.button}>
-                İçerik Üreticisiyim
+              <Link to={`${t("home.intro.buttons.b2.path")}`} className={s.button}>
+                {t("home.intro.buttons.b2.ui")}
               </Link>
             </div>
           </div>
@@ -178,16 +229,30 @@ const Home = () => {
         </section>
         <section className={s.greeting}>
           <div className={s.textC}>
-            <h2 className={s.text}>
-              Lychee <span className={s.italic}>global ölçekte</span> ikonik <br />
-              <span className={cx(s.text, s.brands, s.margin1)}>markaların </span>
-              <span className={s.text}>çözüm ortağı olan</span> <br />
-              <span className={cx(s.text, s.margin2, s.margin4)}>dijital </span>
-              <span className={s.text}>
-                <span className={s.italic}>influencer</span> marketing <br />
-              </span>
-              <span className={cx(s.text, s.margin5)}> ajansıdır.</span>
-            </h2>
+            {i18n.language === lngs.en.nativeName ? (
+              <h2 className={s.text}>
+                Lychee is a digital <span className={s.italic}>influencer</span> marketing <br />
+                <span className={cx(s.text, s.brands, s.margin1)}>agency </span>
+                <span className={s.text}>that is a</span> <br />
+                <span className={cx(s.text, s.margin2, s.margin4)}>solution partner for iconic brands on a </span>
+                <span className={s.text}>
+                  <span className={s.italic}>global scale</span>.<br />
+                </span>
+                <span className={cx(s.text, s.margin5)}> ajansıdır.</span>
+              </h2>
+            ) : (
+              <h2 className={s.text}>
+                Lychee <span className={s.italic}>global ölçekte</span> ikonik <br />
+                <span className={cx(s.text, s.brands, s.margin1)}>markaların </span>
+                <span className={s.text}>çözüm ortağı olan</span> <br />
+                <span className={cx(s.text, s.margin2, s.margin4)}>dijital </span>
+                <span className={s.text}>
+                  <span className={s.italic}>influencer</span> marketing <br />
+                </span>
+                <span className={cx(s.text, s.margin5)}> ajansıdır.</span>
+              </h2>
+            )}
+
             <div className={s.imgC}>
               <Img src={skaterTube} alt="Skating Tube Tv" objectFit="contain" />
             </div>
@@ -199,8 +264,8 @@ const Home = () => {
               <SplitText content={textRevealContent} />
             </div>
             <div className={s.reels}>
-              <Link to="/contact" className={s.button}>
-                Kampanyanı Oluştur
+              <Link to={`${t("home.textReveal.button.path")}`} className={s.button}>
+                {t("home.textReveal.button.ui")}
               </Link>
               <div className={s.instaxC}>
                 <img className={s.img} src={instax} alt="Influencer Reels" />
@@ -218,25 +283,37 @@ const Home = () => {
           <div className={s.transformC}>
             <MarqueeSimple direction={-1}>
               <h2 className={s.mText}>
-                Neler yapıyoruz. <span className={s.seperator}></span>
+                {t("home.marquee.text")} <span className={s.seperator}></span>
               </h2>
             </MarqueeSimple>
           </div>
           <div className={s.transformC}>
             <MarqueeSimple direction={-1}>
-              <h2 className={s.mText}>Neler yapıyoruz.</h2>
+              <h2 className={s.mText}>{t("home.marquee.text")}</h2>
             </MarqueeSimple>
           </div>
         </section>
         <section className={s.works}>
-          <div className={s.titleC}>
-            <h2 className={s.title}>
-              Yaptığımız işler <br /> <span className={s.italic}>yaratıcılığımızı</span> yanstıyor.
-            </h2>
-            <p className={s.text}>
-              En büyük motivasyonumuz dijital medya için <br /> özgün içerikler yaratma dürtüsüdür.
-            </p>
-          </div>
+          {i18n.language === lngs.en.nativeName ? (
+            <div className={s.titleC}>
+              <h2 className={s.title}>
+                The works we do <br />
+                reflects <span className={s.italic}>our creativity</span>.
+              </h2>
+              <p className={s.text}>
+                Our greatest motivation is the urge to <br /> create original content for digital media.
+              </p>
+            </div>
+          ) : (
+            <div className={s.titleC}>
+              <h2 className={s.title}>
+                Yaptığımız işler <br /> <span className={s.italic}>yaratıcılığımızı</span> yanstıyor.
+              </h2>
+              <p className={s.text}>
+                En büyük motivasyonumuz dijital medya için <br /> özgün içerikler yaratma dürtüsüdür.
+              </p>
+            </div>
+          )}
           <div className={s.worksGrid}>
             {influencers.map((item, i) => {
               return (
@@ -258,38 +335,44 @@ const Home = () => {
               )
             })}
           </div>
-          <ButtonText text="Daha fazlasını incelemek için" link={{ path: "works", ui: "işlerimize göz atın" }} />
-          {/* <small className={s.lookUp}>
-            Daha fazlasını incelemek için{" "}
-            <Link to="/works" className={s.link}>
-              işlerimize göz atın
-            </Link>
-          </small> */}
+          <ButtonText
+            text={t("home.works.button.text")}
+            link={{ path: `${t("home.works.button.link.path")}`, ui: `${t("home.works.button.link.ui")}` }}
+          />
         </section>
         <section className={s.stats} data-sliding-panels>
           <div className={s.topC}>
-            <div className={s.titleC}>
-              <h3 className={s.title}>
-                Biraz <span className={s.italic}>rakamlardan</span> <br /> bahsedelim.
-              </h3>
-              <h4 className={s.text}>Sürekli hareket halindeki dijital dünya için, kreatif sonuçlar elde ediyoruz.</h4>
-            </div>
+            {i18n.language === lngs.en.nativeName ? (
+              <div className={s.titleC}>
+                <h3 className={s.title}>
+                  Let's talk about <br /> <span className={s.italic}>numbers.</span>
+                </h3>
+                <h4 className={s.text}>We achieve creative results for the constantly moving digital world. </h4>
+              </div>
+            ) : (
+              <div className={s.titleC}>
+                <h3 className={s.title}>
+                  Biraz <span className={s.italic}>rakamlardan</span> <br /> bahsedelim.
+                </h3>
+                <h4 className={s.text}>
+                  Sürekli hareket halindeki dijital dünya için, kreatif sonuçlar elde ediyoruz.
+                </h4>
+              </div>
+            )}
             <div className={s.imgC}>
               <Img src={smartPhone} alt="Smartphone Doodle" objectFit="contain" />
             </div>
-            <small className={s.small}>
-              *2022-2023 marka işbirlikleri ortalama verilerinden ortaya çıkan sonuçlardır.
-            </small>
+            <small className={s.small}>{t("home.stats.small")}</small>
           </div>
           <div className={cx(s.oWrapper, s.blue)} data-sliding-panel>
             <div className={s.screen} data-sliding-panel-unskew>
               <div className={cx(s.statC, s.blue)}>
                 <h3 className={s.statText}>
                   <span className={s.num60}>60 </span>
-                  <span className={s.million}>milyon</span>
+                  <span className={s.million}>{t("home.stats.blue.stat")}</span>
                   <span className={s.asterisk}>*</span>
                 </h3>
-                <p className={s.desc}>Organik görüntülenme sağlandı.</p>
+                <p className={s.desc}>{t("home.stats.blue.text")}</p>
               </div>
 
               <div className={s.indexC}>
@@ -303,10 +386,10 @@ const Home = () => {
               <div className={cx(s.statC, s.pink)}>
                 <h3 className={s.statText}>
                   <span className={s.num7}>7 </span>
-                  <span className={s.thousand}>bin</span>
+                  <span className={s.thousand}>{t("home.stats.pink.stat")}</span>
                   <span className={s.asterisk}>*</span>
                 </h3>
-                <p className={s.desc}>Özgün içerik üretildi.</p>
+                <p className={s.desc}>{t("home.stats.pink.text")}</p>
               </div>
 
               <div className={s.indexC}>
@@ -323,7 +406,7 @@ const Home = () => {
                   <span className={s.percent}>%</span>
                   <span className={s.asterisk}>*</span>
                 </h3>
-                <p className={s.desc}>Ortalama görüntüleme başına takipçi sayısı artışı.</p>
+                <p className={s.desc}>{t("home.stats.black.text")}</p>
               </div>
 
               <div className={s.indexC}>
@@ -337,12 +420,25 @@ const Home = () => {
             <div className={s.imgC}>
               <img className={s.img} src={portal} alt="Smartphone Doodle" />
             </div>
-            <h2 className={s.title}>
-              Partneri olduğumuz <span className={s.italic}>global</span> markalar.
-            </h2>
-            <p className={s.text}>
-              Yeni çağ üretici endüstrisini şekillendiren, <br /> global markalar ve firmalarla çalışıyoruz.
-            </p>
+            {i18n.language === lngs.en.nativeName ? (
+              <>
+                <h2 className={s.title}>
+                  A selection of <span className={s.italic}>global</span> partnerships.
+                </h2>
+                <p className={s.text}>
+                  We work with globally acknowledged brands and firms <br /> that shape the new-age creator industry.
+                </p>
+              </>
+            ) : (
+              <>
+                <h2 className={s.title}>
+                  Partneri olduğumuz <span className={s.italic}>global</span> markalar.
+                </h2>
+                <p className={s.text}>
+                  Yeni çağ üretici endüstrisini şekillendiren, <br /> global markalar ve firmalarla çalışıyoruz.
+                </p>
+              </>
+            )}
           </div>
           <div className={s.oHiddenC}>
             <div className={s.logoGrid}>
@@ -381,18 +477,27 @@ const Home = () => {
           </div>
         </section>
         <section className={s.moveOn}>
-          <div className={s.titleC}>
-            <h2 className={s.title}>
-              <span className={s.italic}>İncelemeye</span> devam <br /> etmek ister misiniz?
-            </h2>
-          </div>
+          {i18n.language === lngs.en.nativeName ? (
+            <div className={s.titleC}>
+              <h2 className={s.title}>
+                Would you like to
+                <br /> <span className={s.italic}>see more</span>.
+              </h2>
+            </div>
+          ) : (
+            <div className={s.titleC}>
+              <h2 className={s.title}>
+                <span className={s.italic}>İncelemeye</span> devam <br /> etmek ister misiniz?
+              </h2>
+            </div>
+          )}
 
           <div className={s.buttons}>
-            <Link className={s.button} to="/partners">
-              Partnerlerimiz
+            <Link className={s.button} to={`${t("home.moveOn.buttons.b1.path")}`}>
+              {t("home.moveOn.buttons.b1.ui")}
             </Link>
-            <Link className={s.button} to="/services">
-              Hizmetlerimiz
+            <Link className={s.button} to={`${t("home.moveOn.buttons.b2.path")}`}>
+              {t("home.moveOn.buttons.b2.ui")}
             </Link>
           </div>
         </section>

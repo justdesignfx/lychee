@@ -1,28 +1,42 @@
 import s from "~/assets/scss/pages/Services.module.scss"
+import { useEffect } from "react"
 
+import { useTranslation } from "react-i18next"
 import cx from "classnames"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import doodleLaying from "~/assets/img/doodle-laying.png"
-import sample from "~/assets/img/sample.png"
-
 import nescafe from "~/assets/img/nescafe.jpg"
 import nikes from "~/assets/img/nikes.jpg"
 import smoothie from "~/assets/img/smoothie.jpg"
 
+import ButtonGlitch from "~/components/ButtonGlitch"
 import FloatingCard from "~/components/FloatingCard"
 import FooterBasic from "~/components/FooterBasic"
-import IconArrowSquare from "~/components/Icons/IconArrowSquare"
+import Img from "~/components/Img"
 import List from "~/components/List"
 import MarqueeSimple from "~/components/MarqueeSimple"
-import Img from "~/components/Img"
-import ButtonGlitch from "~/components/ButtonGlitch"
+import WhyLycheeMobile from "~/components/WhyLycheeMobile"
 import { useWindowSize } from "~/hooks"
 import { breakpoints } from "~/variables"
-import WhyLycheeMobile from "~/components/WhyLycheeMobile"
+
+const lngs: any = {
+  en: { nativeName: "EN" },
+  tr: { nativeName: "TR" },
+}
 
 const Services = () => {
   const size = useWindowSize()
+  const navigate = useNavigate()
+  const { i18n } = useTranslation()
+
+  useEffect(() => {
+    if (i18n.language === lngs.tr.nativeName) {
+      navigate("/hizmetler")
+    } else {
+      navigate("/services")
+    }
+  }, [i18n.language])
 
   const theWay = [
     {
