@@ -2,7 +2,7 @@ import s from "~/assets/scss/pages/Creators.module.scss"
 import Img from "~/components/Img"
 
 import { useEffect } from "react"
-import { useTranslation } from "react-i18next"
+import { Trans, useTranslation } from "react-i18next"
 import cx from "classnames"
 import { Link, useNavigate } from "react-router-dom"
 
@@ -45,22 +45,18 @@ const lngs: any = {
 const Creators = () => {
   const size = useWindowSize()
   const navigate = useNavigate()
-  const { i18n } = useTranslation()
+  const { i18n, t } = useTranslation()
 
   useEffect(() => {
-    if (i18n.language === lngs.tr.nativeName) {
-      navigate("/hizmetler")
-    } else {
-      navigate("/services")
-    }
+    navigate(`/${t("menu.creators.path")}`)
   }, [i18n.language])
 
   const cards = [
-    { title: { p1: "Non-Exclusive", p2: "Partnership" }, type: "blue" },
-    { title: { p1: "Özel", p2: "Pazarlama Ekibi" }, type: "transparent" },
-    { title: { p1: "Profesyonel", p2: "Prodüksiyon Ekibi" }, type: "white" },
-    { title: { p1: "Direct Payment", p2: "Partnership" }, type: "blue" },
-    { title: { p1: "No Costs or Fees", p2: "Partnership" }, type: "transparent" },
+    { title: { p1: t("creators.why.cards.c1.p1"), p2: t("creators.why.cards.c1.p2") }, type: "blue" },
+    { title: { p1: t("creators.why.cards.c2.p1"), p2: t("creators.why.cards.c2.p2") }, type: "transparent" },
+    { title: { p1: t("creators.why.cards.c3.p1"), p2: t("creators.why.cards.c3.p2") }, type: "white" },
+    { title: { p1: t("creators.why.cards.c4.p1"), p2: t("creators.why.cards.c4.p2") }, type: "blue" },
+    { title: { p1: t("creators.why.cards.c5.p1"), p2: t("creators.why.cards.c5.p2") }, type: "transparent" },
   ]
 
   const sliderItems = [
@@ -159,12 +155,20 @@ const Creators = () => {
         <section className={s.intro}>
           <div className={s.textC}>
             <small className={s.small}>DIGITAL TALENT AGENCY</small>
-            <h1 className={s.title}>
-              Lychee’nin kreatif <br /> içerik üreticileri ekibine <br /> katılın.
-            </h1>
-            <h2 className={s.subtitle}>Influencer’ları en iyi eşleşeceği global markalarla buluşturuyoruz.</h2>
-            <Link className={s.btnC} to="/contact">
-              <ButtonGlitch size="sm" text="Üretmeye başlayın" />
+            {i18n.language === lngs.en.nativeName ? (
+              <h1 className={s.title}>
+                Join Lychee's
+                <br /> team of creative
+                <br /> content creators.
+              </h1>
+            ) : (
+              <h1 className={s.title}>
+                Lychee’nin kreatif <br /> içerik üreticileri ekibine <br /> katılın.
+              </h1>
+            )}
+            <h2 className={s.subtitle}>{t("creators.intro.subtitle")}</h2>
+            <Link className={s.btnC} to={`${t("creators.intro.button.path")}`}>
+              <ButtonGlitch size="sm" text={t("creators.intro.button.ui")} />
             </Link>
           </div>
           <div className={s.statsC}>
@@ -180,15 +184,15 @@ const Creators = () => {
             </div>
             <ul className={s.statC}>
               <li className={s.stat}>
-                <small className={s.label}>Beğeni</small>
+                <small className={s.label}>{t("creators.intro.stats.likes")}</small>
                 <p className={s.data}>7,254</p>
               </li>
               <li className={s.stat}>
-                <small className={s.label}>Özgün Etkileşim</small>
+                <small className={s.label}>{t("creators.intro.stats.interaction")}</small>
                 <p className={s.data}>110k</p>
               </li>
               <li className={s.stat}>
-                <small className={s.label}>Satış Artışı</small>
+                <small className={s.label}>{t("creators.intro.stats.sales")}</small>
                 <p className={s.data}>
                   +11.7{" "}
                   <span className={s.iconC}>
@@ -199,28 +203,36 @@ const Creators = () => {
             </ul>
             <ul className={s.credentials}>
               <li className={s.info}>
-                <small className={s.label}>Influencer:</small>
+                <small className={s.label}>{t("creators.intro.influencerDetail.influencer")}:</small>
                 <p className={s.data}>@ogedaygirisken</p>
               </li>
               <li className={s.info}>
-                <small className={s.label}>Marka:</small>
+                <small className={s.label}>{t("creators.intro.influencerDetail.brand")}:</small>
                 <p className={s.data}>@dyson</p>
               </li>
             </ul>
           </div>
         </section>
         <section className={s.foundations}>
-          <h2 className={s.title}>
-            Lychee, <span className={s.margin1}></span>
-            <span className={s.italic}>üreticilerin,</span> <br /> <span className={s.italic}>influencerların</span> ve
-            <span className={s.italic}> sanatçıların</span> <br /> olağanüstü yaratıcılığının{" "}
-            <span className={s.margin2}></span> peşinden <br /> <span className={s.margin3}></span>gitme tutkusuyla
-            kuruldu.
-          </h2>
-          <small className={s.small}>
-            Talent ekibimizle global marka ve kuruluşlarla partnerlik yapan bir influencer ağı oluşturduk.
-            Talentlarımızı içeriklerine en uygun global markalarla buluşturuyoruz.
-          </small>
+          {i18n.language === lngs.en.nativeName ? (
+            <h2 className={s.title}>
+              Lychee, <span className={s.margin1}></span>
+              <span className={s.italic}>was founded</span> <br /> <span className={s.italic}>with a passion</span> for
+              <span className={s.italic}> pursuing</span> the extraordinary <br /> <span className={s.margin2}></span>{" "}
+              creativity <br /> <span className={s.margin3}></span>of producers, influencers, and artists.
+            </h2>
+          ) : (
+            <h2 className={s.title}>
+              Lychee, <span className={s.margin1}></span>
+              <span className={s.italic}>üreticilerin,</span> <br /> <span className={s.italic}>influencerların</span>{" "}
+              ve
+              <span className={s.italic}> sanatçıların</span> <br /> olağanüstü yaratıcılığının{" "}
+              <span className={s.margin2}></span> peşinden <br /> <span className={s.margin3}></span>gitme tutkusuyla
+              kuruldu.
+            </h2>
+          )}
+
+          <small className={s.small}>{t("creators.foundations.small")}</small>
 
           <div className={cx(s.imgC, s.left)} data-framed-parallax-frame>
             <div data-framed-parallax-sliding data-speed-y="0.05" data-direction-y="-1">
@@ -244,58 +256,79 @@ const Creators = () => {
           <div className={s.marqueeC}>
             <MarqueeSimple direction={-1}>
               <h2 className={s.mText}>
-                Peki ya sonuç.. ? <span className={s.seperator}></span>
+                {t("creators.marquee.mText")} <span className={s.seperator}></span>
               </h2>
             </MarqueeSimple>
           </div>
-          <h5 className={s.text}>
-            Efektif, yaratıcı ve yenilikçi influencer marketing kampanyaları yürütüyoruz. Global influencer
-            topluluğundaki en yaratıcı yetenekleri Lychee Digital topluluğu arasında bulundurmaktan gurur duyuyoruz.
-          </h5>
+          <h5 className={s.text}>{t("creators.marquee.desc")}</h5>
           <div className={s.imgC}>
             <Img src={visitor} />
           </div>
         </section>
         <section className={s.featuredProjects}>
           <div className={s.textC}>
-            <small className={s.small}>ÖNE ÇIKAN PROJELERİMİZ</small>
+            <small className={s.small}>{t("creators.featuredProjects.small")}</small>
             <h1 className={s.title}>
-              Global trend belirleyicilerle <br /> çalışmaya başlayın.
+              <Trans key={"creators.featuredProjects.title"} components={{ br: <br /> }}>
+                {t("creators.featuredProjects.title")}
+              </Trans>
             </h1>
             <h2 className={s.subtitle}>
-              Lychee içerik oluşturucu topluluğu, markanıza özel marketing <br /> ihtiyaçlarını karşılayacak micro ve
-              macro influencerlardan oluşur.
+              <Trans key={"creators.featuredProjects.subtitle"} components={{ br: <br /> }}>
+                {t("creators.featuredProjects.subtitle")}
+              </Trans>
             </h2>
           </div>
           <div className={s.sliderC}>
             <ProjectsSlider items={sliderItems} />
           </div>
           <div className={s.buttonC}>
-            <ButtonText text="Daha fazlasını incelemek için" link={{ ui: "işlerimize göz atın", path: "/partners" }} />
+            <ButtonText
+              text={t("creators.featuredProjects.button.text")}
+              link={{
+                ui: t("creators.featuredProjects.button.link.ui"),
+                path: t("creators.featuredProjects.button.link.path"),
+              }}
+            />
           </div>
         </section>
         <section className={s.faces}>
           <div className={s.singleTitleC}>
-            <h1 className={s.title}>
-              Markanızın gelecekteki
-              <span className={s.italic}> potansiyel yüzlerini </span>
-              inceleyin...
-            </h1>
+            {i18n.language === lngs.en.nativeName ? (
+              <h1 className={s.title}>
+                Explore the
+                <span className={s.italic}> potential faces </span>
+                of your brand in the future...
+              </h1>
+            ) : (
+              <h1 className={s.title}>
+                Markanızın gelecekteki
+                <span className={s.italic}> potansiyel yüzlerini </span>
+                inceleyin...
+              </h1>
+            )}
           </div>
           <div className={s.gridC}>
             <SquareGrid items={influencers} />
           </div>
 
           <ButtonText
-            text="Tüm içerik üreticilerimizi görmek için"
-            link={{ ui: "bizimle iletişime geçin.", path: "/contact" }}
+            text={t("creators.faces.button.text")}
+            link={{ ui: t("creators.faces.button.link.ui"), path: t("creators.faces.button.link.path") }}
           />
         </section>
         {size.width > breakpoints.mobile ? (
           <section className={s.why} data-floating-items-c>
-            <h2 className={s.title}>
-              Neden <span className={s.italic}>Lychee</span> ile çalışmalısınız?
-            </h2>
+            {i18n.language === lngs.en.nativeName ? (
+              <h2 className={s.title}>
+                Why you should work with <span className={s.italic}>Lychee?</span>
+              </h2>
+            ) : (
+              <h2 className={s.title}>
+                Neden <span className={s.italic}>Lychee</span> ile çalışmalısınız?
+              </h2>
+            )}
+
             <div className={s.horizontalScrollContent} data-floating-items>
               {cards.map((card, i) => {
                 return (
@@ -318,11 +351,15 @@ const Creators = () => {
           <div className={s.marqueeC}>
             <MarqueeSimple direction={-1}>
               <h2 className={s.mText}>
-                Sizi bekliyoruz. <span className={s.seperator}></span>
+                {t("creators.waiting.marquee")} <span className={s.seperator}></span>
               </h2>
             </MarqueeSimple>
           </div>
-          <ButtonText size="lg" text="Lychee'nin seçkin ekosistemine" link={{ ui: "katılın.", path: "/contact" }} />
+          <ButtonText
+            size="lg"
+            text={t("creators.waiting.button.text")}
+            link={{ ui: t("creators.waiting.button.link.ui"), path: t("creators.waiting.button.link.path") }}
+          />
         </section>
       </main>
 

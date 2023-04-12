@@ -127,6 +127,68 @@ export const en = {
         },
       },
     },
+    creators: {
+      intro: {
+        subtitle: "We match influencers with the global brands they will best match.",
+        button: {
+          ui: "Start to create",
+          path: "contact",
+        },
+        influencerDetail: {
+          influencer: "Influencer",
+          brand: "Brand",
+        },
+        stats: {
+          likes: "Likes",
+          interaction: "Unique Interaction",
+          sales: "Increase in Sales",
+        },
+      },
+      foundations: {
+        small:
+          "We have built an influencer network partnering with global brands and organizations with our talent team. We match our talents with the most appropriate global brands for their content.",
+      },
+      marquee: {
+        mText: "Results…?",
+        desc: "We run effective, creative, and innovative influencer marketing campaigns. We take pride in having the most creative talents in the global influencer community among the Lychee Digital community.",
+      },
+      featuredProjects: {
+        small: "OUR FEATURED PROJECTS",
+        title: "Start working with <br/> global trendsetters.",
+        subtitle:
+          "The Lychee content creator community consists of micro and macro <br/> influencers who will meet your brand's specific marketing needs.",
+        button: {
+          text: "To see more,",
+          link: { path: "creators", ui: "take a look at our works." },
+        },
+      },
+      faces: {
+        button: {
+          text: "Contact us to see all of",
+          link: { path: "creators", ui: " our content creators." },
+        },
+        buttonMobile: {
+          more: "See More",
+          less: "See Less",
+        },
+      },
+      why: {
+        cards: {
+          c1: { p1: "Non-Exclusive", p2: "Partnership" },
+          c2: { p1: "Special", p2: "Marketing Team" },
+          c3: { p1: "Professional", p2: "Production Team" },
+          c4: { p1: "Direct", p2: "Payment" },
+          c5: { p1: "No Costs", p2: "Or Fees" },
+        },
+      },
+      waiting: {
+        marquee: "We are waiting for you.",
+        button: {
+          text: "Contact us to see all of",
+          link: { path: "contact", ui: "our content creators." },
+        },
+      },
+    },
     privacyPolicy: {
       text: "I consent to the processing of my personal data within the scope of",
       link: {

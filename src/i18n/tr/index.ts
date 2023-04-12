@@ -124,6 +124,68 @@ export const tr = {
         },
       },
     },
+    creators: {
+      intro: {
+        subtitle: "Influencer’ları en iyi eşleşeceği global markalarla buluşturuyoruz.",
+        button: {
+          ui: "Üretmeye başlayın",
+          path: "iletisim",
+        },
+        influencerDetail: {
+          influencer: "Influencer",
+          brand: "Marka",
+        },
+        stats: {
+          likes: "Beğeni",
+          interaction: "Özgün Etkileşim",
+          sales: "Satış Artışı",
+        },
+      },
+      foundations: {
+        small:
+          "Talent ekibimizle global marka ve kuruluşlarla partnerlik yapan bir influencer ağı oluşturduk. Talentlarımızı içeriklerine en uygun global markalarla buluşturuyoruz.",
+      },
+      marquee: {
+        mText: "Peki ya sonuç…?",
+        desc: "Efektif, yaratıcı ve yenilikçi influencer marketing kampanyaları yürütüyoruz. Global influencer topluluğundaki en yaratıcı yetenekleri Lychee Digital topluluğu arasında bulundurmaktan gurur duyuyoruz.",
+      },
+      featuredProjects: {
+        small: "ÖNE ÇIKAN PROJELERİMİZ",
+        title: "Global trend belirleyicilerle <br/> çalışmaya başlayın.",
+        subtitle:
+          " Lychee içerik oluşturucu topluluğu, markanıza özel marketing <br /> ihtiyaçlarını karşılayacak micro ve macro influencerlardan oluşur.",
+        button: {
+          text: "Daha fazlasını incelemek için",
+          link: { path: "ureticiler", ui: "işlerimize göz atın." },
+        },
+      },
+      faces: {
+        button: {
+          text: "Tüm içerik üreticilerimizi görmek için",
+          link: { path: "ureticiler", ui: "bizimle iletişime geçin." },
+        },
+        buttonMobile: {
+          more: "Daha fazla göster",
+          less: "Daha az göster",
+        },
+      },
+      why: {
+        cards: {
+          c1: { p1: "Eşit", p2: "Partnerlik" },
+          c2: { p1: "Özel", p2: "Pazarlama Ekibi" },
+          c3: { p1: "Profesyonel", p2: "Prodüksiyon Ekibi" },
+          c4: { p1: "Direkt", p2: "Ödeme" },
+          c5: { p1: "Hiçbir Masraf", p2: "Yok" },
+        },
+      },
+      waiting: {
+        marquee: "Sizi bekliyoruz.",
+        button: {
+          text: "Lychee'nin seçkin ekosistemine",
+          link: { path: "contact", ui: "katılın" },
+        },
+      },
+    },
     privacyPolicy: {
       text: "kapsamında kişisel verilerimin işlenmesine onay veriyorum.",
       link: {

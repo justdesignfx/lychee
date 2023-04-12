@@ -8,6 +8,7 @@ import IconInstagram from "~/components/Icons/IconInstagram"
 import { useWindowSize } from "~/hooks"
 import { breakpoints } from "~/variables"
 import IconTiktok from "./Icons/IconTiktok"
+import { useTranslation } from "react-i18next"
 
 type IGridItem = {
   name: string
@@ -43,6 +44,7 @@ type Props = {
 
 const SquareGrid = (props: Props) => {
   const size = useWindowSize()
+  const { t } = useTranslation()
 
   const [open, setOpen] = useState(false)
 
@@ -108,7 +110,7 @@ const SquareGrid = (props: Props) => {
 
       {size.width <= breakpoints.mobile && (
         <button className={s.seeMoreBtn} onClick={handleSeeMore}>
-          {!open ? <>Daha Fazla Göster</> : <>Daha Az Göster</>}
+          {!open ? <>{t("creators.faces.buttonMobile.more")}</> : <>{t("creators.faces.buttonMobile.less")}</>}
         </button>
       )}
     </div>
