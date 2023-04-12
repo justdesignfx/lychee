@@ -5,26 +5,11 @@ import cx from "classnames"
 import IconMinus from "./Icons/IconMinus"
 import IconPlus from "./Icons/IconPlus"
 
-const ListBrands = () => {
-  const items = [
-    {
-      title: "Hedeflerinizi Tanımlamak",
-      text: "Satış huninizde daha fazla müşteri adayı, daha düşük CPM, artan marka bilinirliği, pazarlama kampanyalarınızda benzersiz ve yeni içerik arıyorsanız, sizin için buradayız. Hedef kitlenizi, temel hedeflerinizi, tercih ettiğiniz sosyal kanalları ve kampanyanız için başarıya eşit olan diğer her şeyi tam olarak tanımlamak için deneyimli stratejistlerden oluşan ekibimizle işbirliği yapacaksınız.",
-    },
-    {
-      title: "Kampanya Stratejinizi İnşa Etmek",
-      text: "Biz mümkün olan en iyi kampanya stratejinizi oluştururken kahvenizden bir yudum alın. Hedeflerinizi öğrendikten ve kurumsal kimliğinizi analiz ettikten sonra, ekibimiz bütçeniz ve parametreleriniz dahilinde mükemmel stratejiyi oluşturacaktır. Kampanyanızı yürütmek, beyin fırtınası yapmak ve projenin nihai onayını almak için uygulayabileceğimiz eksiksiz bir senaryonlar menüsü hazırlıyoruz.",
-    },
-    {
-      title: "Hayallerinizi Şekillendirecek İçerik Üreticinizi Seçmek",
-      text: "        Yaratıcı, kreatif içerik üreticileri ve influencer ekibimizin içinden markanızı en iyi şekilde tanıtacak yeteceği buluyoruz. Ekibimiz seçtiğiniz platformda markanız için yaratıcı reklam kampanyaları oluşturur.",
-    },
-    {
-      title: "Gerçek Zamanlı Sonuçları Görmek",
-      text: " Veri analistlerinden oluşan ekibimiz, bir sonraki kampanya lansmanınızın temelini oluşturan kampanya içgörülerinizi belirler. Bu verilere dayanarak kampanyanızın bir öncekinden daha iyi olması için en etkili yol haritalarını çizer.",
-    },
-  ]
+type Props = {
+  items: { title: string; text: string }[]
+}
 
+const ListBrands = (props: Props) => {
   const [activeItems, setActiveItems] = useState<number[]>([])
 
   const handleAccordion = (i: number) => {
@@ -46,7 +31,7 @@ const ListBrands = () => {
       </div>
 
       <ul className={s.list}>
-        {items.map((item, i) => {
+        {props.items.map((item, i) => {
           return (
             <li
               className={cx(s.listItem, { [s.active]: activeItems.includes(i) })}

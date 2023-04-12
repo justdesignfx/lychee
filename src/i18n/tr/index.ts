@@ -186,6 +186,51 @@ export const tr = {
         },
       },
     },
+    brands: {
+      intro: {
+        small: "LET'S SCROLL",
+        title: "Olağanüstü yaratıcılık, <br/> küresel bakış açısı.",
+        subtitle: "Hayallerinizdeki kampanyayı en kreatif şekilde inşa ediyoruz.",
+        desc: "Lychee, global markaların sosyal medya ve pazarlama kampanyalarına güç veriyor. Deneyimli içerik üreticileri ve tasarımcılardan oluşan ekibimiz aracılığıyla hedeflerinize ulaşmanıza yardımcı oluyoruz. Markanız için en efektif ve en başarılı influencer marketing kampanyalarınızı yürütmeye hazırız.",
+        button: {
+          ui: "Hemen başlayın",
+          path: "iletisim",
+        },
+      },
+      methods: {
+        title: "Bir sonraki influencer kampanyanızda başarıya ulaşmak için Lychee çalışma metodlarına göz atın…",
+        list: {
+          l1: {
+            title: "Hedeflerinizi tanımlamak",
+            text: "Satış huninizde daha fazla müşteri adayı, daha düşük CPM, artan marka bilinirliği, pazarlama kampanyalarınızda benzersiz ve yeni içerik arıyorsanız, sizin için buradayız. Hedef kitlenizi, temel hedeflerinizi, tercih ettiğiniz sosyal kanalları ve kampanyanız için başarıya eşit olan diğer her şeyi tam olarak tanımlamak için deneyimli stratejistlerden oluşan ekibimizle işbirliği yapacaksınız.",
+          },
+          l2: {
+            title: "Kampanya Stratejinizi İnşa Etmek",
+            text: "Biz mümkün olan en iyi kampanya stratejinizi oluştururken kahvenizden bir yudum alın. Hedeflerinizi öğrendikten ve kurumsal kimliğinizi analiz ettikten sonra, ekibimiz bütçeniz ve parametreleriniz dahilinde mükemmel stratejiyi oluşturacaktır. Kampanyanızı yürütmek, beyin fırtınası yapmak ve projenin nihai onayını almak için uygulayabileceğimiz eksiksiz bir senaryolar menüsü hazırlıyoruz.",
+          },
+          l3: {
+            title: "Hayallerinizi Şekillendirecek İçerik Üreticinizi Seçmek",
+            text: "Yaratıcı, kreatif içerik üreticileri ve influencer ekibimizin içinden markanızı en iyi şekilde tanıtacak yeteceği buluyoruz. Ekibimiz seçtiğiniz platformda markanız için yaratıcı reklam kampanyaları oluşturur.",
+          },
+          l4: {
+            title: "Gerçek Zamanlı Sonuçları Görmek",
+            text: "Veri analistlerinden oluşan ekibimiz, bir sonraki kampanya lansmanınızın temelini oluşturan kampanya içgörülerinizi belirler. Bu verilere dayanarak kampanyanızın bir öncekinden daha iyi olması için en etkili yol haritalarını çizer.",
+          },
+        },
+      },
+      platforms: {
+        title: "Kampanyalarınızda markanız için en doğru platformları belirliyoruz.",
+        text: "Ürününüzün tanımını yapmak için en efektif sosyal medya platformlarını belirlemenizde size rehberlik ediyoruz.",
+      },
+      marquee: {
+        mText: "Hazırsanız başlayalım.",
+        desc: "Markanız için en etkili influencer marketing kampanyalarını yürütmeye hazırız.",
+        button: {
+          path: "iletisim",
+          ui: "Kampanya oluşturun",
+        },
+      },
+    },
     privacyPolicy: {
       text: "kapsamında kişisel verilerimin işlenmesine onay veriyorum.",
       link: {

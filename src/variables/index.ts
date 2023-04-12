@@ -5,3 +5,8 @@ export const breakpoints = {
   desktop: 1440,
   widescreen: 1920,
 }
+
+export const lngs = {
+  en: { nativeName: "EN" },
+  tr: { nativeName: "TR" },
+}

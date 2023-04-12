@@ -189,6 +189,51 @@ export const en = {
         },
       },
     },
+    brands: {
+      intro: {
+        small: "LET'S SCROLL",
+        title: "Extraordinary creativity, <br/> global perspective.",
+        subtitle: "We are building the campaign of your dreams in the most creative way.",
+        desc: "Lychee empowers global brands' social media and marketing campaigns. Through our team of experienced content creators and designers, we help you reach your goals. We are ready to run the most effective and successful influencer marketing campaigns for your brand.",
+        button: {
+          ui: "Start now",
+          path: "contact",
+        },
+      },
+      methods: {
+        title: "Take a look at Lychee's working methods to achieve success in your next influencer campaign…",
+        list: {
+          l1: {
+            title: "Defining Your Targets",
+            text: "If you are looking for more customer leads in your sales funnel, lower CPM, increased brand awareness, and unique and fresh content for your marketing campaigns, we are here for you. You will collaborate with our team of experienced strategists to precisely define your target audience, primary objectives, preferred social channels, and everything else that leads to success for your campaign.",
+          },
+          l2: {
+            title: "Building Your Campaign Strategy",
+            text: "Take a sip of your coffee while we build the best possible campaign strategy for you. After learning your goals and analyzing your corporate identity, our team will create the perfect strategy within your budget and parameters. We prepare a complete menu of scenarios that we can apply to execute your campaign, brainstorm, and get final approval of the project.",
+          },
+          l3: {
+            title: "Choosing a Content Creator Who Will Shape Your Dreams",
+            text: "We find the most suitable, creative content creators and influencers from our team who can represent your brand in the best possible way. Our team creates creative advertising campaigns for your brand on the platform you choose.",
+          },
+          l4: {
+            title: "See Real-Time Results",
+            text: "Our team of data analysts determines the campaign insights that form the foundation of your next campaign launch. Based on this data, we draw up the most effective roadmaps for your campaign to be better than the previous one.",
+          },
+        },
+      },
+      platforms: {
+        title: "We determine the most appropriate platforms for your brand in your campaigns.",
+        text: "We guide you in identifying the most effective social media platforms to describe your product.",
+      },
+      marquee: {
+        mText: "Let’s get started.",
+        desc: "We are ready to run the most effective influencer marketing campaigns for your brand.",
+        button: {
+          path: "contact",
+          ui: "Create your campaign",
+        },
+      },
+    },
     privacyPolicy: {
       text: "I consent to the processing of my personal data within the scope of",
       link: {

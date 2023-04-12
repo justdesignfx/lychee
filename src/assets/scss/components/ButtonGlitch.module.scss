@@ -23,7 +23,7 @@
     @include position(absolute, 105%, 0, auto, auto);
     @include dims(50%, 2px);
     background: #ce1953;
-    transition: 0.2s all ease;
+    transition: 0.4s all ease;
   }
 
   &.sm {
@@ -84,7 +84,7 @@
     .oWrapper {
       position: relative;
       display: flex;
-      transition: 0.2s all ease;
+      transition: 0.4s all ease;
     }
 
     .tuple {

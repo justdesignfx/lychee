@@ -1,10 +1,10 @@
 import s from "~/assets/scss/pages/Brands.module.scss"
 
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import ButtonGlitch from "~/components/ButtonGlitch"
-import Img from "~/components/Img"
 import FooterBasic from "~/components/FooterBasic"
+import Img from "~/components/Img"
 
 import playBtnText from "~/assets/img/btn-play-text.svg"
 import playBtnTri from "~/assets/img/btn-play-tri.svg"
@@ -13,18 +13,42 @@ import portalDiamond from "~/assets/img/portal-diamond.png"
 import sample from "~/assets/img/sample.png"
 import stickerBans from "~/assets/img/sticker-bans.svg"
 import stickerPeace from "~/assets/img/sticker-peace.svg"
-import MarqueeSimple from "~/components/MarqueeSimple"
-import IconArrowSquare from "~/components/Icons/IconArrowSquare"
-import StickyNav from "~/components/StickyNav"
-import { useModalStore } from "~/store/modalStore"
-import { useWindowSize } from "~/hooks"
-import { breakpoints } from "~/variables"
-import { useState } from "react"
 import ListBrands from "~/components/ListBrands"
+import MarqueeSimple from "~/components/MarqueeSimple"
+import { useWindowSize } from "~/hooks"
+import { useModalStore } from "~/store/modalStore"
+import { breakpoints, lngs } from "~/variables"
+import { Trans, useTranslation } from "react-i18next"
+import { useEffect } from "react"
 
 const Brands = () => {
   const modalStore = useModalStore()
   const size = useWindowSize()
+  const navigate = useNavigate()
+  const { i18n, t } = useTranslation()
+
+  useEffect(() => {
+    navigate(`/${t("menu.brands.path")}`)
+  }, [i18n.language])
+
+  const listItems = [
+    {
+      title: t("brands.methods.list.l1.title"),
+      text: t("brands.methods.list.l1.text"),
+    },
+    {
+      title: t("brands.methods.list.l2.title"),
+      text: t("brands.methods.list.l2.text"),
+    },
+    {
+      title: t("brands.methods.list.l3.title"),
+      text: t("brands.methods.list.l3.text"),
+    },
+    {
+      title: t("brands.methods.list.l4.title"),
+      text: t("brands.methods.list.l4.text"),
+    },
+  ]
 
   function handleModal() {
     modalStore.setContent(
@@ -48,16 +72,14 @@ const Brands = () => {
           <div className={s.textC}>
             <small className={s.small}>LETS GET SCROLLING</small>
             <h1 className={s.title}>
-              Olağanüstü yaratıcılık, <br /> küresel bakış açısı.
+              <Trans key={"brands.intro.title"} components={{ br: <br /> }}>
+                {t("brands.intro.title")}
+              </Trans>
             </h1>
-            <h2 className={s.subtitle}>Hayallerinizdeki kampanyayı en kreatif şekilde inşa ediyoruz.</h2>
-            <p className={s.par}>
-              Lychee, global markaların sosyal medya ve pazarlama kampanyalarına güç veriyor. Deneyimli içerik
-              üreticileri ve tasarımcılardan oluşan ekibimiz aracılığıyla hedeflerinize ulaşmanıza yardımcı oluyoruz.
-              Markanız için en efektif ve en başarılı influencer marketing kampanyalarınızı yürütmeye hazırız.
-            </p>
-            <Link className={s.btnC} to="/contact">
-              <ButtonGlitch size="sm" text="Hemen başlayın" />
+            <h2 className={s.subtitle}>{t("brands.intro.subtitle")}</h2>
+            <p className={s.par}>{t("brands.intro.desc")}</p>
+            <Link className={s.btnC} to={`${t("brands.intro.button.path")}`}>
+              <ButtonGlitch size="sm" text={t("brands.intro.button.ui")} />
             </Link>
           </div>
 
@@ -104,24 +126,29 @@ const Brands = () => {
           </div>
         </section>
         <section className={s.kpi}>
-          <h2 className={s.text}>
-            Başarılı bir kampanya oluşturmak için, KPI’larınızı{" "}
-            <span className={s.small}>(Key Performance Indicator)</span> ve hedef kitlenizi tanımlamamıza yardımcı
-            olacak önceden belirlenmiş bazı adımları izliyoruz. Hedef kitlenizi belirledikten sonra, hedeflerinize
-            ulaşmak için birlikte çalışabileceğiniz influencerları belirliyoruz.
-          </h2>
+          {i18n.language === lngs.en.nativeName ? (
+            <h2 className={s.text}>
+              To create a successful campaign, we follow some predetermined steps that will help us define your KPIs{" "}
+              <span className={s.small}>(Key Performance Indicators)</span> and target audience. Once we identify your
+              target audience, we then determine the influencers you can collaborate with to achieve your goals.
+            </h2>
+          ) : (
+            <h2 className={s.text}>
+              Başarılı bir kampanya oluşturmak için, KPI’larınızı{" "}
+              <span className={s.small}>(Key Performance Indicator)</span> ve hedef kitlenizi tanımlamamıza yardımcı
+              olacak önceden belirlenmiş bazı adımları izliyoruz. Hedef kitlenizi belirledikten sonra, hedeflerinize
+              ulaşmak için birlikte çalışabileceğiniz influencerları belirliyoruz.
+            </h2>
+          )}
         </section>
         <section className={s.methods}>
           <div className={s.methodsIntro}>
-            <h2 className={s.text}>
-              Bir sonraki influencer kampanyanızda başarıya ulaşmak için Lychee çalışma metodlarına göz atın…
-            </h2>
+            <h2 className={s.text}>{t("brands.methods.title")}</h2>
             <div className={s.imgC}>
-              <Img src={portalDiamond} />
+              <Img src={portalDiamond} objectFit="contain" />
             </div>
           </div>
-
-          <ListBrands />
+          <ListBrands items={listItems} />
         </section>
         <section className={s.platforms}>
           <div className={s.stickerC}>
@@ -133,11 +160,8 @@ const Brands = () => {
             </div>
           </div>
           <div className={s.platformsTextC}>
-            <h2 className={s.title}>Kampanyalarınızda markanız için en doğru platformları belirliyoruz.</h2>
-            <p className={s.text}>
-              Ürününüzün tanımını yapmak için en efektif sosyal medya platformlarını belirlemenizde size rehberlik
-              ediyoruz.
-            </p>
+            <h2 className={s.title}>{t("brands.platforms.title")}</h2>
+            <p className={s.text}>{t("brands.platforms.text")}</p>
           </div>
         </section>
         <section className={s.social}>
@@ -157,13 +181,13 @@ const Brands = () => {
           <div className={s.marqueeC}>
             <MarqueeSimple direction={-1}>
               <h2 className={s.mText}>
-                Hazırsan başlayalım. <span className={s.seperator}></span>
+                {t("brands.marquee.mText")} <span className={s.seperator}></span>
               </h2>
             </MarqueeSimple>
           </div>
-          <h1 className={s.text}>Markanız için en etkili influencer marketing kampanyalarını yürütmeye hazırız.</h1>
-          <Link to="/contact" className={s.contactBtn}>
-            <ButtonGlitch text="Kampanya oluşturun" size="lg" />
+          <h1 className={s.text}> {t("brands.marquee.desc")}</h1>
+          <Link to={`${t("brands.marquee.button.path")}`} className={s.contactBtn}>
+            <ButtonGlitch text={`${t("brands.marquee.button.ui")}`} size="lg" />
           </Link>
         </section>
       </main>
