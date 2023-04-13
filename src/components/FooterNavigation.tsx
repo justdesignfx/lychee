@@ -52,6 +52,14 @@ const FooterNavigation = () => {
         >
           {t("footer.copyright.privacyAndCookie.text")}
         </Link>
+        <Link
+          to={`${t("footer.copyright.personalData.path")}`}
+          target="_blank"
+          rel="noreferrer noopener"
+          className={cx(s.item, s.privacy)}
+        >
+          {t("footer.copyright.personalData.text")}
+        </Link>
         <small className={cx(s.item, s.signature)}>
           Made by{" "}
           <a className={s.jdfx} target="_blank" rel="noreferrer noopener" href="https://justdesignfx.com">

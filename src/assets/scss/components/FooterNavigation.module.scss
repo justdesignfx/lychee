@@ -118,7 +118,7 @@
     }
 
     .item {
-      @include typo(Lychee, 18px, 400, null, null);
+      @include typo(Lychee, 14px, 400, null, null);
 
       @include devicesMax(tablet) {
         @include typo(Lychee, 14px, 400, null, null);
@@ -129,8 +129,16 @@
         margin-bottom: 7.5vw;
       }
 
+      &.rights {
+        margin-right: 5vw;
+
+        @include devicesMax(mobile) {
+          margin-right: 0;
+        }
+      }
+
       &.privacy {
-        margin-left: 5vw;
+        margin-right: 2vw;
 
         @include devicesMax(mobile) {
           margin-left: 0;

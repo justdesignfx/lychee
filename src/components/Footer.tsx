@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 
 import logo from "~/assets/img/logo-lychee-footer.svg"
 import sticker from "~/assets/img/sticker-bans.svg"
-
 import FooterNavigation from "~/components/FooterNavigation"
 import Img from "~/components/Img"
 

@@ -365,6 +365,10 @@ export const en = {
           text: "Privacy & Cookie Policy",
           path: "https://paternagroup.com/content/en/gizlilik-ve-cerez-politikasi.pdf",
         },
+        personalData: {
+          text: "Personal Data Concern Form",
+          path: "https://paternagroup.com/content/en/gizlilik-ve-cerez-politikasi.pdf",
+        },
       },
       links: {
         creators: {
