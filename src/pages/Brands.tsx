@@ -1,6 +1,7 @@
 import s from "~/assets/scss/pages/Brands.module.scss"
 
 import { Link, useNavigate } from "react-router-dom"
+import { Trans, useTranslation } from "react-i18next"
 
 import ButtonGlitch from "~/components/ButtonGlitch"
 import FooterBasic from "~/components/FooterBasic"
@@ -18,7 +19,6 @@ import MarqueeSimple from "~/components/MarqueeSimple"
 import { useWindowSize } from "~/hooks"
 import { useModalStore } from "~/store/modalStore"
 import { breakpoints, lngs } from "~/variables"
-import { Trans, useTranslation } from "react-i18next"
 import { useEffect } from "react"
 
 const Brands = () => {
@@ -185,7 +185,7 @@ const Brands = () => {
               </h2>
             </MarqueeSimple>
           </div>
-          <h1 className={s.text}> {t("brands.marquee.desc")}</h1>
+          <h1 className={s.text}>{t("brands.marquee.desc")}</h1>
           <Link to={`${t("brands.marquee.button.path")}`} className={s.contactBtn}>
             <ButtonGlitch text={`${t("brands.marquee.button.ui")}`} size="lg" />
           </Link>

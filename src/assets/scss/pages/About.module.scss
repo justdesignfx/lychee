@@ -661,6 +661,7 @@
 
     .btnC {
       @include dims(20vw, 3vw);
+      display: block;
       margin: 0 auto;
 
       @include devicesMax(tablet) {

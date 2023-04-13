@@ -24,8 +24,8 @@ export const tr = {
         path: "markalar",
       },
       services: {
-        ui: "Servisler",
-        path: "servisler",
+        ui: "Hizmetler",
+        path: "hizmetler",
       },
       partners: {
         ui: "Partnerler",
@@ -231,6 +231,127 @@ export const tr = {
         },
       },
     },
+    services: {
+      intro: {
+        subtitle: "Sürekli hareket eden görüntüler dünyasında bir dizi temel dijital çözümler sunuyoruz.",
+      },
+      list1: {
+        i1: {
+          title: "Adım adım mükemmeliyet.",
+          desc: "Markalarımız ve dijital yeteneklerimiz için bütün süreçleri eksiksiz bir şekilde planlıyor, çizginin dışında benzersiz işlere imza atmak için tutkulu ekibimizle birlikte çalışıyoruz.",
+        },
+        i2: {
+          title: "Bizim için tek yol “Yaratıcılık”.",
+          desc: "Ortaya koyduğumuz işlerin en büyük ölçeği yaratıcılık! Dijital yeteneklerimizi markalarımızla buluştururken ortaya çıkan her işi yaratıcılık ölçeğinden geçiriyoruz.",
+        },
+        i3: {
+          title: "Etkileşim anahtardır!",
+          desc: "Tutkulu ekibimiz, dijital yeteneklerin, toplulukların ve markaların doğru bir şekilde dijital diyaloğa dahil olması için gerekli bütün adımları baştan sona planlar.",
+        },
+        i4: {
+          title: "Verileri seviyoruz.",
+          desc: "İşimizin en sevdiğimiz kısmı burada başlıyor. Sosyal dinleme, erişim raporu ve yönlendirme metriklerini detaylıca inceliyor, üzerine bol bol konuşuyoruz. Bu sayede dijital içerik üreticilerimizle ve markalarımızla çok daha sağlıklı, uzun soluklu ilişkiler yürütebiliyoruz.",
+        },
+      },
+      sideServices: {
+        small: "YAN HİZMETLERİMİZ",
+        cards: {
+          c1: {
+            desc: "Sıra dışı ve yenilikçi içerikleri seviyoruz. Bu doğrultuda sınırların dışına çıkarak markanız için dinamik, özgün ve yaratıcı metinler yazıyoruz.",
+          },
+          c2: {
+            desc: "Yaratıcı ruhunuzdan ilham alarak sizlere eşsiz dijital bir dünya yaratıyoruz.",
+          },
+          c3: {
+            desc: "Son teknoloji ekipmanlarımız ve donanımlı ekibimiz ile hayalinizdeki projeyi gerçekleştiriyoruz.",
+          },
+          c4: {
+            desc: "İhtiyaçlarınızı belirlenen içerikler doğrultusunda tüm hatlarıyla tasarlayarak süreci baştan sona yönetiyoruz.",
+          },
+          c5: {
+            desc: "Tüm partnerlerimize iyi bir deneyim sunabilmek için alışılmışın dışına çıkarak yeni bir dijital dünya tasarlıyoruz.",
+          },
+        },
+      },
+      list2: {
+        i1: {
+          title: "A’dan Z’ye yönetim.",
+          desc: "Markalarımız ve dijital yeteneklerimiz için bütün süreçleri eksiksiz bir şekilde planlıyor, çizginin dışında benzersiz işlere imza atmak için tutkulu ekibimizle birlikte çalışıyoruz.",
+        },
+        i2: {
+          title: "Toplulukları yönetiyoruz.",
+          desc: "Dijital yeteneklerimizin topluluklarıyla olan iletişimine dikkat ediyor, marka iş birliklerini bu iletişimin ve hikayenin bir uzantısı olarak ele alıyoruz.",
+        },
+        i3: {
+          title: "Lychee tohumları gibi…",
+          desc: "Dijital trendleri yaratıcı ekibimizle yeniden yorumlamaya bayılıyoruz! Bu nedenle projelerimizi oluştururken bir topluluk olarak hareket ediyor ve eğlenmeyi ihmal etmiyoruz.",
+        },
+        i4: {
+          title: "Yetenek yönetimine yeni bakış.",
+          desc: "Dijital yeteneklerimizi en doğru şekilde yönlendirmek için çalışan bir ekibiz. Bu nedenle dijital yeteneklerimizin, topluluklarını, marka iş birlikleri dışındaki süreçlerini ve projelerini de çok ciddiye alıyoruz.",
+        },
+      },
+      marquee: {
+        mText: "Hazırsanız başlayalım.",
+        desc: "Markanız için en etkili influencer marketing kampanyalarını yürütmeye hazırız.",
+        button: {
+          path: "iletisim",
+          ui: "Kampanya oluşturun",
+        },
+      },
+    },
+    about: {
+      texts: {
+        t1: "Lychee, içerik üreticilerden ve stratejistlerden oluşan kreatif bir ekibe sahip global bir influencer marketing ajansıdır.",
+        t2: "Her şey çok çabuk gerçeğe dönüşen bir hayalle başladı…",
+        t3: {
+          title:
+            "Lychee ekibi, yaratıcı içerik üreticileri, stratejistler ve yetenekli tasarımcıların eklenmesiyle birkaç haftadan daha kısa sürede büyüdü.",
+          desc: "İçerik üreticilerden oluşan ekip, yarattıkları zengin bir influencer ekosisteminde bir araya geldi.",
+        },
+        t4: {
+          title:
+            "Lychee’de, yaratıcı reklamcılığın ne olması gerektiğine dair önyargılı fikirlere meydan okumak istiyoruz.",
+          desc: "Influencerların gücüne ve markaların vizyonuna odaklanan ezber bozan marketing ajansı iş modeline yöneliyoruz.",
+        },
+        t5: "Her defasında daha etkili pazarlama stratejisi oluşturabilmek için çıtamızı sürekli yükseltiyor ve trend yaratmaya çalışıyoruz.",
+      },
+      textReveal: {
+        w1: "Her",
+        w2: "zaman",
+        w3: "daha",
+        w4: "iyisini",
+        w5: "hedefliyoruz.",
+      },
+      partnership: {
+        title: "En iyi markaların partnerliğini yapıyoruz.",
+        desc: "Ezber bozan projeler yaratmak için global markalarla çalışıyoruz.",
+        button: {
+          text: "Daha fazlasını incelemek mi istiyorsunuz?",
+          link: {
+            ui: "Tüm müşterilerimizi inceleyin.",
+            path: "partnerler",
+          },
+        },
+      },
+      ready: {
+        title: "Kampanyanızı oluşturmaya hazır mısınız?",
+        button: {
+          ui: "İletişime geçin",
+          path: "iletisim",
+        },
+      },
+    },
+    stickyNav: {
+      brands: {
+        path: "markalar",
+        ui: "Markalar",
+      },
+      creators: {
+        path: "ureticiler",
+        ui: "Üreticiler",
+      },
+    },
     privacyPolicy: {
       text: "kapsamında kişisel verilerimin işlenmesine onay veriyorum.",
       link: {
@@ -257,8 +378,8 @@ export const tr = {
           path: "markalar",
         },
         services: {
-          ui: "Servisler",
-          path: "servisler",
+          ui: "Hizmetler",
+          path: "hizmetler",
         },
         partners: {
           ui: "Partnerler",

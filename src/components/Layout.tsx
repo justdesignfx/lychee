@@ -23,11 +23,11 @@ const Layout = (props: Props) => {
     <div data-route-transition>
       <Routes location={props.displayLocation}>
         <Route index element={<Home />}></Route>
-        <Route path={`${t("routes.contact.path")}`} element={<Contact />}>
+        <Route path="contact" element={<Contact />}>
           <Route index element={<ContactIntro />}></Route>
-          <Route path={`${t("routes.brands.path")}`} element={<ContactBrand />}></Route>
+          <Route path="brand" element={<ContactBrand />}></Route>
         </Route>
-        <Route path="contact/content-creator" element={<ContactContentCreator />}></Route>
+        <Route path="contact/creator" element={<ContactContentCreator />}></Route>
 
         <Route path="services" element={<Services />}></Route>
         <Route path="hizmetler" element={<Services />}></Route>

@@ -18,89 +18,80 @@ import List from "~/components/List"
 import MarqueeSimple from "~/components/MarqueeSimple"
 import WhyLycheeMobile from "~/components/WhyLycheeMobile"
 import { useWindowSize } from "~/hooks"
-import { breakpoints } from "~/variables"
-
-const lngs: any = {
-  en: { nativeName: "EN" },
-  tr: { nativeName: "TR" },
-}
+import { breakpoints, lngs } from "~/variables"
 
 const Services = () => {
   const size = useWindowSize()
   const navigate = useNavigate()
-  const { i18n } = useTranslation()
+  const { i18n, t } = useTranslation()
 
   useEffect(() => {
-    if (i18n.language === lngs.tr.nativeName) {
-      navigate("/hizmetler")
-    } else {
-      navigate("/services")
-    }
+    navigate(`/${t("menu.services.path")}`)
   }, [i18n.language])
 
   const theWay = [
     {
-      title: "Mükemmel yönetim için adım adım ilerliyoruz.",
-      text: "Markalarımız ve dijital yeteneklerimiz için bütün süreçleri eksiksiz bir şekilde planlıyor, çizginin dışında benzersiz işlere imza atmak için tutkulu ekibimizle birlikte çalışıyoruz.",
+      title: t("services.list1.i1.title"),
+      text: t("services.list1.i1.desc"),
     },
     {
-      title: "Bizim için tek yol: Yaratıcılık",
-      text: "Ortaya koyduğumuz işlerin en büyük ölçeği yaratıcılık! Dijital yeteneklerimizi markalarımızla buluştururken ortaya çıkan her işi yaratıcılık ölçeğinden geçiriyoruz.",
+      title: t("services.list1.i2.title"),
+      text: t("services.list1.i2.desc"),
     },
     {
-      title: "Etkileşim anahtardır!",
-      text: "Tutkulu ekibimiz, dijital yeteneklerin, toplulukların ve markaların doğru bir şekilde dijital diyaloğa dahil olması için gerekli bütün adımları baştan sona planlar.",
+      title: t("services.list1.i3.title"),
+      text: t("services.list1.i3.desc"),
     },
     {
-      title: "Verileri seviyoruz.",
-      text: "İşimizin en sevdiğimiz kısmı burada başlıyor. Sosyal dinleme, erişim raporu ve yönlendirme metriklerini detaylıca inceliyor, üzerine bol bol konuşuyoruz. Bu sayede dijital içerik üreticilerimizle ve markalarımızla çok daha sağlıklı, uzun soluklu ilişkiler yürütebiliyoruz.",
+      title: t("services.list1.i4.title"),
+      text: t("services.list1.i4.desc"),
     },
   ]
 
   const pros = [
     {
-      title: "A’dan Z’ye yönetim.",
-      text: "A’dan Z’ye yönetilen, yenilikçi, iletişimi güçlü ve etkileyici marketing kampanyaları sunmak için markalarla partnerlik yapıyoruz.",
+      title: t("services.list2.i1.title"),
+      text: t("services.list2.i1.desc"),
     },
     {
-      title: "Toplulukları yönetiyoruz.",
-      text: "Dijital yeteneklerimizin topluluklarıyla olan iletişimine dikkat ediyor, marka iş birliklerini bu iletişimin ve hikayenin bir uzantısı olarak ele alıyoruz.",
+      title: t("services.list2.i2.title"),
+      text: t("services.list2.i2.desc"),
     },
     {
-      title: "Lychee çekirdekleri gibi..",
-      text: "Dijital trendleri yaratıcı ekibimizle yeniden yorumlamaya bayılıyoruz! Bu nedenle projelerimizi oluştururken bir topluluk olarak hareket ediyor ve eğlenmeyi ihmal etmiyoruz.",
+      title: t("services.list2.i3.title"),
+      text: t("services.list2.i3.desc"),
     },
     {
-      title: "Yetenek yönetiminin diğer yöntemi.",
-      text: "Dijital yeteneklerimizi en doğru şekilde yönlendirmek için çalışan bir ekibiz. Bu nedenle dijital yeteneklerimizin, topluluklarını, marka iş birlikleri dışındaki süreçlerini ve projelerini de çok ciddiye alıyoruz.",
+      title: t("services.list2.i4.title"),
+      text: t("services.list2.i4.desc"),
     },
   ]
 
   const cards = [
     {
       title: { p1: "Creative", p2: "Copyright" },
-      text: "Sıra dışı ve yenilikçi içerikleri seviyoruz. Bu doğrultuda sınırların dışına çıkarak markanız için dinamik, özgün ve yaratıcı metinler yazıyoruz.",
+      text: t("services.sideServices.cards.c1.desc"),
       type: "blue",
     },
     {
       title: { p1: "Creative", p2: "Illustration" },
-      text: "Yaratıcı ruhunuzdan ilham alarak sizlere eşsiz dijital bir dünya yaratıyoruz.",
+      text: t("services.sideServices.cards.c2.desc"),
       type: "transparent",
     },
     {
       title: { p1: "C360o", p2: "Production" },
-      text: "Son teknoloji ekipmanlarımız ve donanımlı ekibimiz ile hayalinizdeki projeyi gerçekleştiriyoruz.",
+      text: t("services.sideServices.cards.c3.desc"),
       type: "white",
     },
     {
       title: { p1: "Event Planning", p2: "Management" },
-      text: "İhtiyaçlarınızı belirlenen içerikler doğrultusunda tüm hatlarıyla tasarlayarak süreci baştan sona yönetiyoruz.",
+      text: t("services.sideServices.cards.c4.desc"),
       type: "white",
     },
 
     {
       title: { p1: "Digital Design", p2: "Services" },
-      text: "Tüm partnerlerimize iyi bir deneyim sunabilmek için alışılmışın dışına çıkarak yeni bir dijital dünya tasarlıyoruz.",
+      text: t("services.sideServices.cards.c5.desc"),
       type: "blue",
     },
   ]
@@ -109,18 +100,32 @@ const Services = () => {
     <>
       <main className={s.services}>
         <section className={s.titleC}>
-          <h1 className={s.title}>
-            <span className={s.line}>
-              Tüm
-              <span className={s.italic}> yaratıcı marketing </span>
-              <span className={s.small}>ve</span>
-            </span>
-            <span className={s.line}>
-              <span className={cx(s.italic, s.margin2)}> yeni medya</span>
-              <span> ihtiyaçlarınızı </span>
-            </span>
-            <span className={cx(s.line, s.margin1)}>karşılıyoruz.</span>
-          </h1>
+          {i18n.language === lngs.en.nativeName ? (
+            <h1 className={s.title}>
+              <span className={s.line}>
+                We meet all your
+                <span className={s.italic}> creative marketing </span>
+                <span className={s.small}>and</span>
+              </span>
+              <span className={s.line}>
+                <span className={cx(s.italic, s.margin2)}> new media</span>
+                <span> needs.</span>
+              </span>
+            </h1>
+          ) : (
+            <h1 className={s.title}>
+              <span className={s.line}>
+                Tüm
+                <span className={s.italic}> yaratıcı marketing </span>
+                <span className={s.small}>ve</span>
+              </span>
+              <span className={s.line}>
+                <span className={cx(s.italic, s.margin2)}> yeni medya</span>
+                <span> ihtiyaçlarınızı </span>
+              </span>
+              <span className={cx(s.line, s.margin1)}>karşılıyoruz.</span>
+            </h1>
+          )}
 
           <p className={s.floatingText}>
             Sürekli hareket eden görüntüler dünyasında bir dizi temel dijital çözümler sunuyoruz.
@@ -148,9 +153,15 @@ const Services = () => {
         <section className={s.theWay}>
           <List
             title={
-              <h2 className={s.stickyText}>
-                Çalışma <span className={s.italic}>şeklimiz.</span>
-              </h2>
+              i18n.language === lngs.en.nativeName ? (
+                <h2 className={s.stickyText}>
+                  Our working <span className={s.italic}>method.</span>
+                </h2>
+              ) : (
+                <h2 className={s.stickyText}>
+                  Çalışma <span className={s.italic}>şeklimiz.</span>
+                </h2>
+              )
             }
             items={theWay}
           />
@@ -158,11 +169,18 @@ const Services = () => {
 
         <section className={s.sideServices}>
           <div className={s.sideServicesTitleC}>
-            <h2 className={s.title}>YAN HİZMETLERİMİZ</h2>
-            <p className={s.text}>
-              Tüm işlerin <span className={s.italic}>tek çatı altında</span> gerçekleşebilmesi için en iyi ekiplerle
-              çalışıyoruz.
-            </p>
+            <h2 className={s.title}>{t("services.sideServices.small")}</h2>
+            {i18n.language === lngs.en.nativeName ? (
+              <p className={s.text}>
+                We work with the best teams to make it happen in just one-click,{" "}
+                <span className={s.italic}>under one-roof.</span>
+              </p>
+            ) : (
+              <p className={s.text}>
+                Tüm işlerin <span className={s.italic}>tek çatı altında</span> gerçekleşebilmesi için en iyi ekiplerle
+                çalışıyoruz.
+              </p>
+            )}
           </div>
 
           {size.width > breakpoints.mobile ? (
@@ -183,19 +201,33 @@ const Services = () => {
         </section>
 
         <section className={s.singleTitleC}>
-          <h1 className={s.title}>
-            Dünya bizim
-            <span className={s.italic}> dijital </span>
-            oyun alanımız.
-          </h1>
+          {i18n.language === lngs.en.nativeName ? (
+            <h1 className={s.title}>
+              The World is our
+              <span className={s.italic}> digital </span>
+              playground.
+            </h1>
+          ) : (
+            <h1 className={s.title}>
+              Dünya bizim
+              <span className={s.italic}> dijital </span>
+              oyun alanımız.
+            </h1>
+          )}
         </section>
 
         <section className={s.pros}>
           <List
             title={
-              <h2 className={s.stickyText}>
-                Bizi diğerlerinden <span className={s.italic}>ayıran</span> özellikler.
-              </h2>
+              i18n.language === lngs.en.nativeName ? (
+                <h2 className={s.stickyText}>
+                  What sets us <span className={s.italic}>apart?</span>
+                </h2>
+              ) : (
+                <h2 className={s.stickyText}>
+                  Bizi diğerlerinden <span className={s.italic}>ayıran</span> özellikler.
+                </h2>
+              )
             }
             items={pros}
           />
@@ -205,14 +237,13 @@ const Services = () => {
           <div className={s.marqueeC}>
             <MarqueeSimple direction={-1}>
               <h2 className={s.mText}>
-                Hazırsan başlayalım. <span className={s.seperator}></span>
+                {t("services.marquee.mText")} <span className={s.seperator}></span>
               </h2>
             </MarqueeSimple>
           </div>
-          <h1 className={s.text}>Markanız için en etkili influencer marketing kampanyalarını yürütmeye hazırız.</h1>
-
-          <Link to="/contact" className={s.contactBtn}>
-            <ButtonGlitch text="Kampanya oluşturun" size="lg" />
+          <h1 className={s.text}>{t("services.marquee.desc")}</h1>
+          <Link to={`${t("services.marquee.button.path")}`} className={s.contactBtn}>
+            <ButtonGlitch text={`${t("services.marquee.button.ui")}`} size="lg" />
           </Link>
         </section>
       </main>

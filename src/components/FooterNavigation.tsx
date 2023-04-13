@@ -16,26 +16,26 @@ const FooterNavigation = () => {
         </div>
         <div className={s.linkC}>
           <div className={cx(s.col, s.links)}>
-            <Link className={s.link} to={`${t("footer.links.creators.path")}`}>
+            <Link className={s.link} to={`/${t("footer.links.creators.path")}`}>
               {t("footer.links.creators.ui")}
             </Link>
-            <Link className={s.link} to={`${t("footer.links.brands.path")}`}>
+            <Link className={s.link} to={`/${t("footer.links.brands.path")}`}>
               {t("footer.links.brands.ui")}
             </Link>
           </div>
           <div className={cx(s.col, s.links)}>
-            <Link className={s.link} to={`${t("footer.links.partners.path")}`}>
+            <Link className={s.link} to={`/${t("footer.links.partners.path")}`}>
               {t("footer.links.partners.ui")}
             </Link>
-            <Link className={s.link} to={`${t("footer.links.services.path")}`}>
+            <Link className={s.link} to={`/${t("footer.links.services.path")}`}>
               {t("footer.links.services.ui")}
             </Link>
           </div>
           <div className={cx(s.col, s.links)}>
-            <Link className={s.link} to={`${t("footer.links.about.path")}`}>
+            <Link className={s.link} to={`/${t("footer.links.about.path")}`}>
               {t("footer.links.about.ui")}
             </Link>
-            <Link className={s.link} to={`${t("footer.links.contact.path")}`}>
+            <Link className={s.link} to={`/${t("footer.links.contact.path")}`}>
               {t("footer.links.contact.ui")}
             </Link>
           </div>

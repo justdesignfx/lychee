@@ -66,12 +66,15 @@ const DEFAULT_OPTIONS = {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "./",
+  base: "/",
   resolve: {
     alias: {
       "~": path.resolve(__dirname, "src"),
     },
   },
-
+  build: {
+    // generate manifest.json in outDir
+    manifest: true,
+  },
   plugins: [react(), ViteImageOptimizer(DEFAULT_OPTIONS)],
 })

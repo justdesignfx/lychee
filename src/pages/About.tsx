@@ -25,32 +25,21 @@ import ButtonText from "~/components/ButtonText"
 import FooterBasic from "~/components/FooterBasic"
 import SplitText from "~/components/SplitText"
 import { useModalStore } from "~/store/modalStore"
+import { useTranslation } from "react-i18next"
+import { useEffect } from "react"
+import { useNavigate } from "react-router"
+import { lngs } from "~/variables"
+import { Link } from "react-router-dom"
 
 const About = () => {
-  const textRevealContent = [
-    {
-      word: "Her",
-      font: "normal",
-    },
-    {
-      word: "zaman",
-      font: "normal",
-    },
-    {
-      word: "daha",
-      font: "italic",
-    },
-    {
-      word: "iyisini",
-      font: "italic",
-    },
-    {
-      word: "hedefliyoruz.",
-      font: "normal",
-    },
-  ]
-
   const modalStore = useModalStore()
+
+  const { t, i18n } = useTranslation()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    navigate(`/${t("menu.about.path")}`)
+  }, [i18n.language])
 
   function handleModal() {
     modalStore.setContent(
@@ -66,13 +55,45 @@ const About = () => {
     modalStore.toggle()
   }
 
+  const textRevealContent = [
+    {
+      word: t("about.textReveal.w1"),
+      font: "normal",
+    },
+    {
+      word: t("about.textReveal.w2"),
+      font: "normal",
+    },
+    {
+      word: t("about.textReveal.w3"),
+      font: "italic",
+    },
+    {
+      word: t("about.textReveal.w4"),
+      font: "italic",
+    },
+    {
+      word: t("about.textReveal.w5"),
+      font: "normal",
+    },
+  ]
+
   return (
     <>
       <main className={s.about}>
         <section className={s.intro}>
           <h1 className={s.title}>
-            Yaratıcı ve stratejik yetenekleri <br /> bünyesinde barındıran <br />
-            <span className={s.italic}>dijital marketing </span> ajansıyız.
+            {i18n.language === lngs.en.nativeName ? (
+              <>
+                We are a <span className={s.italic}>digital marketing </span> <br /> agency that houses creative <br />{" "}
+                and strategic talents.
+              </>
+            ) : (
+              <>
+                Yaratıcı ve stratejik yetenekleri <br /> bünyesinde barındıran <br />
+                <span className={s.italic}>dijital marketing </span> ajansıyız.
+              </>
+            )}
             <button className={s.playBtn} onClick={handleModal}>
               <div className={s.iconTri}>
                 <Img src={playBtnTri} objectFit="contain" />
@@ -85,10 +106,7 @@ const About = () => {
         </section>
         <section className={s.team}>
           <div className={s.partTeam}>
-            <p className={s.text}>
-              Lychee, içerik üreticilerden ve stratejistlerden oluşan kreatif bir ekibe sahip global bir influencer
-              marketing ajansıdır.
-            </p>
+            <p className={s.text}>{t("about.texts.t1")}</p>
             <div className={s.imgC} data-framed-parallax-frame>
               <div data-framed-parallax-sliding data-speed-y="0.05" data-direction-y="-1">
                 <Img src={sample} />
@@ -101,7 +119,7 @@ const About = () => {
                 <Img src={sample} />
               </div>
             </div>
-            <p className={s.text}>Her şey çok çabuk gerçeğe dönüşen bir hayalle başladı…</p>
+            <p className={s.text}>{t("about.texts.t2")}</p>
           </div>
         </section>
         <section className={s.fruit}>
@@ -118,23 +136,13 @@ const About = () => {
           </div>
         </section>
         <section className={s.growth}>
-          <h2 className={s.title}>
-            Lychee ekibi, yaratıcı içerik üreticileri, stratejistler ve yetenekli tasarımcıların eklenmesiyle birkaç
-            haftadan daha kısa sürede büyüdü.
-          </h2>
-          <p className={s.text}>
-            İçerik üreticilerden oluşan ekip, yarattıkları zengin bir influencer ekosisteminde bir araya geldi.
-          </p>
+          <h2 className={s.title}>{t("about.texts.t3.title")}</h2>
+          <p className={s.text}>{t("about.texts.t3.desc")}</p>
         </section>
         <section className={s.advertisement}>
           <div className={s.partAdvertisement}>
-            <p className={s.title}>
-              Lychee’de, yaratıcı reklamcılığın ne olması gerektiğine dair önyargılı fikirlere meydan okumak istiyoruz.
-            </p>
-            <p className={s.text}>
-              Influencerların gücüne ve markaların vizyonuna odaklanan ezber bozan marketing ajansı iş modeline
-              yöneliyoruz.
-            </p>
+            <p className={s.title}>{t("about.texts.t4.title")} </p>
+            <p className={s.text}>{t("about.texts.t4.desc")}</p>
           </div>
           <div className={s.partAdvertisement}>
             <div className={s.imgC} data-framed-parallax-frame>
@@ -150,10 +158,7 @@ const About = () => {
           </div>
         </section>
         <section className={s.everyTime}>
-          <h2 className={s.title}>
-            Her defasında daha etkili pazarlama stratejisi oluşturabilmek için çıtamızı sürekli yükseltiyor ve trend
-            yaratmaya çalışıyoruz.
-          </h2>
+          <h2 className={s.title}>{t("about.texts.t5")}</h2>
         </section>
         <section className={s.horizontalScroll} data-h-scroll>
           <div className={s.hScrollContent} data-h-scroll-section>
@@ -163,12 +168,12 @@ const About = () => {
           </div>
         </section>
         <section className={s.partners}>
-          <h2 className={s.title}>En iyi markaların partnerliğini yapıyoruz.</h2>
-          <p className={s.text}>Ezber bozan projeler yaratmak için global markalarla çalışıyoruz. </p>
+          <h2 className={s.title}>{t("about.partnership.title")}</h2>
+          <p className={s.text}>{t("about.partnership.desc")}</p>
 
           <ButtonText
-            text="Daha fazlasını incelemek mi istiyorsunuz?"
-            link={{ ui: "Tüm müşterilerimizi inceleyin.", path: "/partners" }}
+            text={t("about.partnership.button.text")}
+            link={{ ui: t("about.partnership.button.link.ui"), path: t("about.partnership.button.link.path") }}
           />
           <div className={s.oHiddenC}>
             <div className={s.logoGrid}>
@@ -207,10 +212,10 @@ const About = () => {
           </div>
         </section>
         <section className={s.dare}>
-          <h1 className={s.text}>Kampanyanızı oluşturmaya hazır mısınız?</h1>
-          <div className={s.btnC}>
-            <ButtonGlitch text="İletişime geçin" size="lg" />
-          </div>
+          <h1 className={s.text}>{t("about.ready.title")}</h1>
+          <Link to={`${t("about.ready.button.path")}`} className={s.btnC}>
+            <ButtonGlitch text={t("about.ready.button.ui")} size="lg" />
+          </Link>
         </section>
       </main>
       <FooterBasic />

@@ -234,6 +234,126 @@ export const en = {
         },
       },
     },
+    about: {
+      texts: {
+        t1: "Lychee is a global influencer marketing agency with a creative team consisting of content creators and strategists.",
+        t2: "It all started with a dream that turned into reality very quickly...",
+        t3: {
+          title:
+            "With the addition of creative content creators, strategists, and talented designers, the Lychee team grew in less than a few weeks.",
+          desc: "The team consisting of content creators came together in a rich influencer ecosystem they created.",
+        },
+        t4: {
+          title: "At Lychee, we want to challenge biased ideas about what creative advertising should be.",
+          desc: "We are adopting a groundbreaking marketing agency business model that focuses on the power of influencers and the vision of brands.",
+        },
+        t5: "We constantly raise the bar to create more effective marketing strategies and strive to create trends.",
+      },
+      textReveal: {
+        w1: "We",
+        w2: "always",
+        w3: "aim",
+        w4: "for",
+        w5: "better.",
+      },
+      partnership: {
+        title: "We partner with the best brands.",
+        desc: "We work with global brands to create groundbreaking projects.",
+        button: {
+          text: "Do you want to explore more?",
+          link: {
+            ui: "Check out all of our clients.",
+            path: "partners",
+          },
+        },
+      },
+      ready: {
+        title: "Are you ready to create your campaign?",
+        button: {
+          ui: "Contact us",
+          path: "contact",
+        },
+      },
+    },
+    services: {
+      intro: {
+        subtitle: "Sürekli hareket eden görüntüler dünyasında bir dizi temel dijital çözümler sunuyoruz.",
+      },
+      list1: {
+        i1: {
+          title: "Step by Step to Perfect Execution!",
+          desc: "We plan all processes thoroughly for our brands and digital capabilities, and work with our passionate team to create unique works beyond the line.",
+        },
+        i2: {
+          title: "The only way for us is “Creativity”.",
+          desc: "The greatest measure of the work we create is creativity! As we merge our digital capabilities with our brands, we subject every resulting work to the creativity scale.",
+        },
+        i3: {
+          title: "Relation is the key!",
+          desc: "Our passionate team plans all the necessary steps from start to finish for digital talents, communities, and brands to engage in digital dialogue correctly.",
+        },
+        i4: {
+          title: "We love data.",
+          desc: "Our favorite part of the job starts here. We thoroughly examine social listening, reach reports, and performance metrics, and talk about them extensively. As a result, we can maintain much healthier, long-term relationships with our digital content creators and brands.",
+        },
+      },
+      sideServices: {
+        small: "SIDE SERVICES",
+        cards: {
+          c1: {
+            desc: "We love extraordinary and innovative content. Accordingly, we write dynamic, original, and creative texts for your brand by going beyond the limits.",
+          },
+          c2: {
+            desc: "We are creating a unique digital world for you by taking inspiration from your creative spirit.",
+          },
+          c3: {
+            desc: "We are realizing the project of your dreams with our state-of-the-art equipment and skilled team.",
+          },
+          c4: {
+            desc: "We manage the entire process from start to finish by designing all aspects of your needs in accordance with the predetermined content.",
+          },
+          c5: {
+            desc: "We are designing a new digital world by going beyond the ordinary to provide a good experience for all our partners.",
+          },
+        },
+      },
+      list2: {
+        i1: {
+          title: "From A to Z.",
+          desc: "We plan all processes thoroughly for our brands and digital capabilities, and work with our passionate team to create unique works beyond the line.",
+        },
+        i2: {
+          title: "We menage communities.",
+          desc: "We pay attention to the communication with our communities regarding our digital skills, and we approach brand collaborations as an extension of this communication and story.",
+        },
+        i3: {
+          title: "Like Lychee Seeds…",
+          desc: "We love reinterpreting digital trends with our creative team! That's why we act as a community when creating our projects and don't forget to have fun.",
+        },
+        i4: {
+          title: "Another way of talent management.",
+          desc: "We are a team that works to direct our digital skills in the most accurate way possible. That's why we take our digital skills, communities, processes and projects outside o brand collaborations very seriously.",
+        },
+      },
+      marquee: {
+        mText: "Let’s get started.",
+        desc: "We are ready to run the most effective influencer marketing campaigns for your brand.",
+        button: {
+          path: "contact",
+          ui: "Create your campaign",
+        },
+      },
+    },
+    stickyNav: {
+      brands: {
+        path: "brands",
+        ui: "Brands",
+      },
+      creators: {
+        path: "creators",
+        ui: "Creators",
+      },
+    },
     privacyPolicy: {
       text: "I consent to the processing of my personal data within the scope of",
       link: {
@@ -331,5 +451,3 @@ export const en = {
     },
   },
 }
-
-export default en
