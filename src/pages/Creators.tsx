@@ -35,12 +35,7 @@ import ProjectsSlider from "~/components/ProjectsSlider"
 import SquareGrid from "~/components/SquareGrid"
 import WhyLycheeMobile from "~/components/WhyLycheeMobile"
 import { useWindowSize } from "~/hooks"
-import { breakpoints } from "~/variables"
-
-const lngs: any = {
-  en: { nativeName: "EN" },
-  tr: { nativeName: "TR" },
-}
+import { breakpoints, lngs } from "~/variables"
 
 const Creators = () => {
   const size = useWindowSize()
@@ -208,19 +203,47 @@ const Creators = () => {
         <section className={s.foundations}>
           {i18n.language === lngs.en.nativeName ? (
             <h2 className={s.title}>
-              Lychee, <span className={s.margin1}></span>
-              <span className={s.italic}>was founded</span> <br /> <span className={s.italic}>with a passion</span> for
-              <span className={s.italic}> pursuing</span> the extraordinary <br /> <span className={s.margin2}></span>{" "}
-              creativity <br /> <span className={s.margin3}></span>of producers, influencers, and artists.
+              <span className={s.line}>
+                <span className={s.resetMargin} style={{ marginRight: "16vw" }}>
+                  Lychee,
+                </span>
+                <span className={s.italic}> was founded</span>
+              </span>
+              <span className={s.line}>
+                <span className={s.italic}>with a passion</span> for
+                <span className={s.italic}> pursuing</span> the
+              </span>
+              <span className={s.line}>
+                <span className={s.resetMargin} style={{ marginRight: "6vw" }}>
+                  extraordinary creativity of{" "}
+                </span>
+                producers,
+              </span>
+              <span className={cx(s.line, s.resetMargin)} style={{ marginLeft: "14vw" }}>
+                influencers, and artists.
+              </span>
             </h2>
           ) : (
             <h2 className={s.title}>
-              Lychee, <span className={s.margin1}></span>
-              <span className={s.italic}>üreticilerin,</span> <br /> <span className={s.italic}>influencerların</span>{" "}
-              ve
-              <span className={s.italic}> sanatçıların</span> <br /> olağanüstü yaratıcılığının{" "}
-              <span className={s.margin2}></span> peşinden <br /> <span className={s.margin3}></span>gitme tutkusuyla
-              kuruldu.
+              <span className={s.line}>
+                <span className={s.resetMargin} style={{ marginRight: "16vw" }}>
+                  Lychee,
+                </span>
+                <span className={s.italic}>üreticilerin,</span>
+              </span>
+              <span className={s.line}>
+                <span className={s.italic}>influencerların</span> ve
+                <span className={s.italic}> sanatçıların</span>
+              </span>
+              <span className={s.line}>
+                <span className={s.resetMargin} style={{ marginRight: "6vw" }}>
+                  olağanüstü yaratıcılığının
+                </span>{" "}
+                peşinden
+              </span>
+              <span className={cx(s.line, s.resetMargin)} style={{ marginLeft: "14vw" }}>
+                gitme tutkusuyla kuruldu.
+              </span>
             </h2>
           )}
 
@@ -338,7 +361,6 @@ const Creators = () => {
             </section>
           </>
         )}
-
         <section className={s.waitingForYou}>
           <div className={s.marqueeC}>
             <MarqueeSimple direction={-1}>

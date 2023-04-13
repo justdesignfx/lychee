@@ -252,7 +252,7 @@
 
         .italic {
           @include typo(LaicaBItalic, 63px, null, 1.5, null);
-          color: #ce1953;
+          color: $californiaSunset;
 
           @include devicesMax(tablet) {
             @include typo(LaicaBItalic, 56px, null, 1.5, null);
@@ -262,46 +262,6 @@
             @include typo(LaicaBItalic, 30px, null, 1.2, null);
           }
         }
-
-        // .margin1 {
-        //   margin-right: 14vw;
-
-        //   @include devicesMax(tablet) {
-        //     margin: 0;
-        //   }
-        // }
-
-        // .margin2 {
-        //   margin-left: 7vw;
-
-        //   @include devicesMax(tablet) {
-        //     margin: 0;
-        //   }
-        // }
-
-        // .margin3 {
-        //   margin-left: 20vw;
-
-        //   @include devicesMax(tablet) {
-        //     margin: 0;
-        //   }
-        // }
-
-        // .margin4 {
-        //   margin-right: 24vw;
-
-        //   @include devicesMax(tablet) {
-        //     margin: 0;
-        //   }
-        // }
-
-        // .margin5 {
-        //   margin-left: 13vw;
-
-        //   @include devicesMax(tablet) {
-        //     margin: 0;
-        //   }
-        // }
       }
 
       .imgC {
