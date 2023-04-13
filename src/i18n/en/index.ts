@@ -344,6 +344,19 @@ export const en = {
         },
       },
     },
+    partners: {
+      small: "PARTNERS",
+      title: "We partner with the best brands.",
+      desc: "We work with global brands to create groundbreaking projects.",
+      marquee: {
+        mText: "Let’s get started.",
+        desc: "We are ready to run the most effective influencer marketing campaigns for your brand.",
+        button: {
+          path: "contact",
+          ui: "Create your campaign",
+        },
+      },
+    },
     stickyNav: {
       brands: {
         path: "brands",

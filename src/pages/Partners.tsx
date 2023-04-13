@@ -18,18 +18,19 @@ import MarqueeSimple from "~/components/MarqueeSimple"
 import { Link } from "react-router-dom"
 import ButtonGlitch from "~/components/ButtonGlitch"
 import FooterBasic from "~/components/FooterBasic"
+import { useTranslation } from "react-i18next"
 
 const Partners = () => {
+  const { t } = useTranslation()
+
   return (
     <>
       <main className={s.partners}>
         <section className={s.intro}>
           <div className={s.titleC}>
-            <small className={s.small}>PARTNERLERİMİZ</small>
-            <h1 className={s.title}>
-              En iyi markaların <br /> partnerliğini yapıyoruz.
-            </h1>
-            <p className={s.subtitle}>Ezber bozan projeler yaratmak için global markalarla çalışıyoruz.</p>
+            <small className={s.small}>{t("partners.small")}</small>
+            <h1 className={s.title}>{t("partners.title")}</h1>
+            <p className={s.subtitle}>{t("partners.desc")}</p>
           </div>
         </section>
         <section className={s.brands}>
@@ -67,14 +68,13 @@ const Partners = () => {
           <div className={s.marqueeC}>
             <MarqueeSimple direction={-1}>
               <h2 className={s.mText}>
-                Hazırsan başlayalım. <span className={s.seperator}></span>
+                {t("partners.marquee.mText")} <span className={s.seperator}></span>
               </h2>
             </MarqueeSimple>
           </div>
-          <h1 className={s.text}>Markanız için en etkili influencer marketing kampanyalarını yürütmeye hazırız.</h1>
-
-          <Link to="/contact" className={s.contactBtn}>
-            <ButtonGlitch text="Kampanya oluşturun" size="lg" />
+          <h1 className={s.text}>{t("partners.marquee.desc")}</h1>
+          <Link to={`${t("partners.marquee.button.path")}`} className={s.contactBtn}>
+            <ButtonGlitch text={t("partners.marquee.button.ui")} size="lg" />
           </Link>
         </section>
       </main>

@@ -6,6 +6,7 @@
 
     @include devicesMax(tablet) {
       margin-top: 20vw;
+      margin-bottom: 5vw;
     }
 
     @include devicesMax(mobile) {
@@ -26,9 +27,15 @@
 
     .title {
       @include typo(Lychee, 60px, null, 1.2, null);
+      @include dims(36vw, auto);
       color: $stonewallGrey;
+      margin: 0 auto;
       margin-bottom: 2vw;
       text-align: center;
+
+      @include devicesMax(tablet) {
+        @include dims(79vw, auto);
+      }
 
       @include devicesMax(mobile) {
         @include typo(Lychee, 40px, null, 1.2, null);

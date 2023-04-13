@@ -342,6 +342,19 @@ export const tr = {
         },
       },
     },
+    partners: {
+      small: "PARTNERLER",
+      title: "En iyi markaların partnerliğini yapıyoruz.",
+      desc: "Ezber bozan projeler yaratmak için global markalarla çalışıyoruz.",
+      marquee: {
+        mText: "Hazırsanız başlayalım.",
+        desc: "Markanız için en etkili influencer marketing kampanyalarını yürütmeye hazırız.",
+        button: {
+          path: "iletisim",
+          ui: "Kampanya oluşturun",
+        },
+      },
+    },
     stickyNav: {
       brands: {
         path: "markalar",
