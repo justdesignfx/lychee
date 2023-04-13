@@ -1,10 +1,9 @@
 import React, { ReactElement, useCallback, useEffect, useRef } from "react"
-
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
-
 import { useResizeDetector } from "react-resize-detector"
 import Scrollbar, { ScrollbarPlugin } from "smooth-scrollbar"
+import { useTranslation } from "react-i18next"
 
 import {
   floatingItems,
@@ -41,7 +40,10 @@ const WithSmooth = ({ children, location }: Props) => {
   const scrollerRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const smooth = useRef<Scrollbar | null>(null)
+
   const size = useWindowSize()
+  const { i18n } = useTranslation()
+
   let animationsContext: gsap.Context
   let smoothFrameCtx: gsap.Context
 
@@ -210,7 +212,7 @@ const WithSmooth = ({ children, location }: Props) => {
     return () => {
       cleanupAnimations()
     }
-  }, [size.width, location])
+  }, [size.width, location, i18n.language])
 
   // SCROLL LOCK FOR SMOOTH SCROLLBAR
   // useCallback(() => {

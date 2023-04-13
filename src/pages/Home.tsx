@@ -30,6 +30,7 @@ import influencer3 from "~/assets/img/influencer-3.jpg"
 import playBtnText from "~/assets/img/btn-play-text.svg"
 import playBtnTri from "~/assets/img/btn-play-tri.svg"
 
+import { useTranslation } from "react-i18next"
 import ButtonText from "~/components/ButtonText"
 import Footer from "~/components/Footer"
 import Img from "~/components/Img"
@@ -38,13 +39,7 @@ import SplitText from "~/components/SplitText"
 import { useWindowSize } from "~/hooks"
 import { useCursorStore } from "~/store/cursorStore"
 import { useModalStore } from "~/store/modalStore"
-import { breakpoints } from "~/variables"
-import { Trans, useTranslation } from "react-i18next"
-
-const lngs: any = {
-  en: { nativeName: "EN" },
-  tr: { nativeName: "TR" },
-}
+import { breakpoints, lngs } from "~/variables"
 
 const Home = () => {
   const { t, i18n } = useTranslation()
@@ -52,7 +47,7 @@ const Home = () => {
   const cursorStore = useCursorStore()
   const modalStore = useModalStore()
 
-  const textRevealContent =
+  const textRevealContent = () =>
     i18n.language === lngs.en.nativeName
       ? [
           {
@@ -286,7 +281,7 @@ const Home = () => {
         <section className={s.horizontalScroll} data-h-scroll>
           <div className={s.hScrollContent} data-h-scroll-section>
             <div className={s.textC}>
-              <SplitText content={textRevealContent} />
+              <SplitText content={textRevealContent()} />
             </div>
             <div className={s.reels}>
               <Link to={`${t("home.textReveal.button.path")}`} className={s.button}>
