@@ -357,23 +357,6 @@ export const en = {
         },
       },
     },
-    stickyNav: {
-      brands: {
-        path: "brands",
-        ui: "Brands",
-      },
-      creators: {
-        path: "creators",
-        ui: "Creators",
-      },
-    },
-    privacyPolicy: {
-      text: "I consent to the processing of my personal data within the scope of",
-      link: {
-        text: "Personal Data Protection and Sharing Information.",
-        path: "https://paternagroup.com/content/tr/gizlilik-ve-cerez-politikasi.pdf",
-      },
-    },
     footer: {
       address: "Address",
       copyright: {
@@ -422,6 +405,23 @@ export const en = {
             },
           ],
         },
+      },
+    },
+    stickyNav: {
+      brands: {
+        path: "brands",
+        ui: "Brands",
+      },
+      creators: {
+        path: "creators",
+        ui: "Creators",
+      },
+    },
+    privacyPolicy: {
+      text: "I consent to the processing of my personal data within the scope of",
+      link: {
+        text: "Personal Data Protection and Sharing Information.",
+        path: "https://paternagroup.com/content/tr/gizlilik-ve-cerez-politikasi.pdf",
       },
     },
     titleAndDesc: {

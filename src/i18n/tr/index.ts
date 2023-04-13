@@ -231,6 +231,48 @@ export const tr = {
         },
       },
     },
+    about: {
+      texts: {
+        t1: "Lychee, içerik üreticilerden ve stratejistlerden oluşan kreatif bir ekibe sahip global bir influencer marketing ajansıdır.",
+        t2: "Her şey çok çabuk gerçeğe dönüşen bir hayalle başladı…",
+        t3: {
+          title:
+            "Lychee ekibi, yaratıcı içerik üreticileri, stratejistler ve yetenekli tasarımcıların eklenmesiyle birkaç haftadan daha kısa sürede büyüdü.",
+          desc: "İçerik üreticilerden oluşan ekip, yarattıkları zengin bir influencer ekosisteminde bir araya geldi.",
+        },
+        t4: {
+          title:
+            "Lychee’de, yaratıcı reklamcılığın ne olması gerektiğine dair önyargılı fikirlere meydan okumak istiyoruz.",
+          desc: "Influencerların gücüne ve markaların vizyonuna odaklanan ezber bozan marketing ajansı iş modeline yöneliyoruz.",
+        },
+        t5: "Her defasında daha etkili pazarlama stratejisi oluşturabilmek için çıtamızı sürekli yükseltiyor ve trend yaratmaya çalışıyoruz.",
+      },
+      textReveal: {
+        w1: "Her",
+        w2: "zaman",
+        w3: "daha",
+        w4: "iyisini",
+        w5: "hedefliyoruz.",
+      },
+      partnership: {
+        title: "En iyi markaların partnerliğini yapıyoruz.",
+        desc: "Ezber bozan projeler yaratmak için global markalarla çalışıyoruz.",
+        button: {
+          text: "Daha fazlasını incelemek mi istiyorsunuz?",
+          link: {
+            ui: "Tüm müşterilerimizi inceleyin.",
+            path: "partnerler",
+          },
+        },
+      },
+      ready: {
+        title: "Kampanyanızı oluşturmaya hazır mısınız?",
+        button: {
+          ui: "İletişime geçin",
+          path: "iletisim",
+        },
+      },
+    },
     services: {
       intro: {
         subtitle: "Sürekli hareket eden görüntüler dünyasında bir dizi temel dijital çözümler sunuyoruz.",
@@ -300,48 +342,6 @@ export const tr = {
         },
       },
     },
-    about: {
-      texts: {
-        t1: "Lychee, içerik üreticilerden ve stratejistlerden oluşan kreatif bir ekibe sahip global bir influencer marketing ajansıdır.",
-        t2: "Her şey çok çabuk gerçeğe dönüşen bir hayalle başladı…",
-        t3: {
-          title:
-            "Lychee ekibi, yaratıcı içerik üreticileri, stratejistler ve yetenekli tasarımcıların eklenmesiyle birkaç haftadan daha kısa sürede büyüdü.",
-          desc: "İçerik üreticilerden oluşan ekip, yarattıkları zengin bir influencer ekosisteminde bir araya geldi.",
-        },
-        t4: {
-          title:
-            "Lychee’de, yaratıcı reklamcılığın ne olması gerektiğine dair önyargılı fikirlere meydan okumak istiyoruz.",
-          desc: "Influencerların gücüne ve markaların vizyonuna odaklanan ezber bozan marketing ajansı iş modeline yöneliyoruz.",
-        },
-        t5: "Her defasında daha etkili pazarlama stratejisi oluşturabilmek için çıtamızı sürekli yükseltiyor ve trend yaratmaya çalışıyoruz.",
-      },
-      textReveal: {
-        w1: "Her",
-        w2: "zaman",
-        w3: "daha",
-        w4: "iyisini",
-        w5: "hedefliyoruz.",
-      },
-      partnership: {
-        title: "En iyi markaların partnerliğini yapıyoruz.",
-        desc: "Ezber bozan projeler yaratmak için global markalarla çalışıyoruz.",
-        button: {
-          text: "Daha fazlasını incelemek mi istiyorsunuz?",
-          link: {
-            ui: "Tüm müşterilerimizi inceleyin.",
-            path: "partnerler",
-          },
-        },
-      },
-      ready: {
-        title: "Kampanyanızı oluşturmaya hazır mısınız?",
-        button: {
-          ui: "İletişime geçin",
-          path: "iletisim",
-        },
-      },
-    },
     partners: {
       small: "PARTNERLER",
       title: "En iyi markaların partnerliğini yapıyoruz.",
@@ -353,23 +353,6 @@ export const tr = {
           path: "iletisim",
           ui: "Kampanya oluşturun",
         },
-      },
-    },
-    stickyNav: {
-      brands: {
-        path: "markalar",
-        ui: "Markalar",
-      },
-      creators: {
-        path: "ureticiler",
-        ui: "Üreticiler",
-      },
-    },
-    privacyPolicy: {
-      text: "kapsamında kişisel verilerimin işlenmesine onay veriyorum.",
-      link: {
-        text: "Kişisel Verilerin Korunması ve Bilgi Paylaşımı",
-        path: "https://paternagroup.com/content/tr/gizlilik-ve-cerez-politikasi.pdf",
       },
     },
     footer: {
@@ -420,6 +403,23 @@ export const tr = {
             },
           ],
         },
+      },
+    },
+    stickyNav: {
+      brands: {
+        path: "markalar",
+        ui: "Markalar",
+      },
+      creators: {
+        path: "ureticiler",
+        ui: "Üreticiler",
+      },
+    },
+    privacyPolicy: {
+      text: "kapsamında kişisel verilerimin işlenmesine onay veriyorum.",
+      link: {
+        text: "Kişisel Verilerin Korunması ve Bilgi Paylaşımı",
+        path: "https://paternagroup.com/content/tr/gizlilik-ve-cerez-politikasi.pdf",
       },
     },
     titleAndDesc: {
