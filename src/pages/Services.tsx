@@ -102,34 +102,51 @@ const Services = () => {
         <section className={s.titleC}>
           {i18n.language === lngs.en.nativeName ? (
             <h1 className={s.title}>
-              <span className={s.line}>
-                We meet all your
-                <span className={s.italic}> creative marketing </span>
-                <span className={s.small}>and</span>
+              <span className={cx(s.line, s.resetMargin)} style={{ marginRight: "6vw" }}>
+                <span className={s.resetMargin} style={{ marginRight: "14vw" }}>
+                  We meet
+                </span>
+                <span> all your </span> <br />
               </span>
               <span className={s.line}>
-                <span className={cx(s.italic, s.margin2)}> new media</span>
+                <span className={cx(s.italic, s.resetMargin)} style={{ marginLeft: "6vw" }}>
+                  <span className={s.resetMargin} style={{ marginRight: "22vw" }}>
+                    creative
+                  </span>
+                  <span> marketing </span>
+                </span>
+                <span className={s.small}>and</span>
+                <br />
+              </span>
+              <span className={cx(s.line, s.resetMargin)} style={{ marginRight: "12vw" }}>
+                <span className={cx(s.italic, s.resetMargin)} style={{ marginRight: "18vw" }}>
+                  {" "}
+                  new media
+                </span>
                 <span> needs.</span>
               </span>
             </h1>
           ) : (
             <h1 className={s.title}>
               <span className={s.line}>
-                Tüm
+                <span>Tüm</span>
                 <span className={s.italic}> yaratıcı marketing </span>
                 <span className={s.small}>ve</span>
               </span>
               <span className={s.line}>
-                <span className={cx(s.italic, s.margin2)}> yeni medya</span>
+                <span className={s.italic} style={{ marginRight: "20vw" }}>
+                  {" "}
+                  yeni medya
+                </span>
                 <span> ihtiyaçlarınızı </span>
               </span>
-              <span className={cx(s.line, s.margin1)}>karşılıyoruz.</span>
+              <span className={s.line} style={{ marginRight: "54vw" }}>
+                karşılıyoruz.
+              </span>
             </h1>
           )}
 
-          <p className={s.floatingText}>
-            Sürekli hareket eden görüntüler dünyasında bir dizi temel dijital çözümler sunuyoruz.
-          </p>
+          <p className={s.floatingText}>{t("services.intro.subtitle")}</p>
 
           <div className={s.bgImgC} data-parallax data-speed-y="0.2" data-direction-y="-1">
             <div className={s.rotateC}>

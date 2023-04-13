@@ -3,19 +3,20 @@ import s from "~/assets/scss/components/SquareGrid.module.scss"
 
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 import IconInstagram from "~/components/Icons/IconInstagram"
+import IconTiktok from "./Icons/IconTiktok"
+
 import { useWindowSize } from "~/hooks"
 import { breakpoints } from "~/variables"
-import IconTiktok from "./Icons/IconTiktok"
-import { useTranslation } from "react-i18next"
 
 type IGridItem = {
   name: string
   img: string
-  social: {
-    tiktok: string
-    instagram: string
+  social?: {
+    tiktok?: string
+    instagram?: string
   }
 }
 
@@ -24,14 +25,20 @@ const GridItem = (props: IGridItem) => {
     <div className={s.gridItemC}>
       <div className={s.infoC}>
         <p className={s.text}>{props.name}</p>
-        <div className={s.social}>
-          <Link to="." className={s.iconC}>
-            <IconInstagram fill="#fff" />
-          </Link>
-          <Link to="." className={s.iconC}>
-            <IconTiktok fill="#fff" />
-          </Link>
-        </div>
+        {props.social && (
+          <div className={s.social}>
+            {props.social.instagram && (
+              <Link to={props.social.instagram} className={s.iconC}>
+                <IconInstagram fill="#fff" />
+              </Link>
+            )}
+            {props.social.tiktok && (
+              <Link to={props.social.tiktok} className={s.iconC}>
+                <IconTiktok fill="#fff" />
+              </Link>
+            )}
+          </div>
+        )}
       </div>
       <img className={s.img} src={props.img} alt="Influencer" />
     </div>
@@ -57,7 +64,7 @@ const SquareGrid = (props: Props) => {
       {size.width > breakpoints.mobile ? (
         <div className={s.grid}>
           {props.items.map((item, i) => {
-            return <GridItem {...item} />
+            return <GridItem key={i} {...item} />
           })}
         </div>
       ) : (

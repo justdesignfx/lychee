@@ -231,25 +231,50 @@ const Home = () => {
           <div className={s.textC}>
             {i18n.language === lngs.en.nativeName ? (
               <h2 className={s.text}>
-                Lychee is a digital <span className={s.italic}>influencer</span> marketing <br />
-                <span className={cx(s.text, s.brands, s.margin1)}>agency </span>
-                <span className={s.text}>that is a</span> <br />
-                <span className={cx(s.text, s.margin2, s.margin4)}>solution partner for iconic brands on a </span>
-                <span className={s.text}>
-                  <span className={s.italic}>global scale</span>.<br />
+                <span className={s.line}>
+                  Lychee is a digital <span className={s.italic}>influencer</span> marketing
                 </span>
-                <span className={cx(s.text, s.margin5)}> ajansıdır.</span>
+                <span className={cx(s.line, s.resetMargin)} style={{ marginLeft: "2vw" }}>
+                  <span className={cx(s.resetMargin)} style={{ marginRight: "20vw" }}>
+                    {" "}
+                    agency that{" "}
+                  </span>
+                  is a solution partner{" "}
+                </span>
+                <span className={cx(s.line, s.resetMargin)} style={{ marginRight: "10vw" }}>
+                  <span className={cx(s.resetMargin)} style={{ marginRight: "25vw" }}>
+                    for iconic
+                  </span>{" "}
+                  brands on a{" "}
+                </span>
+                <span className={cx(s.line, s.resetMargin)} style={{ marginLeft: "25vw" }}>
+                  <span className={s.italic}>global scale.</span>
+                </span>
               </h2>
             ) : (
               <h2 className={s.text}>
-                Lychee <span className={s.italic}>global ölçekte</span> ikonik <br />
-                <span className={cx(s.text, s.brands, s.margin1)}>markaların </span>
-                <span className={s.text}>çözüm ortağı olan</span> <br />
-                <span className={cx(s.text, s.margin2, s.margin4)}>dijital </span>
-                <span className={s.text}>
-                  <span className={s.italic}>influencer</span> marketing <br />
+                <span className={s.line}>
+                  Lychee <span className={s.italic}>global ölçekte</span> ikonik
                 </span>
-                <span className={cx(s.text, s.margin5)}> ajansıdır.</span>
+                <span className={cx(s.line, s.resetMargin)} style={{ marginLeft: "6vw" }}>
+                  <span className={cx(s.resetMargin)} style={{ marginRight: "15vw" }}>
+                    {" "}
+                    markaların{" "}
+                  </span>
+                  çözüm ortağı olan{" "}
+                </span>
+                <span className={cx(s.line, s.resetMargin)} style={{ marginLeft: "7vw" }}>
+                  <span className={cx(s.resetMargin)} style={{ marginRight: "20vw" }}>
+                    dijital{" "}
+                  </span>
+                  <span className={s.italic}>influencer</span> marketing
+                </span>
+                <span className={s.line}>
+                  <span className={cx(s.resetMargin)} style={{ marginLeft: "18vw" }}>
+                    {" "}
+                    ajansıdır.
+                  </span>
+                </span>
               </h2>
             )}
 
@@ -347,7 +372,7 @@ const Home = () => {
                 <h3 className={s.title}>
                   Let's talk about <br /> <span className={s.italic}>numbers.</span>
                 </h3>
-                <h4 className={s.text}>We achieve creative results for the constantly moving digital world. </h4>
+                <h4 className={s.text}>We achieve creative results for the constantly moving digital world.</h4>
               </div>
             ) : (
               <div className={s.titleC}>

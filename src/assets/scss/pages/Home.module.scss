@@ -218,9 +218,11 @@
         color: #c1c1c1;
         margin: 0 auto;
         text-align: center;
+        z-index: 10;
 
         @include devicesMax(tablet) {
-          @include typo(Lychee, 53px, null, 1.2, null);
+          @include typo(Lychee, 53px, null, 1.5, null);
+          width: 95%;
         }
 
         @include devicesMax(mobile) {
@@ -228,9 +230,23 @@
           width: 90vw;
         }
 
+        .line {
+          display: block;
+
+          @include devicesMax(tablet) {
+            display: inline;
+          }
+        }
+
         br {
           @include devicesMax(mobile) {
             display: none;
+          }
+        }
+
+        .resetMargin {
+          @include devicesMax(tablet) {
+            margin: 0 !important;
           }
         }
 
@@ -247,51 +263,51 @@
           }
         }
 
-        .margin1 {
-          margin-right: 14vw;
+        // .margin1 {
+        //   margin-right: 14vw;
 
-          @include devicesMax(tablet) {
-            margin: 0;
-          }
-        }
+        //   @include devicesMax(tablet) {
+        //     margin: 0;
+        //   }
+        // }
 
-        .margin2 {
-          margin-left: 7vw;
+        // .margin2 {
+        //   margin-left: 7vw;
 
-          @include devicesMax(tablet) {
-            margin: 0;
-          }
-        }
+        //   @include devicesMax(tablet) {
+        //     margin: 0;
+        //   }
+        // }
 
-        .margin3 {
-          margin-left: 20vw;
+        // .margin3 {
+        //   margin-left: 20vw;
 
-          @include devicesMax(tablet) {
-            margin: 0;
-          }
-        }
+        //   @include devicesMax(tablet) {
+        //     margin: 0;
+        //   }
+        // }
 
-        .margin4 {
-          margin-right: 24vw;
+        // .margin4 {
+        //   margin-right: 24vw;
 
-          @include devicesMax(tablet) {
-            margin: 0;
-          }
-        }
+        //   @include devicesMax(tablet) {
+        //     margin: 0;
+        //   }
+        // }
 
-        .margin5 {
-          margin-left: 13vw;
+        // .margin5 {
+        //   margin-left: 13vw;
 
-          @include devicesMax(tablet) {
-            margin: 0;
-          }
-        }
+        //   @include devicesMax(tablet) {
+        //     margin: 0;
+        //   }
+        // }
       }
 
       .imgC {
         @include position(absolute, 6vw, auto, auto, 17vw);
         @include dims(23vw);
-        transform: rotate(-9deg);
+        transform: rotate(-4deg);
 
         @include devicesMax(tablet) {
           @include position(relative, auto, auto, auto, auto);

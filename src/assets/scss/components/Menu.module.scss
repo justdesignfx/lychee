@@ -40,11 +40,19 @@
   }
 
   .langBtnC {
-    @include position(absolute, 34px, 10vw, auto, auto);
-    @include dims(2rem);
+    $dims: 2rem;
+    @include position(absolute, calc(($headerHeight - $dims) / 2), 10vw, auto, auto);
+    @include dims($dims);
     pointer-events: auto;
     z-index: z-index("langSelect");
-    mix-blend-mode: multiply;
+
+    @include devicesMax(tablet) {
+      @include position(absolute, calc(($headerHeightTablet - $dims) / 2), 16vw, auto, auto);
+    }
+
+    @include devicesMax(mobile) {
+      @include position(absolute, calc(($headerHeightMobile - $dims) / 2), 22vw, auto, auto);
+    }
   }
 
   .overlay {
@@ -59,13 +67,13 @@
   $height: 48px;
   $heightMobile: 32px;
 
-  $top: 3%;
+  $top: 3.75%;
   $right: 2vw;
   $rightTablet: 4vw;
   $distance: -4px;
 
   .hamburger {
-    @include position(absolute, $top, $right, auto, auto);
+    @include position(absolute, calc(($headerHeight - $height) / 2), $right, auto, auto);
     @include dims($width, $height);
     border-radius: 32px;
     overflow: hidden;
@@ -78,11 +86,11 @@
     flex-direction: column;
 
     @include devicesMax(tablet) {
-      @include position(absolute, $top, $rightTablet, auto, auto);
+      @include position(absolute, calc(($headerHeightTablet - $height) / 2), $rightTablet, auto, auto);
     }
 
     @include devicesMax(mobile) {
-      @include position(absolute, $top, $rightTablet, auto, auto);
+      @include position(absolute, calc(($headerHeightMobile - $heightMobile) / 2), $rightTablet, auto, auto);
       @include dims($widthMobile, $heightMobile);
     }
 
@@ -145,7 +153,7 @@
   }
 
   .menu {
-    @include position(absolute, $top, $right, auto, auto);
+    @include position(absolute, calc(($headerHeight - $height) / 2), $right, auto, auto);
     @include dims(25vw, 90vh);
     padding: 6vw 2vw 2vw 2vw;
 
@@ -154,12 +162,13 @@
     justify-content: flex-start;
 
     @include devicesMax(tablet) {
-      @include position(absolute, $top, $rightTablet, auto, auto);
+      @include position(absolute, calc(($headerHeightTablet - $height) / 2), $rightTablet, auto, auto);
       @include dims(60vw, 80vh);
       padding: 6vw;
     }
 
     @include devicesMax(mobile) {
+      @include position(absolute, calc(($headerHeightMobile - $heightMobile) / 2), $rightTablet, auto, auto);
       @include dims(95vw, 85vh);
       padding: 10vw;
     }

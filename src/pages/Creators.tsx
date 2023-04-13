@@ -87,64 +87,56 @@ const Creators = () => {
       img: gridInf1,
       name: "Ogeday Girişken",
       social: {
-        tiktok: "tiktok",
-        instagram: "instagram",
+        instagram: "https:/www.instagram.com/ogedaygirisken/",
       },
     },
     {
       img: gridInf2,
       name: "Dilara Aydın",
       social: {
-        tiktok: "tiktok",
-        instagram: "instagram",
+        instagram: "https://www.instagram.com/dilaraaydin/",
       },
     },
     {
       img: gridInf3,
       name: "Melisa Aslı Pamuk",
       social: {
-        tiktok: "tiktok",
-        instagram: "instagram",
+        instagram: "https://www.instagram.com/melisapamuk/",
       },
     },
     {
       img: gridInf4,
       name: "Buçe Buse Kahraman",
       social: {
-        tiktok: "tiktok",
-        instagram: "instagram",
+        instagram: "https://www.instagram.com/bucekahraman/",
       },
     },
     {
       img: gridInf5,
       name: "Zeynep Aleyna Şen",
       social: {
-        tiktok: "tiktok",
-        instagram: "instagram",
+        instagram: "https://instagram.com/zaleynasen",
       },
     },
     {
       img: gridInf6,
       name: "Aylin Engör",
       social: {
-        tiktok: "tiktok",
-        instagram: "instagram",
+        instagram: "https:/www.instagram.com/aylinengr/",
       },
     },
     {
       img: gridInf7,
       name: "Elif Baldan",
       social: {
-        tiktok: "tiktok",
-        instagram: "instagram",
+        instagram: "https:/www.instagram.com/elifbaldann/",
       },
     },
     {
       img: gridInf8,
       name: "Esra Koçhan",
       social: {
-        tiktok: "tiktok",
-        instagram: "instagram",
+        instagram: "https:/www.instagram.com/esrakochaan/",
       },
     },
   ]

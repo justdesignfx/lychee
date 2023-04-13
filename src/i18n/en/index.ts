@@ -277,7 +277,7 @@ export const en = {
     },
     services: {
       intro: {
-        subtitle: "Sürekli hareket eden görüntüler dünyasında bir dizi temel dijital çözümler sunuyoruz.",
+        subtitle: "We achieve creative results for the constantly moving digital world.",
       },
       list1: {
         i1: {

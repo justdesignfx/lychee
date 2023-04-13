@@ -72,20 +72,17 @@
         width: 95%;
       }
 
+      .resetMargin {
+        @include devicesMax(tablet) {
+          margin: 0 !important;
+        }
+      }
+
       .line {
         display: block;
 
         @include devicesMax(tablet) {
           display: inline;
-        }
-
-        &.margin1 {
-          margin-right: 52vw;
-
-          @include devicesMax(tablet) {
-            display: inline-block;
-            margin-right: 0;
-          }
         }
       }
 
@@ -101,7 +98,7 @@
         @include typo(Lychee, 60px, null, 1.2, null);
 
         @include devicesMax(tablet) {
-          @include typo(Lychee, 44px, null, 1.2, null);
+          @include typo(Lychee, 32px, null, 1.2, null);
         }
 
         @include devicesMax(mobile) {
@@ -164,16 +161,6 @@
             display: block;
           }
         }
-      }
-    }
-
-    .margin2 {
-      margin-right: 17vw;
-
-      @include devicesMax(tablet) {
-        @include dims(100%, auto);
-        display: inline-block;
-        margin-right: 0;
       }
     }
   }
