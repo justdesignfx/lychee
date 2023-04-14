@@ -475,7 +475,7 @@
       @include dims(50vw, auto);
       @include typo(Lychee, 35px, null, 1.4, null);
       color: $stonewallGrey;
-      margin: 0 auto;
+      margin: 0 auto 5vw auto;
       text-align: center;
 
       @include devicesMax(tablet) {
@@ -490,6 +490,7 @@
     }
 
     .logoGrid {
+      margin-top: 5vw;
       overflow: hidden;
       padding: 5vw 0;
 

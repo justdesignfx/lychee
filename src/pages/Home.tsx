@@ -115,9 +115,9 @@ const Home = () => {
         ]
 
   const influencers = [
-    { pic: influencer1, brandLogo: logoDysonBlack },
-    { pic: influencer2, brandLogo: logoAbdiBlack },
-    { pic: influencer3, brandLogo: logoObsessoBlack },
+    { pic: influencer1, brandLogo: logoDysonBlack, name: "Ogeday Girişken" },
+    { pic: influencer2, brandLogo: logoAbdiBlack, name: "Dilara Aydın" },
+    { pic: influencer3, brandLogo: logoObsessoBlack, name: "Elif Baldan" },
   ]
 
   const cursorHandlers = {
@@ -339,7 +339,7 @@ const Home = () => {
                     </div>
                     <div className={s.info}>
                       <small className={s.label}>Talent</small>
-                      <p className={s.text}>Dilara Aydın</p>
+                      <p className={s.text}>{item.name}</p>
                     </div>
                   </div>
                   <img className={s.img} src={item.pic} alt="Influencer" />

@@ -4,16 +4,15 @@
   @include position(fixed, 0, 0, 0, 0);
   @include dims(100vw, 100vh);
   overflow: scroll;
-  z-index: z-index("modal");
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   transition: 0.4s all ease;
+  z-index: z-index("modal");
 
   display: flex;
   align-items: flex-start;
   justify-content: center;
-
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
 
   &.open {
     opacity: 1;
@@ -23,10 +22,10 @@
 
   .close {
     @include position(fixed, 2vw, 2vw, auto, auto);
-    @include dims(4vw);
+    @include dims(2.5vw);
     background: #fff;
     border-radius: 50%;
-    padding: 1.25rem;
+    padding: 0.75rem;
     z-index: z-index("modalClose");
     @extend .cursorPointer;
 

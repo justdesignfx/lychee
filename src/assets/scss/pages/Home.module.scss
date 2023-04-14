@@ -497,6 +497,7 @@
   }
 
   .works {
+    margin-bottom: 5vw;
     margin-top: 10vw;
 
     display: flex;
@@ -545,7 +546,7 @@
     }
 
     .worksGrid {
-      padding: 15vw 4vw 0 4vw;
+      padding: 10vw 4vw 3vw 4vw;
 
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -591,6 +592,7 @@
 
           .info {
             display: flex;
+            align-items: flex-start;
             flex-direction: column;
 
             .label {
@@ -611,11 +613,12 @@
 
             .logoC {
               @include dims(auto, 2vw);
+              max-width: 8vw;
               margin-bottom: 1.5vw;
               margin-right: auto;
 
               .logo {
-                @include dims(100%);
+                @include dims(auto, 100%);
                 display: block;
                 object-fit: contain;
               }

@@ -320,8 +320,10 @@ const Creators = () => {
           <ButtonText
             text={t("creators.faces.button.text")}
             link={{ ui: t("creators.faces.button.link.ui"), path: t("creators.faces.button.link.path") }}
+            external
           />
         </section>
+
         {size.width > breakpoints.mobile ? (
           <section className={s.why} data-floating-items-c>
             {i18n.language === lngs.en.nativeName ? (
@@ -359,11 +361,20 @@ const Creators = () => {
               </h2>
             </MarqueeSimple>
           </div>
-          <ButtonText
-            size="lg"
-            text={t("creators.waiting.button.text")}
-            link={{ ui: t("creators.waiting.button.link.ui"), path: t("creators.waiting.button.link.path") }}
-          />
+          {i18n.language === lngs.en.nativeName ? (
+            <ButtonText
+              size="lg"
+              text={t("creators.waiting.button.text")}
+              link={{ ui: t("creators.waiting.button.link.ui"), path: t("creators.waiting.button.link.path") }}
+              leftAligned
+            />
+          ) : (
+            <ButtonText
+              size="lg"
+              text={t("creators.waiting.button.text")}
+              link={{ ui: t("creators.waiting.button.link.ui"), path: t("creators.waiting.button.link.path") }}
+            />
+          )}
         </section>
       </main>
 

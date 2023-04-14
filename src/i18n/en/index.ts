@@ -181,8 +181,8 @@ export const en = {
       waiting: {
         marquee: "We are waiting for you.",
         button: {
-          text: "Join",
-          link: { path: "contact", ui: "Lychee's" },
+          text: "Lychee's exclusive ecosystem.",
+          link: { path: "contact/content-creator", ui: "Join" },
         },
       },
     },

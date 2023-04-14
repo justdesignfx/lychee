@@ -3,8 +3,16 @@
 .buttonText {
   @include typo(Lychee, 20px, null, 1.5, null);
   color: $stonewallGrey;
-  margin: 5vw 0;
+  margin: 0 auto;
+  gap: 0.5ch;
   text-align: center;
+
+  display: flex;
+  align-items: center;
+
+  @include devicesMax(mobile) {
+    @include typo(Lychee, 15px, null, 1.5, null);
+  }
 
   &.lg {
     @include typo(Lychee, 40px, null, 1.5, null);
@@ -18,8 +26,8 @@
     }
   }
 
-  @include devicesMax(mobile) {
-    @include typo(Lychee, 15px, null, 1.5, null);
+  &.leftAligned {
+    flex-direction: row-reverse;
   }
 
   .link {
@@ -27,9 +35,5 @@
     font-family: LS-VG5000;
     text-decoration: underline;
     text-align: center;
-
-    // @include devicesMax(mobile) {
-    //   display: block;
-    // }
   }
 }
