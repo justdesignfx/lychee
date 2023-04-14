@@ -1052,7 +1052,7 @@
     }
 
     .logoGrid {
-      overflow: hidden;
+      overflow-x: clip;
       padding: 5vw 0;
 
       .row {

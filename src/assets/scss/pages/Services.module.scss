@@ -337,7 +337,7 @@
         }
 
         &:nth-child(3) {
-          transform: translate(-25%, 25%);
+          transform: translate(-10%, 25%);
 
           @include devicesMax(tablet) {
             transform: translate(20%, 30%);
@@ -345,10 +345,10 @@
         }
 
         &:nth-child(4) {
-          transform: translate(25%, 25%);
+          transform: translate(25%, 35%);
 
           @include devicesMax(tablet) {
-            transform: translate(-5%, 0%);
+            transform: translate(-5%, 10%);
           }
         }
 

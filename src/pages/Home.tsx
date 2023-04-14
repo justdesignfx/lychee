@@ -455,33 +455,33 @@ const Home = () => {
           <div className={s.oHiddenC}>
             <div className={s.logoGrid}>
               <div className={s.row}>
-                <div className={cx(s.logoC, s.logoDisney)}>
+                <div className={cx(s.logoC, s.logoDisney)} data-parallax data-speed-y="0.2" data-direction-y="-1">
                   <img className={s.img} src={logoDisney} alt="Company Logo" />
                 </div>
-                <div className={cx(s.logoC, s.logoAdidas)}>
+                <div className={cx(s.logoC, s.logoAdidas)} data-parallax data-speed-y="0.4" data-direction-y="-1">
                   <img className={s.img} src={logoAdidas} alt="Company Logo" />
                 </div>
-                <div className={cx(s.logoC, s.logoPhilips)}>
+                <div className={cx(s.logoC, s.logoPhilips)} data-parallax data-speed-y="0.4" data-direction-y="-1">
                   <img className={s.img} src={logoPhilips} alt="Company Logo" />
                 </div>
-                <div className={cx(s.logoC, s.logoNike)}>
+                <div className={cx(s.logoC, s.logoNike)} data-parallax data-speed-y="0.3" data-direction-y="-1">
                   <img className={s.img} src={logoNike} alt="Company Logo" />
                 </div>
-                <div className={cx(s.logoC, s.logoNestle)}>
+                <div className={cx(s.logoC, s.logoNestle)} data-parallax data-speed-y="0.2" data-direction-y="-1">
                   <img className={s.img} src={logoNestle} alt="Company Logo" />
                 </div>
-                <div className={cx(s.logoC, s.logoEsteeLauder)}>
+                <div className={cx(s.logoC, s.logoEsteeLauder)} data-parallax data-speed-y="0.4" data-direction-y="-1">
                   <img className={s.img} src={logoEsteeLauder} alt="Company Logo" />
                 </div>
               </div>
               <div className={s.row}>
-                <div className={cx(s.logoC, s.logoLoreal)}>
+                <div className={cx(s.logoC, s.logoLoreal)} data-parallax data-speed-y="0.5" data-direction-y="-1">
                   <img className={s.img} src={logoLoreal} alt="Company Logo" />
                 </div>
-                <div className={cx(s.logoC, s.logoDyson)}>
+                <div className={cx(s.logoC, s.logoDyson)} data-parallax data-speed-y="0.4" data-direction-y="-1">
                   <img className={s.img} src={logoDyson} alt="Company Logo" />
                 </div>
-                <div className={cx(s.logoC, s.logoStarbucks)}>
+                <div className={cx(s.logoC, s.logoStarbucks)} data-parallax data-speed-y="0.3" data-direction-y="-1">
                   <img className={s.img} src={logoStarbucks} alt="Company Logo" />
                 </div>
               </div>

@@ -8,6 +8,7 @@
     display: inline-block;
     margin: 13vw 10vw 0 4vw;
     position: relative;
+    transform: translateZ(10px);
     z-index: 100;
 
     @include devicesMax(tablet) {
@@ -207,11 +208,11 @@
     &:before {
       content: "";
       @include position(absolute, 0, 0, auto, 0);
-      @include dims(100%, 60%);
+      @include dims(100%, 40%);
       background: linear-gradient(0deg, #16161c, rgb(255, 255, 255, 0));
       pointer-events: none;
-      transform: translateY(calc(-100% + 2px));
-      z-index: 8;
+      transform: translateY(calc(-100% + 2px)) translateZ(5px);
+      z-index: 10;
 
       @include devicesMax(mobile) {
         @include dims(100%, 20%);
