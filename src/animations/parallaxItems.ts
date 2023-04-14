@@ -7,6 +7,10 @@ export function parallaxItems() {
   if (items.length <= 0) return
 
   items.forEach((item: HTMLElement) => {
+    if (item.dataset.parallaxInactiveOnMobile) {
+      return
+    }
+
     const speedY = item.dataset.speedY || "0"
     const dirY = item.dataset.directionY || "0"
 

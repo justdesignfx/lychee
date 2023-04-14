@@ -205,7 +205,9 @@ const Services = () => {
               {cards.map((card, i) => {
                 return (
                   <div className={s.cardC} key={i}>
-                    <FloatingCard {...card} />
+                    <div data-parallax data-speed-y={`${0.05 * (i + 1)}`} data-direction-y="-1">
+                      <FloatingCard {...card} />
+                    </div>
                   </div>
                 )
               })}

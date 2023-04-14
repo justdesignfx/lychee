@@ -250,7 +250,7 @@
   }
 
   .sideServices {
-    margin-bottom: 20vw;
+    margin-bottom: 15vw;
 
     .sideServicesTitleC {
       @include dims(35vw, auto);
@@ -313,7 +313,7 @@
     }
 
     .cards {
-      padding: 0 4vw;
+      padding: 5vw 4vw 0 4vw;
 
       display: flex;
       flex-wrap: wrap;
@@ -323,7 +323,7 @@
       .cardC {
         &:nth-child(1) {
           @include devicesMax(tablet) {
-            transform: translate(10%, 20%);
+            transform: translate(10%, 30%);
           }
         }
 
@@ -340,7 +340,7 @@
           transform: translate(-10%, 25%);
 
           @include devicesMax(tablet) {
-            transform: translate(20%, 30%);
+            transform: translate(20%, 40%);
           }
         }
 
@@ -348,7 +348,7 @@
           transform: translate(25%, 35%);
 
           @include devicesMax(tablet) {
-            transform: translate(-5%, 10%);
+            transform: translate(-5%, 20%);
           }
         }
 

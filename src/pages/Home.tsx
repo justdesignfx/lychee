@@ -2,6 +2,7 @@ import s from "~/assets/scss/pages/Home.module.scss"
 
 import cx from "classnames"
 import { Link } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 import digitalTalentAgency from "~/assets/img/digital-talent-agency.png"
 import instax from "~/assets/img/instax.png"
@@ -9,7 +10,6 @@ import portal from "~/assets/img/portal.svg"
 import reels from "~/assets/img/reels.png"
 import skaterTube from "~/assets/img/skater-tube.svg"
 import smartPhone from "~/assets/img/smartphone.svg"
-
 import logoAbdiBlack from "~/assets/img/logo-abdiibrahim-black.svg"
 import logoAdidas from "~/assets/img/logo-adidas.svg"
 import logoDisney from "~/assets/img/logo-disney.svg"
@@ -22,15 +22,12 @@ import logoNike from "~/assets/img/logo-nike.svg"
 import logoObsessoBlack from "~/assets/img/logo-obsesso-black.svg"
 import logoPhilips from "~/assets/img/logo-philips.svg"
 import logoStarbucks from "~/assets/img/logo-starbucks.svg"
-
 import influencer1 from "~/assets/img/influencer-1.jpg"
 import influencer2 from "~/assets/img/influencer-2.jpg"
 import influencer3 from "~/assets/img/influencer-3.jpg"
-
 import playBtnText from "~/assets/img/btn-play-text.svg"
 import playBtnTri from "~/assets/img/btn-play-tri.svg"
 
-import { useTranslation } from "react-i18next"
 import ButtonText from "~/components/ButtonText"
 import Footer from "~/components/Footer"
 import Img from "~/components/Img"
@@ -455,33 +452,87 @@ const Home = () => {
           <div className={s.oHiddenC}>
             <div className={s.logoGrid}>
               <div className={s.row}>
-                <div className={cx(s.logoC, s.logoDisney)} data-parallax data-speed-y="0.2" data-direction-y="-1">
+                <div
+                  className={cx(s.logoC, s.logoDisney)}
+                  data-parallax
+                  data-speed-y="0.2"
+                  data-direction-y="-1"
+                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                >
                   <img className={s.img} src={logoDisney} alt="Company Logo" />
                 </div>
-                <div className={cx(s.logoC, s.logoAdidas)} data-parallax data-speed-y="0.4" data-direction-y="-1">
+                <div
+                  className={cx(s.logoC, s.logoAdidas)}
+                  data-parallax
+                  data-speed-y="0.4"
+                  data-direction-y="-1"
+                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                >
                   <img className={s.img} src={logoAdidas} alt="Company Logo" />
                 </div>
-                <div className={cx(s.logoC, s.logoPhilips)} data-parallax data-speed-y="0.4" data-direction-y="-1">
+                <div
+                  className={cx(s.logoC, s.logoPhilips)}
+                  data-parallax
+                  data-speed-y="0.4"
+                  data-direction-y="-1"
+                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                >
                   <img className={s.img} src={logoPhilips} alt="Company Logo" />
                 </div>
-                <div className={cx(s.logoC, s.logoNike)} data-parallax data-speed-y="0.3" data-direction-y="-1">
+                <div
+                  className={cx(s.logoC, s.logoNike)}
+                  data-parallax
+                  data-speed-y="0.3"
+                  data-direction-y="-1"
+                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                >
                   <img className={s.img} src={logoNike} alt="Company Logo" />
                 </div>
-                <div className={cx(s.logoC, s.logoNestle)} data-parallax data-speed-y="0.2" data-direction-y="-1">
+                <div
+                  className={cx(s.logoC, s.logoNestle)}
+                  data-parallax
+                  data-speed-y="0.2"
+                  data-direction-y="-1"
+                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                >
                   <img className={s.img} src={logoNestle} alt="Company Logo" />
                 </div>
-                <div className={cx(s.logoC, s.logoEsteeLauder)} data-parallax data-speed-y="0.4" data-direction-y="-1">
+                <div
+                  className={cx(s.logoC, s.logoEsteeLauder)}
+                  data-parallax
+                  data-speed-y="0.4"
+                  data-direction-y="-1"
+                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                >
                   <img className={s.img} src={logoEsteeLauder} alt="Company Logo" />
                 </div>
               </div>
               <div className={s.row}>
-                <div className={cx(s.logoC, s.logoLoreal)} data-parallax data-speed-y="0.5" data-direction-y="-1">
+                <div
+                  className={cx(s.logoC, s.logoLoreal)}
+                  data-parallax
+                  data-speed-y="0.5"
+                  data-direction-y="-1"
+                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                >
                   <img className={s.img} src={logoLoreal} alt="Company Logo" />
                 </div>
-                <div className={cx(s.logoC, s.logoDyson)} data-parallax data-speed-y="0.4" data-direction-y="-1">
+                <div
+                  className={cx(s.logoC, s.logoDyson)}
+                  data-parallax
+                  data-speed-y="0.4"
+                  data-direction-y="-1"
+                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                >
                   <img className={s.img} src={logoDyson} alt="Company Logo" />
                 </div>
-                <div className={cx(s.logoC, s.logoStarbucks)} data-parallax data-speed-y="0.3" data-direction-y="-1">
+                <div
+                  className={cx(s.logoC, s.logoStarbucks)}
+                  data-parallax
+                  data-speed-y="0.3"
+                  data-direction-y="-1"
+                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                >
                   <img className={s.img} src={logoStarbucks} alt="Company Logo" />
                 </div>
               </div>

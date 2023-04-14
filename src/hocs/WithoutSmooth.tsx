@@ -36,8 +36,6 @@ const WithoutSmooth = ({ children, location }: Props) => {
     animationsContext?.revert()
 
     ScrollTrigger.getAll().forEach((instance) => {
-      console.log(instance)
-
       instance.kill()
     })
 

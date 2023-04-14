@@ -1053,7 +1053,11 @@
 
     .logoGrid {
       overflow-x: clip;
-      padding: 5vw 0;
+      padding: 5vw 0 0 0;
+
+      @include devicesMax(tablet) {
+        padding: 10vw 0 0 0;
+      }
 
       .row {
         margin-bottom: 2vw;
