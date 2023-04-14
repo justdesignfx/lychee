@@ -288,7 +288,7 @@
   }
 
   .advertisement {
-    margin: 15vw 8vw 20vw 8vw;
+    margin: 15vw 6vw 20vw 6vw;
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -375,7 +375,7 @@
           }
 
           &:nth-child(2) {
-            @include position(absolute, auto, 50%, -25%, auto);
+            @include position(absolute, auto, 85%, -25%, auto);
             @include dims(32vw, 22vw);
             margin-bottom: 3vw;
 

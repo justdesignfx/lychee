@@ -1,14 +1,20 @@
 import s from "~/assets/scss/pages/About.module.scss"
+import { useEffect } from "react"
 
 import cx from "classnames"
+import { useNavigate } from "react-router"
+import { Link } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 import fruit from "~/assets/img/lychee-fruit.png"
 import peel from "~/assets/img/lychee-peel.png"
-import sample from "~/assets/img/sample.png"
 
+import floating1 from "~/assets/img/about-floating-1.jpg"
+import floating2 from "~/assets/img/about-floating-2.jpg"
+import floating3 from "~/assets/img/about-floating-3.jpg"
+import floating4 from "~/assets/img/about-floating-4.jpg"
 import playBtnText from "~/assets/img/btn-play-text.svg"
 import playBtnTri from "~/assets/img/btn-play-tri.svg"
-
 import logoAdidas from "~/assets/img/logo-adidas.svg"
 import logoDisney from "~/assets/img/logo-disney.svg"
 import logoDyson from "~/assets/img/logo-dyson.svg"
@@ -25,15 +31,10 @@ import ButtonText from "~/components/ButtonText"
 import FooterBasic from "~/components/FooterBasic"
 import SplitText from "~/components/SplitText"
 import { useModalStore } from "~/store/modalStore"
-import { useTranslation } from "react-i18next"
-import { useEffect } from "react"
-import { useNavigate } from "react-router"
 import { lngs } from "~/variables"
-import { Link } from "react-router-dom"
 
 const About = () => {
   const modalStore = useModalStore()
-
   const { t, i18n } = useTranslation()
   const navigate = useNavigate()
 
@@ -109,14 +110,14 @@ const About = () => {
             <p className={s.text}>{t("about.texts.t1")}</p>
             <div className={s.imgC} data-framed-parallax-frame>
               <div data-framed-parallax-sliding data-speed-y="0.05" data-direction-y="-1">
-                <Img src={sample} />
+                <Img src={floating2} />
               </div>
             </div>
           </div>
           <div className={s.partTeam}>
             <div className={s.imgC} data-framed-parallax-frame>
               <div data-framed-parallax-sliding data-speed-y="0.05" data-direction-y="-1">
-                <Img src={sample} />
+                <Img src={floating4} />
               </div>
             </div>
             <p className={s.text}>{t("about.texts.t2")}</p>
@@ -147,12 +148,12 @@ const About = () => {
           <div className={s.partAdvertisement}>
             <div className={s.imgC} data-framed-parallax-frame>
               <div data-framed-parallax-sliding data-speed-y="0.05" data-direction-y="-1">
-                <Img src={sample} />
+                <Img src={floating3} />
               </div>
             </div>
             <div className={s.imgC} data-framed-parallax-frame>
               <div data-framed-parallax-sliding data-speed-y="0.05" data-direction-y="-1">
-                <Img src={sample} />
+                <Img src={floating1} />
               </div>
             </div>
           </div>

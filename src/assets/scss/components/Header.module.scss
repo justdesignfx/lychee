@@ -20,6 +20,7 @@
 
   .logoC {
     @include dims(10vw, auto);
+    margin-top: 1vw;
     position: relative;
 
     @include devicesMax(tablet) {
@@ -36,7 +37,7 @@
       @include dims(3rem);
       background: radial-gradient(circle, rgba(206, 25, 83, 1) 0%, rgba(206, 25, 83, 0) 100%);
       filter: blur(8px);
-      transform: translate(-50%, -50%);
+      transform: translate(-60%, -50%);
       z-index: -1;
     }
   }

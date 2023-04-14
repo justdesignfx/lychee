@@ -8,6 +8,7 @@ import { WithSmooth } from "~/hocs/WithSmooth"
 import { WithoutSmooth } from "~/hocs/WithoutSmooth"
 import { useWindowSize } from "~/hooks"
 import { breakpoints } from "~/variables"
+import Noise from "~/components/Noise"
 
 function App() {
   const location = useLocation()
@@ -40,6 +41,7 @@ function App() {
 
   return (
     <>
+      <Noise />
       {size.width > breakpoints.tablet ? (
         <WithSmooth location={displayLocation}>
           <Layout displayLocation={displayLocation} />
