@@ -18,22 +18,22 @@ const StickyNav = (props: Props) => {
         props.pathname.includes(t("stickyNav.brands.path"))) && (
         <motion.nav
           data-sticky-item
-          className={cx(s.stickyNav, { [s.left]: props.pathname.includes(t("stickyNav.brands.path")) })}
+          className={cx(s.stickyNav, { [s.left]: props.pathname.includes(t("stickyNav.creators.path")) })}
           initial={{ opacity: 0, y: 100, x: "-50%", position: "fixed", bottom: "2%", left: "50%" }}
           animate={{ opacity: 1, y: 0, transition: { duration: 0.4 } }}
           exit={{ opacity: 0, transition: { duration: 0.2 } }}
         >
           <Link
-            to={`${t("stickyNav.brands.path")}`}
-            className={cx(s.navItem, { [s.disabled]: props.pathname.includes(t("stickyNav.brands.path")) })}
-          >
-            <p>{t("stickyNav.brands.ui")}</p>
-          </Link>
-          <Link
             to={`${t("stickyNav.creators.path")}`}
             className={cx(s.navItem, { [s.disabled]: props.pathname.includes(t("stickyNav.creators.path")) })}
           >
             <p>{t("stickyNav.creators.ui")}</p>
+          </Link>
+          <Link
+            to={`${t("stickyNav.brands.path")}`}
+            className={cx(s.navItem, { [s.disabled]: props.pathname.includes(t("stickyNav.brands.path")) })}
+          >
+            <p>{t("stickyNav.brands.ui")}</p>
           </Link>
         </motion.nav>
       )}

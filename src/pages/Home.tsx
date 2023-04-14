@@ -39,7 +39,7 @@ import SplitText from "~/components/SplitText"
 import { useWindowSize } from "~/hooks"
 import { useCursorStore } from "~/store/cursorStore"
 import { useModalStore } from "~/store/modalStore"
-import { breakpoints, lngs } from "~/variables"
+import { breakpoints, lngs, showreelVideo } from "~/variables"
 
 const Home = () => {
   const { t, i18n } = useTranslation()
@@ -141,10 +141,7 @@ const Home = () => {
     modalStore.setContent(
       <div className={s.modalContent}>
         <video className={s.video} width="1920" height="1080" controls autoPlay playsInline>
-          <source
-            src="https://player.vimeo.com/progressive_redirect/playback/812374325/rendition/1080p/file.mp4?loc=external&signature=a3848ab31075a23e420bf6ef7f04e9e518c2abf377cd67194e57b1d98e9ca61d"
-            type="video/mp4"
-          />
+          <source src={showreelVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -360,7 +357,7 @@ const Home = () => {
             {i18n.language === lngs.en.nativeName ? (
               <div className={s.titleC}>
                 <h3 className={s.title}>
-                  Let's talk about <br /> <span className={s.italic}>numbers.</span>
+                  Let's talk <br /> <span className={s.italic}>numbers.</span>
                 </h3>
                 <h4 className={s.text}>We achieve creative results for the constantly moving digital world.</h4>
               </div>
@@ -400,7 +397,7 @@ const Home = () => {
             <div className={s.screen} data-sliding-panel-unskew>
               <div className={cx(s.statC, s.pink)}>
                 <h3 className={s.statText}>
-                  <span className={s.num7}>7 </span>
+                  <span className={s.num7}>7</span>
                   <span className={s.thousand}>{t("home.stats.pink.stat")}</span>
                   <span className={s.asterisk}>*</span>
                 </h3>
@@ -496,7 +493,7 @@ const Home = () => {
             <div className={s.titleC}>
               <h2 className={s.title}>
                 Would you like to
-                <br /> <span className={s.italic}>see more</span>.
+                <br /> <span className={s.italic}>see more?</span>
               </h2>
             </div>
           ) : (

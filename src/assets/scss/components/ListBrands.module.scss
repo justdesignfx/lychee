@@ -49,7 +49,7 @@
       align-items: flex-start;
 
       &:not(:first-child) {
-        border-top: 1px solid $greyShingle;
+        border-top: 1px solid #262626;
       }
 
       &.active {
@@ -155,7 +155,7 @@
 
       .text {
         @include dims(37vw, auto);
-        @include typo(Lychee, 20px, null, 1.5, null);
+        @include typo(Lychee, 18px, null, 1.5, null);
         color: $greyShingle;
 
         @include devicesMax(tablet) {

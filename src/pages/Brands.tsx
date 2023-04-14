@@ -9,6 +9,9 @@ import Img from "~/components/Img"
 
 import playBtnText from "~/assets/img/btn-play-text.svg"
 import playBtnTri from "~/assets/img/btn-play-tri.svg"
+import danone from "~/assets/img/danone.jpg"
+import stairs from "~/assets/img/stairs.jpg"
+import coke from "~/assets/img/coke.jpg"
 
 import portalDiamond from "~/assets/img/portal-diamond.png"
 import sample from "~/assets/img/sample.png"
@@ -18,7 +21,7 @@ import ListBrands from "~/components/ListBrands"
 import MarqueeSimple from "~/components/MarqueeSimple"
 import { useWindowSize } from "~/hooks"
 import { useModalStore } from "~/store/modalStore"
-import { breakpoints, lngs } from "~/variables"
+import { breakpoints, lngs, showreelVideo } from "~/variables"
 import { useEffect } from "react"
 
 const Brands = () => {
@@ -54,10 +57,7 @@ const Brands = () => {
     modalStore.setContent(
       <div className={s.modalContent}>
         <video className={s.video} width="1920" height="1080" controls autoPlay playsInline>
-          <source
-            src="https://player.vimeo.com/progressive_redirect/playback/812374325/rendition/1080p/file.mp4?loc=external&signature=a3848ab31075a23e420bf6ef7f04e9e518c2abf377cd67194e57b1d98e9ca61d"
-            type="video/mp4"
-          />
+          <source src={showreelVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -70,7 +70,7 @@ const Brands = () => {
       <main className={s.brands} data-sticky-item-c>
         <section className={s.intro}>
           <div className={s.textC}>
-            <small className={s.small}>LETS GET SCROLLING</small>
+            <small className={s.small}>LET'S GET SCROLLING</small>
             <h1 className={s.title}>
               <Trans key={"brands.intro.title"} components={{ br: <br /> }}>
                 {t("brands.intro.title")}
@@ -107,22 +107,22 @@ const Brands = () => {
         </section>
         <section className={s.misc}>
           <div className={s.imgC} data-framed-parallax-frame>
-            <div data-framed-parallax-sliding data-speed-y="0.05" data-direction-y="-1">
-              <Img src={sample} />
+            <div data-framed-parallax-sliding data-speed-y="0.1" data-direction-y="-1">
+              <Img src={danone} />
             </div>
           </div>
           <div className={s.imgC} data-framed-parallax-frame>
-            <div data-framed-parallax-sliding data-speed-y="0.05" data-direction-y="-1">
-              <Img src={sample} />
+            <div data-framed-parallax-sliding data-speed-y="0.1" data-direction-y="-1">
+              <Img src={stairs} />
             </div>
           </div>
           <div
             className={s.imgC}
             data-parallax={() => (size.width > breakpoints.mobile ? true : false)}
-            data-speed-y="0.5"
+            data-speed-y="1"
             data-direction-y="-1"
           >
-            <Img src={sample} />
+            <Img src={coke} />
           </div>
         </section>
         <section className={s.kpi}>
@@ -166,14 +166,14 @@ const Brands = () => {
         </section>
         <section className={s.social}>
           <div className={s.buttons}>
+            <a className={s.button} href="https://www.twitter.com/lycheenewmedia" target="_blank" rel="noreferrer">
+              Instagram
+            </a>
             <a className={s.button} href="https://www.tiktok.com/@lycheenewmedia" target="_blank" rel="noreferrer">
               Tiktok
             </a>
             <a className={s.button} href="https://www.youtube.com/@lycheedigital" target="_blank" rel="noreferrer">
               Youtube
-            </a>
-            <a className={s.button} href="https://www.twitter.com/lycheenewmedia" target="_blank" rel="noreferrer">
-              Instagram
             </a>
           </div>
         </section>

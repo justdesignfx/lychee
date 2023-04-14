@@ -78,8 +78,9 @@
 
         .thumbnail {
           @include position(absolute, 0, 0, 0, 0);
-          z-index: 10;
+          transform: translateZ(1px);
           transition: 0.4s all ease;
+          z-index: 10;
         }
 
         .video {

@@ -69,7 +69,7 @@ const Services = () => {
 
   const cards = [
     {
-      title: { p1: "Creative", p2: "Copyright" },
+      title: { p1: "Creative", p2: "Copywrite" },
       text: t("services.sideServices.cards.c1.desc"),
       type: "blue",
     },
@@ -79,12 +79,12 @@ const Services = () => {
       type: "transparent",
     },
     {
-      title: { p1: "C360o", p2: "Production" },
+      title: { p1: "360°", p2: "Production" },
       text: t("services.sideServices.cards.c3.desc"),
       type: "white",
     },
     {
-      title: { p1: "Event Planning", p2: "Management" },
+      title: { p1: "Event Planning", p2: "& Management" },
       text: t("services.sideServices.cards.c4.desc"),
       type: "white",
     },
@@ -217,7 +217,7 @@ const Services = () => {
           )}
         </section>
 
-        <section className={s.singleTitleC}>
+        {/* <section className={s.singleTitleC}>
           {i18n.language === lngs.en.nativeName ? (
             <h1 className={s.title}>
               The World is our
@@ -231,7 +231,7 @@ const Services = () => {
               oyun alanımız.
             </h1>
           )}
-        </section>
+        </section> */}
 
         <section className={s.pros}>
           <List

@@ -7,15 +7,12 @@ import cx from "classnames"
 import { Link, useNavigate } from "react-router-dom"
 
 import visitor from "~/assets/img/smartphone-portal.svg"
-
 import creator1 from "~/assets/img/creator-1.jpg"
 import creator2 from "~/assets/img/creator-2.jpg"
 import creator3 from "~/assets/img/creator-3.jpg"
-
 import slider1 from "~/assets/img/slider-1.jpg"
 import slider2 from "~/assets/img/slider-2.jpg"
 import slider3 from "~/assets/img/slider-3.jpg"
-
 import gridInf1 from "~/assets/img/grid-inf-1.jpg"
 import gridInf2 from "~/assets/img/grid-inf-2.jpg"
 import gridInf3 from "~/assets/img/grid-inf-3.jpg"
@@ -35,7 +32,7 @@ import ProjectsSlider from "~/components/ProjectsSlider"
 import SquareGrid from "~/components/SquareGrid"
 import WhyLycheeMobile from "~/components/WhyLycheeMobile"
 import { useWindowSize } from "~/hooks"
-import { breakpoints, lngs } from "~/variables"
+import { breakpoints, lngs, ogedayDysonVideo } from "~/variables"
 
 const Creators = () => {
   const size = useWindowSize()
@@ -160,14 +157,7 @@ const Creators = () => {
           </div>
           <div className={s.statsC}>
             <div className={s.videoC}>
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className={s.video}
-                src="https://player.vimeo.com/progressive_redirect/playback/812355311/rendition/1080p/file.mp4?loc=external&signature=06206f8516a1cbd270440dcc40597243b943b9b7fc3fda677b3425da5cf60f26"
-              ></video>
+              <video autoPlay loop muted playsInline className={s.video} src={ogedayDysonVideo}></video>
             </div>
             <ul className={s.statC}>
               <li className={s.stat}>

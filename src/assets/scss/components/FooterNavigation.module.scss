@@ -42,7 +42,7 @@
       margin-top: auto;
 
       &.address {
-        @include dims(30vw, auto);
+        @include dims(22vw, auto);
         margin-right: auto;
 
         @include devicesMax(tablet) {

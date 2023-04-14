@@ -68,7 +68,7 @@
 
     .par {
       @include dims(37vw, auto);
-      @include typo(Lychee, 20px, null, 1.4, null);
+      @include typo(Lychee, 18px, null, 1.4, null);
       color: $greyShingle;
       margin-bottom: 2vw;
 

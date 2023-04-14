@@ -92,7 +92,7 @@ export const tr = {
         button: {
           text: "Daha fazlasını incelemek için",
           link: {
-            path: "creators",
+            path: "markalar",
             ui: "işlerimize göz atın.",
           },
         },
@@ -103,7 +103,7 @@ export const tr = {
           text: "Organik görüntülenme sağlandı.",
         },
         pink: {
-          stat: "Bin",
+          stat: "K",
           text: "Özgün içerik üretildi.",
         },
         black: {
@@ -156,13 +156,13 @@ export const tr = {
           " Lychee içerik oluşturucu topluluğu, markanıza özel marketing <br /> ihtiyaçlarını karşılayacak micro ve macro influencerlardan oluşur.",
         button: {
           text: "Daha fazlasını incelemek için",
-          link: { path: "ureticiler", ui: "işlerimize göz atın." },
+          link: { path: "markalar", ui: "işlerimize göz atın." },
         },
       },
       faces: {
         button: {
           text: "Tüm içerik üreticilerimizi görmek için",
-          link: { path: "ureticiler", ui: "bizimle iletişime geçin." },
+          link: { path: "mailto:hello@lycheedigital.co", ui: "bizimle iletişime geçin." },
         },
         buttonMobile: {
           more: "Daha fazla göster",
@@ -182,7 +182,7 @@ export const tr = {
         marquee: "Sizi bekliyoruz.",
         button: {
           text: "Lychee'nin seçkin ekosistemine",
-          link: { path: "contact", ui: "katılın" },
+          link: { path: "contact", ui: "katılın." },
         },
       },
     },
@@ -194,7 +194,7 @@ export const tr = {
         desc: "Lychee, global markaların sosyal medya ve pazarlama kampanyalarına güç veriyor. Deneyimli içerik üreticileri ve tasarımcılardan oluşan ekibimiz aracılığıyla hedeflerinize ulaşmanıza yardımcı oluyoruz. Markanız için en efektif ve en başarılı influencer marketing kampanyalarınızı yürütmeye hazırız.",
         button: {
           ui: "Hemen başlayın",
-          path: "iletisim",
+          path: "iletisim/marka",
         },
       },
       methods: {

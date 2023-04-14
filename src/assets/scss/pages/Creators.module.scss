@@ -272,7 +272,7 @@
     }
 
     .title {
-      @include typo(Lychee, 88px, null, 1.1, null);
+      @include typo(Lychee, 80px, null, 1.1, null);
       color: $stonewallGrey;
       margin: 10vw 4vw;
       text-shadow: 10px 10px 20px #000;
@@ -498,7 +498,7 @@
 
       .title {
         @include dims(65vw, auto);
-        @include typo(Lychee, 80px, null, 1.4, null);
+        @include typo(Lychee, 80px, null, 1.2, null);
         color: #c1c1c1;
         margin: 0 auto;
         text-align: center;

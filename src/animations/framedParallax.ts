@@ -17,7 +17,7 @@ export function framedParallax() {
     gsap.set(item, {
       yPercent: () => 100 * parseFloat(speedY) * parseFloat(dirY) * -1,
       xPercent: () => 100 * parseFloat(speedX) * parseFloat(dirX) * -1,
-      scale: 1.1,
+      scale: 1.2,
     })
 
     gsap.to(item, {

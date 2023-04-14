@@ -93,11 +93,8 @@ export const en = {
           talent: "Talent",
         },
         button: {
-          text: "To see more",
-          link: {
-            path: "creators",
-            ui: "look at our works.",
-          },
+          text: "To see more, take a look at",
+          link: { path: "brands", ui: "our works." },
         },
       },
       stats: {
@@ -106,7 +103,7 @@ export const en = {
           text: "Organic impressions generated.",
         },
         pink: {
-          stat: "Thousand",
+          stat: "K",
           text: "Unique pieces of content created.",
         },
         black: {
@@ -158,14 +155,14 @@ export const en = {
         subtitle:
           "The Lychee content creator community consists of micro and macro <br/> influencers who will meet your brand's specific marketing needs.",
         button: {
-          text: "To see more,",
-          link: { path: "creators", ui: "take a look at our works." },
+          text: "To see more, take a look at",
+          link: { path: "brands", ui: "our works." },
         },
       },
       faces: {
         button: {
           text: "Contact us to see all of",
-          link: { path: "creators", ui: " our content creators." },
+          link: { path: "mailto:hello@lycheedigital.co", ui: " our content creators." },
         },
         buttonMobile: {
           more: "See More",
@@ -184,8 +181,8 @@ export const en = {
       waiting: {
         marquee: "We are waiting for you.",
         button: {
-          text: "Contact us to see all of",
-          link: { path: "contact", ui: "our content creators." },
+          text: "Join",
+          link: { path: "contact", ui: "Lychee's" },
         },
       },
     },
@@ -197,7 +194,7 @@ export const en = {
         desc: "Lychee empowers global brands' social media and marketing campaigns. Through our team of experienced content creators and designers, we help you reach your goals. We are ready to run the most effective and successful influencer marketing campaigns for your brand.",
         button: {
           ui: "Start now",
-          path: "contact",
+          path: "contact/brand",
         },
       },
       methods: {

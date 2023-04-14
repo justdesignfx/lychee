@@ -250,6 +250,8 @@
   }
 
   .sideServices {
+    margin-bottom: 20vw;
+
     .sideServicesTitleC {
       @include dims(35vw, auto);
       margin: 12.5vw auto 2vw 40vw;

@@ -187,7 +187,7 @@
         }
 
         .iconTri {
-          @include dims(25%);
+          @include dims(20%);
           @include position(absolute, 50%, auto, auto, 50%);
           transform: translate(-50%, -50%);
         }
@@ -759,8 +759,8 @@
 
       .small {
         @include position(absolute, auto, 2vw, 2%, auto);
-        @include typo(Lychee, 16px, null, null, null);
-        color: $bleachedSilk;
+        @include typo(Lychee, 10px, null, null, null);
+        color: $waxPoetic;
 
         @include devicesMax(tablet) {
           @include position(absolute, auto, 7vw, 0, auto);
