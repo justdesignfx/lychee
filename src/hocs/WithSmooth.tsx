@@ -242,7 +242,7 @@ const WithSmooth = ({ children, location }: Props) => {
       <Menu />
       <MagnetCursor />
       <Modal />
-      {<StickyNav pathname={location.pathname} />}
+      <StickyNav pathname={location.pathname} />
     </SmoothContext.Provider>
   )
 }

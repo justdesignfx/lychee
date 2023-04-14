@@ -1,4 +1,3 @@
-import { useTranslation } from "react-i18next"
 import { Route, Routes } from "react-router"
 
 import ContactIntro from "~/components/ContactIntro"
@@ -17,17 +16,22 @@ type Props = {
 }
 
 const Layout = (props: Props) => {
-  const { t } = useTranslation()
-
   return (
     <div data-route-transition>
       <Routes location={props.displayLocation}>
         <Route index element={<Home />}></Route>
+
         <Route path="contact" element={<Contact />}>
           <Route index element={<ContactIntro />}></Route>
           <Route path="brand" element={<ContactBrand />}></Route>
         </Route>
-        <Route path="contact/creator" element={<ContactContentCreator />}></Route>
+        <Route path="iletisim" element={<Contact />}>
+          <Route index element={<ContactIntro />}></Route>
+          <Route path="marka" element={<ContactBrand />}></Route>
+        </Route>
+
+        <Route path="contact/content-creator" element={<ContactContentCreator />}></Route>
+        <Route path="iletisim/icerik-uretici" element={<ContactContentCreator />}></Route>
 
         <Route path="services" element={<Services />}></Route>
         <Route path="hizmetler" element={<Services />}></Route>

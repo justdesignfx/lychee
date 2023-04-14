@@ -1,12 +1,21 @@
 import s from "~/assets/scss/pages/Contact.module.scss"
+import { useEffect } from "react"
 
 import cx from "classnames"
-import { Outlet } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 import nescafe from "~/assets/img/nescafe.jpg"
 import pink from "~/assets/img/sample.png"
 
 const Contact = () => {
+  const navigate = useNavigate()
+  const { i18n, t } = useTranslation()
+
+  useEffect(() => {
+    navigate(`/${t("menu.contact.path")}`)
+  }, [i18n.language])
+
   return (
     <div className={s.contact}>
       <Outlet></Outlet>

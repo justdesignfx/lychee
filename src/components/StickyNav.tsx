@@ -14,10 +14,11 @@ const StickyNav = (props: Props) => {
 
   return (
     <AnimatePresence>
-      {(props.pathname.includes("creators") || props.pathname.includes("brands")) && (
+      {(props.pathname.includes(t("stickyNav.creators.path")) ||
+        props.pathname.includes(t("stickyNav.brands.path"))) && (
         <motion.nav
           data-sticky-item
-          className={cx(s.stickyNav, { [s.left]: props.pathname.includes("brands") })}
+          className={cx(s.stickyNav, { [s.left]: props.pathname.includes(t("stickyNav.brands.path")) })}
           initial={{ opacity: 0, y: 100, x: "-50%", position: "fixed", bottom: "2%", left: "50%" }}
           animate={{ opacity: 1, y: 0, transition: { duration: 0.4 } }}
           exit={{ opacity: 0, transition: { duration: 0.2 } }}

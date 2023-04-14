@@ -59,11 +59,11 @@ export const tr = {
         buttons: {
           b1: {
             ui: "Markam Var",
-            path: "/contact/brand",
+            path: "iletisim/marka",
           },
           b2: {
             ui: "İçerik Üreticisiyim",
-            path: "/contact/creator",
+            path: "iletisim/icerik-uretici",
           },
         },
       },

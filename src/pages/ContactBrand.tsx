@@ -1,14 +1,20 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import s from "~/assets/scss/pages/ContactBrand.module.scss"
 
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import BrandForm from "~/components/BrandForm"
 
 import cx from "classnames"
+import { useTranslation } from "react-i18next"
 
 const ContactBrand = () => {
-  const [formStarted, setFormStarted] = useState(false)
+  const navigate = useNavigate()
+  const { i18n, t } = useTranslation()
+
+  useEffect(() => {
+    navigate(`/${t("menu.contact.children.brand.path")}`)
+  }, [i18n.language])
 
   return (
     <main className={s.contactBrand}>

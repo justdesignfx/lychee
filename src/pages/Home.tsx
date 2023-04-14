@@ -157,11 +157,6 @@ const Home = () => {
       <main className={s.home}>
         <section className={s.hero}>
           <div className={s.textC}>
-            {/* <h1 className={s.title}>
-              <Trans i18nKey="home.intro.title" t={t}>
-                {t("home.intro.title")}
-              </Trans>
-            </h1> */}
             {i18n.language === lngs.en.nativeName ? (
               <h1 className={s.title}>
                 We are ready to run the most effective <span className={s.inner}>influencer marketing</span> campaigns

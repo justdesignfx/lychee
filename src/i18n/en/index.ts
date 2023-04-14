@@ -59,11 +59,11 @@ export const en = {
         buttons: {
           b1: {
             ui: "I’ve a Brand",
-            path: "/contact/brand",
+            path: "contact/brand",
           },
           b2: {
             ui: "I’m a Creator",
-            path: "/contact/creator",
+            path: "contact/content-creator",
           },
         },
       },

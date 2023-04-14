@@ -32,6 +32,7 @@ export function textReveal() {
       y: () => `${10 * i}px`,
       rotation: i * 0.25,
       opacity: 1 - i * 0.1,
+      willChange: "transform",
     })
   })
 
