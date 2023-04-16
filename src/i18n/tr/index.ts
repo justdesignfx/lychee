@@ -360,7 +360,7 @@ export const tr = {
           },
           b2: {
             ui: "İçerik Üreticisiyim",
-            path: "iletisim/icerik-ureticisi",
+            path: "iletisim/icerik-uretici",
           },
         },
       },
@@ -409,7 +409,7 @@ export const tr = {
           text: "İçerik üreticisi misiniz??",
           link: {
             ui: "Hemen başlayın.",
-            path: "iletisim/icerik-ureticisi",
+            path: "iletisim/icerik-uretici",
           },
         },
       },

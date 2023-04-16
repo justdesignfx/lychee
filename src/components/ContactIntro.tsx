@@ -18,11 +18,12 @@ const ContactIntro = () => {
       {i18n.language === lngs.en.nativeName ? (
         <div className={s.textC}>
           <h1 className={s.title}>
-            <span className={s.italic}>Dijital dünyanızı</span> devralalım.
+            Let's take over your
+            <span className={s.italic}> digital world.</span>
           </h1>
           <p className={s.text}>
-            Kendinizi veya markanızı öne çıkarmak için en iyi ekiple çalışmaya hazır mısınız? Size uygun alana
-            tıklayarak bilgilerinizi bırakın, en hızlı şekilde sizinle iletişime geçelim.
+            Are you ready to work with the best team to make yourself or your brand stand out? Click on the appropriate
+            field and leave your information, we will contact you as soon as possible.
           </p>
         </div>
       ) : (
