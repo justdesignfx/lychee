@@ -12,9 +12,9 @@ const ContactBrand = () => {
   const navigate = useNavigate()
   const { i18n, t } = useTranslation()
 
-  // useEffect(() => {
-  //   navigate(`/${t("menu.contact.children.brand.path")}`)
-  // }, [i18n.language])
+  useEffect(() => {
+    navigate(`/${t("menu.contact.path")}/${t("menu.contact.children.brand.path")}`)
+  }, [i18n.language])
 
   return (
     <main className={s.contactBrand}>

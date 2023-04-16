@@ -9,6 +9,7 @@ import { WithoutSmooth } from "~/hocs/WithoutSmooth"
 import { useWindowSize } from "~/hooks"
 import { breakpoints } from "~/variables"
 import Noise from "~/components/Noise"
+import FixedLink from "./components/FixedLink"
 
 function App() {
   const location = useLocation()
@@ -42,6 +43,7 @@ function App() {
   return (
     <>
       <Noise />
+      <FixedLink />
       {size.width > breakpoints.tablet ? (
         <WithSmooth location={displayLocation}>
           <Layout displayLocation={displayLocation} />

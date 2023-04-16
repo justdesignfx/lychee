@@ -13,8 +13,8 @@
   flex-direction: column;
 
   @include devicesMax(tablet) {
-    @include dims(100vw, 100vh);
-    padding: 0;
+    @include dims(100vw, auto);
+    padding: 15vw 0;
   }
 
   @include devicesMax(mobile) {
@@ -197,6 +197,10 @@
         display: flex;
         align-items: center;
 
+        @include devicesMax(mobile) {
+          font-size: 14px;
+        }
+
         &.hidden {
           transition: 0s;
           @extend .hide;
@@ -206,6 +210,8 @@
       .input {
         @include position(absolute, 0, 0, 0, 0);
         display: flex;
+        background: none;
+        border: none;
         border-radius: 32px;
         color: #6c6c79;
         font-family: Lychee;
@@ -213,11 +219,13 @@
         font-weight: 400;
         line-height: 120%;
         margin: 0;
+        outline: none;
         padding: 0;
         padding-left: $paddingLeft;
-        background: none;
-        border: none;
-        outline: none;
+
+        @include devicesMax(mobile) {
+          font-size: 14px;
+        }
       }
 
       .iconW {
@@ -279,7 +287,7 @@
       }
 
       @include devicesMax(mobile) {
-        @include dims(100%, 35vw);
+        @include dims(100%, 40vw);
         border-radius: 16px;
         margin-bottom: 6vw;
         margin-top: 35vw;
@@ -304,7 +312,7 @@
 
       .textarea {
         @include dims(100%, 5vw);
-        color: #3b3b3b;
+        color: #6c6c79;
         font-family: Lychee;
         font-size: 1.25rem;
         font-weight: 400;
@@ -321,38 +329,72 @@
         }
 
         @include devicesMax(mobile) {
-          @include dims(100%, 30vw);
+          @include dims(100%);
+          font-size: 14px;
+          line-height: 160%;
+          padding: 1rem;
         }
       }
     }
 
-    .confirmation {
-      $boxDims: 18px;
-      @extend .cursorPointer;
+    .confirmations {
       margin-bottom: 5vw;
+      margin-top: 5vw;
 
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
+      .confirmation {
+        $boxDims: 18px;
+        @extend .cursorPointer;
+        margin-bottom: 1vw;
 
-      .checkbox {
-        @include dims($boxDims);
-        border: 1px solid #cfcfcf;
-        border-radius: 4px;
-        flex-shrink: 0;
-        margin-top: 0.25vw;
-        position: relative;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
 
-        .inner {
-          @extend .absoluteCenter;
-          @include dims(calc($boxDims - 6px));
-          background: #cfcfcf;
-          border-radius: 2px;
-          transition: 0.3s all ease;
-          @extend .hide;
+        .checkbox {
+          @include dims($boxDims);
+          border: 1px solid #cfcfcf;
+          border-radius: 4px;
+          flex-shrink: 0;
+          margin-top: 0.25vw;
+          position: relative;
 
-          &.enabled {
-            @extend .show;
+          .inner {
+            @extend .absoluteCenter;
+            @include dims(calc($boxDims - 6px));
+            background: #cfcfcf;
+            border-radius: 2px;
+            transition: 0.3s all ease;
+            @extend .hide;
+
+            &.enabled {
+              @extend .show;
+            }
+          }
+        }
+
+        .legalText {
+          margin-left: 1rem;
+
+          .small,
+          .link {
+            color: #cfcfcf;
+            display: inline;
+            font-family: Lychee;
+            font-size: 1vw;
+            font-weight: 400;
+            line-height: 160%;
+
+            @include devicesMax(tablet) {
+              font-size: 1.5vw;
+            }
+
+            @include devicesMax(mobile) {
+              font-size: 3.25vw;
+            }
+          }
+
+          .link {
+            text-decoration: underline;
           }
         }
       }
@@ -367,6 +409,9 @@
     font-family: LS-VG5000;
     font-size: 1.5vw;
     margin-bottom: 0.5vw;
+    opacity: 1;
+    pointer-events: auto;
+    transition: 0.4s all ease;
 
     display: grid;
     place-items: center;
@@ -381,6 +426,11 @@
       font-size: 5.5vw;
       margin: 15vw auto 0 auto;
       padding-bottom: 0.2ch;
+    }
+
+    &.disabled {
+      opacity: 0.3;
+      pointer-events: none;
     }
   }
 
@@ -407,23 +457,6 @@
       @include position(absolute, 30vw, auto, auto, 80vw);
       @include dims(12vw, auto);
       transform: rotate(-9deg);
-    }
-  }
-
-  .linkC {
-    @include position(fixed, auto, auto, 2vw, 2vw);
-    color: #c8c8c8;
-    font-family: Lychee;
-    font-size: 1.25rem;
-    line-height: 150%;
-
-    @include devicesMax(mobile) {
-      display: none;
-    }
-
-    .link {
-      color: #ce1953;
-      text-decoration: underline;
     }
   }
 }

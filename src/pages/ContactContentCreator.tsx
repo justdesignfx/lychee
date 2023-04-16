@@ -1,23 +1,48 @@
-import { FormEvent } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import s from "~/assets/scss/pages/ContactContentCreator.module.scss"
-
-import dta from "~/assets/img/digital-talent-agency.png"
-import lychee from "~/assets/img/logo.png"
-
-import { filter, find } from "lodash"
 
 import axios from "axios"
 import cx from "classnames"
 import { useFormik } from "formik"
-import { Link } from "react-router-dom"
+import { useTranslation } from "react-i18next"
+
+import dta from "~/assets/img/digital-talent-agency.png"
+import lychee from "~/assets/img/logo.png"
 
 import api from "~/api"
 import IconPlus from "~/components/Icons/IconPlus"
-import PrivacyPolicyText from "~/components/PrivacyPolicyText"
+import { uIdGenerator } from "~/utils"
 import contentCreatorSchema from "~/validations/ContentCreatorForm/contentCreatorSchema"
-import { ISocialPlatform, initialValues } from "~/validations/ContentCreatorForm/initialValues"
+import { ISocialPlatform } from "~/validations/ContentCreatorForm/initialValues"
+import { platform } from "os"
+import { useNavigate } from "react-router"
+
+interface IContentCreatorForm {
+  name: string
+  email: string
+  message: string
+  socialPlatforms: string[]
+}
+
+interface IContentCreatorFormUi {
+  name: string
+  email: string
+  message: string
+  socialPlatforms: ISocialPlatform[]
+}
 
 const ContactContentCreator = () => {
+  const { t, i18n } = useTranslation()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    navigate(`/${t("menu.contact.path")}/${t("menu.contact.children.creator.path")}`)
+  }, [i18n.language])
+
+  const [confirmation1, setConfirmation1] = useState(false)
+  const [confirmation2, setConfirmation2] = useState(false)
+  const [confirmation3, setConfirmation3] = useState(false)
+
   const submitForm = async (values: any) => {
     try {
       // 👇️ const data: CreateUserResponse
@@ -43,20 +68,46 @@ const ContactContentCreator = () => {
     }
   }
 
-  function uIdGenerator() {
-    return Math.random().toString(16).slice(2)
-  }
-
   const maxPlatforms = 10
 
   const formik = useFormik({
-    initialValues: initialValues,
+    initialValues: {
+      name: "",
+      email: "",
+      message: "",
+      socialPlatforms: [{ id: uIdGenerator(), value: "" }],
+    },
     validationSchema: contentCreatorSchema,
-    onSubmit: (values) => {
-      console.log(values)
-      submitForm(values)
+    onSubmit: (values: IContentCreatorFormUi) => {
+      prepareAndSubmit(values)
     },
   })
+
+  function prepareAndSubmit(values: IContentCreatorFormUi) {
+    let toBackend: IContentCreatorForm
+    const filteredSocial = filterSocialPlatforms(values)
+
+    toBackend = { ...values, socialPlatforms: filteredSocial }
+    console.log({ ...toBackend, language: i18n.language })
+
+    // submitForm({ ...toBackend, language: i18n.language }).then((res) => {
+    //   if (res.success) {
+    //     console.log(res)
+    //   } else {
+    //     console.log(res)
+    //   }
+    // })
+  }
+
+  function filterSocialPlatforms(values: IContentCreatorFormUi): string[] {
+    let filtered: any[] = []
+
+    values.socialPlatforms.map((platform) => {
+      filtered = [...filtered, platform.value]
+    })
+
+    return filtered
+  }
 
   function handleFocus(e: FormEvent | any) {
     e.preventDefault()
@@ -68,67 +119,46 @@ const ContactContentCreator = () => {
     }
   }
 
-  function handleConfirmation() {
-    formik.setFieldValue("privacyConfirmation", !formik.values.privacyConfirmation, true)
-  }
-
   function addField() {
-    const id = uIdGenerator()
-
-    const socialPlatform = { id, label: uIdGenerator(), value: uIdGenerator() }
-    formik.setFieldValue("socialPlatforms", [...formik.values.socialPlatforms, socialPlatform])
-    console.log(formik.values.socialPlatforms)
+    const field: ISocialPlatform = { id: uIdGenerator(), value: "" }
+    formik.setFieldValue("socialPlatforms", [...formik.values.socialPlatforms, field])
   }
 
-  function removeField(id: string) {
-    const platforms = formik.values.socialPlatforms as Array<any>
-    const filtered = platforms.filter((platform) => {
-      return platform.id !== id
+  function removeField(platform: ISocialPlatform) {
+    const items = formik.values.socialPlatforms as ISocialPlatform[]
+    const filtered = items.filter((item) => {
+      return item.id !== platform.id
     })
 
     formik.setFieldValue("socialPlatforms", filtered)
   }
 
-  const handleFieldChange = (field: any, fieldValue: any) => {
-    console.log(field, fieldValue)
-
-    const { socialPlatforms } = formik.values
-    const updatedFieldValues = {
-      ...socialPlatforms,
-      field,
-    }
-    formik.setFieldValue("fieldValues", updatedFieldValues)
+  const handleMultipleInput = (value: string, i: number) => {
+    formik.setFieldValue(`socialPlatforms[${i}].value`, value)
   }
 
-  function handleSocial(platform: ISocialPlatform) {
-    if (formik.values.socialPlatforms.find(platform.id)) {
-      const platforms = formik.values.socialPlatforms
-
-      const filtered = filter(platforms, { id: platform.id })
-
-      formik.setFieldValue("socialPlatforms", [...filtered], true)
-    } else {
-      formik.setFieldValue("socialPlatforms", [...formik.values.socialPlatforms, platform], true)
-    }
-  }
+  useEffect(() => {
+    console.log(formik.values)
+    console.log(formik.errors)
+  }, [formik.values, formik.errors])
 
   return (
     <main className={s.contactContentCreator}>
-      <h2 className={s.title}>İÇERİK ÜRETİCİ BAŞVURU FORMU</h2>
-
+      <h2 className={s.title}>{t("contact.contentCreator.title")}</h2>
       <form className={s.formC} onSubmit={formik.handleSubmit} id="contentCreatorForm">
-        <div className={cx(s.inputC, { [s.required]: formik.errors.name === "REQUIRED" && formik.touched.name })}>
+        <div className={cx(s.inputC, { [s.required]: formik.errors.name && formik.touched.name })}>
           <label
             className={cx(s.label, {
               [s.hidden]: formik.values.name,
             })}
             htmlFor="name"
           >
-            Ad Soyad
+            {t("contact.contentCreator.name")}*
           </label>
           <input
             className={s.input}
             id="name"
+            name="name"
             type="text"
             onFocus={handleFocus}
             onBlur={handleFocus}
@@ -139,7 +169,7 @@ const ContactContentCreator = () => {
 
         <div
           className={cx(s.inputC, s.email, {
-            [s.required]: formik.errors.email === "REQUIRED" && formik.touched.email,
+            [s.required]: formik.errors.email && formik.touched.email,
           })}
         >
           <label
@@ -148,11 +178,12 @@ const ContactContentCreator = () => {
             })}
             htmlFor="email"
           >
-            Eposta Adresi
+            {t("contact.contentCreator.email")}*
           </label>
           <input
             className={s.input}
             id="email"
+            name="email"
             type="text"
             onFocus={handleFocus}
             onBlur={handleFocus}
@@ -162,32 +193,32 @@ const ContactContentCreator = () => {
         </div>
 
         <div className={s.multipleInputC}>
-          <small className={s.smallTop}>Sosyal Medya Linkleri</small>
+          <small className={s.smallTop}>{t("contact.contentCreator.social")}*</small>
 
-          {formik.values.socialPlatforms.map((platform: any, i: number) => {
+          {formik.values.socialPlatforms.map((platform, i) => {
             return (
               <div
                 className={cx(s.inputC, s.socialPlatforms, {
                   [s.required]: formik.errors.socialPlatforms && formik.touched.socialPlatforms,
                 })}
-                key={i}
+                key={uIdGenerator()}
               >
                 <label
                   className={cx(s.label, {
-                    [s.hidden]: formik.values.socialPlatforms,
+                    [s.hidden]: platform.value,
                   })}
-                  htmlFor={platform.id}
+                  htmlFor={`social_${i}`}
                 >
                   https://www.instagram.com/lycheedigital/
                 </label>
                 <input
                   className={s.input}
-                  id={platform.id}
-                  name={`social_${platform.id}`}
+                  id={`social_${i}`}
+                  name={`social_${i}`}
                   type="text"
-                  onFocus={handleFocus}
-                  onBlur={handleFocus}
-                  onChange={() => handleFieldChange}
+                  // onFocus={handleFocus}
+                  // onBlur={handleFocus}
+                  onChange={(e) => handleMultipleInput(e.target.value, i)}
                   value={formik.values.socialPlatforms[i].value}
                 />
                 {i > 0 && (
@@ -195,7 +226,7 @@ const ContactContentCreator = () => {
                     className={cx(s.deleteBtn)}
                     type="button"
                     onClick={() => {
-                      i > 0 && removeField(platform.id)
+                      i > 0 && removeField(platform)
                     }}
                   >
                     <div className={s.iconC}>
@@ -217,28 +248,91 @@ const ContactContentCreator = () => {
                 <IconPlus fill="#c8c8c8" />
               </div>
             </div>
-            Yeni ekleyin
+            {t("contact.contentCreator.addNew")}
           </button>
         </div>
 
-        <div
-          className={cx(s.textareaC, {
-            [s.required]: formik.errors.message === "REQUIRED" && formik.touched.message,
-          })}
-        >
-          <small className={s.smallTop}>Eklemek İstediğiniz Bilgi Var mı?</small>
-          <textarea className={s.textarea} id="message" onChange={formik.handleChange} value={formik.values.message} />
+        <div className={s.textareaC}>
+          <small className={s.smallTop}>{t("contact.contentCreator.addInfo")}</small>
+          <textarea
+            className={s.textarea}
+            id="message"
+            name="message"
+            onChange={formik.handleChange}
+            value={formik.values.message}
+          />
         </div>
 
-        <div className={s.confirmation}>
-          <div className={s.checkbox} onClick={handleConfirmation}>
-            <div className={cx(s.inner, { [s.enabled]: formik.values.privacyConfirmation })}></div>
+        <div className={s.confirmations}>
+          <div className={s.confirmation} onClick={() => setConfirmation1((prev) => !prev)}>
+            <div className={s.checkbox}>
+              <div className={cx(s.inner, { [s.enabled]: confirmation1 })}></div>
+            </div>
+            <div className={s.legalText}>
+              <small className={s.small}>
+                Hizmetlerden ve kampanyalardan haberdar olmak için{" "}
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className={s.link}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Ticari Elektronik İleti Onay Formu
+                </a>{" "}
+                kapsamında elektronik ileti almak istiyorum.{" "}
+              </small>
+            </div>
           </div>
-          <PrivacyPolicyText setConfirmation={handleConfirmation} />
+
+          <div className={s.confirmation} onClick={() => setConfirmation2((prev) => !prev)}>
+            <div className={s.checkbox}>
+              <div className={cx(s.inner, { [s.enabled]: confirmation2 })}></div>
+            </div>
+            <div className={s.legalText}>
+              <small className={s.small}>
+                <a
+                  href="https://lycheedigital.co/cdn/legal/content-creator/icerik-uretici-formu-kisisel-verilerin-islenmesi.pdf"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className={s.link}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Aydınlatma Metni
+                </a>
+                ’ni okudum, anladım.{" "}
+              </small>
+            </div>{" "}
+          </div>
+
+          <div className={s.confirmation} onClick={() => setConfirmation3((prev) => !prev)}>
+            <div className={s.checkbox}>
+              <div className={cx(s.inner, { [s.enabled]: confirmation3 })}></div>
+            </div>
+            <div className={s.legalText}>
+              <small className={s.small}>
+                Kişisel Verilerimin Lychee Digital tarafından{" "}
+                <a
+                  href="https://lycheedigital.co/cdn/legal/content-creator/icerik-uretici-formu-acik-riza-metni.pdf"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className={s.link}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Açık Rıza Metni
+                </a>{" "}
+                kapsamında üçüncü kişilere ve yurt dışına aktarılabileceğini kabul ediyorum.
+              </small>
+            </div>
+          </div>
         </div>
 
-        <button type="submit" form="contentCreatorForm" className={s.submitButton}>
-          Gönder
+        <button
+          type="submit"
+          form="contentCreatorForm"
+          className={cx(s.submitButton, { [s.disabled]: !confirmation2 })}
+        >
+          {t("contact.contentCreator.sendBtn")}
         </button>
       </form>
 
@@ -249,13 +343,6 @@ const ContactContentCreator = () => {
       <div className={cx(s.imgC, s.right)}>
         <img src={lychee} alt="Brand Visual" className={s.img} />
       </div>
-
-      <small className={s.linkC}>
-        Markanız mı var?{" "}
-        <Link className={s.link} to="/contact/brand">
-          Hemen başlayın.
-        </Link>{" "}
-      </small>
     </main>
   )
 }

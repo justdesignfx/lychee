@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react"
+import { ReactElement, useState, memo } from "react"
 import s from "~/assets/scss/components/MarqueeSimple.module.scss"
 
 import cx from "classnames"
@@ -59,4 +59,4 @@ const MarqueeSimple = ({ children, direction = 1, speed = 1 }: Props) => {
   )
 }
 
-export default MarqueeSimple
+export default memo(MarqueeSimple)

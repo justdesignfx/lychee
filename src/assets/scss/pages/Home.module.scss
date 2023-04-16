@@ -457,8 +457,8 @@
     }
 
     .transformC {
-      transform: rotate(8deg);
       padding: 5vw 0;
+      transform: rotate(8deg);
       z-index: 10;
 
       &:nth-child(2) {
@@ -467,6 +467,10 @@
 
         .mText {
           color: #131317;
+
+          .seperator {
+            background: #131317;
+          }
         }
       }
 

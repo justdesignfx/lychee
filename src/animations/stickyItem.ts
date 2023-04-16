@@ -41,7 +41,7 @@ export function stickyItem() {
           })
         },
         id: `sticky-item-${i}`,
-        // markers: true,
+        markers: true,
       },
     })
   })

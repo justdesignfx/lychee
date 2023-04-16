@@ -25,3 +25,7 @@ export const qAll = function (selector: string, scope?: any) {
   scope = scope ? scope : document
   return scope.querySelectorAll(selector)
 }
+
+export const uIdGenerator = () => {
+  return Math.random().toString(16).slice(2)
+}

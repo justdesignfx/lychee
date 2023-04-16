@@ -38,20 +38,16 @@ export const en = {
       contact: {
         ui: "Contact",
         path: "contact",
-        children: [
-          {
-            brand: {
-              ui: "brand",
-              path: "brand",
-            },
+        children: {
+          brand: {
+            ui: "brand",
+            path: "brand",
           },
-          {
-            creator: {
-              ui: "creator",
-              path: "creator",
-            },
+          creator: {
+            ui: "creator",
+            path: "content-creator",
           },
-        ],
+        },
       },
     },
     home: {
@@ -351,6 +347,36 @@ export const en = {
         button: {
           path: "contact",
           ui: "Create your campaign",
+        },
+      },
+    },
+    contact: {
+      index: {
+        buttons: {
+          b1: {
+            ui: "I've a Brand",
+            path: "contact/brand",
+          },
+          b2: {
+            ui: "I'm a Content Creator",
+            path: "contact/content-creator",
+          },
+        },
+      },
+      contentCreator: {
+        title: "CONTENT CREATOR APPLICATION FORM",
+        name: "Name Surname",
+        email: "Email",
+        social: "Social Media Links",
+        addNew: "Add new",
+        addInfo: "Would you like to add more info?",
+        sendBtn: "Send",
+        button: {
+          text: "Have a brand?",
+          link: {
+            ui: "Start now.",
+            path: "contact/brand",
+          },
         },
       },
     },

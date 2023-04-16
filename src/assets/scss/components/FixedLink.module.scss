@@ -1,0 +1,18 @@
+@import "../global";
+
+.linkC {
+  color: #c8c8c8;
+  font-family: Lychee;
+  font-size: 1.25rem;
+  line-height: 150%;
+  z-index: z-index("fixedLink");
+
+  @include devicesMax(mobile) {
+    display: none;
+  }
+
+  .link {
+    color: #ce1953;
+    text-decoration: underline;
+  }
+}

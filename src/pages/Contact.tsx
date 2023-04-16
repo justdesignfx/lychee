@@ -9,13 +9,6 @@ import nescafe from "~/assets/img/nescafe.jpg"
 import pink from "~/assets/img/sample.png"
 
 const Contact = () => {
-  const navigate = useNavigate()
-  const { i18n, t } = useTranslation()
-
-  // useEffect(() => {
-  //   navigate(`/${t("menu.contact.path")}`)
-  // }, [i18n.language])
-
   return (
     <div className={s.contact}>
       <Outlet></Outlet>

@@ -38,20 +38,16 @@ export const tr = {
       contact: {
         ui: "İletişim",
         path: "iletisim",
-        children: [
-          {
-            brand: {
-              ui: "Marka",
-              path: "marka",
-            },
+        children: {
+          brand: {
+            ui: "Marka",
+            path: "marka",
           },
-          {
-            creator: {
-              ui: "Üretici",
-              path: "uretici",
-            },
+          creator: {
+            ui: "Üretici",
+            path: "icerik-uretici",
           },
-        ],
+        },
       },
     },
     home: {
@@ -352,6 +348,69 @@ export const tr = {
         button: {
           path: "iletisim",
           ui: "Kampanya oluşturun",
+        },
+      },
+    },
+    contact: {
+      index: {
+        buttons: {
+          b1: {
+            ui: "Markam Var",
+            path: "iletisim/marka",
+          },
+          b2: {
+            ui: "İçerik Üreticisiyim",
+            path: "iletisim/icerik-ureticisi",
+          },
+        },
+      },
+      contentCreator: {
+        title: "İÇERİK ÜRETİCİSİ BAŞVURU FORMU",
+        name: "Ad Soyad",
+        email: "Eposta Adresi",
+        social: "Sosyal Medya Linkleri",
+        addNew: "Yeni ekleyin",
+        addInfo: "Eklemek İstediğiniz Bilgi Var mı?",
+        sendBtn: "Gönder",
+        button: {
+          text: "Markanız mı var?",
+          link: {
+            ui: "Hemen başlayın.",
+            path: "iletisim/marka",
+          },
+        },
+      },
+      brandForm: {
+        intro: {
+          title: "Dijital reklamcılığın geleceğine hoş geldiniz.",
+          text: "Şimdi marka vizyonunuzu, kampanyanızı ve hayallerinizi öğrenme zamanı.",
+          button: "Şimdi Başlayın",
+        },
+        form: {
+          title: "MARKA BAŞVURU FORMU",
+          questions: {
+            q1: "Öncelikle sizi tanımak istiyoruz. Aşağıdaki bilgileri doldurabilir misiniz?",
+            q2: "Şirketiniz / markanız hakkında bilgi verebilir misiniz?",
+            q3: "Şirketiniz / markanız için oluşturmak istediğiniz kampanyayı kısaca anlatınız.",
+            q4: "Bitirmek üzereyiz. Kampanyanızın yayınlanmasını istediğiniz sosyal medya platformlarını seçiniz.",
+            q5: "Son olarak kampanyanız için planladığınız bütçenizi belirtiniz.",
+          },
+          inputs: {
+            name: "Ad Soyad",
+            email: "Eposta Adresi",
+            company: "Şirket/Marka",
+            website: "Website Linki",
+            position: "Pozisyon",
+            message: "Mesaj",
+            budget: "Aralık seçiniz",
+          },
+        },
+        button: {
+          text: "İçerik üreticisi misiniz??",
+          link: {
+            ui: "Hemen başlayın.",
+            path: "iletisim/icerik-ureticisi",
+          },
         },
       },
     },

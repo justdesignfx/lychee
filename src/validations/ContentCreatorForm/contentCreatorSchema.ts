@@ -1,22 +1,16 @@
 import * as Yup from "yup"
-import contentCreatorFormModel from "./contentCreatorFormModel"
-
-const {
-  formField: { name, email, message, socialPlatforms },
-} = contentCreatorFormModel
 
 export default Yup.object({
-  [name.name]: Yup.string().required(`${name.requiredErrorMsg}`),
-  [email.name]: Yup.string().email().required(`${email.requiredErrorMsg}`),
-  [socialPlatforms.name]: Yup.array()
+  name: Yup.string().required("Name is required!"),
+  email: Yup.string().email().required("Email is required!"),
+  socialPlatforms: Yup.array()
     .of(
       Yup.object({
         id: Yup.string(),
-        label: Yup.string(),
-        value: Yup.string(),
+        value: Yup.string().required(),
       })
     )
     .min(1)
-    .required(`${socialPlatforms.requiredErrorMsg}`),
-  [message.name]: Yup.string().required(`${message.requiredErrorMsg}`),
+    .required("Social platforms is required!"),
+  message: Yup.string(),
 })

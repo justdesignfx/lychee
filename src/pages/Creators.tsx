@@ -259,7 +259,7 @@ const Creators = () => {
         </section>
         <section className={s.conclusion}>
           <div className={s.marqueeC}>
-            <MarqueeSimple direction={-1}>
+            <MarqueeSimple>
               <h2 className={s.mText}>
                 {t("creators.marquee.mText")} <span className={s.seperator}></span>
               </h2>
@@ -355,7 +355,7 @@ const Creators = () => {
         )}
         <section className={s.waitingForYou}>
           <div className={s.marqueeC}>
-            <MarqueeSimple direction={-1}>
+            <MarqueeSimple>
               <h2 className={s.mText}>
                 {t("creators.waiting.marquee")} <span className={s.seperator}></span>
               </h2>

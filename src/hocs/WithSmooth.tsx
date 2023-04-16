@@ -75,7 +75,7 @@ const WithSmooth = ({ children, location }: Props) => {
 
       hideOnScroll()
       parallaxItems()
-      marquee()
+      // marquee()
       stickyItem()
     })
   }

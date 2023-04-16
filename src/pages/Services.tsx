@@ -254,7 +254,7 @@ const Services = () => {
 
         <section className={s.dare}>
           <div className={s.marqueeC}>
-            <MarqueeSimple direction={-1}>
+            <MarqueeSimple>
               <h2 className={s.mText}>
                 {t("services.marquee.mText")} <span className={s.seperator}></span>
               </h2>

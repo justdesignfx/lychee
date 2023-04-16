@@ -66,7 +66,7 @@ const Partners = () => {
         </section>
         <section className={s.dare}>
           <div className={s.marqueeC}>
-            <MarqueeSimple direction={-1}>
+            <MarqueeSimple>
               <h2 className={s.mText}>
                 {t("partners.marquee.mText")} <span className={s.seperator}></span>
               </h2>

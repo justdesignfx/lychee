@@ -8,9 +8,12 @@ $duration-mobile: 60s;
   overflow: hidden;
   user-select: none;
   will-change: transform;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -moz-transform: translateZ(0);
 
   .marqueeGroup {
-    min-width: 100vw;
+    // min-width: 150vw;
 
     flex-shrink: 0;
     display: flex;
@@ -51,10 +54,10 @@ $duration-mobile: 60s;
 
 @keyframes scroll {
   0% {
-    transform: translateX(0);
+    transform: translateX(-100%);
   }
 
   100% {
-    transform: translateX(calc(-100%));
+    transform: translateX(0);
   }
 }

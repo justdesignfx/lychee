@@ -18,11 +18,13 @@ import { initialValues } from "~/validations/BrandForm/initialValues"
 const { formId, formField } = brandFormModel
 import api from "~/api"
 import { qAll } from "~/utils"
+import { useTranslation } from "react-i18next"
 
 const BrandForm = () => {
   const formRef = useRef<HTMLFormElement>(null)
   const brandFormRef = useRef<HTMLDivElement>(null)
   const [currentStep, setCurrentStep] = useState(0)
+  const { t } = useTranslation()
 
   const [privacyConfirmed, setPrivacyConfirmed] = useState(false)
   const [started, setStarted] = useState(false)
@@ -413,11 +415,11 @@ const BrandForm = () => {
             animate={{ opacity: 1, transition: { duration: 0.4 } }}
             exit={{ opacity: 0, transition: { duration: 0.2 } }}
           >
-            <h1 className={s.title}>Dijital reklamcılığın geleceğine hoş geldiniz.</h1>
-            <p className={s.text}>Şimdi marka vizyonunuzu, kampanyanızı ve hayallerinizi öğrenme zamanı.</p>
+            <h1 className={s.title}>{t("contact.brandForm.intro.title")}</h1>
+            <p className={s.text}>{t("contact.brandForm.intro.text")}</p>
             <div className={s.buttons}>
               <button className={cx(s.button, s.next)} onClick={handleFormStart}>
-                Şimdi Başlayın
+                {t("contact.brandForm.intro.button")}
               </button>
             </div>
           </motion.div>
@@ -427,8 +429,7 @@ const BrandForm = () => {
       {started && !end && (
         <>
           <div className={s.top}>
-            <h2 className={s.title}>MARKA BAŞVURU FORMU</h2>
-
+            <h2 className={s.title}>{t("contact.brandForm.form.title")}</h2>
             <div className={s.formC}>
               <form id={formId} className={s.form} ref={formRef} onSubmit={(e) => handleValidation(e)}>
                 {steps[currentStep].question && (

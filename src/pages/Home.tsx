@@ -204,7 +204,7 @@ const Home = () => {
           </div>
 
           <div className={s.marqueeC}>
-            <MarqueeSimple direction={-1}>
+            <MarqueeSimple>
               <h2 className={s.mText}>
                 <span className={s.italic}>Digital&nbsp;</span> talent agency.<span className={s.seperator}></span>
               </h2>
@@ -290,15 +290,17 @@ const Home = () => {
         </section>
         <section className={s.marquee}>
           <div className={s.transformC}>
-            <MarqueeSimple direction={-1}>
+            <MarqueeSimple>
               <h2 className={s.mText}>
                 {t("home.marquee.text")} <span className={s.seperator}></span>
               </h2>
             </MarqueeSimple>
           </div>
           <div className={s.transformC}>
-            <MarqueeSimple direction={-1}>
-              <h2 className={s.mText}>{t("home.marquee.text")}</h2>
+            <MarqueeSimple>
+              <h2 className={s.mText}>
+                {t("home.marquee.text")} <span className={s.seperator}></span>
+              </h2>
             </MarqueeSimple>
           </div>
         </section>
