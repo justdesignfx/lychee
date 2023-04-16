@@ -9,11 +9,8 @@
     position: relative;
     z-index: 10;
 
-    @include devicesMax(tablet) {
-      height: 480px;
-    }
-
     @include devicesMax(mobile) {
+      border-radius: 16px;
       width: 80vw;
       margin: 0 auto;
     }
@@ -64,10 +61,17 @@
     }
 
     .mediaC {
+      @include dims(auto, 50vw);
       position: relative;
       z-index: -1;
 
-      .videoC {
+      @include devicesMax(mobile) {
+        @include dims(auto, 140vw);
+      }
+
+      .videoC,
+      .imgC {
+        @include dims(100%);
         position: relative;
 
         &.active {
