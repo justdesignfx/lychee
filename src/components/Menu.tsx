@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion"
 
 import arrow from "~/assets/img/arrow-right.svg"
 import { SmoothContext } from "~/hocs/WithSmooth"
-import { useWindowSize } from "~/hooks"
+import { useLockedBody, useWindowSize } from "~/hooks"
 import { breakpoints } from "~/variables"
 import IconInstagram from "./Icons/IconInstagram"
 import IconYoutube from "./Icons/IconYoutube"
@@ -21,6 +21,7 @@ const Menu = () => {
   const { t, i18n } = useTranslation()
   const [open, setOpen] = useState(false)
   const size = useWindowSize()
+  const [_, setLocked] = useLockedBody()
 
   const smoothContext = useContext(SmoothContext)
 
@@ -38,8 +39,10 @@ const Menu = () => {
 
     if (open) {
       smoothContext?.unlockScrollbar()
+      setLocked(false)
     } else {
       smoothContext?.lockScrollbar()
+      setLocked(true)
     }
   }
 
