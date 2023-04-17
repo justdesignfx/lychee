@@ -17,11 +17,11 @@ export function hideOnScroll() {
     .progress(1)
 
   ScrollTrigger.create({
-    start: "top top",
+    start: "top+=50px top",
     end: "max",
-    // // markers: true,
     onUpdate: (self) => {
       self.direction === -1 ? showAnim.play() : showAnim.reverse()
     },
+    // markers: true,
   })
 }
