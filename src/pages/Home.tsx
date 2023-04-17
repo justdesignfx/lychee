@@ -37,6 +37,7 @@ import { useWindowSize } from "~/hooks"
 import { useCursorStore } from "~/store/cursorStore"
 import { useModalStore } from "~/store/modalStore"
 import { breakpoints, lngs, showreelVideo } from "~/variables"
+import { useCallback } from "react"
 
 const Home = () => {
   const { t, i18n } = useTranslation()
@@ -145,6 +146,16 @@ const Home = () => {
     )
     modalStore.toggle()
   }
+
+  function disableParallaxOnMobile() {
+    if (size.width > breakpoints.mobile) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  useCallback(disableParallaxOnMobile, [size.width])
 
   return (
     <>
@@ -459,7 +470,7 @@ const Home = () => {
                   data-parallax
                   data-speed-y="0.2"
                   data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
                 >
                   <img className={s.img} src={logoDisney} alt="Company Logo" />
                 </div>
@@ -468,7 +479,7 @@ const Home = () => {
                   data-parallax
                   data-speed-y="0.4"
                   data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
                 >
                   <img className={s.img} src={logoAdidas} alt="Company Logo" />
                 </div>
@@ -477,7 +488,7 @@ const Home = () => {
                   data-parallax
                   data-speed-y="0.4"
                   data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
                 >
                   <img className={s.img} src={logoPhilips} alt="Company Logo" />
                 </div>
@@ -486,7 +497,7 @@ const Home = () => {
                   data-parallax
                   data-speed-y="0.3"
                   data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
                 >
                   <img className={s.img} src={logoNike} alt="Company Logo" />
                 </div>
@@ -495,7 +506,7 @@ const Home = () => {
                   data-parallax
                   data-speed-y="0.2"
                   data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
                 >
                   <img className={s.img} src={logoNestle} alt="Company Logo" />
                 </div>
@@ -504,7 +515,7 @@ const Home = () => {
                   data-parallax
                   data-speed-y="0.4"
                   data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
                 >
                   <img className={s.img} src={logoEsteeLauder} alt="Company Logo" />
                 </div>
@@ -515,7 +526,7 @@ const Home = () => {
                   data-parallax
                   data-speed-y="0.5"
                   data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
                 >
                   <img className={s.img} src={logoLoreal} alt="Company Logo" />
                 </div>
@@ -524,7 +535,7 @@ const Home = () => {
                   data-parallax
                   data-speed-y="0.4"
                   data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
                 >
                   <img className={s.img} src={logoDyson} alt="Company Logo" />
                 </div>
@@ -533,7 +544,7 @@ const Home = () => {
                   data-parallax
                   data-speed-y="0.3"
                   data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={`${() => (size.width > breakpoints.mobile ? "false" : "true")}`}
+                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
                 >
                   <img className={s.img} src={logoStarbucks} alt="Company Logo" />
                 </div>

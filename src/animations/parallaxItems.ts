@@ -7,7 +7,7 @@ export function parallaxItems() {
   if (items.length <= 0) return
 
   items.forEach((item: HTMLElement) => {
-    if (item.dataset.parallaxInactiveOnMobile) {
+    if (item.dataset.parallaxInactiveOnMobile !== "true") {
       return
     }
 
