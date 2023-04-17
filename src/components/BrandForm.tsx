@@ -25,9 +25,9 @@ const BrandForm = () => {
   const [currentStep, setCurrentStep] = useState(0)
   const { t, i18n } = useTranslation()
 
-  const [confirmation1, setConfirmation1] = useState(false)
-  const [confirmation2, setConfirmation2] = useState(false)
-  const [confirmation3, setConfirmation3] = useState(false)
+  const [electronicMessage, setElectronicMessage] = useState(false)
+  const [privacyNotice, setPrivacyNotice] = useState(false)
+  const [explicitConsent, setExplicitConsent] = useState(false)
   const [started, setStarted] = useState(false)
   const [end, setEnd] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -69,7 +69,8 @@ const BrandForm = () => {
     initialValues,
     validationSchema: brandFormSchema[currentStep],
     onSubmit: (values) => {
-      const brandForm = { ...values, language: i18n.language }
+      if (!privacyNotice) return
+      const brandForm = { ...values, language: i18n.language, privacyNotice, electronicMessage, explicitConsent }
       handleSubmit(brandForm)
     },
   })
@@ -394,9 +395,45 @@ const BrandForm = () => {
             />
           </div>
           <div className={s.confirmations}>
-            <div className={s.confirmation} onClick={() => setConfirmation1((prev) => !prev)}>
+            <div className={s.confirmation} onClick={() => setPrivacyNotice((prev) => !prev)}>
               <div className={s.checkbox}>
-                <div className={cx(s.inner, { [s.enabled]: confirmation1 })}></div>
+                <div className={cx(s.inner, { [s.enabled]: privacyNotice })}></div>
+              </div>
+              <div className={s.legalText}>
+                {i18n.language === lngs.en.nativeName ? (
+                  <small className={s.small}>
+                    I’ve read and understood the{" "}
+                    <a
+                      href="https://lycheedigital.co/cdn/legal/content-creator/icerik-uretici-formu-kisisel-verilerin-islenmesi.pdf"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className={s.link}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Privacy Notice
+                    </a>
+                    .
+                  </small>
+                ) : (
+                  <small className={s.small}>
+                    <a
+                      href="https://lycheedigital.co/cdn/legal/content-creator/icerik-uretici-formu-kisisel-verilerin-islenmesi.pdf"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className={s.link}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Aydınlatma Metni
+                    </a>
+                    ’ni okudum, anladım.{" "}
+                  </small>
+                )}
+              </div>
+            </div>
+
+            <div className={s.confirmation} onClick={() => setElectronicMessage((prev) => !prev)}>
+              <div className={s.checkbox}>
+                <div className={cx(s.inner, { [s.enabled]: electronicMessage })}></div>
               </div>
               <div className={s.legalText}>
                 {i18n.language === lngs.en.nativeName ? (
@@ -431,45 +468,9 @@ const BrandForm = () => {
               </div>
             </div>
 
-            <div className={s.confirmation} onClick={() => setConfirmation2((prev) => !prev)}>
+            <div className={s.confirmation} onClick={() => setExplicitConsent((prev) => !prev)}>
               <div className={s.checkbox}>
-                <div className={cx(s.inner, { [s.enabled]: confirmation2 })}></div>
-              </div>
-              <div className={s.legalText}>
-                {i18n.language === lngs.en.nativeName ? (
-                  <small className={s.small}>
-                    I’ve read and understood the{" "}
-                    <a
-                      href="https://lycheedigital.co/cdn/legal/content-creator/icerik-uretici-formu-kisisel-verilerin-islenmesi.pdf"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className={s.link}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      Privacy Notice
-                    </a>
-                    .
-                  </small>
-                ) : (
-                  <small className={s.small}>
-                    <a
-                      href="https://lycheedigital.co/cdn/legal/content-creator/icerik-uretici-formu-kisisel-verilerin-islenmesi.pdf"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className={s.link}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      Aydınlatma Metni
-                    </a>
-                    ’ni okudum, anladım.{" "}
-                  </small>
-                )}
-              </div>
-            </div>
-
-            <div className={s.confirmation} onClick={() => setConfirmation3((prev) => !prev)}>
-              <div className={s.checkbox}>
-                <div className={cx(s.inner, { [s.enabled]: confirmation3 })}></div>
+                <div className={cx(s.inner, { [s.enabled]: explicitConsent })}></div>
               </div>
               <div className={s.legalText}>
                 {i18n.language === lngs.en.nativeName ? (
@@ -550,7 +551,7 @@ const BrandForm = () => {
               {currentStep === steps.length - 1 ? (
                 <button
                   className={cx(s.button, s.next, {
-                    [s.disabled]: !confirmation2,
+                    [s.disabled]: !privacyNotice,
                   })}
                   type="submit"
                   form="brandForm"
@@ -560,7 +561,7 @@ const BrandForm = () => {
               ) : (
                 <button
                   className={cx(s.button, s.next, {
-                    [s.sendBtn]: currentStep === steps.length - 1 && confirmation2,
+                    [s.sendBtn]: currentStep === steps.length - 1 && privacyNotice,
                   })}
                   type="submit"
                   form="brandForm"

@@ -1,5 +1,28 @@
 @import "../_global.scss";
 
+.floatingCardTitle {
+  font-size: 3vw;
+  margin-bottom: 2vw;
+
+  @include devicesMax(tablet) {
+    font-size: 4vw;
+  }
+
+  @include devicesMax(mobile) {
+    font-size: 9vw;
+  }
+
+  .normal {
+    display: block;
+    font-family: Lychee;
+  }
+
+  .italic {
+    display: inline-block;
+    font-family: LaicaBItalic;
+  }
+}
+
 .stickyText {
   color: $eigengrau;
   display: inline-block;

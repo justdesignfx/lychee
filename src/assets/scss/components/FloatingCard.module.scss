@@ -17,29 +17,6 @@
     margin: 0 auto;
   }
 
-  .title {
-    font-size: 3vw;
-    margin-bottom: 2vw;
-
-    @include devicesMax(tablet) {
-      font-size: 4vw;
-    }
-
-    @include devicesMax(mobile) {
-      font-size: 9vw;
-    }
-
-    .normal {
-      display: block;
-      font-family: Lychee;
-    }
-
-    .italic {
-      display: block;
-      font-family: LaicaBItalic;
-    }
-  }
-
   .text {
     font-family: Lychee;
     font-size: 1.25vw;
@@ -67,8 +44,8 @@
 
   &.transparent {
     background: rgba(115, 115, 115, 0.3);
-    -webkit-backdrop-filter: blur(44px);
-    backdrop-filter: blur(44px);
+    -webkit-backdrop-filter: blur(28px);
+    backdrop-filter: blur(28px);
     color: #f4f2f2;
   }
 }

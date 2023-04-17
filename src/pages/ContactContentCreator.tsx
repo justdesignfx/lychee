@@ -38,9 +38,9 @@ const ContactContentCreator = () => {
   const navigate = useNavigate()
   const maxPlatforms = 10
 
-  const [confirmation1, setConfirmation1] = useState(false)
-  const [confirmation2, setConfirmation2] = useState(false)
-  const [confirmation3, setConfirmation3] = useState(false)
+  const [electronicMessage, setElectronicMessage] = useState(false)
+  const [privacyNotice, setPrivacyNotice] = useState(false)
+  const [explicitConsent, setExplicitConsent] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [end, setEnd] = useState(false)
 
@@ -57,6 +57,7 @@ const ContactContentCreator = () => {
     },
     validationSchema: contentCreatorSchema,
     onSubmit: (values: IContentCreatorFormUi) => {
+      if (!privacyNotice) return
       prepareAndSubmit(values)
     },
   })
@@ -91,9 +92,21 @@ const ContactContentCreator = () => {
     const filteredSocial = filterSocialPlatforms(values)
 
     formValues = { ...values, socialPlatforms: filteredSocial }
-    console.log({ ...formValues, language: i18n.language })
+    console.log({
+      ...formValues,
+      language: i18n.language,
+      privacyNotice,
+      electronicMessage,
+      explicitConsent,
+    })
 
-    submitForm({ ...formValues, language: i18n.language }).then((res) => {
+    submitForm({
+      ...formValues,
+      language: i18n.language,
+      privacyNotice,
+      electronicMessage,
+      explicitConsent,
+    }).then((res) => {
       if (res.success) {
         setEnd(true)
         formik.resetForm()
@@ -271,9 +284,45 @@ const ContactContentCreator = () => {
             </div>
 
             <div className={s.confirmations}>
-              <div className={s.confirmation} onClick={() => setConfirmation1((prev) => !prev)}>
+              <div className={s.confirmation} onClick={() => setPrivacyNotice((prev) => !prev)}>
                 <div className={s.checkbox}>
-                  <div className={cx(s.inner, { [s.enabled]: confirmation1 })}></div>
+                  <div className={cx(s.inner, { [s.enabled]: privacyNotice })}></div>
+                </div>
+                <div className={s.legalText}>
+                  {i18n.language === lngs.en.nativeName ? (
+                    <small className={s.small}>
+                      I’ve read and understood the{" "}
+                      <a
+                        href="https://lycheedigital.co/cdn/legal/content-creator/icerik-uretici-formu-kisisel-verilerin-islenmesi.pdf"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className={s.link}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Privacy Notice
+                      </a>
+                      .
+                    </small>
+                  ) : (
+                    <small className={s.small}>
+                      <a
+                        href="https://lycheedigital.co/cdn/legal/content-creator/icerik-uretici-formu-kisisel-verilerin-islenmesi.pdf"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className={s.link}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Aydınlatma Metni
+                      </a>
+                      ’ni okudum, anladım.{" "}
+                    </small>
+                  )}
+                </div>
+              </div>
+
+              <div className={s.confirmation} onClick={() => setElectronicMessage((prev) => !prev)}>
+                <div className={s.checkbox}>
+                  <div className={cx(s.inner, { [s.enabled]: electronicMessage })}></div>
                 </div>
                 <div className={s.legalText}>
                   {i18n.language === lngs.en.nativeName ? (
@@ -308,45 +357,9 @@ const ContactContentCreator = () => {
                 </div>
               </div>
 
-              <div className={s.confirmation} onClick={() => setConfirmation2((prev) => !prev)}>
+              <div className={s.confirmation} onClick={() => setExplicitConsent((prev) => !prev)}>
                 <div className={s.checkbox}>
-                  <div className={cx(s.inner, { [s.enabled]: confirmation2 })}></div>
-                </div>
-                <div className={s.legalText}>
-                  {i18n.language === lngs.en.nativeName ? (
-                    <small className={s.small}>
-                      I’ve read and understood the{" "}
-                      <a
-                        href="https://lycheedigital.co/cdn/legal/content-creator/icerik-uretici-formu-kisisel-verilerin-islenmesi.pdf"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        className={s.link}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        Privacy Notice
-                      </a>
-                      .
-                    </small>
-                  ) : (
-                    <small className={s.small}>
-                      <a
-                        href="https://lycheedigital.co/cdn/legal/content-creator/icerik-uretici-formu-kisisel-verilerin-islenmesi.pdf"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        className={s.link}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        Aydınlatma Metni
-                      </a>
-                      ’ni okudum, anladım.{" "}
-                    </small>
-                  )}
-                </div>
-              </div>
-
-              <div className={s.confirmation} onClick={() => setConfirmation3((prev) => !prev)}>
-                <div className={s.checkbox}>
-                  <div className={cx(s.inner, { [s.enabled]: confirmation3 })}></div>
+                  <div className={cx(s.inner, { [s.enabled]: explicitConsent })}></div>
                 </div>
                 <div className={s.legalText}>
                   {i18n.language === lngs.en.nativeName ? (
@@ -386,7 +399,7 @@ const ContactContentCreator = () => {
             <button
               type="submit"
               form="contentCreatorForm"
-              className={cx(s.submitButton, { [s.disabled]: !confirmation2 })}
+              className={cx(s.submitButton, { [s.disabled]: !privacyNotice })}
             >
               {t("contact.contentCreator.sendBtn")}
             </button>

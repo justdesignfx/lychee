@@ -27,13 +27,18 @@ export function textReveal() {
 
   const letters = qAll("[data-letter]")
 
+  const mustSeen = 12
+
   letters.forEach((letter: any, i: number) => {
-    gsap.set(letter, {
-      y: () => `${10 * i}px`,
-      rotation: i * 0.25,
-      opacity: 1 - i * 0.1,
-      willChange: "transform",
-    })
+    let distance = Math.pow(i - mustSeen, 1.8)
+
+    i > mustSeen &&
+      gsap.set(letter, {
+        y: () => `${distance}px`,
+        rotation: distance * 0.025,
+        opacity: Math.max(1 - (i - mustSeen) * 0.1, 0),
+        willChange: "transform",
+      })
   })
 
   const tl = gsap.timeline()

@@ -1,5 +1,28 @@
 @import "../global.scss";
 
+.floatingCardTitle {
+  font-size: 2.75vw;
+  margin-bottom: 2vw;
+
+  @include devicesMax(tablet) {
+    font-size: 4vw;
+  }
+
+  @include devicesMax(mobile) {
+    font-size: 9vw;
+  }
+
+  .normal {
+    display: block;
+    font-family: Lychee;
+  }
+
+  .italic {
+    display: inline-block;
+    font-family: LaicaBItalic;
+  }
+}
+
 .creators {
   padding-top: 5vw;
   position: relative;
@@ -480,6 +503,8 @@
   }
 
   .faces {
+    margin-bottom: 5vw;
+
     display: flex;
     flex-direction: column;
     align-items: center;

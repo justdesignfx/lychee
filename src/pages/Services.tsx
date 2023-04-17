@@ -69,28 +69,52 @@ const Services = () => {
 
   const cards = [
     {
-      title: { p1: "Creative", p2: "Copywrite" },
+      title: (
+        <h5 className={s.floatingCardTitle}>
+          <span className={s.normal}>Creative</span>
+          <span className={s.italic}>Copyrwrite</span>
+        </h5>
+      ),
       text: t("services.sideServices.cards.c1.desc"),
       type: "blue",
     },
     {
-      title: { p1: "Creative", p2: "Illustration" },
+      title: (
+        <h5 className={s.floatingCardTitle}>
+          <span className={s.normal}>Creative</span>
+          <span className={s.italic}>Illustration</span>
+        </h5>
+      ),
       text: t("services.sideServices.cards.c2.desc"),
       type: "transparent",
     },
     {
-      title: { p1: "360°", p2: "Production" },
+      title: (
+        <h5 className={s.floatingCardTitle}>
+          <span className={s.normal}>360°</span>
+          <span className={s.italic}>Production</span>
+        </h5>
+      ),
       text: t("services.sideServices.cards.c3.desc"),
       type: "white",
     },
     {
-      title: { p1: "Event Planning", p2: "& Management" },
+      title: (
+        <h5 className={s.floatingCardTitle}>
+          <span className={s.normal}>Event Planning</span>
+          <span className={s.italic}>& Management</span>
+        </h5>
+      ),
       text: t("services.sideServices.cards.c4.desc"),
       type: "white",
     },
-
     {
-      title: { p1: "Digital Design", p2: "Services" },
+      title: (
+        <h5 className={s.floatingCardTitle}>
+          <span className={s.normal}>Digital Design</span>
+          <span className={s.italic}>Services</span>
+        </h5>
+      ),
       text: t("services.sideServices.cards.c5.desc"),
       type: "blue",
     },

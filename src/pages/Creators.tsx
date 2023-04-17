@@ -43,13 +43,114 @@ const Creators = () => {
     navigate(`/${t("menu.creators.path")}`)
   }, [i18n.language])
 
-  const cards = [
-    { title: { p1: t("creators.why.cards.c1.p1"), p2: t("creators.why.cards.c1.p2") }, type: "blue" },
-    { title: { p1: t("creators.why.cards.c2.p1"), p2: t("creators.why.cards.c2.p2") }, type: "transparent" },
-    { title: { p1: t("creators.why.cards.c3.p1"), p2: t("creators.why.cards.c3.p2") }, type: "white" },
-    { title: { p1: t("creators.why.cards.c4.p1"), p2: t("creators.why.cards.c4.p2") }, type: "blue" },
-    { title: { p1: t("creators.why.cards.c5.p1"), p2: t("creators.why.cards.c5.p2") }, type: "transparent" },
-  ]
+  const cards =
+    i18n.language === lngs.en.nativeName
+      ? [
+          {
+            title: (
+              <h5 className={s.floatingCardTitle}>
+                <span className={s.normal}>Non-Exclusive</span>
+                <span className={s.italic}>Partnership</span>
+              </h5>
+            ),
+            type: "blue",
+          },
+          {
+            title: (
+              <h5 className={s.floatingCardTitle}>
+                <span className={s.normal}>Special</span>
+                <span className={s.normal}>
+                  <span className={s.italic}>Marketing</span> Team
+                </span>
+              </h5>
+            ),
+            type: "transparent",
+          },
+          {
+            title: (
+              <h5 className={s.floatingCardTitle}>
+                <span className={s.normal}>Professional</span>
+                <span className={s.normal}>
+                  <span className={s.italic}>Production</span> Team
+                </span>
+              </h5>
+            ),
+            type: "white",
+          },
+          {
+            title: (
+              <h5 className={s.floatingCardTitle}>
+                <span className={s.normal}>Direct</span>
+                <span className={s.italic}>Payment</span>
+              </h5>
+            ),
+            type: "blue",
+          },
+          {
+            title: (
+              <h5 className={s.floatingCardTitle}>
+                <span className={s.normal}>No Costs</span>
+                <span className={s.normal}>
+                  or <span className={s.italic}>Fees</span>
+                </span>
+              </h5>
+            ),
+            type: "transparent",
+          },
+        ]
+      : [
+          {
+            title: (
+              <h5 className={s.floatingCardTitle}>
+                <span className={s.normal}>Eşit</span>
+                <span className={s.italic}>Partnerlik</span>
+              </h5>
+            ),
+            type: "blue",
+          },
+          {
+            title: (
+              <h5 className={s.floatingCardTitle}>
+                <span className={s.normal}>Özel</span>
+                <span className={s.normal}>
+                  <span className={s.italic}>Marketing</span> Ekibi
+                </span>
+              </h5>
+            ),
+            type: "transparent",
+          },
+          {
+            title: (
+              <h5 className={s.floatingCardTitle}>
+                <span className={s.normal}>Profesyonel</span>
+                <span className={s.normal}>
+                  <span className={s.italic}>Prodüksiyon</span> Ekibi
+                </span>
+              </h5>
+            ),
+            type: "white",
+          },
+          {
+            title: (
+              <h5 className={s.floatingCardTitle}>
+                <span className={s.normal}>Direkt</span>
+                <span className={s.italic}>Ödeme</span>
+              </h5>
+            ),
+            type: "blue",
+          },
+          {
+            title: (
+              <h5 className={s.floatingCardTitle}>
+                <span className={s.normal}>Hiçbir</span>
+                <span className={s.normal}>
+                  <span className={s.italic}>Masraf</span> Yok
+                </span>
+              </h5>
+            ),
+            type: "transparent",
+          },
+        ]
 
   const sliderItems = [
     {
@@ -321,7 +422,6 @@ const Creators = () => {
             external
           />
         </section>
-
         {size.width > breakpoints.mobile ? (
           <section className={s.why} data-floating-items-c>
             {i18n.language === lngs.en.nativeName ? (
