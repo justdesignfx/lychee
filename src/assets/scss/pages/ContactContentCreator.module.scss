@@ -43,6 +43,7 @@
 
   .formC {
     @include dims(37vw, auto);
+    position: relative;
 
     @include devicesMax(tablet) {
       @include dims(55vw, auto);
@@ -128,17 +129,21 @@
           }
         }
       }
+
+      .smallTop {
+        padding-left: $paddingLeft;
+      }
     }
 
-    .error {
-      @include position(absolute, 100%, auto, auto, auto);
-      color: #3b3b3b;
-      font-family: Moderat;
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 160%;
-      margin: 2vw 0;
-    }
+    // .error {
+    //   @include position(absolute, 100%, auto, auto, auto);
+    //   color: #3b3b3b;
+    //   font-family: Moderat;
+    //   font-size: 1rem;
+    //   font-weight: 400;
+    //   line-height: 160%;
+    //   margin: 2vw 0;
+    // }
 
     .smallTop {
       @include position(absolute, -30px, auto, auto, auto);
@@ -197,6 +202,10 @@
         display: flex;
         align-items: center;
 
+        @include devicesMax(tablet) {
+          font-size: 20px;
+        }
+
         @include devicesMax(mobile) {
           font-size: 14px;
         }
@@ -222,6 +231,10 @@
         outline: none;
         padding: 0;
         padding-left: $paddingLeft;
+
+        @include devicesMax(tablet) {
+          font-size: 20px;
+        }
 
         @include devicesMax(mobile) {
           font-size: 14px;
@@ -251,18 +264,28 @@
         @include dims(2rem);
         background: $californiaSunset;
         border-radius: 50%;
+        padding: 8px;
         transform: translateY(-50%);
         transition: 0.4s all ease;
         opacity: 0.5;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include devicesMax(mobile) {
+          @include dims(25px);
+          padding: 5px;
+        }
 
         &:hover {
           opacity: 1;
         }
 
         .iconC {
-          @include position(absolute, 50%, auto, auto, 50%);
-          @include dims(60%);
-          transform: translate(-50%, -50%) rotate(45deg);
+          // @include position(absolute, 50%, auto, auto, 50%);
+          @include dims(100%);
+          transform: rotate(45deg);
         }
       }
     }
@@ -343,12 +366,18 @@
 
       .confirmation {
         $boxDims: 18px;
+        $boxDimsMobile: 14px;
+
         @extend .cursorPointer;
         margin-bottom: 1vw;
 
         display: flex;
         align-items: flex-start;
         justify-content: flex-start;
+
+        @include devicesMax(mobile) {
+          margin-bottom: 4vw;
+        }
 
         .checkbox {
           @include dims($boxDims);
@@ -357,6 +386,10 @@
           flex-shrink: 0;
           margin-top: 0.25vw;
           position: relative;
+
+          @include devicesMax(mobile) {
+            @include dims($boxDimsMobile);
+          }
 
           .inner {
             @extend .absoluteCenter;
@@ -398,6 +431,18 @@
           }
         }
       }
+    }
+
+    .responseMessage {
+      @include position(absolute, 101%, auto, auto, 0);
+      color: #ff0000;
+      font-family: Lychee;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 160%;
+      margin: 0 auto;
+      text-align: left;
+      width: 100%;
     }
   }
 
