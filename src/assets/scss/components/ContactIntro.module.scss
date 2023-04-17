@@ -1,7 +1,7 @@
 @import "../_global.scss";
 
 .contactIntro {
-  @include dims(100vw, calc(100vh - $headerHeight));
+  @include dims(100vw, 100vh);
 
   display: flex;
   align-items: center;

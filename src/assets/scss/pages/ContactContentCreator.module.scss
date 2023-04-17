@@ -155,7 +155,7 @@
       white-space: nowrap;
 
       @include devicesMax(tablet) {
-        @include position(absolute, -30px, auto, auto, auto);
+        @include position(absolute, -36px, auto, auto, auto);
       }
 
       @include devicesMax(mobile) {
@@ -349,6 +349,8 @@
 
         @include devicesMax(tablet) {
           @include dims(100%, 10vw);
+          font-size: 20px;
+          padding: 12px;
         }
 
         @include devicesMax(mobile) {
@@ -443,6 +445,10 @@
       margin: 0 auto;
       text-align: left;
       width: 100%;
+
+      @include devicesMax(tablet) {
+        font-size: 14px;
+      }
     }
   }
 

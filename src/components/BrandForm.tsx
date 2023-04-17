@@ -4,29 +4,30 @@ import s from "~/assets/scss/components/BrandForm.module.scss"
 import axios from "axios"
 import cx from "classnames"
 import { useFormik } from "formik"
-import gsap from "gsap"
 import { AnimatePresence, motion } from "framer-motion"
-import { Link } from "react-router-dom"
+import gsap from "gsap"
+import { useTranslation } from "react-i18next"
 
 import Dropdown from "./Dropdown"
-import PrivacyPolicyText from "./PrivacyPolicyText"
-
+import api from "~/api"
+import { qAll } from "~/utils"
 import brandFormModel from "~/validations/BrandForm/brandFormModel"
 import brandFormSchema from "~/validations/BrandForm/brandFormSchema"
 import { initialValues } from "~/validations/BrandForm/initialValues"
+import { lngs } from "~/variables"
+import FormEndScreen from "./FormEndScreen"
 
 const { formId, formField } = brandFormModel
-import api from "~/api"
-import { qAll } from "~/utils"
-import { useTranslation } from "react-i18next"
 
 const BrandForm = () => {
   const formRef = useRef<HTMLFormElement>(null)
   const brandFormRef = useRef<HTMLDivElement>(null)
   const [currentStep, setCurrentStep] = useState(0)
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
-  const [privacyConfirmed, setPrivacyConfirmed] = useState(false)
+  const [confirmation1, setConfirmation1] = useState(false)
+  const [confirmation2, setConfirmation2] = useState(false)
+  const [confirmation3, setConfirmation3] = useState(false)
   const [started, setStarted] = useState(false)
   const [end, setEnd] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -68,7 +69,8 @@ const BrandForm = () => {
     initialValues,
     validationSchema: brandFormSchema[currentStep],
     onSubmit: (values) => {
-      handleSubmit(values)
+      const brandForm = { ...values, language: i18n.language }
+      handleSubmit(brandForm)
     },
   })
 
@@ -80,10 +82,6 @@ const BrandForm = () => {
     } else if (e.type === "blur" && e) {
       e.target.labels[0].style.opacity = "1"
     }
-  }
-
-  function handleConfirmation() {
-    setPrivacyConfirmed((prev) => !prev)
   }
 
   function handleSocial(type: string) {
@@ -376,16 +374,7 @@ const BrandForm = () => {
       question: "Son olarak kampanyanız için planladığınız bütçenizi belirtiniz.",
       ui: (
         <>
-          <div className={cx(s.inputC, s.dropdownC)}>
-            <label
-              className={cx(s.label, {
-                [s.hidden]: formik.values.range,
-              })}
-              htmlFor="budgetRange"
-            >
-              {formik.values.range}
-            </label>
-
+          <div className={cx(s.inputC, s.dropdownC, { [s.required]: formik.errors.budget && formik.touched.budget })}>
             <Dropdown
               defaultValue={budgetRanges[0]}
               options={budgetRanges}
@@ -394,11 +383,117 @@ const BrandForm = () => {
               label={"Aralık Seçiniz*"}
             />
           </div>
-          <div className={s.confirmation}>
-            <div className={s.checkbox} onClick={handleConfirmation}>
-              <div className={cx(s.inner, { [s.enabled]: privacyConfirmed })}></div>
+          <div className={s.confirmations}>
+            <div className={s.confirmation} onClick={() => setConfirmation1((prev) => !prev)}>
+              <div className={s.checkbox}>
+                <div className={cx(s.inner, { [s.enabled]: confirmation1 })}></div>
+              </div>
+              <div className={s.legalText}>
+                {i18n.language === lngs.en.nativeName ? (
+                  <small className={s.small}>
+                    I want to receive commercial electronic messages within the scope of the{" "}
+                    <a
+                      href="https://lycheedigital.co/cdn/legal/ticari-elektronik-ileti-onay-formu.pdf"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className={s.link}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Commercial Electronic Message Consent Form
+                    </a>{" "}
+                    to be informed about services and campaigns.{" "}
+                  </small>
+                ) : (
+                  <small className={s.small}>
+                    Hizmetlerden ve kampanyalardan haberdar olmak için{" "}
+                    <a
+                      href="https://lycheedigital.co/cdn/legal/ticari-elektronik-ileti-onay-formu.pdf"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className={s.link}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Ticari Elektronik İleti Onay Formu
+                    </a>{" "}
+                    kapsamında elektronik ileti almak istiyorum.{" "}
+                  </small>
+                )}
+              </div>
             </div>
-            <PrivacyPolicyText setConfirmation={handleConfirmation} />
+
+            <div className={s.confirmation} onClick={() => setConfirmation2((prev) => !prev)}>
+              <div className={s.checkbox}>
+                <div className={cx(s.inner, { [s.enabled]: confirmation2 })}></div>
+              </div>
+              <div className={s.legalText}>
+                {i18n.language === lngs.en.nativeName ? (
+                  <small className={s.small}>
+                    I’ve read and understood the{" "}
+                    <a
+                      href="https://lycheedigital.co/cdn/legal/content-creator/icerik-uretici-formu-kisisel-verilerin-islenmesi.pdf"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className={s.link}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Privacy Notice
+                    </a>
+                    .
+                  </small>
+                ) : (
+                  <small className={s.small}>
+                    <a
+                      href="https://lycheedigital.co/cdn/legal/content-creator/icerik-uretici-formu-kisisel-verilerin-islenmesi.pdf"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className={s.link}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Aydınlatma Metni
+                    </a>
+                    ’ni okudum, anladım.{" "}
+                  </small>
+                )}
+              </div>
+            </div>
+
+            <div className={s.confirmation} onClick={() => setConfirmation3((prev) => !prev)}>
+              <div className={s.checkbox}>
+                <div className={cx(s.inner, { [s.enabled]: confirmation3 })}></div>
+              </div>
+              <div className={s.legalText}>
+                {i18n.language === lngs.en.nativeName ? (
+                  <small className={s.small}>
+                    I accept that my personal data may be transferred to third parties and abroad by Lychee Digital
+                    within the scope of the{" "}
+                    <a
+                      href="https://lycheedigital.co/cdn/legal/content-creator/icerik-uretici-formu-acik-riza-metni.pdf"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className={s.link}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Explicit Consent Statement
+                    </a>
+                    .
+                  </small>
+                ) : (
+                  <small className={s.small}>
+                    Kişisel Verilerimin Lychee Digital tarafından{" "}
+                    <a
+                      href="https://lycheedigital.co/cdn/legal/content-creator/icerik-uretici-formu-acik-riza-metni.pdf"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className={s.link}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Açık Rıza Metni
+                    </a>{" "}
+                    kapsamında üçüncü kişilere ve yurt dışına aktarılabileceğini kabul ediyorum.
+                  </small>
+                )}
+              </div>
+            </div>
           </div>
         </>
       ),
@@ -445,7 +540,7 @@ const BrandForm = () => {
               {currentStep === steps.length - 1 ? (
                 <button
                   className={cx(s.button, s.next, {
-                    [s.disabled]: !privacyConfirmed,
+                    [s.disabled]: !confirmation2,
                   })}
                   type="submit"
                   form="brandForm"
@@ -455,7 +550,7 @@ const BrandForm = () => {
               ) : (
                 <button
                   className={cx(s.button, s.next, {
-                    [s.sendBtn]: currentStep === steps.length - 1 && privacyConfirmed,
+                    [s.sendBtn]: currentStep === steps.length - 1 && confirmation2,
                   })}
                   type="submit"
                   form="brandForm"
@@ -500,7 +595,9 @@ const BrandForm = () => {
         </>
       )}
 
-      <AnimatePresence>
+      <FormEndScreen end={end} />
+
+      {/* <AnimatePresence>
         {end && (
           <motion.div
             className={s.formEnd}
@@ -521,7 +618,7 @@ const BrandForm = () => {
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </div>
   )
 }
