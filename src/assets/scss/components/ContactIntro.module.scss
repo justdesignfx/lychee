@@ -24,6 +24,17 @@
       line-height: 130%;
       margin-bottom: 2vw;
 
+      @include devicesMax(tablet) {
+        @include dims(60vw, auto);
+        font-size: 6.5vw;
+      }
+
+      @include devicesMax(mobile) {
+        @include dims(90vw, auto);
+        font-size: 9.5vw;
+        margin-bottom: 5vw;
+      }
+
       .italic {
         color: #2d00f5;
         font-family: LaicaBItalic;
@@ -36,6 +47,18 @@
       font-family: Lychee;
       font-size: 1.5vw;
       line-height: 150%;
+
+      @include devicesMax(tablet) {
+        @include dims(60vw, auto);
+        font-size: 2.5vw;
+        margin-bottom: 5vw;
+      }
+
+      @include devicesMax(mobile) {
+        @include dims(90vw, auto);
+        font-size: 4vw;
+        line-height: 160%;
+      }
     }
   }
 
@@ -44,6 +67,10 @@
     align-items: center;
     justify-content: center;
     column-gap: 2vw;
+
+    @include devicesMax(mobile) {
+      flex-direction: column;
+    }
 
     .button {
       @include dims(20vw, 4vw);
@@ -57,6 +84,18 @@
 
       display: grid;
       place-items: center;
+
+      @include devicesMax(tablet) {
+        @include dims(32vw, 6.5vw);
+        font-size: 2.5vw;
+      }
+
+      @include devicesMax(mobile) {
+        @include dims(55vw, 12vw);
+        border: 1px solid #ce1953;
+        font-size: 4vw;
+        margin-bottom: 5vw;
+      }
     }
   }
 

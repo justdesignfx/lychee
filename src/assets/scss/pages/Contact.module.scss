@@ -1,8 +1,12 @@
 @import "../_global.scss";
 
 .contact {
-  position: relative;
   @include dims(100%, 100vh);
+  position: relative;
+
+  @include devicesMax(mobile) {
+    @include dims(100%, auto);
+  }
 
   // .textC {
   //   margin: 0 auto 3vw auto;
@@ -54,6 +58,14 @@
     z-index: 10;
     filter: blur(8px);
 
+    @include devicesMax(tablet) {
+      @include dims(18vw, 27vw);
+    }
+
+    @include devicesMax(mobile) {
+      display: none;
+    }
+
     .img {
       @include dims(100%);
       display: block;
@@ -77,11 +89,19 @@
     &.left {
       @include position(absolute, 10vw, auto, auto, 5vw);
       transform: rotate(-23deg);
+
+      @include devicesMax(tablet) {
+        @include position(absolute, 20vw, auto, auto, 7vw);
+      }
     }
 
     &.right {
       @include position(absolute, 20vw, auto, auto, 80vw);
       transform: rotate(21deg);
+
+      @include devicesMax(tablet) {
+        @include position(absolute, 95vw, auto, auto, 70vw);
+      }
     }
   }
 }

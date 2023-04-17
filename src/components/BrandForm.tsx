@@ -50,10 +50,10 @@ const BrandForm = () => {
   }, [started])
 
   const budgetRanges = [
-    { id: "1", title: "25k ₺'den az" },
-    { id: "2", title: "25k ₺ - 50k ₺" },
-    { id: "3", title: "50k ₺ - 75k ₺" },
-    { id: "4", title: "75k ₺'den fazla" },
+    { id: "1", title: t("contact.brandForm.form.inputs.budget.options.o1") },
+    { id: "2", title: t("contact.brandForm.form.inputs.budget.options.o2") },
+    { id: "3", title: t("contact.brandForm.form.inputs.budget.options.o3") },
+    { id: "4", title: t("contact.brandForm.form.inputs.budget.options.o4") },
   ]
 
   const social = [
@@ -62,7 +62,7 @@ const BrandForm = () => {
     { ui: "Tiktok", type: "TIKTOK" },
     { ui: "Instagram", type: "INSTAGRAM" },
     { ui: "Facebook", type: "FACEBOOK" },
-    { ui: "Diğer", type: "OTHER" },
+    { ui: t("contact.brandForm.form.inputs.socialPlatform.other"), type: "OTHER" },
   ]
 
   const formik = useFormik({
@@ -191,7 +191,7 @@ const BrandForm = () => {
 
   const steps = [
     {
-      question: "Öncelikle sizi tanımak istiyoruz. Aşağıdaki bilgileri doldurabilir misiniz?",
+      question: t("contact.brandForm.form.questions.q1"),
       ui: (
         <>
           <div className={cx(s.inputC, { [s.required]: formik.errors.name && formik.touched.name })}>
@@ -201,7 +201,7 @@ const BrandForm = () => {
               })}
               htmlFor={formField.name.name}
             >
-              {formField.name.label}
+              {t("contact.brandForm.form.inputs.name")}*
             </label>
             <input
               className={s.input}
@@ -222,7 +222,7 @@ const BrandForm = () => {
               })}
               htmlFor={formField.email.name}
             >
-              {formField.email.label}
+              {t("contact.brandForm.form.inputs.email")}*
             </label>
             <input
               className={s.input}
@@ -239,7 +239,7 @@ const BrandForm = () => {
       ),
     },
     {
-      question: "Şirketiniz / markanız hakkında bilgi verebilir misiniz?",
+      question: t("contact.brandForm.form.questions.q2"),
       ui: (
         <>
           <div className={cx(s.inputC, { [s.required]: formik.errors.company && formik.touched.company })}>
@@ -249,7 +249,7 @@ const BrandForm = () => {
               })}
               htmlFor={formField.company.name}
             >
-              {formField.company.label}
+              {t("contact.brandForm.form.inputs.company")}*
             </label>
             <input
               className={s.input}
@@ -274,9 +274,19 @@ const BrandForm = () => {
               })}
               htmlFor={formField.websiteUrl.name}
             >
-              {formField.websiteUrl.label}
+              {t("contact.brandForm.form.inputs.website")}*
             </label>
-            <div className={s.withPre}>
+            <input
+              className={s.input}
+              id={formField.websiteUrl.name}
+              name={formField.websiteUrl.name}
+              type="text"
+              onFocus={handleFocus}
+              onBlur={handleFocus}
+              onChange={formik.handleChange}
+              value={formik.values.websiteUrl}
+            />
+            {/* <div className={s.withPre}>
               <p className={s.pre}>https://</p>
               <input
                 className={s.input}
@@ -288,7 +298,7 @@ const BrandForm = () => {
                 onChange={formik.handleChange}
                 value={formik.values.websiteUrl}
               />
-            </div>
+            </div> */}
           </div>
 
           <div className={cx(s.inputC, { [s.required]: formik.errors.role && formik.touched.role })}>
@@ -298,7 +308,7 @@ const BrandForm = () => {
               })}
               htmlFor={formField.role.name}
             >
-              {formField.role.label}
+              {t("contact.brandForm.form.inputs.position")}*
             </label>
             <input
               className={s.input}
@@ -315,7 +325,7 @@ const BrandForm = () => {
       ),
     },
     {
-      question: "Şirketiniz / markanız için oluşturmak istediğiniz kampanyayı kısaca anlatınız.",
+      question: t("contact.brandForm.form.questions.q3"),
       ui: (
         <>
           <div
@@ -324,7 +334,7 @@ const BrandForm = () => {
             })}
           >
             <label className={s.label} htmlFor={formField.message.name}>
-              Message
+              {t("contact.brandForm.form.inputs.message")}*
             </label>
             <textarea
               className={s.textarea}
@@ -338,14 +348,14 @@ const BrandForm = () => {
       ),
     },
     {
-      question: "Bitirmek üzereyiz. Kampanyanızın yayınlanmasını istediğiniz sosyal medya platformlarını seçiniz.",
+      question: t("contact.brandForm.form.questions.q4"),
       ui: (
         <>
           <div
             className={cx(s.socialC, { [s.required]: formik.errors.socialPlatforms && formik.touched.socialPlatforms })}
           >
             <label className={s.label} htmlFor="message">
-              Birden fazla seçebilirsiniz
+              {t("contact.brandForm.form.inputs.socialPlatform.moreThanOne")}
             </label>
             <div className={s.radioC}>
               {social.map((platform, i) => {
@@ -371,7 +381,7 @@ const BrandForm = () => {
       ),
     },
     {
-      question: "Son olarak kampanyanız için planladığınız bütçenizi belirtiniz.",
+      question: t("contact.brandForm.form.questions.q5"),
       ui: (
         <>
           <div className={cx(s.inputC, s.dropdownC, { [s.required]: formik.errors.budget && formik.touched.budget })}>
@@ -380,7 +390,7 @@ const BrandForm = () => {
               options={budgetRanges}
               onChange={handleRange}
               selectedOption={formik.values.budget}
-              label={"Aralık Seçiniz*"}
+              label={`${t("contact.brandForm.form.inputs.budget.label")}*`}
             />
           </div>
           <div className={s.confirmations}>
@@ -545,7 +555,7 @@ const BrandForm = () => {
                   type="submit"
                   form="brandForm"
                 >
-                  Formu Gönder
+                  {t("contact.brandForm.form.buttons.send")}
                 </button>
               ) : (
                 <button
@@ -555,7 +565,7 @@ const BrandForm = () => {
                   type="submit"
                   form="brandForm"
                 >
-                  Sonraki Adım
+                  {t("contact.brandForm.form.buttons.nextStep")}
                 </button>
               )}
             </div>
@@ -581,7 +591,7 @@ const BrandForm = () => {
                 className={cx(s.button, s.prev, { [s.show]: currentStep > 0 })}
                 onClick={() => handleNavigation("PREV")}
               >
-                Önceki Adım
+                {t("contact.brandForm.form.buttons.prevStep")}
               </button>
             </div>
 

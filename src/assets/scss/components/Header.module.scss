@@ -39,6 +39,10 @@
       filter: blur(8px);
       transform: translate(-60%, -50%);
       z-index: -1;
+
+      @include devicesMax(mobile) {
+        @include dims(2.25rem);
+      }
     }
   }
 }

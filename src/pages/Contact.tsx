@@ -1,9 +1,7 @@
 import s from "~/assets/scss/pages/Contact.module.scss"
-import { useEffect } from "react"
 
 import cx from "classnames"
-import { Outlet, useNavigate } from "react-router-dom"
-import { useTranslation } from "react-i18next"
+import { Outlet } from "react-router-dom"
 
 import nescafe from "~/assets/img/nescafe.jpg"
 import pink from "~/assets/img/sample.png"

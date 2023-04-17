@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import s from "~/assets/scss/pages/ContactBrand.module.scss"
 
+import { useTranslation } from "react-i18next"
 import { Link, useNavigate } from "react-router-dom"
 
 import BrandForm from "~/components/BrandForm"
-
-import cx from "classnames"
-import { useTranslation } from "react-i18next"
 
 const ContactBrand = () => {
   const navigate = useNavigate()
@@ -27,10 +25,11 @@ const ContactBrand = () => {
       </div> */}
 
       <BrandForm />
+
       <small className={s.linkC} data-hide-on-form-start>
-        İçerik üreticisi misiniz?{" "}
-        <Link className={s.link} to="/contact/content-creator">
-          Hemen başlayın.
+        {t("contact.brandForm.button.text")}{" "}
+        <Link className={s.link} to={`/${t("contact.brandForm.button.link.path")}`}>
+          {t("contact.brandForm.button.link.ui")}
         </Link>{" "}
       </small>
     </main>

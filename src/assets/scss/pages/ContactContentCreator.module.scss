@@ -256,7 +256,8 @@
       }
 
       &.required {
-        border: 1px solid #ce1953;
+        // border: 1px solid #ce1953;
+        box-shadow: #ce1953 0px 0px 0px 1px;
       }
 
       .deleteBtn {

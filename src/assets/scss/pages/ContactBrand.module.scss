@@ -2,6 +2,7 @@
 
 .contactBrand {
   @include dims(100%);
+  min-height: 100vh;
 
   display: flex;
   flex-direction: column;
@@ -67,6 +68,10 @@
     font-family: Lychee;
     font-size: 1.25rem;
     line-height: 150%;
+
+    @include devicesMax(mobile) {
+      display: none;
+    }
 
     .link {
       color: #ce1953;

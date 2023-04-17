@@ -1,19 +1,5 @@
 export const en = {
   translation: {
-    routes: {
-      creators: "creators",
-      brands: "brands",
-      services: "services",
-      partners: "partners",
-      about: "about",
-      contact: {
-        path: "contact",
-        children: {
-          brand: "brand",
-          creator: "creator",
-        },
-      },
-    },
     menu: {
       creators: {
         ui: "Creators",
@@ -379,6 +365,51 @@ export const en = {
           },
         },
       },
+      brandForm: {
+        intro: {
+          title: "Welcome to the future of digital advertising.",
+          text: "It's time to learn about your brand vision, campaign, and dreams now.",
+          button: "Start Now",
+        },
+        form: {
+          title: "BRAND APPLICATION FORM",
+          questions: {
+            q1: "First of all, we would like to get to know you. Could you please fill in the information below?",
+            q2: "Can you provide information about your company/brand?",
+            q3: "Please briefly describe the campaign you want to create for your company/brand.",
+            q4: "Almost done. Please select the social media platforms on which you want your campaign to be published.",
+            q5: "Final question, please specify the budget you have planned for your campaign.",
+          },
+          inputs: {
+            name: "Name Surname",
+            email: "Email",
+            company: "Company / Brand Name",
+            website: "Website Link",
+            position: "Your Position Within The Company / Brand",
+            message: "Message",
+            budget: {
+              label: "Choose range",
+              options: { o1: "Less than 25k ₺", o2: "25k ₺ - 50k ₺", o3: "50k ₺ - 75k ₺", o4: "More than 75k ₺" },
+            },
+            socialPlatform: {
+              other: "Other",
+              moreThanOne: "You can make multiple selections",
+            },
+          },
+          buttons: {
+            nextStep: "Next Step",
+            prevStep: "Pevious Step",
+            send: "Send",
+          },
+        },
+        button: {
+          text: "Are you a content creator?",
+          link: {
+            ui: "Start now.",
+            path: "contact/content-creator",
+          },
+        },
+      },
     },
     footer: {
       address: "Address",
@@ -386,11 +417,11 @@ export const en = {
         allRights: "© 2023 Lychee. All rights reserved.",
         privacyAndCookie: {
           text: "Privacy & Cookie Policy",
-          path: "https://paternagroup.com/content/en/gizlilik-ve-cerez-politikasi.pdf",
+          path: "https://lycheedigital.co/cdn/legal/ilgili-kisi-basvuru-formu.pdf",
         },
         personalData: {
           text: "Personal Data Concern Form",
-          path: "https://paternagroup.com/content/en/gizlilik-ve-cerez-politikasi.pdf",
+          path: "https://lycheedigital.co/cdn/legal/ilgili-kisi-basvuru-formu.pdf",
         },
       },
       links: {
@@ -442,13 +473,6 @@ export const en = {
       creators: {
         path: "creators",
         ui: "Creators",
-      },
-    },
-    privacyPolicy: {
-      text: "I consent to the processing of my personal data within the scope of",
-      link: {
-        text: "Personal Data Protection and Sharing Information.",
-        path: "https://paternagroup.com/content/tr/gizlilik-ve-cerez-politikasi.pdf",
       },
     },
     titleAndDesc: {

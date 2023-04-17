@@ -4,6 +4,7 @@
   $fontSize: 1.25rem;
   $fontSizeMobile: 1rem;
   $paddingLeft: 1.25rem;
+  @include dims(100%);
 
   position: relative;
 
@@ -18,17 +19,36 @@
     font-family: LS-VG5000;
     margin-bottom: 0.5vw;
     opacity: 1;
+    padding-bottom: 0.1ch;
     pointer-events: auto;
     transition: 0.4s all ease;
 
     display: grid;
     place-items: center;
 
+    @include devicesMax(tablet) {
+      @include dims(32vw, 7vw);
+      margin-bottom: 4vw;
+    }
+
+    @include devicesMax(mobile) {
+      @include dims(50vw, 12vw);
+      margin-bottom: 4vw;
+    }
+
     &.next {
       border: 1px solid #ce1953;
       border-radius: 36px;
       color: #ce1953;
       font-size: 1.5vw;
+
+      @include devicesMax(tablet) {
+        font-size: 3vw;
+      }
+
+      @include devicesMax(mobile) {
+        font-size: 4.5vw;
+      }
     }
 
     &.prev {
@@ -61,12 +81,17 @@
 
   .bottom {
     @include position(absolute, auto, auto, 0, auto);
-    @include dims(100%, auto);
-    margin: 0 0 8% 0;
+    @include dims(40vw, auto);
+    margin: 0 0 4% 0;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include devicesMax(mobile) {
+      @include dims(100vw, auto);
+      margin: 0;
+    }
 
     .prevButton {
       margin-top: auto;
@@ -79,6 +104,10 @@
       position: relative;
       margin: 0 3vw 0 3vw;
       overflow: hidden;
+
+      @include devicesMax(mobile) {
+        border-radius: 0;
+      }
 
       .progress {
         @include position(absolute, 0, auto, 0, 0);
@@ -98,6 +127,16 @@
     line-height: 160%;
     margin-bottom: 2vw;
     text-align: center;
+
+    @include devicesMax(tablet) {
+      font-size: 2.25vw;
+      margin-bottom: 4vw;
+    }
+
+    @include devicesMax(mobile) {
+      font-size: 3.75vw;
+      margin-bottom: 10vw;
+    }
   }
 
   .formIntro {
@@ -115,6 +154,18 @@
       line-height: 120%;
       text-align: center;
 
+      @include devicesMax(tablet) {
+        @include dims(60vw, auto);
+        font-size: 6vw;
+        margin-bottom: 4vw;
+      }
+
+      @include devicesMax(mobile) {
+        @include dims(90vw, auto);
+        font-size: 8vw;
+        margin-bottom: 5vw;
+      }
+
       .italic {
         font-family: LaicaBItalic;
       }
@@ -122,7 +173,6 @@
 
     .text {
       @include dims(40vw, auto);
-
       color: #c8c8c8;
       font-family: Lychee;
       font-size: 1.25vw;
@@ -130,6 +180,17 @@
       line-height: 160%;
       margin-bottom: 3vw;
       text-align: center;
+
+      @include devicesMax(tablet) {
+        @include dims(60vw, auto);
+        font-size: 3vw;
+      }
+
+      @include devicesMax(mobile) {
+        @include dims(90vw, auto);
+        font-size: 4vw;
+        margin-bottom: 5vw;
+      }
     }
   }
 
@@ -139,6 +200,11 @@
 
     display: flex;
     flex-direction: column;
+
+    @include devicesMax(mobile) {
+      margin-top: 35vw;
+      margin-bottom: 35vw;
+    }
 
     .responseMessage {
       @include position(absolute, 100%, auto, auto, 50%);
@@ -155,8 +221,17 @@
   }
 
   .formC {
-    @include dims(37vw, 22vw);
+    @include dims(37vw, 25vw);
     position: relative;
+
+    @include devicesMax(tablet) {
+      @include dims(60vw, 55vw);
+    }
+
+    @include devicesMax(mobile) {
+      @include dims(90vw, auto);
+      margin-bottom: 10vw;
+    }
   }
 
   .title {
@@ -167,25 +242,28 @@
     line-height: 100%;
     margin: 0 auto;
     margin-bottom: 1.5vw;
+
+    @include devicesMax(tablet) {
+      font-size: 2.5vw;
+      margin-bottom: 4vw;
+    }
+
+    @include devicesMax(mobile) {
+      font-size: 4vw;
+      margin-bottom: 5vw;
+    }
   }
 
   .form {
     @include position(absolute, 0, 0, 0, 0);
+    @include dims(100%);
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    @include devicesMax(tablet) {
-      @include dims(45vw, auto);
-      margin: 5vw 3vw 7vw 2vw;
-    }
-
     @include devicesMax(mobile) {
-      @include dims(100%, auto);
-      margin: 0;
-      order: 2;
-      padding-bottom: 20vw;
+      @include position(relative, auto, auto, auto, auto);
     }
 
     .row {
@@ -213,11 +291,12 @@
       }
 
       @include devicesMax(tablet) {
-        @include dims(100%, 5.5vw);
+        @include dims(100%, 6.5vw);
+        margin-bottom: 2.5vw;
       }
 
       @include devicesMax(mobile) {
-        @include dims(100%, 14vw);
+        @include dims(100%, 12.5vw);
         margin-bottom: 4vw;
       }
 
@@ -260,6 +339,14 @@
           transition: 0s;
           @extend .hide;
         }
+
+        @include devicesMax(tablet) {
+          font-size: 20px;
+        }
+
+        @include devicesMax(mobile) {
+          font-size: 14px;
+        }
       }
 
       .input {
@@ -277,6 +364,14 @@
         background: none;
         border: none;
         outline: none;
+
+        @include devicesMax(tablet) {
+          font-size: 20px;
+        }
+
+        @include devicesMax(mobile) {
+          font-size: 14px;
+        }
       }
 
       .iconW {
@@ -309,10 +404,19 @@
 
       &.dropdownC {
         width: 20vw;
+
+        @include devicesMax(tablet) {
+          width: 30vw;
+        }
+
+        @include devicesMax(mobile) {
+          width: 60vw;
+        }
       }
 
       &.required {
-        border: 1px solid #ce1953;
+        // border: 1px solid #ce1953;
+        box-shadow: #ce1953 0px 0px 0px 1px;
       }
     }
 
@@ -330,14 +434,17 @@
       justify-content: flex-start;
 
       @include devicesMax(tablet) {
-        @include dims(100%, 14vw);
+        @include dims(100%, 30vw);
         margin-bottom: 3vw;
       }
 
       @include devicesMax(mobile) {
-        @include dims(100%, 35vw);
+        @include dims(100%, 40vw);
+        border-radius: 16px;
         margin-bottom: 6vw;
         margin-top: 5vw;
+        gap: 0.5rem;
+        padding: 1rem;
       }
 
       .label {
@@ -349,14 +456,17 @@
         font-weight: 400;
         line-height: 100%;
 
+        @include devicesMax(tablet) {
+          font-size: 20px;
+        }
+
         @include devicesMax(mobile) {
-          font-size: $fontSizeMobile;
-          margin-bottom: 2vw;
+          font-size: 14px;
         }
       }
 
       .textarea {
-        @include dims(100%, auto);
+        @include dims(100%);
         color: $stonewallGrey;
         font-family: Lychee;
         font-size: 1.25rem;
@@ -370,49 +480,50 @@
         flex: 1;
 
         @include devicesMax(tablet) {
-          @include dims(100%, 10vw);
+          font-size: 20px;
         }
 
         @include devicesMax(mobile) {
-          @include dims(100%, 30vw);
+          font-size: 14px;
         }
       }
 
       &.required {
-        border: 1px solid #ce1953;
+        // border: 1px solid #ce1953;
+        box-shadow: #ce1953 0px 0px 0px 1px;
       }
     }
 
-    .confirmation {
-      $boxDims: 20px;
-      @extend .cursorPointer;
+    // .confirmation {
+    //   $boxDims: 20px;
+    //   @extend .cursorPointer;
 
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
+    //   display: flex;
+    //   align-items: flex-start;
+    //   justify-content: flex-start;
 
-      .checkbox {
-        @include dims($boxDims);
-        border: 1px solid #cfcfcf;
-        border-radius: 4px;
-        flex-shrink: 0;
-        margin-top: 0.25vw;
-        position: relative;
+    //   .checkbox {
+    //     @include dims($boxDims);
+    //     border: 1px solid #cfcfcf;
+    //     border-radius: 4px;
+    //     flex-shrink: 0;
+    //     margin-top: 0.25vw;
+    //     position: relative;
 
-        .inner {
-          @extend .absoluteCenter;
-          @include dims(calc($boxDims - 6px));
-          background: #cfcfcf;
-          border-radius: 2px;
-          transition: 0.3s all ease;
-          @extend .hide;
+    //     .inner {
+    //       @extend .absoluteCenter;
+    //       @include dims(calc($boxDims - 6px));
+    //       background: #cfcfcf;
+    //       border-radius: 2px;
+    //       transition: 0.3s all ease;
+    //       @extend .hide;
 
-          &.enabled {
-            @extend .show;
-          }
-        }
-      }
-    }
+    //       &.enabled {
+    //         @extend .show;
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   .socialC {
@@ -431,18 +542,32 @@
       text-align: center;
       transition: 0.4s all ease;
 
+      @include devicesMax(tablet) {
+        font-size: 1rem;
+        margin-bottom: 2vw;
+      }
+
       @include devicesMax(mobile) {
         font-size: $fontSizeMobile;
-        margin-bottom: 2vw;
+        margin-bottom: 4vw;
       }
     }
 
     .radioC {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      // display: flex;
+      // align-items: center;
+      // justify-content: space-between;
+      // flex-wrap: wrap;
+      // gap: 1.5vw 0.5vw;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5vw 0.5vw;
+
+      @include devicesMax(mobile) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4vw;
+      }
 
       .radio {
         @include dims(11vw, 3.5vw);
@@ -454,11 +579,40 @@
         align-items: center;
         justify-content: space-between;
 
-        &:hover,
+        @include devicesMax(tablet) {
+          @include dims(18vw, 6vw);
+        }
+
+        @include devicesMax(mobile) {
+          @include dims(35vw, 12vw);
+          padding: 2vw;
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            .check {
+              @include dims(2.5vw);
+              background: #ce1953;
+
+              @include devicesMax(tablet) {
+                @include dims(4vw);
+              }
+            }
+          }
+        }
+
         &.active {
           .check {
             @include dims(2.5vw);
             background: #ce1953;
+
+            @include devicesMax(tablet) {
+              @include dims(4vw);
+            }
+
+            @include devicesMax(mobile) {
+              @include dims(5vw);
+            }
           }
         }
 
@@ -471,6 +625,16 @@
           opacity: 1;
           padding-left: $paddingLeft;
           transition: 0.4s all ease;
+
+          @include devicesMax(tablet) {
+            font-size: 2vw;
+            padding-left: 1rem;
+          }
+
+          @include devicesMax(mobile) {
+            font-size: 4.5vw;
+            padding-left: 0.75rem;
+          }
         }
 
         .check {
@@ -478,6 +642,14 @@
           background: #6c6c7a;
           border-radius: 50%;
           transition: 0.4s all ease;
+
+          @include devicesMax(tablet) {
+            @include dims(4vw);
+          }
+
+          @include devicesMax(mobile) {
+            @include dims(5vw);
+          }
         }
       }
     }
@@ -492,6 +664,10 @@
   .confirmations {
     margin-top: auto;
 
+    @include devicesMax(mobile) {
+      margin-top: 10vw;
+    }
+
     .confirmation {
       $boxDims: 18px;
       $boxDimsMobile: 14px;
@@ -505,6 +681,7 @@
 
       @include devicesMax(mobile) {
         margin-bottom: 4vw;
+        margin-top: 4vw;
       }
 
       .checkbox {
@@ -517,6 +694,7 @@
 
         @include devicesMax(mobile) {
           @include dims($boxDimsMobile);
+          margin-top: 1vw;
         }
 
         .inner {
@@ -546,7 +724,7 @@
           line-height: 160%;
 
           @include devicesMax(tablet) {
-            font-size: 1.5vw;
+            font-size: 1.75vw;
           }
 
           @include devicesMax(mobile) {

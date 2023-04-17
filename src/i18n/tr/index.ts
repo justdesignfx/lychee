@@ -1,19 +1,5 @@
 export const tr = {
   translation: {
-    routes: {
-      creators: "ureticiler",
-      brands: "markalar",
-      services: "hizmetler",
-      partners: "partnerler",
-      about: "hakkimizda",
-      contact: {
-        path: "iletisim",
-        children: {
-          brand: "marka",
-          creator: "uretici",
-        },
-      },
-    },
     menu: {
       creators: {
         ui: "Üreticiler",
@@ -398,15 +384,27 @@ export const tr = {
           inputs: {
             name: "Ad Soyad",
             email: "Eposta Adresi",
-            company: "Şirket/Marka",
+            company: "Şirket / Marka Adı",
             website: "Website Linki",
             position: "Pozisyon",
             message: "Mesaj",
-            budget: "Aralık seçiniz",
+            budget: {
+              label: "Aralık seçiniz",
+              options: { o1: "25k ₺'den az", o2: "25k ₺ - 50k ₺", o3: "50k ₺ - 75k ₺", o4: "75k ₺'den fazla" },
+            },
+            socialPlatform: {
+              other: "Diğer",
+              moreThanOne: "Birden fazla seçim yapabilirsiniz",
+            },
+          },
+          buttons: {
+            nextStep: "Sonraki Adım",
+            prevStep: "Önceki Adım",
+            send: "Formu Gönder",
           },
         },
         button: {
-          text: "İçerik üreticisi misiniz??",
+          text: "İçerik üreticisi misiniz?",
           link: {
             ui: "Hemen başlayın.",
             path: "iletisim/icerik-uretici",
@@ -472,13 +470,6 @@ export const tr = {
       creators: {
         path: "ureticiler",
         ui: "Üreticiler",
-      },
-    },
-    privacyPolicy: {
-      text: "kapsamında kişisel verilerimin işlenmesine onay veriyorum.",
-      link: {
-        text: "Kişisel Verilerin Korunması ve Bilgi Paylaşımı",
-        path: "https://paternagroup.com/content/tr/gizlilik-ve-cerez-politikasi.pdf",
       },
     },
     titleAndDesc: {

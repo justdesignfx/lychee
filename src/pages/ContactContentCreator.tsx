@@ -6,6 +6,7 @@ import cx from "classnames"
 import { useFormik } from "formik"
 import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router"
+import { AnimatePresence, motion } from "framer-motion"
 
 import dta from "~/assets/img/digital-talent-agency.png"
 import lychee from "~/assets/img/logo.png"
@@ -16,7 +17,6 @@ import { uIdGenerator } from "~/utils"
 import contentCreatorSchema from "~/validations/ContentCreatorForm/contentCreatorSchema"
 import { ISocialPlatform } from "~/validations/ContentCreatorForm/initialValues"
 import FormEndScreen from "~/components/FormEndScreen"
-import { AnimatePresence, motion } from "framer-motion"
 import { lngs } from "~/variables"
 
 interface IContentCreatorForm {
