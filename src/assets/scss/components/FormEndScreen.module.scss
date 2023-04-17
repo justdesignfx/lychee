@@ -1,0 +1,81 @@
+@import "../_global.scss";
+
+.formEnd {
+  @include dims(100vw, 100vh);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .title {
+    @include dims(30vw, auto);
+    color: #c8c8c8;
+    font-family: Lychee;
+    font-size: 3vw;
+    font-weight: 400;
+    line-height: 120%;
+    margin-bottom: 2vw;
+    text-align: center;
+
+    @include devicesMax(tablet) {
+      @include dims(55vw, auto);
+      font-size: 5vw;
+    }
+
+    @include devicesMax(mobile) {
+      @include dims(90vw, auto);
+      font-size: 8vw;
+      margin-bottom: 5vw;
+    }
+
+    .italic {
+      font-family: LaicaBItalic;
+    }
+  }
+
+  .text {
+    @include dims(40vw, auto);
+    color: #c8c8c8;
+    font-family: Lychee;
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 160%;
+    margin-bottom: 3vw;
+    text-align: center;
+
+    @include devicesMax(tablet) {
+      @include dims(60vw, auto);
+      font-size: 2.5vw;
+      margin-bottom: 5vw;
+    }
+
+    @include devicesMax(mobile) {
+      @include dims(90vw, auto);
+      font-size: 4vw;
+      margin-bottom: 10vw;
+    }
+  }
+
+  .button {
+    border: 1px solid #ce1953;
+    border-radius: 36px;
+    color: #ce1953;
+    font-family: LS-VG5000;
+    font-size: 1.5vw;
+    margin: 0 auto;
+    opacity: 1;
+    padding: 1rem 2rem 1.1rem 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include devicesMax(tablet) {
+      font-size: 2.5vw;
+    }
+
+    @include devicesMax(mobile) {
+      font-size: 4.5vw;
+    }
+  }
+}
