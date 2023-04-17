@@ -211,7 +211,7 @@
       @include dims(100%, 40%);
       background: linear-gradient(0deg, #16161c, rgb(255, 255, 255, 0));
       pointer-events: none;
-      transform: translateY(calc(-100% + 2px)) translateZ(5px);
+      transform: translateY(calc(-100% + 2px)) translateZ(0px);
       z-index: 10;
 
       @include devicesMax(mobile) {

@@ -140,7 +140,7 @@
           }
 
           @include devicesMax(mobile) {
-            @include dims(100%, 50vw);
+            @include dims(100%, 90vw);
             display: none;
           }
         }
@@ -182,7 +182,7 @@
           }
 
           @include devicesMax(mobile) {
-            @include dims(100%, 50vw);
+            @include dims(100%, 90vw);
             margin-bottom: 10vw;
           }
         }

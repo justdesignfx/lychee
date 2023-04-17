@@ -4,14 +4,15 @@
   @include typo(Lychee, 20px, null, 1.5, null);
   color: $stonewallGrey;
   margin: 0 auto;
-  gap: 0.5ch;
   text-align: center;
 
   display: flex;
   align-items: center;
+  gap: 0.5ch;
 
   @include devicesMax(mobile) {
     @include typo(Lychee, 15px, null, 1.5, null);
+    flex-direction: column;
   }
 
   &.lg {

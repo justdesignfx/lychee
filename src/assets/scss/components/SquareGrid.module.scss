@@ -4,6 +4,10 @@
   display: flex;
   flex-direction: column;
 
+  @include devicesMax(mobile) {
+    margin-bottom: 10vw;
+  }
+
   .grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(430px, 1fr));

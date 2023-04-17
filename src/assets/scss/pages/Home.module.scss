@@ -558,13 +558,13 @@
 
       @include devicesMax(mobile) {
         grid-template-columns: repeat(1, 1fr);
-        padding: 15vw 8vw 0 8vw;
+        padding: 15vw 8vw 10vw 8vw;
       }
 
       .gridItemC {
         overflow: hidden;
         position: relative;
-        border-radius: 8px;
+        border-radius: 4px;
 
         &::before {
           // for apsect ratio

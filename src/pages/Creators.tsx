@@ -313,9 +313,7 @@ const Creators = () => {
               </h1>
             )}
           </div>
-          <div className={s.gridC}>
-            <SquareGrid items={influencers} />
-          </div>
+          <SquareGrid items={influencers} />
 
           <ButtonText
             text={t("creators.faces.button.text")}

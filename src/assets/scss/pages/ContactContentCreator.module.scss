@@ -132,6 +132,10 @@
 
       .smallTop {
         padding-left: $paddingLeft;
+
+        @include devicesMax(mobile) {
+          padding-left: 0;
+        }
       }
     }
 

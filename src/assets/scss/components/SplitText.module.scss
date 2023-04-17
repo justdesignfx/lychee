@@ -7,11 +7,11 @@
   flex-shrink: 0;
 
   @include devicesMax(tablet) {
-    @include typo(Lychee, 80px, null, 1.2, null);
+    @include typo(Lychee, 76px, null, 1.4, null);
   }
 
   @include devicesMax(mobile) {
-    @include typo(Lychee, 40px, null, 1.2, null);
+    @include typo(Lychee, 40px, null, 1.4, null);
   }
 
   .word {
@@ -21,7 +21,11 @@
     display: inline-block;
 
     @include devicesMax(tablet) {
-      margin-right: 4vw;
+      margin-right: 2vw;
+    }
+
+    @include devicesMax(mobile) {
+      margin-right: 3vw;
     }
 
     &.normal {
@@ -34,7 +38,11 @@
       font-style: italic;
 
       @include devicesMax(tablet) {
-        @include typo(LaicaBItalic, 100px, null, 1.2, null);
+        @include typo(LaicaBItalic, 100px, null, 0.8, null);
+      }
+
+      @include devicesMax(mobile) {
+        @include typo(LaicaBItalic, 44px, null, 0.8, null);
       }
     }
 
