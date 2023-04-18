@@ -69,7 +69,6 @@ const BrandForm = () => {
     initialValues,
     validationSchema: brandFormSchema[currentStep],
     onSubmit: (values) => {
-      if (!privacyNotice) return
       const brandForm = { ...values, language: i18n.language, privacyNotice, electronicMessage, explicitConsent }
       handleSubmit(brandForm)
     },
@@ -149,6 +148,8 @@ const BrandForm = () => {
 
   function handleSubmit(values: any) {
     if (currentStep === steps.length - 1) {
+      if (!privacyNotice) return
+
       submitForm(values).then((res) => {
         if (res.success) {
           setEnd(true)

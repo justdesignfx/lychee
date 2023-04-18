@@ -26,6 +26,7 @@ import Menu from "~/components/Menu"
 import Modal from "~/components/Modal"
 import StickyNav from "~/components/StickyNav"
 import { qSingle } from "~/utils"
+import { logoParallax } from "~/animations/logoParallax"
 
 export const SmoothContext = React.createContext<any>(null)
 
@@ -72,6 +73,7 @@ const WithSmooth = ({ children, location }: Props) => {
       size.width > breakpoints.tablet && floatingItems()
       size.width > breakpoints.tablet && framedParallax()
       size.width > breakpoints.tablet && slidingPanels()
+      size.width > breakpoints.tablet && logoParallax()
 
       hideOnScroll()
       parallaxItems()

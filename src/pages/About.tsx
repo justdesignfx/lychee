@@ -190,86 +190,42 @@ const About = () => {
           <div className={s.oHiddenC}>
             <div className={s.logoGrid}>
               <div className={s.row}>
-                <div
-                  className={cx(s.logoC, s.logoDisney)}
-                  data-parallax
-                  data-speed-y="0.4"
-                  data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
-                >
+                <div className={cx(s.logoC, s.logoDisney)} data-logo-parallax data-speed-y="0.4" data-direction-y="-1">
                   <img className={s.img} src={logoDisney} alt="Company Logo" />
                 </div>
-                <div
-                  className={cx(s.logoC, s.logoAdidas)}
-                  data-parallax
-                  data-speed-y="0.3"
-                  data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
-                >
+                <div className={cx(s.logoC, s.logoAdidas)} data-logo-parallax data-speed-y="0.3" data-direction-y="-1">
                   <img className={s.img} src={logoAdidas} alt="Company Logo" />
                 </div>
-                <div
-                  className={cx(s.logoC, s.logoPhilips)}
-                  data-parallax
-                  data-speed-y="0.5"
-                  data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
-                >
+                <div className={cx(s.logoC, s.logoPhilips)} data-logo-parallax data-speed-y="0.5" data-direction-y="-1">
                   <img className={s.img} src={logoPhilips} alt="Company Logo" />
                 </div>
-                <div
-                  className={cx(s.logoC, s.logoNike)}
-                  data-parallax
-                  data-speed-y="0.3"
-                  data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
-                >
+                <div className={cx(s.logoC, s.logoNike)} data-logo-parallax data-speed-y="0.3" data-direction-y="-1">
                   <img className={s.img} src={logoNike} alt="Company Logo" />
                 </div>
-                <div
-                  className={cx(s.logoC, s.logoNestle)}
-                  data-parallax
-                  data-speed-y="0.5"
-                  data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
-                >
+                <div className={cx(s.logoC, s.logoNestle)} data-logo-parallax data-speed-y="0.5" data-direction-y="-1">
                   <img className={s.img} src={logoNestle} alt="Company Logo" />
                 </div>
                 <div
                   className={cx(s.logoC, s.logoEsteeLauder)}
-                  data-parallax
+                  data-logo-parallax
                   data-speed-y="0.3"
                   data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
                 >
                   <img className={s.img} src={logoEsteeLauder} alt="Company Logo" />
                 </div>
               </div>
               <div className={s.row}>
-                <div
-                  className={cx(s.logoC, s.logoLoreal)}
-                  data-parallax
-                  data-speed-y="0.4"
-                  data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
-                >
+                <div className={cx(s.logoC, s.logoLoreal)} data-logo-parallax data-speed-y="0.4" data-direction-y="-1">
                   <img className={s.img} src={logoLoreal} alt="Company Logo" />
                 </div>
-                <div
-                  className={cx(s.logoC, s.logoDyson)}
-                  data-parallax
-                  data-speed-y="0.4"
-                  data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
-                >
+                <div className={cx(s.logoC, s.logoDyson)} data-logo-parallax data-speed-y="0.4" data-direction-y="-1">
                   <img className={s.img} src={logoDyson} alt="Company Logo" />
                 </div>
                 <div
                   className={cx(s.logoC, s.logoStarbucks)}
-                  data-parallax
+                  data-logo-parallax
                   data-speed-y="0.3"
                   data-direction-y="-1"
-                  data-parallax-inactive-on-mobile={disableParallaxOnMobile()}
                 >
                   <img className={s.img} src={logoStarbucks} alt="Company Logo" />
                 </div>

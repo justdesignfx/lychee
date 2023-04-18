@@ -1,8 +1,8 @@
 import gsap from "gsap"
 import { qAll } from "~/utils"
 
-export function parallaxItems() {
-  const items = qAll("[data-parallax='true']")
+export function logoParallax() {
+  const items = qAll("[data-logo-parallax='true']")
 
   if (items.length <= 0) return
 
@@ -17,7 +17,7 @@ export function parallaxItems() {
       yPercent: () => 100 * parseFloat(speedY) * parseFloat(dirY),
       xPercent: () => 100 * parseFloat(speedX) * parseFloat(dirX),
       scrollTrigger: {
-        id: "parallax-items",
+        id: "logo-parallax-items",
         trigger: item,
         scrub: 1,
         // markers: true,
@@ -25,5 +25,5 @@ export function parallaxItems() {
     })
   })
 
-  console.log("PARALLAX ITEMS INITIALIZED")
+  console.log("LOGO PARALLAX ITEMS INITIALIZED")
 }

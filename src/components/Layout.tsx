@@ -8,6 +8,7 @@ import ContactBrand from "~/pages/ContactBrand"
 import ContactContentCreator from "~/pages/ContactContentCreator"
 import Creators from "~/pages/Creators"
 import Home from "~/pages/Home"
+import NotFound from "~/pages/NotFound"
 import Partners from "~/pages/Partners"
 import Services from "~/pages/Services"
 
@@ -47,6 +48,8 @@ const Layout = (props: Props) => {
 
         <Route path="partners" element={<Partners />}></Route>
         <Route path="partnerler" element={<Partners />}></Route>
+
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </div>
   )
