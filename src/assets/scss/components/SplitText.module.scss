@@ -11,14 +11,14 @@
   }
 
   @include devicesMax(mobile) {
-    @include typo(Lychee, 40px, null, 1.4, null);
+    @include typo(Lychee, 40px, null, 1.2, null);
   }
 
   .word {
-    flex-shrink: 0;
     margin-right: 5vw;
 
     display: inline-block;
+    flex-shrink: 0;
 
     @include devicesMax(tablet) {
       margin-right: 2vw;

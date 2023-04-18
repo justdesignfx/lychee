@@ -46,3 +46,11 @@ body {
   color: $californiaSunset;
   background: $eigengrau;
 }
+
+br {
+  display: block;
+
+  @include devicesMax(mobile) {
+    display: none;
+  }
+}

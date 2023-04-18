@@ -20,7 +20,8 @@
     }
 
     @include devicesMax(mobile) {
-      padding: 15vw 5vw;
+      border-radius: 10vmin 10vmin 0 0;
+      padding: 20vw 5vw 0 5vw;
     }
   }
 

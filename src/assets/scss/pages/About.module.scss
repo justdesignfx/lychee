@@ -486,6 +486,7 @@
 
       @include devicesMax(mobile) {
         @include typo(Lychee, 20px, null, 1.4, null);
+        margin-bottom: 10vw;
       }
     }
 
@@ -655,8 +656,11 @@
       }
 
       @include devicesMax(mobile) {
-        @include typo(Lychee, 40px, null, 1.1, null);
+        @include dims(90vw, auto);
+
+        @include typo(Lychee, 32px, null, 1.1, null);
         margin-bottom: 10vw;
+        margin-top: 10vw;
       }
     }
 

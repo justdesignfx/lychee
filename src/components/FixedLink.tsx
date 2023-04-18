@@ -7,8 +7,6 @@ const FixedLink = () => {
   const { t } = useTranslation()
   const location = useLocation()
 
-  console.log(t("menu.contact.children.creator.path"))
-
   return (
     <AnimatePresence>
       {location.pathname.includes(t("menu.contact.children.creator.path")) && (

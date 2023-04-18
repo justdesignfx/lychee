@@ -1,15 +1,16 @@
 import s from "~/assets/scss/pages/Home.module.scss"
 
 import cx from "classnames"
-import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 
+import playBtnText from "~/assets/img/btn-play-text.svg"
+import playBtnTri from "~/assets/img/btn-play-tri.svg"
 import digitalTalentAgency from "~/assets/img/digital-talent-agency.png"
+import influencer1 from "~/assets/img/influencer-1.jpg"
+import influencer2 from "~/assets/img/influencer-2.jpg"
+import influencer3 from "~/assets/img/influencer-3.jpg"
 import instax from "~/assets/img/instax.png"
-import portal from "~/assets/img/portal.svg"
-import reels from "~/assets/img/reels.png"
-import skaterTube from "~/assets/img/skater-tube.svg"
-import smartPhone from "~/assets/img/smartphone.svg"
 import logoAbdiBlack from "~/assets/img/logo-abdiibrahim-black.svg"
 import logoAdidas from "~/assets/img/logo-adidas.svg"
 import logoDisney from "~/assets/img/logo-disney.svg"
@@ -22,11 +23,10 @@ import logoNike from "~/assets/img/logo-nike.svg"
 import logoObsessoBlack from "~/assets/img/logo-obsesso-black.svg"
 import logoPhilips from "~/assets/img/logo-philips.svg"
 import logoStarbucks from "~/assets/img/logo-starbucks.svg"
-import influencer1 from "~/assets/img/influencer-1.jpg"
-import influencer2 from "~/assets/img/influencer-2.jpg"
-import influencer3 from "~/assets/img/influencer-3.jpg"
-import playBtnText from "~/assets/img/btn-play-text.svg"
-import playBtnTri from "~/assets/img/btn-play-tri.svg"
+import portal from "~/assets/img/portal.svg"
+import reels from "~/assets/img/reels.png"
+import skaterTube from "~/assets/img/skater-tube.svg"
+import smartPhone from "~/assets/img/smartphone.svg"
 
 import ButtonText from "~/components/ButtonText"
 import Footer from "~/components/Footer"
@@ -37,7 +37,6 @@ import { useWindowSize } from "~/hooks"
 import { useCursorStore } from "~/store/cursorStore"
 import { useModalStore } from "~/store/modalStore"
 import { breakpoints, lngs, showreelVideo } from "~/variables"
-import { useCallback } from "react"
 
 const Home = () => {
   const { t, i18n } = useTranslation()
@@ -146,16 +145,6 @@ const Home = () => {
     )
     modalStore.toggle()
   }
-
-  function disableParallaxOnMobile() {
-    if (size.width > breakpoints.mobile) {
-      return true
-    } else {
-      return false
-    }
-  }
-
-  useCallback(disableParallaxOnMobile, [size.width])
 
   return (
     <>
@@ -320,10 +309,10 @@ const Home = () => {
             <div className={s.titleC}>
               <h2 className={s.title}>
                 The works we do <br />
-                reflects <span className={s.italic}>our creativity</span>.
+                reflects <span className={s.italic}>our creativity.</span>
               </h2>
               <p className={s.text}>
-                Our greatest motivation is the urge to <br /> create original content for digital media.
+                Our greatest motivation is the urge to create original content for digital media.
               </p>
             </div>
           ) : (
@@ -331,9 +320,7 @@ const Home = () => {
               <h2 className={s.title}>
                 Yaptığımız işler <br /> <span className={s.italic}>yaratıcılığımızı</span> yanstıyor.
               </h2>
-              <p className={s.text}>
-                En büyük motivasyonumuz dijital medya için <br /> özgün içerikler yaratma dürtüsüdür.
-              </p>
+              <p className={s.text}>En büyük motivasyonumuz dijital medya için özgün içerikler yaratma dürtüsüdür.</p>
             </div>
           )}
           <div className={s.worksGrid}>

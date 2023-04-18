@@ -27,7 +27,7 @@ export function textReveal() {
 
   const letters = qAll("[data-letter]")
 
-  const mustSeen = 12
+  const mustSeen = 9
 
   letters.forEach((letter: any, i: number) => {
     let distance = Math.pow(i - mustSeen, 1.8)
@@ -56,10 +56,10 @@ export function textReveal() {
     id: "text-reveal",
     animation: tl,
     trigger: container,
-    // markers: true,
     scrub: true,
     start: "top top",
     end: `bottom+=${scrollLength - 1000}px top`,
+    // markers: true,
   })
 
   console.log("HORIZONTAL SCROLL INITIALIZED")

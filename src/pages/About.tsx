@@ -1,13 +1,11 @@
+import { useEffect } from "react"
 import s from "~/assets/scss/pages/About.module.scss"
-import { useCallback, useEffect } from "react"
 
 import cx from "classnames"
+import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router"
 import { Link } from "react-router-dom"
-import { useTranslation } from "react-i18next"
 
-import fruit from "~/assets/img/lychee-fruit.png"
-import peel from "~/assets/img/lychee-peel.png"
 import floating1 from "~/assets/img/about-floating-1.jpg"
 import floating2 from "~/assets/img/about-floating-2.jpg"
 import floating3 from "~/assets/img/about-floating-3.jpg"
@@ -23,15 +21,17 @@ import logoNestle from "~/assets/img/logo-nestle.svg"
 import logoNike from "~/assets/img/logo-nike.svg"
 import logoPhilips from "~/assets/img/logo-philips.svg"
 import logoStarbucks from "~/assets/img/logo-starbucks.svg"
+import fruit from "~/assets/img/lychee-fruit.png"
+import peel from "~/assets/img/lychee-peel.png"
 
-import Img from "~/components/Img"
 import ButtonGlitch from "~/components/ButtonGlitch"
 import ButtonText from "~/components/ButtonText"
 import FooterBasic from "~/components/FooterBasic"
+import Img from "~/components/Img"
 import SplitText from "~/components/SplitText"
-import { useModalStore } from "~/store/modalStore"
-import { breakpoints, lngs } from "~/variables"
 import { useWindowSize } from "~/hooks"
+import { useModalStore } from "~/store/modalStore"
+import { lngs } from "~/variables"
 
 const About = () => {
   const modalStore = useModalStore()
@@ -79,16 +79,6 @@ const About = () => {
       font: "normal",
     },
   ]
-
-  function disableParallaxOnMobile() {
-    if (size.width > breakpoints.mobile) {
-      return true
-    } else {
-      return false
-    }
-  }
-
-  useCallback(disableParallaxOnMobile, [size.width])
 
   return (
     <>

@@ -418,7 +418,11 @@ export const tr = {
         allRights: "© 2023 Lychee. Tüm Hakları Saklıdır.",
         privacyAndCookie: {
           text: "Gizlilik & Çerez Politikası",
-          path: "https://paternagroup.com/content/tr/gizlilik-ve-cerez-politikasi.pdf",
+          path: "https://lycheedigital.co/cdn/legal/marka-ve-icerik-uretici-kisisel-verilerin-islenmesi.pdf",
+        },
+        personalData: {
+          text: "İlgili Kişi Başvuru Formu",
+          path: "https://lycheedigital.co/cdn/legal/ilgili-kisi-basvuru-formu.pdf",
         },
       },
       links: {

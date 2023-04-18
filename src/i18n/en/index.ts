@@ -417,7 +417,7 @@ export const en = {
         allRights: "© 2023 Lychee. All rights reserved.",
         privacyAndCookie: {
           text: "Privacy & Cookie Policy",
-          path: "https://lycheedigital.co/cdn/legal/ilgili-kisi-basvuru-formu.pdf",
+          path: "https://lycheedigital.co/cdn/legal/marka-ve-icerik-uretici-kisisel-verilerin-islenmesi.pdf",
         },
         personalData: {
           text: "Personal Data Concern Form",
