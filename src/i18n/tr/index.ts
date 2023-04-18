@@ -164,7 +164,7 @@ export const tr = {
         marquee: "Sizi bekliyoruz.",
         button: {
           text: "Lychee'nin seçkin ekosistemine",
-          link: { path: "contact", ui: "katılın." },
+          link: { path: "iletisim/icerik-uretici", ui: "katılın." },
         },
       },
     },

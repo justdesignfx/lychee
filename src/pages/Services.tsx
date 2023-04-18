@@ -291,7 +291,7 @@ const Services = () => {
             </MarqueeSimple>
           </div>
           <h1 className={s.text}>{t("services.marquee.desc")}</h1>
-          <Link to={`${t("services.marquee.button.path")}`} className={s.contactBtn}>
+          <Link to={`/${t("services.marquee.button.path")}`} className={s.contactBtn}>
             <ButtonGlitch text={`${t("services.marquee.button.ui")}`} size="lg" />
           </Link>
         </section>

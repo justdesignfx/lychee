@@ -23,7 +23,7 @@ const ButtonText = (props: Props) => {
     >
       <span>{props.text}</span>
       {props.external ? (
-        <Link to={`${props.link.path}`} target="_blank" rel="noreferrer noopener" className={s.link}>
+        <Link to={`/${props.link.path}`} target="_blank" rel="noreferrer noopener" className={s.link}>
           {props.link.ui}
         </Link>
       ) : (

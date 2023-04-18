@@ -1,4 +1,3 @@
-import React from "react"
 import s from "~/assets/scss/components/ButtonGlitch.module.scss"
 import IconArrowSquare from "./Icons/IconArrowSquare"
 

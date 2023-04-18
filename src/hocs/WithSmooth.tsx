@@ -58,7 +58,7 @@ const WithSmooth = ({ children, location }: Props) => {
     smoothFrameCtx?.revert()
 
     ScrollTrigger.getAll().forEach((instance) => {
-      console.log(instance)
+      // console.log(instance)
       instance.kill()
     })
 

@@ -231,7 +231,7 @@ const About = () => {
         </section>
         <section className={s.dare}>
           <h1 className={s.text}>{t("about.ready.title")}</h1>
-          <Link to={`${t("about.ready.button.path")}`} className={s.btnC}>
+          <Link to={`/${t("about.ready.button.path")}`} className={s.btnC}>
             <ButtonGlitch text={t("about.ready.button.ui")} size="lg" />
           </Link>
         </section>

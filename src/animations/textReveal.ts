@@ -48,7 +48,7 @@ export function textReveal() {
       y: 0,
       rotation: 0,
       opacity: 1,
-      delay: -0.45,
+      delay: -0.4,
     })
   })
 

@@ -77,7 +77,7 @@ const Partners = () => {
             </MarqueeSimple>
           </div>
           <h1 className={s.text}>{t("partners.marquee.desc")}</h1>
-          <Link to={`${t("partners.marquee.button.path")}`} className={s.contactBtn}>
+          <Link to={`/${t("partners.marquee.button.path")}`} className={s.contactBtn}>
             <ButtonGlitch text={t("partners.marquee.button.ui")} size="lg" />
           </Link>
         </section>
