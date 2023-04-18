@@ -24,6 +24,7 @@
     @include dims(50%, 2px);
     background: #ce1953;
     transition: 0.4s all ease;
+    will-change: transform;
   }
 
   &.sm {

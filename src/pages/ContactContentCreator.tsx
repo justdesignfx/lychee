@@ -103,9 +103,9 @@ const ContactContentCreator = () => {
     submitForm({
       ...formValues,
       language: i18n.language,
-      privacyNotice,
-      electronicMessage,
-      explicitConsent,
+      privacyNotice: `${privacyNotice}`,
+      electronicMessage: `${electronicMessage}`,
+      explicitConsent: `${explicitConsent}`,
     }).then((res) => {
       if (res.success) {
         setEnd(true)

@@ -1,7 +1,7 @@
 import s from "~/assets/scss/pages/Brands.module.scss"
 
-import { Link, useNavigate } from "react-router-dom"
 import { Trans, useTranslation } from "react-i18next"
+import { Link, useNavigate } from "react-router-dom"
 
 import ButtonGlitch from "~/components/ButtonGlitch"
 import FooterBasic from "~/components/FooterBasic"
@@ -9,12 +9,13 @@ import Img from "~/components/Img"
 
 import playBtnText from "~/assets/img/btn-play-text.svg"
 import playBtnTri from "~/assets/img/btn-play-tri.svg"
+import coke from "~/assets/img/coke.jpg"
 import danone from "~/assets/img/danone.jpg"
 import stairs from "~/assets/img/stairs.jpg"
-import coke from "~/assets/img/coke.jpg"
 
+import { useEffect } from "react"
+import { Helmet } from "react-helmet"
 import portalDiamond from "~/assets/img/portal-diamond.png"
-import sample from "~/assets/img/sample.png"
 import stickerBans from "~/assets/img/sticker-bans.svg"
 import stickerPeace from "~/assets/img/sticker-peace.svg"
 import ListBrands from "~/components/ListBrands"
@@ -22,7 +23,6 @@ import MarqueeSimple from "~/components/MarqueeSimple"
 import { useWindowSize } from "~/hooks"
 import { useModalStore } from "~/store/modalStore"
 import { breakpoints, lngs, showreelVideo } from "~/variables"
-import { useEffect } from "react"
 
 const Brands = () => {
   const modalStore = useModalStore()
@@ -67,6 +67,11 @@ const Brands = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{`${t("titleAndDesc.preTitle")}${t("titleAndDesc.brands.title")}`}</title>
+        <meta name="description" content={`${t("titleAndDesc.brands.desc")}`}></meta>
+        <link rel="canonical" href={`${t("titleAndDesc.brands.canonical")}`} />
+      </Helmet>
       <main className={s.brands} data-sticky-item-c>
         <section className={s.intro}>
           <div className={s.textC}>

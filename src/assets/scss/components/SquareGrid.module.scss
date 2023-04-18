@@ -76,10 +76,10 @@
           column-gap: 1rem;
 
           .iconC {
-            @include dims(1.5rem, auto);
+            @include dims(1.5rem);
 
             @include devicesMax(mobile) {
-              @include dims(1.25rem, auto);
+              @include dims(1.25rem);
             }
           }
         }

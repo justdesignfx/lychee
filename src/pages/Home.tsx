@@ -3,6 +3,7 @@ import s from "~/assets/scss/pages/Home.module.scss"
 import cx from "classnames"
 import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
+import { Helmet } from "react-helmet"
 
 import playBtnText from "~/assets/img/btn-play-text.svg"
 import playBtnTri from "~/assets/img/btn-play-tri.svg"
@@ -148,6 +149,11 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{`${t("titleAndDesc.preTitle")}${t("titleAndDesc.home.title")}`}</title>
+        <meta name="description" content={`${t("titleAndDesc.home.desc")}`}></meta>
+        <link rel="canonical" href={`${t("titleAndDesc.home.canonical")}`} />
+      </Helmet>
       <main className={s.home}>
         <section className={s.hero}>
           <div className={s.textC}>

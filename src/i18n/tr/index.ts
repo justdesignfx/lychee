@@ -477,41 +477,41 @@ export const tr = {
       },
     },
     titleAndDesc: {
-      preTitle: "Paterna Group | ",
+      preTitle: "Lychee Digital | ",
       home: {
-        title: "Pre-flight Management.",
-        desc: "Paterna Group 2009 yılında kurulmuş olup, o tarihten bu yana sahip olduğu vizyon ve inanç sayesinde sürekli organizasyon yapısını ve iş sahasını genişletmiştir.",
-        canonical: "https://paternagroup.com",
+        title: "Digital talent agency.",
+        desc: "Lychee global ölçekte ikonik markaların çözüm ortağı olan dijital influencer marketing ajansıdır.",
+        canonical: "https://lycheedigital.co",
       },
-      aboutUs: {
-        title: "Hakkımızda",
-        desc: "Paterna Group olarak, yer aldığımız YDA Dalaman Havalimanı İşletmesi bünyesinde, yerli ve yabancı misafirlerimize Yiyecek ve İçecek hizmeti ve Lounge, Catering, refreshment servisi, özel gün yiyecek içecek hizmeti (toplantı, festival, açılış, tanıtım) ve tekstil gibi çeşitli sektörlerde hizmet vermektedir. Yemeğe dair her şeyi seven büyük bir ekibiz. Yeme-içmeye karşı duyduğumuz tutkuyu havalimanının hızlı dinamiği ile birleştiriyoruz.",
-        canonical: "https://paternagroup.com/hakkimizda",
+      creators: {
+        title: "Üreticiler",
+        desc: "Lychee’nin kreatif içerik üreticileri ekibine katılın.",
+        canonical: "https://lycheedigital.co/ureticiler",
       },
-      ourBrands: {
+      brands: {
         title: "Markalar",
-        desc: "Dalaman Havaalanı’nda zamanınızı en iyi şekilde değerlendirin. Geniş marka seçeneklerimizi uçuşunuzu beklerken deneyimleyin…",
-        canonical: "https://paternagroup.com/markalar",
+        desc: "Olağanüstü yaratıcılık, küresel bakış açısı. Hayallerinizdeki kampanyayı en kreatif şekilde inşa ediyoruz.",
+        canonical: "https://lycheedigital.co/markalar",
       },
-      fieldsOfActivity: {
-        title: "Faaliyet Alanları",
-        desc: "Yiyecek içecek endüstrisi hızlı bir ivme kazanıyor. Biz de bu hıza yetişerek profesyonel olarak bu endüstrinin restoran işletmeciliği, CIP işletmeciliği ve yiyecek tedariki olmak üzere 3 önemli alanı yönetmekteyiz.",
-        canonical: "https://paternagroup.com/faaliyet-alanlari",
+      services: {
+        title: "Hizmetler",
+        desc: "Tüm yaratıcı marketing ve yeni medya ihtiyaçlarınızı karşılıyoruz.",
+        canonical: "https://lycheedigital.co/hizmetler",
+      },
+      partners: {
+        title: "Partnerler",
+        desc: "En iyi markaların partnerliğini yapıyoruz.",
+        canonical: "https://lycheedigital.co/partnerler",
+      },
+      about: {
+        title: "Hakkımızda",
+        desc: "Yaratıcı ve stratejik yetenekleri bünyesinde barındıran dijital marketing ajansıyız.",
+        canonical: "https://lycheedigital.co/hakkımızda",
       },
       contact: {
         title: "İletişim",
-        desc: "Between you and the sky...",
-        canonical: "https://paternagroup.com/iletisim",
-      },
-      career: {
-        title: "Kariyer",
-        desc: "Paterna Group için nitelikli insan gücü vazgeçilmezdir. Şirketimizin tüm çalışanları belirli işe alım standartlarından geçmektedirler. Değerli çalışanlarımız, işe alım süreçlerini tamamladıktan sonra hizmet verdiğimiz bütün noktalarda misafirlerimizin memnuniyeti için çalışan değerli birer bireydirler.",
-        canonical: "https://paternagroup.com/kariyer",
-      },
-      reservation: {
-        title: "Rezervasyon",
-        desc: "DLM Lounge’da yerinizi şimdi ayırın!",
-        canonical: "https://paternagroup.com/rezervasyon",
+        desc: "Dijital dünyanızı devralalım.",
+        canonical: "https://lycheedigital.co/iletisim",
       },
     },
   },

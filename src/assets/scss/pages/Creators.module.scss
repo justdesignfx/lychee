@@ -386,7 +386,7 @@
       }
 
       &.mid {
-        @include position(absolute, -15%, auto, auto, 23%);
+        @include position(absolute, -16%, auto, auto, 22vw);
         @include dims(13vw, auto);
 
         @include devicesMax(mobile) {

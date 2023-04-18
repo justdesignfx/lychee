@@ -1,18 +1,14 @@
 import s from "~/assets/scss/pages/Creators.module.scss"
 import Img from "~/components/Img"
 
+import cx from "classnames"
 import { useEffect } from "react"
 import { Trans, useTranslation } from "react-i18next"
-import cx from "classnames"
 import { Link, useNavigate } from "react-router-dom"
 
-import visitor from "~/assets/img/smartphone-portal.svg"
 import creator1 from "~/assets/img/creator-1.jpg"
 import creator2 from "~/assets/img/creator-2.jpg"
 import creator3 from "~/assets/img/creator-3.jpg"
-import slider1 from "~/assets/img/slider-1.jpg"
-import slider2 from "~/assets/img/slider-2.jpg"
-import slider3 from "~/assets/img/slider-3.jpg"
 import gridInf1 from "~/assets/img/grid-inf-1.jpg"
 import gridInf2 from "~/assets/img/grid-inf-2.jpg"
 import gridInf3 from "~/assets/img/grid-inf-3.jpg"
@@ -21,6 +17,10 @@ import gridInf5 from "~/assets/img/grid-inf-5.jpg"
 import gridInf6 from "~/assets/img/grid-inf-6.jpg"
 import gridInf7 from "~/assets/img/grid-inf-7.jpg"
 import gridInf8 from "~/assets/img/grid-inf-8.jpg"
+import slider1 from "~/assets/img/slider-1.jpg"
+import slider2 from "~/assets/img/slider-2.jpg"
+import slider3 from "~/assets/img/slider-3.jpg"
+import visitor from "~/assets/img/smartphone-portal.svg"
 
 import ButtonGlitch from "~/components/ButtonGlitch"
 import ButtonText from "~/components/ButtonText"
@@ -33,6 +33,7 @@ import SquareGrid from "~/components/SquareGrid"
 import WhyLycheeMobile from "~/components/WhyLycheeMobile"
 import { useWindowSize } from "~/hooks"
 import { breakpoints, lngs, ogedayDysonVideo } from "~/variables"
+import { Helmet } from "react-helmet"
 
 const Creators = () => {
   const size = useWindowSize()
@@ -181,6 +182,7 @@ const Creators = () => {
       name: "Ogeday Girişken",
       social: {
         instagram: "https:/www.instagram.com/ogedaygirisken/",
+        tiktok: "https://www.tiktok.com/@ogedaygirisken",
       },
     },
     {
@@ -188,6 +190,8 @@ const Creators = () => {
       name: "Dilara Aydın",
       social: {
         instagram: "https://www.instagram.com/dilaraaydin/",
+        tiktok: "https://www.tiktok.com/@dlaraaydinn",
+        youtube: "https://youtube.com/@dilaraaydin",
       },
     },
     {
@@ -209,6 +213,8 @@ const Creators = () => {
       name: "Zeynep Aleyna Şen",
       social: {
         instagram: "https://instagram.com/zaleynasen",
+        youtube: "https://youtube.com/@Aleynasen",
+        tiktok: "https://www.tiktok.com/@zaleynasen",
       },
     },
     {
@@ -216,6 +222,7 @@ const Creators = () => {
       name: "Aylin Engör",
       social: {
         instagram: "https:/www.instagram.com/aylinengr/",
+        tiktok: "https://www.tiktok.com/@aylinengr",
       },
     },
     {
@@ -223,6 +230,7 @@ const Creators = () => {
       name: "Elif Baldan",
       social: {
         instagram: "https:/www.instagram.com/elifbaldann/",
+        tiktok: "https://www.tiktok.com/@elifbaldann",
       },
     },
     {
@@ -230,12 +238,18 @@ const Creators = () => {
       name: "Esra Koçhan",
       social: {
         instagram: "https:/www.instagram.com/esrakochaan/",
+        tiktok: "https://www.tiktok.com/@esrakochan",
       },
     },
   ]
 
   return (
     <>
+      <Helmet>
+        <title>{`${t("titleAndDesc.preTitle")}${t("titleAndDesc.creators.title")}`}</title>
+        <meta name="description" content={`${t("titleAndDesc.creators.desc")}`}></meta>
+        <link rel="canonical" href={`${t("titleAndDesc.creators.canonical")}`} />
+      </Helmet>
       <main className={s.creators} data-sticky-item-c>
         <section className={s.intro}>
           <div className={s.textC}>
@@ -327,10 +341,7 @@ const Creators = () => {
                 <span className={s.italic}> sanatçıların</span>
               </span>
               <span className={s.line}>
-                <span className={s.resetMargin} style={{ marginRight: "6vw" }}>
-                  olağanüstü yaratıcılığının
-                </span>{" "}
-                peşinden
+                <span>olağanüstü yaratıcılığının</span> peşinden
               </span>
               <span className={cx(s.line, s.resetMargin)} style={{ marginLeft: "14vw" }}>
                 gitme tutkusuyla kuruldu.

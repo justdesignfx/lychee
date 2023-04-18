@@ -32,6 +32,7 @@ import SplitText from "~/components/SplitText"
 import { useWindowSize } from "~/hooks"
 import { useModalStore } from "~/store/modalStore"
 import { lngs } from "~/variables"
+import { Helmet } from "react-helmet"
 
 const About = () => {
   const modalStore = useModalStore()
@@ -82,6 +83,11 @@ const About = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{`${t("titleAndDesc.preTitle")}${t("titleAndDesc.about.title")}`}</title>
+        <meta name="description" content={`${t("titleAndDesc.about.desc")}`}></meta>
+        <link rel="canonical" href={`${t("titleAndDesc.about.canonical")}`} />
+      </Helmet>
       <main className={s.about}>
         <section className={s.intro}>
           <h1 className={s.title}>

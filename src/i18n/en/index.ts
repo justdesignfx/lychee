@@ -476,41 +476,41 @@ export const en = {
       },
     },
     titleAndDesc: {
-      preTitle: "Paterna Group | ",
+      preTitle: "Lychee Digital | ",
       home: {
-        title: "Pre-flight Management.",
-        desc: "Paterna Group was founded in 2009 and has continuously expanded its organizational structure and business field thanks to the vision and belief it has since then.",
-        canonical: "https://paternagroup.com",
+        title: "Digital talent agency.",
+        desc: "Lychee is a digital influencer marketing agency that is a solution partner for iconic beands on a global scale.",
+        canonical: "https://lycheedigital.co",
       },
-      aboutUs: {
-        title: "About Us",
-        desc: "As Paterna Group, we provide food and beverage service and lounge, catering, to our local and foreign guests within the scope of YDA Dalaman Airport Operation, it provides services in various sectors such as refreshment service, special day food and beverage service (meeting, festival, opening, promotion). We are a big team who loves everything about food. We merge this enthusiasm with the fast paced dynamics of an airport.",
-        canonical: "https://paternagroup.com/about-us",
+      creators: {
+        title: "Creators",
+        desc: "Join Lychee's team of creative content creators.",
+        canonical: "https://lycheedigital.co/creators",
       },
-      ourBrands: {
-        title: "Our Brands",
-        desc: "Make the most of your time in Dalaman Airport, explore our selection of brands and enjoy your traveling experience before take off…",
-        canonical: "https://paternagroup.com/our-brands",
+      brands: {
+        title: "Brands",
+        desc: "Extraordinary creativity, global perspective. We are building the campaign of your dreams in the most creative way.",
+        canonical: "https://lycheedigital.co/brands",
       },
-      fieldsOfActivity: {
-        title: "Fields Of Activity",
-        desc: "The food and beverage industry is gaining rapid momentum. We are able to reach this speed and professionally manage 3 important areas of this industry, namely restaurant management, CIP management and food supply.",
-        canonical: "https://paternagroup.com/fields-of-activity",
+      services: {
+        title: "Services",
+        desc: "We meet all your creative marketing and new media needs.",
+        canonical: "https://lycheedigital.co/services",
+      },
+      partners: {
+        title: "Partners",
+        desc: "We partner with the best brands.",
+        canonical: "https://lycheedigital.co/partners",
+      },
+      about: {
+        title: "About",
+        desc: "We are a digital marketing agency that houses creative and strategic talents.",
+        canonical: "https://lycheedigital.co/about",
       },
       contact: {
         title: "Contact",
-        desc: "Between you and the sky...",
-        canonical: "https://paternagroup.com/contact",
-      },
-      career: {
-        title: "Career",
-        desc: "Qualified manpower is essential for Paterna Group. All employees of our company pass certain recruitment standards. Our esteemed employees are valuable individuals who work for the satisfaction of our guests at all points we serve after completing their recruitment process.",
-        canonical: "https://paternagroup.com/career",
-      },
-      reservation: {
-        title: "Reservation",
-        desc: "Reserve your seat at DLM Lounge now!",
-        canonical: "https://paternagroup.com/reservation",
+        desc: "Let's take over your digital world.",
+        canonical: "https://lycheedigital.co/contact",
       },
     },
   },

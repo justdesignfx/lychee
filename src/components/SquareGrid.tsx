@@ -10,6 +10,7 @@ import IconTiktok from "./Icons/IconTiktok"
 
 import { useWindowSize } from "~/hooks"
 import { breakpoints } from "~/variables"
+import IconYoutube from "./Icons/IconYoutube"
 
 type IGridItem = {
   name: string
@@ -17,6 +18,7 @@ type IGridItem = {
   social?: {
     tiktok?: string
     instagram?: string
+    youtube?: string
   }
 }
 
@@ -28,13 +30,18 @@ const GridItem = (props: IGridItem) => {
         {props.social && (
           <div className={s.social}>
             {props.social.instagram && (
-              <Link to={props.social.instagram} className={s.iconC}>
+              <Link target="_blank" rel="noreferrer noopener" to={props.social.instagram} className={s.iconC}>
                 <IconInstagram fill="#fff" />
               </Link>
             )}
             {props.social.tiktok && (
-              <Link to={props.social.tiktok} className={s.iconC}>
+              <Link target="_blank" rel="noreferrer noopener" to={props.social.tiktok} className={s.iconC}>
                 <IconTiktok fill="#fff" />
+              </Link>
+            )}
+            {props.social.youtube && (
+              <Link target="_blank" rel="noreferrer noopener" to={props.social.youtube} className={s.iconC}>
+                <IconYoutube fill="#fff" />
               </Link>
             )}
           </div>

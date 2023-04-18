@@ -69,7 +69,13 @@ const BrandForm = () => {
     initialValues,
     validationSchema: brandFormSchema[currentStep],
     onSubmit: (values) => {
-      const brandForm = { ...values, language: i18n.language, privacyNotice, electronicMessage, explicitConsent }
+      const brandForm = {
+        ...values,
+        language: i18n.language,
+        privacyNotice: `${privacyNotice}`,
+        electronicMessage: `${electronicMessage}`,
+        explicitConsent: `${explicitConsent}`,
+      }
       handleSubmit(brandForm)
     },
   })

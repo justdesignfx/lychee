@@ -2,6 +2,10 @@ import s from "~/assets/scss/pages/Partners.module.scss"
 
 import cx from "classnames"
 
+import { Helmet } from "react-helmet"
+import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
+
 import logoAdidas from "~/assets/img/logo-adidas.svg"
 import logoDisney from "~/assets/img/logo-disney.svg"
 import logoDyson from "~/assets/img/logo-dyson.svg"
@@ -11,20 +15,20 @@ import logoNestle from "~/assets/img/logo-nestle.svg"
 import logoNike from "~/assets/img/logo-nike.svg"
 import logoPhilips from "~/assets/img/logo-philips.svg"
 import logoStarbucks from "~/assets/img/logo-starbucks.svg"
-import logoDysonBlack from "~/assets/img/logo-dyson-black.svg"
-import logoAbdiBlack from "~/assets/img/logo-abdiibrahim-black.svg"
-import logoObsessoBlack from "~/assets/img/logo-obsesso-black.svg"
-import MarqueeSimple from "~/components/MarqueeSimple"
-import { Link } from "react-router-dom"
 import ButtonGlitch from "~/components/ButtonGlitch"
 import FooterBasic from "~/components/FooterBasic"
-import { useTranslation } from "react-i18next"
+import MarqueeSimple from "~/components/MarqueeSimple"
 
 const Partners = () => {
   const { t } = useTranslation()
 
   return (
     <>
+      <Helmet>
+        <title>{`${t("titleAndDesc.preTitle")}${t("titleAndDesc.partners.title")}`}</title>
+        <meta name="description" content={`${t("titleAndDesc.partners.desc")}`}></meta>
+        <link rel="canonical" href={`${t("titleAndDesc.partners.canonical")}`} />
+      </Helmet>
       <main className={s.partners}>
         <section className={s.intro}>
           <div className={s.titleC}>

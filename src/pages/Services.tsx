@@ -1,9 +1,10 @@
-import s from "~/assets/scss/pages/Services.module.scss"
 import { useEffect } from "react"
+import s from "~/assets/scss/pages/Services.module.scss"
 
-import { useTranslation } from "react-i18next"
 import cx from "classnames"
+import { useTranslation } from "react-i18next"
 import { Link, useNavigate } from "react-router-dom"
+import { Helmet } from "react-helmet"
 
 import doodleLaying from "~/assets/img/doodle-laying.png"
 import nescafe from "~/assets/img/nescafe.jpg"
@@ -122,6 +123,11 @@ const Services = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{`${t("titleAndDesc.preTitle")}${t("titleAndDesc.services.title")}`}</title>
+        <meta name="description" content={`${t("titleAndDesc.services.desc")}`}></meta>
+        <link rel="canonical" href={`${t("titleAndDesc.services.canonical")}`} />
+      </Helmet>
       <main className={s.services}>
         <section className={s.titleC}>
           {i18n.language === lngs.en.nativeName ? (
