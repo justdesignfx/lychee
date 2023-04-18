@@ -213,7 +213,7 @@ const ContactContentCreator = () => {
             </div>
 
             <div className={s.multipleInputC}>
-              <small className={s.smallTop}>{t("contact.contentCreator.social")}*</small>
+              <small className={s.smallTop}>{t("contact.contentCreator.social.l1")}*</small>
 
               {formik.values.socialPlatforms.map((platform, i) => {
                 return (
@@ -229,7 +229,7 @@ const ContactContentCreator = () => {
                       })}
                       htmlFor={`social_${i}`}
                     >
-                      https://www.instagram.com/lycheedigital/
+                      {t("contact.contentCreator.social.l2")}*
                     </label>
                     <input
                       className={s.input}

@@ -412,7 +412,7 @@
       }
 
       .title {
-        @include dims(35vw, auto);
+        @include dims(30vw, auto);
         @include typo(Lychee, 60px, null, 1.2, null);
         color: $stonewallGrey;
         margin-bottom: 2vw;
@@ -427,6 +427,11 @@
           @include typo(Lychee, 32px, null, 1.2, null);
           margin-bottom: 10vw;
           text-align: center;
+        }
+
+        .italic {
+          font-family: LaicaB;
+          font-style: italic;
         }
       }
 

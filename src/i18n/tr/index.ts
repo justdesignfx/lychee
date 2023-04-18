@@ -354,7 +354,7 @@ export const tr = {
         title: "İÇERİK ÜRETİCİSİ BAŞVURU FORMU",
         name: "Ad Soyad",
         email: "Eposta Adresi",
-        social: "Sosyal Medya Linkleri",
+        social: { l1: "Sosyal Medya Linkleri", l2: "Adres Giriniz" },
         addNew: "Yeni ekleyin",
         addInfo: "Eklemek İstediğiniz Bilgi Var mı?",
         sendBtn: "Gönder",

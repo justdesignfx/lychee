@@ -398,7 +398,7 @@
       }
 
       &.right {
-        @include position(absolute, 15%, auto, auto, 56%);
+        @include position(absolute, 27%, auto, auto, 60vw);
         @include dims(20vw, auto);
 
         @include devicesMax(mobile) {

@@ -1,7 +1,9 @@
+import { useEffect } from "react"
 import s from "~/assets/scss/pages/Brands.module.scss"
 
 import { Trans, useTranslation } from "react-i18next"
 import { Link, useNavigate } from "react-router-dom"
+import { Helmet } from "react-helmet"
 
 import ButtonGlitch from "~/components/ButtonGlitch"
 import FooterBasic from "~/components/FooterBasic"
@@ -12,9 +14,6 @@ import playBtnTri from "~/assets/img/btn-play-tri.svg"
 import coke from "~/assets/img/coke.jpg"
 import danone from "~/assets/img/danone.jpg"
 import stairs from "~/assets/img/stairs.jpg"
-
-import { useEffect } from "react"
-import { Helmet } from "react-helmet"
 import portalDiamond from "~/assets/img/portal-diamond.png"
 import stickerBans from "~/assets/img/sticker-bans.svg"
 import stickerPeace from "~/assets/img/sticker-peace.svg"
@@ -165,7 +164,16 @@ const Brands = () => {
             </div>
           </div>
           <div className={s.platformsTextC}>
-            <h2 className={s.title}>{t("brands.platforms.title")}</h2>
+            {i18n.language === lngs.en.nativeName ? (
+              <h2 className={s.title}>
+                We determine <span className={s.italic}>the most appropriate</span> platforms for your brand in your
+                campaigns.
+              </h2>
+            ) : (
+              <h2 className={s.title}>
+                Kampayalarınızda markanız için <span className={s.italic}>en doğru platformları</span> belirliyoruz.
+              </h2>
+            )}
             <p className={s.text}>{t("brands.platforms.text")}</p>
           </div>
         </section>

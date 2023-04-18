@@ -5,7 +5,6 @@
   $fontSizeMobile: 1rem;
   $paddingLeft: 1.25rem;
   @include dims(100%);
-
   position: relative;
 
   display: flex;
@@ -426,6 +425,7 @@
       border-radius: 32px;
       margin-bottom: 1vw;
       padding: 1.5rem;
+      transition: 0.4s all ease;
       gap: 1rem;
 
       display: flex;

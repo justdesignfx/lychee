@@ -73,7 +73,7 @@ const Services = () => {
       title: (
         <h5 className={s.floatingCardTitle}>
           <span className={s.normal}>Creative</span>
-          <span className={s.italic}>Copyrwrite</span>
+          <span className={s.italic}>Copywrite</span>
         </h5>
       ),
       text: t("services.sideServices.cards.c1.desc"),

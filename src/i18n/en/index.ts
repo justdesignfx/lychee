@@ -302,7 +302,7 @@ export const en = {
           desc: "We plan all processes thoroughly for our brands and digital capabilities, and work with our passionate team to create unique works beyond the line.",
         },
         i2: {
-          title: "We menage communities.",
+          title: "We manage communities.",
           desc: "We pay attention to the communication with our communities regarding our digital skills, and we approach brand collaborations as an extension of this communication and story.",
         },
         i3: {
@@ -353,7 +353,7 @@ export const en = {
         title: "CONTENT CREATOR APPLICATION FORM",
         name: "Name Surname",
         email: "Email",
-        social: "Social Media Links",
+        social: { l1: "Social Media Links", l2: "Your Address" },
         addNew: "Add new",
         addInfo: "Would you like to add more info?",
         sendBtn: "Send",
