@@ -28,7 +28,7 @@ import portal from "~/assets/img/portal.svg"
 import reels from "~/assets/img/reels.png"
 import skaterTube from "~/assets/img/skater-tube.svg"
 import smartPhone from "~/assets/img/smartphone.svg"
-
+import skaterTablet from "~/assets/gif/skater.gif"
 import ButtonText from "~/components/ButtonText"
 import Footer from "~/components/Footer"
 import Img from "~/components/Img"
@@ -269,7 +269,11 @@ const Home = () => {
             )}
 
             <div className={s.imgC}>
-              <Img src={skaterTube} alt="Skating Tube Tv" objectFit="contain" />
+              <Img
+                src={size.width > breakpoints.tablet ? skaterTube : skaterTablet}
+                alt="Skating Tube Tv"
+                objectFit="contain"
+              />
             </div>
           </div>
         </section>

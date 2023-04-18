@@ -46,8 +46,7 @@
         margin-right: auto;
 
         @include devicesMax(tablet) {
-          @include typo(Lychee, 20px, null, 1.4, null);
-          @include dims(40vw, auto);
+          @include dims(29vw, auto);
         }
 
         @include devicesMax(mobile) {
@@ -59,6 +58,10 @@
           color: #ce1953;
           display: block;
 
+          @include devicesMax(tablet) {
+            margin-bottom: 1vw;
+          }
+
           @include devicesMax(mobile) {
             margin-bottom: 3vw;
           }
@@ -68,7 +71,7 @@
           @include typo(Lychee, 20px, null, 1.4, null);
 
           @include devicesMax(tablet) {
-            @include typo(Lychee, 20px, null, 1.4, null);
+            @include typo(Lychee, 14px, null, 1.4, null);
           }
 
           @include devicesMax(mobile) {
@@ -91,7 +94,7 @@
           margin-bottom: 0.5vw;
 
           @include devicesMax(tablet) {
-            @include typo(Lychee, 20px, null, 1.4, null);
+            @include typo(Lychee, 16px, null, 1.4, null);
           }
 
           @include devicesMax(mobile) {
@@ -121,7 +124,7 @@
       @include typo(Lychee, 14px, 400, null, null);
 
       @include devicesMax(tablet) {
-        @include typo(Lychee, 14px, 400, null, null);
+        @include typo(Lychee, 12px, 400, null, null);
       }
 
       @include devicesMax(mobile) {

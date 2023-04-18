@@ -7,7 +7,7 @@
   flex-shrink: 0;
 
   @include devicesMax(tablet) {
-    @include typo(Lychee, 76px, null, 1.4, null);
+    @include typo(Lychee, 60px, null, 1.4, null);
   }
 
   @include devicesMax(mobile) {
@@ -38,7 +38,7 @@
       font-style: italic;
 
       @include devicesMax(tablet) {
-        @include typo(LaicaBItalic, 100px, null, 0.8, null);
+        @include typo(LaicaBItalic, 68px, null, 0.8, null);
       }
 
       @include devicesMax(mobile) {

@@ -74,7 +74,6 @@
           border-radius: 5vmin;
           color: #c1c1c1;
           margin-bottom: 2.5vw;
-          padding-bottom: 0.2ch;
 
           display: grid;
           place-items: center;
@@ -177,7 +176,7 @@
         justify-content: center;
 
         @include devicesMax(tablet) {
-          @include position(absolute, -5%, auto, auto, 85%);
+          @include position(absolute, 45%, auto, auto, 30%);
           @include dims(15vw);
         }
 
@@ -221,8 +220,8 @@
         z-index: 10;
 
         @include devicesMax(tablet) {
-          @include typo(Lychee, 53px, null, 1.5, null);
-          width: 95%;
+          @include typo(Lychee, 44px, null, 1.5, null);
+          width: 80%;
         }
 
         @include devicesMax(mobile) {
@@ -255,7 +254,7 @@
           color: $californiaSunset;
 
           @include devicesMax(tablet) {
-            @include typo(LaicaBItalic, 56px, null, 1.5, null);
+            @include typo(LaicaBItalic, 48px, null, 1.5, null);
           }
 
           @include devicesMax(mobile) {
@@ -271,8 +270,8 @@
 
         @include devicesMax(tablet) {
           @include position(relative, auto, auto, auto, auto);
-          @include dims(63vw);
-          margin: 15vw auto;
+          @include dims(60vw);
+          margin: 15vw auto 0 auto;
         }
 
         @include devicesMax(mobile) {
@@ -369,8 +368,9 @@
         place-items: center;
 
         @include devicesMax(tablet) {
-          @include position(absolute, 60vw, auto, auto, -20vw);
-          @include dims(32vw, 6vw);
+          @include position(absolute, auto, auto, -5vw, 50%);
+          @include dims(50vw, 8vw);
+          transform: rotate(-4deg) translateX(-50%);
         }
 
         @include devicesMax(mobile) {
@@ -410,7 +410,7 @@
         z-index: 10;
 
         @include devicesMax(tablet) {
-          @include position(absolute, 55vw, auto, auto, 40vw);
+          @include position(absolute, 45vw, auto, auto, 40vw);
           @include dims(30vw, auto);
         }
 
@@ -566,6 +566,10 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 2.5rem;
+
+      @include devicesMax(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
       @include devicesMax(mobile) {
         grid-template-columns: repeat(1, 1fr);
@@ -743,7 +747,7 @@
           width: 25vw;
 
           @include devicesMax(tablet) {
-            width: 35vw;
+            width: 40vw;
           }
 
           @include devicesMax(mobile) {
@@ -761,7 +765,7 @@
 
         @include devicesMax(tablet) {
           @include dims(40vw, auto);
-          margin: 0 0 60vw 4vw;
+          margin: 0 0 35vw 4vw;
         }
 
         @include devicesMax(mobile) {
@@ -838,7 +842,7 @@
         z-index: 100;
 
         @include devicesMax(tablet) {
-          @include dims(100vw, 100vw);
+          @include dims(100vw, 60vw);
         }
 
         @include devicesMax(mobile) {
@@ -913,6 +917,10 @@
             .num60 {
               @include typo(LS-VG5000-Shifted, 200px, null, null, null);
 
+              @include devicesMax(tablet) {
+                @include typo(LS-VG5000-Shifted, 160px, null, null, null);
+              }
+
               @include devicesMax(mobile) {
                 @include typo(LS-VG5000-Shifted, 82px, null, null, null);
               }
@@ -921,6 +929,10 @@
             .num7 {
               @include typo(LS-VG5000-Shifted, 200px, null, null, null);
 
+              @include devicesMax(tablet) {
+                @include typo(LS-VG5000-Shifted, 160px, null, null, null);
+              }
+
               @include devicesMax(mobile) {
                 @include typo(LS-VG5000-Shifted, 152px, null, null, null);
               }
@@ -928,6 +940,10 @@
 
             .num20 {
               @include typo(LS-VG5000-Shifted, 200px, null, null, null);
+
+              @include devicesMax(tablet) {
+                @include typo(LS-VG5000-Shifted, 160px, null, null, null);
+              }
 
               @include devicesMax(mobile) {
                 @include typo(LS-VG5000-Shifted, 82px, null, null, null);
@@ -940,6 +956,11 @@
               display: inline-block;
               transform: translate(100%, 0);
 
+              @include devicesMax(tablet) {
+                @include position(absolute, 10%, 3%, auto, auto);
+                @include typo(LS-VG5000, 40px, null, null, null);
+              }
+
               @include devicesMax(mobile) {
                 @include position(absolute, 0, 3%, auto, auto);
                 @include typo(LS-VG5000, 40px, null, null, null);
@@ -949,6 +970,10 @@
             .million {
               @include typo(LS-VG5000-Shifted, 140px, null, null, null);
 
+              @include devicesMax(tablet) {
+                @include typo(LS-VG5000-Shifted, 100px, null, null, null);
+              }
+
               @include devicesMax(mobile) {
                 @include typo(LS-VG5000-Shifted, 60px, null, null, null);
               }
@@ -956,6 +981,10 @@
 
             .thousand {
               @include typo(LS-VG5000-Shifted, 140px, null, null, null);
+
+              @include devicesMax(tablet) {
+                @include typo(LS-VG5000-Shifted, 100px, null, null, null);
+              }
 
               @include devicesMax(mobile) {
                 @include typo(LS-VG5000-Shifted, 100px, null, null, null);
@@ -966,6 +995,10 @@
               @include typo(Lychee, 100px, null, null, null);
               padding-left: 1vw;
               transform: translate(100%, 0);
+
+              @include devicesMax(tablet) {
+                @include typo(Lychee, 80px, null, null, null);
+              }
 
               @include devicesMax(mobile) {
                 @include typo(Lychee, 40px, null, null, null);
@@ -981,8 +1014,8 @@
             text-align: right;
 
             @include devicesMax(tablet) {
-              @include typo(Lychee, 40px, null, 1.2, null);
-              @include dims(60vw, auto);
+              @include typo(Lychee, 32px, null, 1.2, null);
+              @include dims(42vw, auto);
             }
 
             @include devicesMax(mobile) {

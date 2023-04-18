@@ -1,12 +1,12 @@
 @import "../_global.scss";
 
 .footer {
+  overflow: hidden;
+
   display: flex;
   flex-direction: column;
   align-items: stretch;
   flex-shrink: 0;
-
-  overflow: hidden;
 
   .eventC {
     background: #f4f2f2;
@@ -16,7 +16,7 @@
     padding-bottom: 0;
 
     @include devicesMax(tablet) {
-      padding: 10vw 8vw;
+      padding: 10vw 4vw 0 4vw;
     }
 
     @include devicesMax(mobile) {
@@ -33,6 +33,10 @@
     column-gap: 15vw;
 
     @include devicesMax(tablet) {
+      column-gap: 4vw;
+    }
+
+    @include devicesMax(mobile) {
       grid-template-columns: repeat(1, 1fr);
     }
 
@@ -56,7 +60,7 @@
     .imgC {
       position: relative;
 
-      @include devicesMax(tablet) {
+      @include devicesMax(mobile) {
         margin-bottom: 10vw;
       }
 
@@ -85,7 +89,7 @@
         position: relative;
 
         @include devicesMax(tablet) {
-          margin-bottom: 10vw;
+          margin-bottom: 7vw;
         }
 
         @include devicesMax(mobile) {
@@ -97,12 +101,12 @@
           margin-left: 5vw;
 
           @include devicesMax(tablet) {
-            @include dims(25vw);
-            margin-left: 22vw;
+            @include dims(12vw);
+            margin-left: 7vw;
           }
 
           @include devicesMax(mobile) {
-            @include dims(25vw);
+            @include dims(30vw);
             margin-left: 15vw;
           }
         }
@@ -116,7 +120,8 @@
           z-index: 5;
 
           @include devicesMax(tablet) {
-            @include position(absolute, 14vw, auto, auto, -5vw);
+            @include position(absolute, 8vw, auto, auto, 0vw);
+            @include typo(LS-VG5000-Shifted, 32px, null, null, null);
           }
 
           @include devicesMax(mobile) {
@@ -128,18 +133,19 @@
         .takip {
           color: $californiaSunset;
           @include typo(LS-VG5000-Shifted, 50px, null, null, null);
-          @include position(absolute, 0, auto, auto, 13vw);
+          @include position(absolute, 0, auto, auto, 14vw);
           transform: rotate(-9deg);
           white-space: nowrap;
           z-index: 5;
 
           @include devicesMax(tablet) {
-            @include position(absolute, 0, auto, auto, 45vw);
+            @include position(absolute, 0, auto, auto, 18vw);
+            @include typo(LS-VG5000-Shifted, 32px, null, null, null);
           }
 
           @include devicesMax(mobile) {
+            @include position(absolute, 0, auto, auto, 40vw);
             @include typo(LS-VG5000-Shifted, 30px, null, null, null);
-            @include position(absolute, 0, auto, auto, 37vw);
           }
         }
       }
@@ -150,7 +156,13 @@
         gap: 1rem;
 
         @include devicesMax(tablet) {
+          gap: 0.5rem;
+          margin-left: 6vw;
+        }
+
+        @include devicesMax(mobile) {
           justify-content: center;
+          margin-left: 0;
         }
 
         .linkC {
@@ -166,8 +178,8 @@
           justify-content: center;
 
           @include devicesMax(tablet) {
-            @include typo(LS-VG5000, 24px, null, null, null);
-            @include dims(24vw, 6vw);
+            @include typo(LS-VG5000, 12px, null, null, null);
+            @include dims(12vw, 3.5vw);
           }
 
           @include devicesMax(mobile) {
