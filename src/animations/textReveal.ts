@@ -30,13 +30,13 @@ export function textReveal() {
   const mustSeen = 9
 
   letters.forEach((letter: any, i: number) => {
-    let distance = Math.pow(i - mustSeen, 1.8)
+    let distance = Math.pow(Math.max(i - mustSeen, 0), 1.4)
 
     i > mustSeen &&
       gsap.set(letter, {
         y: () => `${distance}px`,
         rotation: distance * 0.025,
-        opacity: Math.max(1 - (i - mustSeen) * 0.1, 0),
+        opacity: gsap.utils.mapRange(mustSeen, letters.length - 1, 0.7, 0, distance),
         willChange: "transform",
       })
   })

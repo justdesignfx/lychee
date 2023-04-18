@@ -16,3 +16,6 @@ export const showreelVideo =
 
 export const ogedayDysonVideo =
   "https://player.vimeo.com/progressive_redirect/playback/817565700/rendition/1080p/file.mp4?loc=external&signature=e29e9f02af8d778279502018a16d0998cba48475ef30eeef0e2fae5960a10cb1"
+
+export const homeTextRevealReels =
+  "https://player.vimeo.com/progressive_redirect/playback/818694757/rendition/1080p/file.mp4?loc=external&signature=2f8a63260fdb16b13f310d3e99ab91e826ff77991b10306e935fdbbc78c2540b"
