@@ -319,9 +319,7 @@ const Creators = () => {
                 <span className={s.italic}> pursuing</span> the
               </span>
               <span className={s.line}>
-                <span className={s.resetMargin} style={{ marginRight: "6vw" }}>
-                  extraordinary creativity of{" "}
-                </span>
+                <span>extraordinary creativity of </span>
                 producers,
               </span>
               <span className={cx(s.line, s.resetMargin)} style={{ marginLeft: "14vw" }}>
