@@ -1226,7 +1226,7 @@
     align-items: center;
 
     @include devicesMax(tablet) {
-      margin: 35vw 0 15vw 0;
+      margin: 15vw 0 15vw 0;
     }
 
     .titleC {
@@ -1250,6 +1250,8 @@
 
         @include devicesMax(mobile) {
           @include typo(LaicaBItalic, 40px, null, 0.8, null);
+          @include dims(95%, auto);
+          margin: 0 auto 5vw auto;
         }
 
         .italic {
