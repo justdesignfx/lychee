@@ -111,7 +111,7 @@ export const en = {
         subtitle: "We match influencers with the global brands they will best match.",
         button: {
           ui: "Start to create",
-          path: "contact",
+          path: "contact/content-creator",
         },
         influencerDetail: {
           influencer: "Influencer",

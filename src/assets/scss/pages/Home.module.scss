@@ -363,6 +363,7 @@
         border-radius: 4vmin;
         color: #c1c1c1;
         margin-bottom: 2.5vw;
+        z-index: 10;
 
         display: grid;
         place-items: center;
@@ -384,6 +385,7 @@
         @include position(absolute, 15vw, auto, auto, -10vw);
         @include dims(7vw, auto);
         transform: rotate(-14deg);
+        z-index: 10;
 
         @include devicesMax(tablet) {
           @include dims(14vw, auto);
@@ -405,6 +407,7 @@
         @include position(absolute, 35vw, auto, auto, 15vw);
         @include dims(20vw, auto);
         transform: rotate(-18deg);
+        z-index: 10;
 
         @include devicesMax(tablet) {
           @include position(absolute, 55vw, auto, auto, 40vw);
@@ -424,8 +427,11 @@
         }
       }
 
-      .imgC {
+      .videoC {
         @include dims(25vw, auto);
+        border-radius: 32px;
+        overflow: hidden;
+        z-index: 5;
 
         @include devicesMax(tablet) {
           @include dims(45vw, auto);
@@ -435,10 +441,11 @@
           @include dims(80vw, auto);
         }
 
-        .img {
+        .video {
           @include dims(100%);
           display: block;
-          object-fit: contain;
+          object-fit: cover;
+          z-index: -1;
         }
       }
     }

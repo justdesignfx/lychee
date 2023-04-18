@@ -111,7 +111,7 @@ export const tr = {
         subtitle: "Influencer’ları en iyi eşleşeceği global markalarla buluşturuyoruz.",
         button: {
           ui: "Üretmeye başlayın",
-          path: "iletisim",
+          path: "iletisim/icerik-uretici",
         },
         influencerDetail: {
           influencer: "Influencer",

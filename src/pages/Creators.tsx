@@ -266,7 +266,7 @@ const Creators = () => {
               </h1>
             )}
             <h2 className={s.subtitle}>{t("creators.intro.subtitle")}</h2>
-            <Link className={s.btnC} to={`${t("creators.intro.button.path")}`}>
+            <Link className={s.btnC} to={`/${t("creators.intro.button.path")}`}>
               <ButtonGlitch size="sm" text={t("creators.intro.button.ui")} />
             </Link>
           </div>

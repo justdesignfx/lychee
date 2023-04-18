@@ -37,7 +37,7 @@ import SplitText from "~/components/SplitText"
 import { useWindowSize } from "~/hooks"
 import { useCursorStore } from "~/store/cursorStore"
 import { useModalStore } from "~/store/modalStore"
-import { breakpoints, lngs, showreelVideo } from "~/variables"
+import { breakpoints, lngs, ogedayDysonVideo, showreelVideo } from "~/variables"
 
 const Home = () => {
   const { t, i18n } = useTranslation()
@@ -288,8 +288,12 @@ const Home = () => {
               <div className={s.agencyC}>
                 <img className={s.img} src={digitalTalentAgency} alt="Influencer Reels" />
               </div>
-              <div className={s.imgC}>
+              {/* <div className={s.imgC}>
                 <img className={s.img} src={reels} alt="Influencer Reels" />
+                
+              </div> */}
+              <div className={s.videoC}>
+                <video autoPlay loop muted playsInline className={s.video} src={ogedayDysonVideo}></video>
               </div>
             </div>
           </div>

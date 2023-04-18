@@ -83,7 +83,7 @@ const Brands = () => {
             </h1>
             <h2 className={s.subtitle}>{t("brands.intro.subtitle")}</h2>
             <p className={s.par}>{t("brands.intro.desc")}</p>
-            <Link className={s.btnC} to={`${t("brands.intro.button.path")}`}>
+            <Link className={s.btnC} to={`/${t("brands.intro.button.path")}`}>
               <ButtonGlitch size="sm" text={t("brands.intro.button.ui")} />
             </Link>
           </div>
