@@ -5,7 +5,7 @@
   margin-bottom: 2vw;
 
   @include devicesMax(tablet) {
-    font-size: 4vw;
+    font-size: 3.5vw;
   }
 
   @include devicesMax(mobile) {
@@ -288,7 +288,7 @@
 
       @include devicesMax(tablet) {
         @include dims(50vw, auto);
-        margin: 12.5vw auto 2vw 40vw;
+        margin: 12.5vw auto 10vw 40vw;
       }
 
       @include devicesMax(mobile) {
@@ -322,7 +322,7 @@
         line-height: 120%;
 
         @include devicesMax(tablet) {
-          font-size: 4vw;
+          font-size: 3.5vw;
         }
 
         @include devicesMax(mobile) {

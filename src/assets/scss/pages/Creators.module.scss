@@ -5,7 +5,7 @@
   margin-bottom: 2vw;
 
   @include devicesMax(tablet) {
-    font-size: 4vw;
+    font-size: 3.5vw;
   }
 
   @include devicesMax(mobile) {
@@ -510,6 +510,10 @@
     align-items: center;
     justify-content: center;
 
+    @include devicesMax(tablet) {
+      margin-bottom: 15vw;
+    }
+
     @include devicesMax(mobile) {
       margin-bottom: 15vw;
     }
@@ -556,10 +560,8 @@
     overflow-x: hidden;
 
     @include devicesMax(tablet) {
+      display: block;
       min-height: auto;
-      flex-direction: column;
-      align-items: flex-start;
-      padding-top: 10vw;
     }
 
     .title {
@@ -572,15 +574,16 @@
       @include devicesMax(tablet) {
         @include position(relative, auto, auto, auto, auto);
         @include typo(Lychee, 50px, null, 1.1, null);
-        @include dims(70vw, auto);
+        @include dims(50vw, auto);
         margin-bottom: 10vw;
-        margin-left: 10vw;
+        margin-left: 5vw;
       }
 
       @include devicesMax(mobile) {
         @include typo(Lychee, 36px, null, 1.1, null);
-        text-align: center;
+        @include dims(80vw, auto);
         margin: 0 auto 10vw auto;
+        text-align: center;
       }
 
       .italic {
@@ -604,6 +607,11 @@
         padding: 0;
       }
     }
+  }
+
+  .whyTouchscreen {
+    flex-shrink: 0;
+    flex-grow: 0;
   }
 
   .waitingForYou {

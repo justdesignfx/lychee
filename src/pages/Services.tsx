@@ -230,7 +230,7 @@ const Services = () => {
             )}
           </div>
 
-          {size.width > breakpoints.mobile ? (
+          {size.width > breakpoints.tablet ? (
             <div className={s.cards}>
               {cards.map((card, i) => {
                 return (

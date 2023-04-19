@@ -54,6 +54,10 @@
         flex-direction: column;
         justify-content: flex-end;
 
+        @include devicesMax(tablet) {
+          padding: 2vw;
+        }
+
         @include devicesMax(mobile) {
           padding: 3.5vw 5vw;
         }
@@ -62,6 +66,10 @@
           @include typo(Lychee, 30px, null, 1.4, null);
           color: $bleachedSilk;
           margin-bottom: 1vw;
+
+          @include devicesMax(tablet) {
+            @include typo(Lychee, 24px, null, 1.4, null);
+          }
 
           @include devicesMax(mobile) {
             @include typo(Lychee, 24px, null, 1.4, null);
@@ -78,7 +86,7 @@
           .iconC {
             @include dims(1.5rem);
 
-            @include devicesMax(mobile) {
+            @include devicesMax(tablet) {
               @include dims(1.25rem);
             }
           }

@@ -104,8 +104,12 @@
     display: flex;
     column-gap: 8px;
 
-    display: flex;
+    display: none;
     justify-content: center;
+
+    @include devicesMax(mobile) {
+      display: flex;
+    }
 
     .navItem {
       @include dims(50px, 4px);

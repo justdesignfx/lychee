@@ -22,6 +22,7 @@ import slider2 from "~/assets/img/slider-2.jpg"
 import slider3 from "~/assets/img/slider-3.jpg"
 import visitor from "~/assets/img/smartphone-portal.svg"
 
+import { Helmet } from "react-helmet"
 import ButtonGlitch from "~/components/ButtonGlitch"
 import ButtonText from "~/components/ButtonText"
 import FloatingCard from "~/components/FloatingCard"
@@ -33,7 +34,6 @@ import SquareGrid from "~/components/SquareGrid"
 import WhyLycheeMobile from "~/components/WhyLycheeMobile"
 import { useWindowSize } from "~/hooks"
 import { breakpoints, lngs, ogedayDysonVideo } from "~/variables"
-import { Helmet } from "react-helmet"
 
 const Creators = () => {
   const size = useWindowSize()
@@ -431,18 +431,19 @@ const Creators = () => {
             external
           />
         </section>
-        {size.width > breakpoints.mobile ? (
-          <section className={s.why} data-floating-items-c>
-            {i18n.language === lngs.en.nativeName ? (
-              <h2 className={s.title}>
-                Why you should work with <span className={s.italic}>Lychee?</span>
-              </h2>
-            ) : (
-              <h2 className={s.title}>
-                Neden <span className={s.italic}>Lychee</span> ile çalışmalısınız?
-              </h2>
-            )}
 
+        <section className={s.why} data-floating-items-c>
+          {i18n.language === lngs.en.nativeName ? (
+            <h2 className={s.title}>
+              Why you should work with <span className={s.italic}>Lychee?</span>
+            </h2>
+          ) : (
+            <h2 className={s.title}>
+              Neden <span className={s.italic}>Lychee</span> ile çalışmalısınız?
+            </h2>
+          )}
+
+          {size.width > breakpoints.tablet ? (
             <div className={s.horizontalScrollContent} data-floating-items>
               {cards.map((card, i) => {
                 return (
@@ -452,14 +453,15 @@ const Creators = () => {
                 )
               })}
             </div>
-          </section>
-        ) : (
-          <>
-            <section className={s.whyMobile}>
-              <WhyLycheeMobile items={cards} />
-            </section>
-          </>
-        )}
+          ) : (
+            <>
+              <section className={s.whyTouchscreen}>
+                <WhyLycheeMobile items={cards} />
+              </section>
+            </>
+          )}
+        </section>
+
         <section className={s.waitingForYou}>
           <div className={s.marqueeC}>
             <MarqueeSimple>
@@ -484,7 +486,6 @@ const Creators = () => {
           )}
         </section>
       </main>
-
       <FooterBasic />
     </>
   )

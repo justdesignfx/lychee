@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import s from "~/assets/scss/components/WhyLycheeMobile.module.scss"
 
 import cx from "classnames"
@@ -7,9 +7,9 @@ import cx from "classnames"
 import { Autoplay, Navigation } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 
-// Import Swiper styles
 import { useSwiperRef } from "~/hooks"
 
+// Import Swiper styles
 import "swiper/css"
 import "swiper/css/navigation"
 import FloatingCard from "./FloatingCard"
@@ -28,12 +28,24 @@ const WhyLycheeMobile = (props: Props) => {
       <Swiper
         style={{ width: "100%", height: "100%" }}
         modules={[Navigation, Autoplay]}
-        autoplay={{
-          delay: 4000,
-        }}
-        loop={true}
         onSlideChange={(e: any) => {
           setCurrentSlide(e.realIndex)
+        }}
+        autoplay={{ delay: 1000, disableOnInteraction: true }}
+        loop={true}
+        breakpoints={{
+          640: {
+            slidesPerView: 2.8,
+            spaceBetween: 30,
+            slidesOffsetBefore: 50,
+            slidesOffsetAfter: 50,
+            autoplay: false,
+            loop: false,
+            centeredSlides: false,
+          },
+          0: {
+            slidesPerView: 1,
+          },
         }}
         slidesPerView={1}
         speed={600}
