@@ -956,6 +956,24 @@
               display: inline-block;
               transform: translate(100%, 0);
 
+              &.mil {
+                @include position(absolute, 20%, 0, auto, auto);
+
+                @include devicesMax(tablet) {
+                  @include position(absolute, 30%, 0, auto, auto);
+                }
+
+                @include devicesMax(mobile) {
+                  @include position(absolute, 10%, 0, auto, auto);
+                }
+              }
+
+              &.k {
+                @include devicesMax(mobile) {
+                  @include position(absolute, 20%, -5%, auto, auto);
+                }
+              }
+
               @include devicesMax(tablet) {
                 @include position(absolute, 10%, 0, auto, auto);
                 @include typo(LS-VG5000, 40px, null, null, null);
@@ -963,7 +981,7 @@
 
               @include devicesMax(mobile) {
                 @include position(absolute, 0, 3%, auto, auto);
-                @include typo(LS-VG5000, 40px, null, null, null);
+                @include typo(LS-VG5000, 32px, null, null, null);
               }
             }
 

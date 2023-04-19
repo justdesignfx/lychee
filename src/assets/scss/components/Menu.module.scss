@@ -41,17 +41,17 @@
 
   .langBtnC {
     $dims: 2rem;
-    @include position(absolute, calc(($headerHeight - $dims) / 2), 10vw, auto, auto);
+    @include position(absolute, calc(($headerHeight - $dims) / 2), 9vw, auto, auto);
     @include dims($dims);
     pointer-events: auto;
     z-index: z-index("langSelect");
 
     @include devicesMax(tablet) {
-      @include position(absolute, calc(($headerHeightTablet - $dims) / 2), 16vw, auto, auto);
+      @include position(absolute, calc(($headerHeightTablet - $dims) / 2), 15vw, auto, auto);
     }
 
     @include devicesMax(tabletmini) {
-      @include position(absolute, calc(($headerHeightTablet - $dims) / 2), 18vw, auto, auto);
+      @include position(absolute, calc(($headerHeightTablet - $dims) / 2), 19vw, auto, auto);
     }
 
     @include devicesMax(mobile) {

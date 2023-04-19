@@ -16,12 +16,12 @@
     color: #fff;
     display: block;
     font-family: LS-VG5000;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     @extend .hide;
 
     @include devicesMax(mobile) {
-      font-size: 4.5vw;
+      font-size: 3.5vw;
     }
 
     &.enabled {

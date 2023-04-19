@@ -392,7 +392,7 @@ const Home = () => {
                 <h3 className={s.statText}>
                   <span className={s.num60}>60 </span>
                   <span className={s.million}>{t("home.stats.blue.stat")}</span>
-                  <span className={cx(s.asterisk, s.million)}>*</span>
+                  <span className={cx(s.asterisk, s.mil)}>*</span>
                 </h3>
                 <p className={s.desc}>{t("home.stats.blue.text")}</p>
               </div>
@@ -409,7 +409,7 @@ const Home = () => {
                 <h3 className={s.statText}>
                   <span className={s.num7}>7</span>
                   <span className={s.thousand}>{t("home.stats.pink.stat")}</span>
-                  <span className={s.asterisk}>*</span>
+                  <span className={cx(s.asterisk, s.k)}>*</span>
                 </h3>
                 <p className={s.desc}>{t("home.stats.pink.text")}</p>
               </div>
