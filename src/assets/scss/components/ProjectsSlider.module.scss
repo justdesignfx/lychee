@@ -85,6 +85,10 @@
           transform: translateZ(1px);
           transition: 0.4s all ease;
           z-index: 10;
+
+          @include devicesMax(tablet) {
+            display: none;
+          }
         }
 
         .video {

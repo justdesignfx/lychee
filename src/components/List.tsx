@@ -15,7 +15,7 @@ type Props = {
 }
 
 const List = (props: Props) => {
-  const [activeItems, setActiveItems] = useState<number[]>([])
+  const [activeItems, setActiveItems] = useState<number[]>([0])
 
   const handleAccordion = (i: number) => {
     if (!activeItems.includes(i)) {

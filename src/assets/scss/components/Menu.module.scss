@@ -50,6 +50,10 @@
       @include position(absolute, calc(($headerHeightTablet - $dims) / 2), 16vw, auto, auto);
     }
 
+    @include devicesMax(tabletmini) {
+      @include position(absolute, calc(($headerHeightTablet - $dims) / 2), 18vw, auto, auto);
+    }
+
     @include devicesMax(mobile) {
       @include position(absolute, calc(($headerHeightMobile - $dims) / 2), 22vw, auto, auto);
     }

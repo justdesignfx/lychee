@@ -37,8 +37,8 @@
 
     @include devicesMax(mobile) {
       @include position(fixed, 5vw, 4vw, auto, auto);
-      @include dims(10vw);
-      padding: 10px;
+      @include dims(8vw);
+      padding: 8px;
     }
   }
 

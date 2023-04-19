@@ -2,30 +2,34 @@
 
 .gridC {
   margin-bottom: 4vw;
-
-  display: flex;
-  flex-direction: column;
+  width: 100vw;
 
   @include devicesMax(mobile) {
     margin-bottom: 10vw;
+
+    display: flex;
+    flex-direction: column;
   }
 
   .grid {
+    margin: 0 5vw;
     display: grid;
     grid-template-columns: repeat(3, minmax(430px, 1fr));
     grid-gap: 2.5rem;
 
     @include devicesMax(tablet) {
-      grid-template-columns: repeat(2, minmax(400px, 300px));
+      grid-template-columns: repeat(2, minmax(300px, 1fr));
+      margin: 0 10vw;
     }
 
     @include devicesMax(mobile) {
-      grid-template-columns: repeat(1, minmax(92vw, 1fr));
+      grid-template-columns: 1fr;
+      margin: 0 7vw;
       margin-bottom: 10vw;
     }
 
     .gridItemC {
-      border-radius: 8px;
+      border-radius: 4px;
       overflow: hidden;
       position: relative;
 
@@ -38,8 +42,8 @@
 
       &::after {
         content: "";
-        @include position(absolute, auto, -20px, -20px, -20px);
-        @include dims(auto, 40%);
+        @include position(absolute, auto, -10px, -10px, -10px);
+        @include dims(auto, 50%);
         background: linear-gradient(0deg, $eigengrau, rgb(255, 255, 255, 0));
         z-index: 10;
       }
@@ -47,7 +51,7 @@
       .infoC {
         @include position(absolute, 0, 0, 0, 0);
         @include dims(100%);
-        padding: 1vw 1.5vw;
+        padding: 1.5vw;
         z-index: 100;
 
         display: flex;
@@ -59,7 +63,7 @@
         }
 
         @include devicesMax(mobile) {
-          padding: 3.5vw 5vw;
+          padding: 5vw;
         }
 
         .text {

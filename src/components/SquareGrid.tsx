@@ -89,11 +89,13 @@ const SquareGrid = (props: Props) => {
           }}
         >
           <GridItem {...props.items[0]} />
+          <GridItem {...props.items[1]} />
+          <GridItem {...props.items[2]} />
 
           {props.items.map((item, i) => {
             return (
               <>
-                {i > 0 && (
+                {i > 2 && (
                   <motion.li
                     key={i}
                     variants={{

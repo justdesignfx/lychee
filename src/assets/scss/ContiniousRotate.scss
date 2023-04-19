@@ -5,6 +5,9 @@
   -o-animation: rotating $duration linear infinite;
   animation: rotating $duration linear infinite;
   will-change: transform;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -moz-transform: translateZ(0);
 }
 
 @-webkit-keyframes rotating {

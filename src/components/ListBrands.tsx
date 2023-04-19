@@ -10,7 +10,7 @@ type Props = {
 }
 
 const ListBrands = (props: Props) => {
-  const [activeItems, setActiveItems] = useState<number[]>([])
+  const [activeItems, setActiveItems] = useState<number[]>([0])
 
   const handleAccordion = (i: number) => {
     if (!activeItems.includes(i)) {
@@ -46,7 +46,7 @@ const ListBrands = (props: Props) => {
                       <IconMinus fill="#C8C8C8" />
                     </div>
                     <div className={cx(s.icon, s.plus)}>
-                      <IconPlus fill="#C8C8C8" />
+                      <IconPlus fill="#ce1953" />
                     </div>
                   </div>
                   {item.title}

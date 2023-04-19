@@ -18,6 +18,10 @@ html {
     font-size: 20px;
   }
 
+  @include devicesMax(tabletmini) {
+    font-size: 14px;
+  }
+
   @include devicesMax(mobile) {
     font-size: 16px;
   }
@@ -27,6 +31,10 @@ body {
   background: $eigengrau;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  overflow: hidden;
 }
 
 * {

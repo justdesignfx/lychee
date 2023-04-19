@@ -40,7 +40,7 @@ export const en = {
       intro: {
         buttons: {
           b1: {
-            ui: "I’ve a Brand",
+            ui: "I have a Brand",
             path: "contact/brand",
           },
           b2: {
@@ -340,7 +340,7 @@ export const en = {
       index: {
         buttons: {
           b1: {
-            ui: "I've a Brand",
+            ui: "I have a Brand",
             path: "contact/brand",
           },
           b2: {
@@ -476,7 +476,7 @@ export const en = {
       },
     },
     titleAndDesc: {
-      preTitle: "Lychee Digital | ",
+      preTitle: "Lychee | ",
       home: {
         title: "Digital talent agency.",
         desc: "Lychee is a digital influencer marketing agency that is a solution partner for iconic beands on a global scale.",

@@ -477,7 +477,7 @@ export const tr = {
       },
     },
     titleAndDesc: {
-      preTitle: "Lychee Digital | ",
+      preTitle: "Lychee | ",
       home: {
         title: "Digital talent agency.",
         desc: "Lychee global ölçekte ikonik markaların çözüm ortağı olan dijital influencer marketing ajansıdır.",

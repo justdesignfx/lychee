@@ -8,38 +8,42 @@ import { Navigation } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 // Import Swiper styles
-import { useSwiperRef } from "~/hooks"
+import { useSwiperRef, useWindowSize } from "~/hooks"
 
 import "swiper/css"
 import "swiper/css/navigation"
 
 import lycheeSocial from "~/assets/img/lychee-social.png"
-import sample from "~/assets/img/sample.png"
 
 import IconArrowSquare from "./Icons/IconArrowSquare"
 import Img from "./Img"
+import { breakpoints } from "~/variables"
 
 type SlideItem = {
   mediaType: "image" | "video" | string
   mediaSrc: string
   name: string
   thumbnail?: string
+  isCurrent: boolean
+}
+
+type Props = {
+  items: SlideItem[]
 }
 
 const VideoSlide = (item: SlideItem) => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
+  const size = useWindowSize()
 
   function handleVideo() {
     setIsPlaying((prev) => !prev)
-    console.log("lol")
   }
 
   useEffect(() => {
-    if (!videoRef.current) {
+    if (!videoRef.current || size.width <= breakpoints.tablet) {
       return
     }
-
     videoRef.current.pause()
 
     if (isPlaying) {
@@ -47,7 +51,19 @@ const VideoSlide = (item: SlideItem) => {
     } else {
       videoRef.current.pause()
     }
-  }, [isPlaying])
+  }, [isPlaying, size.width])
+
+  useEffect(() => {
+    if (!videoRef.current || size.width > breakpoints.mobile) {
+      return
+    }
+
+    if (item.isCurrent) {
+      videoRef.current.play()
+    } else {
+      videoRef.current.pause()
+    }
+  }, [item.isCurrent])
 
   return (
     <div className={cx(s.videoC, { [s.active]: isPlaying })} onMouseEnter={handleVideo} onMouseLeave={handleVideo}>
@@ -56,15 +72,18 @@ const VideoSlide = (item: SlideItem) => {
           <Img src={item.thumbnail} />
         </div>
       )}
-      <video className={s.video} playsInline ref={videoRef} preload="metadata" loop>
+      <video
+        className={s.video}
+        ref={videoRef}
+        autoPlay={size.width > breakpoints.tablet ? false : true}
+        muted
+        loop
+        playsInline
+      >
         <source src={item.mediaSrc} type="video/mp4" />
       </video>
     </div>
   )
-}
-
-type Props = {
-  items: SlideItem[]
 }
 
 const ProjectsSlider = (props: Props) => {
@@ -88,7 +107,6 @@ const ProjectsSlider = (props: Props) => {
           disabledClass: "hidden",
         }}
         breakpoints={{
-          // when window width is >= 640px
           641: {
             spaceBetween: 25,
             slidesPerView: 3,
@@ -116,7 +134,7 @@ const ProjectsSlider = (props: Props) => {
                         <Img src={item.mediaSrc} />
                       </div>
                     ) : (
-                      <VideoSlide {...item} />
+                      <VideoSlide {...item} isCurrent={currentSlide === i} />
                     )}
                   </div>
                 </div>
