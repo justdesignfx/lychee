@@ -24,7 +24,7 @@ type SlideItem = {
   mediaSrc: string
   name: string
   thumbnail?: string
-  isCurrent: boolean
+  isCurrent?: boolean
 }
 
 type Props = {

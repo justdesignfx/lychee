@@ -956,13 +956,6 @@
               display: inline-block;
               transform: translate(100%, 0);
 
-              &.million {
-                @include devicesMax(tablet) {
-                  @include position(absolute, 25%, 0, auto, auto);
-                  @include typo(LS-VG5000, 40px, null, null, null);
-                }
-              }
-
               @include devicesMax(tablet) {
                 @include position(absolute, 10%, 0, auto, auto);
                 @include typo(LS-VG5000, 40px, null, null, null);
@@ -1111,7 +1104,7 @@
     }
 
     .logoGrid {
-      overflow-x: clip;
+      // overflow-x: clip;
       padding: 5vw 0 0 0;
 
       @include devicesMax(tablet) {

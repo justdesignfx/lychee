@@ -424,7 +424,7 @@
 
   .dare {
     @include dims(100%, 90vh);
-    overflow-x: clip;
+    // overflow-x: clip;
 
     display: flex;
     flex-direction: column;

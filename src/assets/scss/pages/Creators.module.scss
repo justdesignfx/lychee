@@ -415,7 +415,7 @@
     padding-bottom: 15vw;
     position: relative;
     margin-top: 10vw;
-    overflow-x: clip;
+    // overflow-x: clip;
 
     .marqueeC {
       margin: 7vw 0;
@@ -557,7 +557,7 @@
 
     display: flex;
     align-items: flex-end;
-    overflow-x: hidden;
+    // overflow-x: hidden;
 
     @include devicesMax(tablet) {
       display: block;
