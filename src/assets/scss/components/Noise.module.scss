@@ -3,14 +3,13 @@
 .noise {
   @include position(fixed, -50%, -50%, -50%, -50%);
   @include dims(200%, 200vh);
-
+  animation: bg-animation 0.4s infinite;
   background: transparent url("../../img/noise-transparent.png") repeat 0 0;
   background-repeat: repeat;
-  animation: bg-animation 0.4s infinite;
-  opacity: 0.3;
+  opacity: 0.7;
+  pointer-events: none;
   visibility: visible;
   z-index: z-index("noise");
-  pointer-events: none;
 }
 
 @keyframes bg-animation {
