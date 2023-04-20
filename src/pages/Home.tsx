@@ -1,10 +1,11 @@
 import s from "~/assets/scss/pages/Home.module.scss"
 
 import cx from "classnames"
+import { Helmet } from "react-helmet"
 import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
-import { Helmet } from "react-helmet"
 
+import skaterTablet from "~/assets/gif/skater.gif"
 import playBtnText from "~/assets/img/btn-play-text.svg"
 import playBtnTri from "~/assets/img/btn-play-tri.svg"
 import digitalTalentAgency from "~/assets/img/digital-talent-agency.png"
@@ -25,10 +26,8 @@ import logoObsessoBlack from "~/assets/img/logo-obsesso-black.svg"
 import logoPhilips from "~/assets/img/logo-philips.svg"
 import logoStarbucks from "~/assets/img/logo-starbucks.svg"
 import portal from "~/assets/img/portal.svg"
-import reels from "~/assets/img/reels.png"
 import skaterTube from "~/assets/img/skater-tube.svg"
 import smartPhone from "~/assets/img/smartphone.svg"
-import skaterTablet from "~/assets/gif/skater.gif"
 import ButtonText from "~/components/ButtonText"
 import Footer from "~/components/Footer"
 import Img from "~/components/Img"
@@ -37,7 +36,7 @@ import SplitText from "~/components/SplitText"
 import { useWindowSize } from "~/hooks"
 import { useCursorStore } from "~/store/cursorStore"
 import { useModalStore } from "~/store/modalStore"
-import { breakpoints, homeTextRevealReels, lngs, ogedayDysonVideo, showreelVideo } from "~/variables"
+import { breakpoints, homeTextRevealReels, lngs, showreelVideo } from "~/variables"
 
 const Home = () => {
   const { t, i18n } = useTranslation()

@@ -3,24 +3,25 @@ import s from "~/assets/scss/components/BrandForm.module.scss"
 
 import axios from "axios"
 import cx from "classnames"
+import gsap from "gsap"
 import { useFormik } from "formik"
 import { AnimatePresence, motion } from "framer-motion"
-import gsap from "gsap"
 import { useTranslation } from "react-i18next"
 
-import Dropdown from "./Dropdown"
 import api from "~/api"
 import { qAll } from "~/utils"
 import brandFormModel from "~/validations/BrandForm/brandFormModel"
 import brandFormSchema from "~/validations/BrandForm/brandFormSchema"
 import { initialValues } from "~/validations/BrandForm/initialValues"
 import { lngs } from "~/variables"
-import FormEndScreen from "./FormEndScreen"
+import Dropdown from "~/components/Dropdown"
+import FormEndScreen from "~/components/FormEndScreen"
 
 const { formId, formField } = brandFormModel
 
 const BrandForm = () => {
   const formRef = useRef<HTMLFormElement>(null)
+
   const brandFormRef = useRef<HTMLDivElement>(null)
   const [currentStep, setCurrentStep] = useState(0)
   const { t, i18n } = useTranslation()
@@ -114,7 +115,7 @@ const BrandForm = () => {
             break
           case "PREV":
             if (currentStep > 0) {
-              setCurrentStep((prev) => prev - 1)
+              setCurrentStep((prev) => Math.max(prev - 1, 0))
             }
             break
           default:
@@ -517,6 +518,10 @@ const BrandForm = () => {
       ),
     },
   ]
+
+  // function throttled(callback: any) {
+  //   throttle(callback, 1000)
+  // }
 
   return (
     <div className={s.brandForm} ref={brandFormRef}>
