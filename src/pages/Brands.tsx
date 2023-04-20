@@ -179,7 +179,7 @@ const Brands = () => {
         </section>
         <section className={s.social}>
           <div className={s.buttons}>
-            <a className={s.button} href="https://www.twitter.com/lycheenewmedia" target="_blank" rel="noreferrer">
+            <a className={s.button} href="https://www.instagram.com/lycheedigital" target="_blank" rel="noreferrer">
               Instagram
             </a>
             <a className={s.button} href="https://www.tiktok.com/@lycheenewmedia" target="_blank" rel="noreferrer">

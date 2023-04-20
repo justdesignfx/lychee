@@ -282,7 +282,7 @@ const Home = () => {
               <SplitText content={textRevealContent()} />
             </div>
             <div className={s.reels}>
-              <Link to={`${t("home.textReveal.button.path")}`} className={s.button}>
+              <Link to={`/${t("home.textReveal.button.path")}`} className={s.button}>
                 {t("home.textReveal.button.ui")}
               </Link>
               <div className={s.instaxC}>

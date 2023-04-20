@@ -60,7 +60,7 @@ export const tr = {
         },
         button: {
           ui: "Kampanyanı Oluştur",
-          path: "/contact/creator",
+          path: "iletisim/icerik-uretici",
         },
       },
       marquee: {
@@ -208,7 +208,7 @@ export const tr = {
         mText: "Hazırsanız başlayalım.",
         desc: "Markanız için en etkili influencer marketing kampanyalarını yürütmeye hazırız.",
         button: {
-          path: "iletisim",
+          path: "iletisim/marka",
           ui: "Kampanya oluşturun",
         },
       },

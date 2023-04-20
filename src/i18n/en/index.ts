@@ -63,7 +63,7 @@ export const en = {
         },
         button: {
           ui: "Create Your Campaign",
-          path: "/contact/creator",
+          path: "contact/content-creator",
         },
       },
       marquee: {
@@ -208,7 +208,7 @@ export const en = {
         mText: "Let’s get started.",
         desc: "We are ready to run the most effective influencer marketing campaigns for your brand.",
         button: {
-          path: "contact",
+          path: "contact/brand",
           ui: "Create your campaign",
         },
       },
