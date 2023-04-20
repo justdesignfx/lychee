@@ -301,7 +301,7 @@
 
       @include devicesMax(tablet) {
         @include dims(100%, $heightTablet);
-        transform: translateY(calc(-1 * $heightTablet));
+        transform: translateY(calc(-1 * $heightTablet + 2px));
       }
     }
   }

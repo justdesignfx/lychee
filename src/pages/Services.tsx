@@ -164,13 +164,13 @@ const Services = () => {
                 <span className={s.small}>ve</span>
               </span>
               <span className={s.line}>
-                <span className={s.italic} style={{ marginRight: "20vw" }}>
+                <span className={cx(s.italic, s.resetMargin)} style={{ marginRight: "20vw" }}>
                   {" "}
                   yeni medya
                 </span>
                 <span> ihtiyaçlarınızı </span>
               </span>
-              <span className={s.line} style={{ marginRight: "54vw" }}>
+              <span className={cx(s.line, s.resetMargin)} style={{ marginRight: "54vw" }}>
                 karşılıyoruz.
               </span>
             </h1>

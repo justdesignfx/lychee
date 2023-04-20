@@ -300,7 +300,7 @@
       background: #1b1b24;
       border-radius: 32px;
       margin-bottom: 2vw;
-      padding: 1vw 1.5vw;
+      padding: 1.25vw 1.5vw;
       position: relative;
 
       display: flex;
@@ -339,7 +339,7 @@
       }
 
       .textarea {
-        @include dims(100%, 5vw);
+        @include dims(100%);
         color: #6c6c79;
         font-family: Lychee;
         font-size: 1.25rem;
@@ -353,13 +353,11 @@
         resize: none;
 
         @include devicesMax(tablet) {
-          @include dims(100%, 10vw);
           font-size: 20px;
           padding: 12px;
         }
 
         @include devicesMax(mobile) {
-          @include dims(100%);
           font-size: 14px;
           line-height: 160%;
           padding: 1rem;

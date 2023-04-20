@@ -12,6 +12,10 @@
   z-index: z-index("noise");
 
   @include devicesMax(tablet) {
+    opacity: 0;
+  }
+
+  @include devicesMax(mobile) {
     opacity: 0.3;
   }
 }
