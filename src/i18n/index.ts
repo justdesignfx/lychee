@@ -4,6 +4,7 @@ import LanguageDetector from "i18next-browser-languagedetector"
 
 import { en } from "./en"
 import { tr } from "./tr"
+import { lngs } from "~/variables"
 
 i18n
   // detect user language
@@ -14,8 +15,8 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
-    fallbackLng: "EN",
-    lng: localStorage.getItem("i18nextLng") || "EN",
+    fallbackLng: lngs.tr.nativeName,
+    lng: localStorage.getItem("i18nextLng") || lngs.tr.nativeName,
     returnObjects: true,
     resources: {
       EN: en,

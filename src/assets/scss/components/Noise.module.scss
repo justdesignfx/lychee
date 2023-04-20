@@ -10,6 +10,10 @@
   pointer-events: none;
   visibility: visible;
   z-index: z-index("noise");
+
+  @include devicesMax(tablet) {
+    opacity: 0.3;
+  }
 }
 
 @keyframes bg-animation {

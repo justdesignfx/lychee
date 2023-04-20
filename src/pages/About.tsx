@@ -31,7 +31,7 @@ import Img from "~/components/Img"
 import SplitText from "~/components/SplitText"
 import { useWindowSize } from "~/hooks"
 import { useModalStore } from "~/store/modalStore"
-import { lngs } from "~/variables"
+import { lngs, showreelVideo } from "~/variables"
 import { Helmet } from "react-helmet"
 
 const About = () => {
@@ -47,11 +47,9 @@ const About = () => {
   function handleModal() {
     modalStore.setContent(
       <div className={s.modalContent}>
-        <video className={s.video} controls autoPlay playsInline>
-          <source
-            src="https://player.vimeo.com/progressive_redirect/playback/812374325/rendition/1080p/file.mp4?loc=external&signature=a3848ab31075a23e420bf6ef7f04e9e518c2abf377cd67194e57b1d98e9ca61d"
-            type="video/mp4"
-          />
+        <video className={s.video} width="1920" height="1080" controls autoPlay playsInline>
+          <source src={showreelVideo} type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
       </div>
     )
