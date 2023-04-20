@@ -74,6 +74,7 @@
           border-radius: 5vmin;
           color: #c1c1c1;
           margin-bottom: 2.5vw;
+          transition: 0.4s all ease;
 
           display: grid;
           place-items: center;
@@ -86,6 +87,13 @@
             @include dims(54vw, 10vw);
             @include typo(LS-VG5000, 16px, null, null, null);
             margin-bottom: 7.5vw;
+          }
+
+          @media (hover: hover) {
+            &:hover {
+              background: $stonewallGrey;
+              color: $eigengrau;
+            }
           }
         }
       }
@@ -362,10 +370,18 @@
         border-radius: 4vmin;
         color: #c1c1c1;
         margin-bottom: 2.5vw;
+        transition: 0.4s all ease;
         z-index: 10;
 
         display: grid;
         place-items: center;
+
+        @media (hover: hover) {
+          &:hover {
+            background: $californiaSunset;
+            color: $eigengrau;
+          }
+        }
 
         @include devicesMax(tablet) {
           @include position(absolute, auto, auto, -5vw, 50%);
@@ -1359,9 +1375,17 @@
         color: #c1c1c1;
         margin-bottom: 2.5vw;
         padding-bottom: 0.25ch;
+        transition: 0.4s all ease;
 
         display: grid;
         place-items: center;
+
+        @media (hover: hover) {
+          &:hover {
+            background: $californiaSunset;
+            color: $eigengrau;
+          }
+        }
 
         @include devicesMax(tablet) {
           @include dims(30vw, 6vw);

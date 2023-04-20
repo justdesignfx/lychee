@@ -477,9 +477,17 @@
         border: 1px solid $greyShingle;
         border-radius: 36px;
         color: $stonewallGrey;
+        transition: 0.4s all ease;
 
         display: grid;
         place-items: center;
+
+        @media (hover: hover) {
+          &:hover {
+            background: $stonewallGrey;
+            color: $eigengrau;
+          }
+        }
 
         @include devicesMax(tablet) {
           @include dims(24vw, 6vw);

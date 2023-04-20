@@ -472,6 +472,13 @@
     display: grid;
     place-items: center;
 
+    @media (hover: hover) {
+      &:hover {
+        background: $californiaSunset;
+        color: $eigengrau;
+      }
+    }
+
     @include devicesMax(tablet) {
       @include dims(24vw, 6vw);
       font-size: 2.5vw;

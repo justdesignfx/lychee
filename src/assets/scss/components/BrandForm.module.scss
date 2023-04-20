@@ -25,6 +25,15 @@
     display: grid;
     place-items: center;
 
+    @media (hover: hover) {
+      &:hover {
+        &.next {
+          background: $californiaSunset;
+          color: $eigengrau;
+        }
+      }
+    }
+
     @include devicesMax(tablet) {
       @include dims(32vw, 7vw);
       margin-bottom: 4vw;

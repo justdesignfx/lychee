@@ -81,9 +81,17 @@
       font-family: LS-VG5000;
       font-size: 1.5vw;
       line-height: 80%;
+      transition: 0.4s all ease;
 
       display: grid;
       place-items: center;
+
+      @media (hover: hover) {
+        &:hover {
+          background: $californiaSunset;
+          color: $eigengrau;
+        }
+      }
 
       @include devicesMax(tablet) {
         @include dims(32vw, 6.5vw);
