@@ -1,0 +1,27 @@
+@import "../_global.scss";
+
+.buttonRipple {
+  position: relative;
+  display: inline-block;
+  padding: 0.75rem 5rem;
+  color: #fff;
+  font-size: 1.4rem;
+  border-radius: 32px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  overflow: hidden;
+
+  .ripple {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+
+    z-index: -1;
+    will-change: transform;
+  }
+
+  .btnText {
+    mix-blend-mode: difference;
+    font-family: LS-VG5000;
+  }
+}
