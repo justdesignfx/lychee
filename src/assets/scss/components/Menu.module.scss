@@ -46,6 +46,10 @@
     pointer-events: auto;
     z-index: z-index("langSelect");
 
+    @include devicesMax(desktop) {
+      @include position(absolute, calc(($headerHeight - $dims) / 2), 10vw, auto, auto);
+    }
+
     @include devicesMax(tablet) {
       @include position(absolute, calc(($headerHeightTablet - $dims) / 2), 15vw, auto, auto);
     }

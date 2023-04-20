@@ -514,5 +514,6 @@ export const tr = {
         canonical: "https://lycheedigital.co/iletisim",
       },
     },
+    notFound: { text: "Aradığınız Sayfa Bulunamadı", button: "Anasayfaya Dön" },
   },
 }

@@ -513,5 +513,6 @@ export const en = {
         canonical: "https://lycheedigital.co/contact",
       },
     },
+    notFound: { text: "Page Not Found", button: "Back to Homepage" },
   },
 }
