@@ -41,7 +41,7 @@
 
   .langBtnC {
     $dims: 2rem;
-    @include position(absolute, calc(($headerHeight - $dims) / 2), 9vw, auto, auto);
+    @include position(absolute, calc(($headerHeight - $dims) / 2), 10vw, auto, auto);
     @include dims($dims);
     pointer-events: auto;
     z-index: z-index("langSelect");
