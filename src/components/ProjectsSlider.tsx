@@ -40,18 +40,18 @@ const VideoSlide = (item: SlideItem) => {
     setIsPlaying((prev) => !prev)
   }
 
-  useEffect(() => {
-    if (!videoRef.current || size.width <= breakpoints.tablet) {
-      return
-    }
-    videoRef.current.pause()
+  // useEffect(() => {
+  //   if (!videoRef.current || size.width <= breakpoints.tablet) {
+  //     return
+  //   }
+  //   videoRef.current.pause()
 
-    if (isPlaying) {
-      videoRef.current.play()
-    } else {
-      videoRef.current.pause()
-    }
-  }, [isPlaying, size.width])
+  //   if (isPlaying) {
+  //     videoRef.current.play()
+  //   } else {
+  //     videoRef.current.pause()
+  //   }
+  // }, [isPlaying, size.width])
 
   useEffect(() => {
     if (!videoRef.current || size.width > breakpoints.mobile) {
@@ -67,19 +67,12 @@ const VideoSlide = (item: SlideItem) => {
 
   return (
     <div className={cx(s.videoC, { [s.active]: isPlaying })} onMouseEnter={handleVideo} onMouseLeave={handleVideo}>
-      {item.thumbnail && (
+      {/* {item.thumbnail && (
         <div className={s.thumbnail}>
           <Img src={item.thumbnail} />
         </div>
-      )}
-      <video
-        className={s.video}
-        ref={videoRef}
-        autoPlay={size.width > breakpoints.tablet ? false : true}
-        muted
-        loop
-        playsInline
-      >
+      )} */}
+      <video className={s.video} ref={videoRef} autoPlay muted loop playsInline>
         <source src={item.mediaSrc} type="video/mp4" />
       </video>
     </div>
