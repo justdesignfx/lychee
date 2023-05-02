@@ -2,7 +2,7 @@ import s from "~/assets/scss/pages/Contact.module.scss"
 
 import cx from "classnames"
 import { Outlet } from "react-router-dom"
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 import { useTranslation } from "react-i18next"
 
 import nescafe from "~/assets/img/nescafe.jpg"

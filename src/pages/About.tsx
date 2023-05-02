@@ -32,7 +32,7 @@ import SplitText from "~/components/SplitText"
 import { useWindowSize } from "~/hooks"
 import { useModalStore } from "~/store/modalStore"
 import { lngs, showreelVideo } from "~/variables"
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 
 const About = () => {
   const modalStore = useModalStore()

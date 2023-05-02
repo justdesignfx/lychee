@@ -1,7 +1,7 @@
 import s from "~/assets/scss/pages/Home.module.scss"
 
 import cx from "classnames"
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
 

@@ -3,7 +3,7 @@ import s from "~/assets/scss/pages/Brands.module.scss"
 
 import { Trans, useTranslation } from "react-i18next"
 import { Link, useNavigate } from "react-router-dom"
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 
 import ButtonGlitch from "~/components/ButtonGlitch"
 import FooterBasic from "~/components/FooterBasic"

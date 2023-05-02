@@ -22,7 +22,7 @@ import slider2 from "~/assets/img/slider-2.jpg"
 import slider3 from "~/assets/img/slider-3.jpg"
 import visitor from "~/assets/img/smartphone-portal.svg"
 
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 import ButtonGlitch from "~/components/ButtonGlitch"
 import ButtonText from "~/components/ButtonText"
 import FloatingCard from "~/components/FloatingCard"
