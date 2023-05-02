@@ -181,7 +181,7 @@ const Creators = () => {
       img: gridInf1,
       name: "Ogeday Girişken",
       social: {
-        instagram: "https:/www.instagram.com/ogedaygirisken/",
+        instagram: "https://www.instagram.com/ogedaygirisken/",
         tiktok: "https://www.tiktok.com/@ogedaygirisken",
       },
     },
@@ -221,7 +221,7 @@ const Creators = () => {
       img: gridInf6,
       name: "Aylin Engör",
       social: {
-        instagram: "https:/www.instagram.com/aylinengr/",
+        instagram: "https://www.instagram.com/aylinengr/",
         tiktok: "https://www.tiktok.com/@aylinengr",
       },
     },
@@ -229,7 +229,7 @@ const Creators = () => {
       img: gridInf7,
       name: "Elif Baldan",
       social: {
-        instagram: "https:/www.instagram.com/elifbaldann/",
+        instagram: "https://www.instagram.com/elifbaldann/",
         tiktok: "https://www.tiktok.com/@elifbaldann",
       },
     },
@@ -237,7 +237,7 @@ const Creators = () => {
       img: gridInf8,
       name: "Esra Koçhan",
       social: {
-        instagram: "https:/www.instagram.com/esrakochaan/",
+        instagram: "https://www.instagram.com/esrakochaan/",
         tiktok: "https://www.tiktok.com/@esrakochan",
       },
     },
