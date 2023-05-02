@@ -22,7 +22,7 @@
       content: "";
       @include position(absolute, -10px, -10px, auto, -10px);
       @include dims(auto, 40%);
-      background: linear-gradient(180deg, $eigengrau, rgb(255, 255, 255, 0));
+      background: linear-gradient(180deg, $eigengrau, rgba($eigengrau, 0));
       pointer-events: none;
       z-index: 50;
     }
